@@ -1,0 +1,6220 @@
+window.HWS_AI_DATA = {
+  "majors": [
+    {
+      "number": 1,
+      "slug": "africana-studies",
+      "name": "Africana Studies",
+      "programLink": "https://www.hws.edu/academics/africana-studies/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Summarize a dense reading on Pan-Africanism",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a Kwame Nkrumah essay into key arguments and terms"
+        },
+        {
+          "number": 2,
+          "title": "Explain the concept of double consciousness",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Get a clear breakdown of Du Bois's foundational idea"
+        },
+        {
+          "number": 3,
+          "title": "Brainstorm essay topics on the Harlem Renaissance",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate angles connecting art, migration, and identity"
+        },
+        {
+          "number": 4,
+          "title": "Define terms like diaspora and creolization",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify key vocabulary used across course readings"
+        },
+        {
+          "number": 5,
+          "title": "Draft an email to a professor about research access",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Politely request archival sources for a term paper"
+        },
+        {
+          "number": 6,
+          "title": "Create a timeline of the Atlantic slave trade",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "List major events, routes, and turning points chronologically"
+        },
+        {
+          "number": 7,
+          "title": "Explain the Negritude literary movement",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Understand its origins, key writers, and political goals"
+        },
+        {
+          "number": 8,
+          "title": "Generate discussion questions on Baldwin essays",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Prompt seminar debate about race and American identity"
+        },
+        {
+          "number": 9,
+          "title": "Rephrase a thesis statement for clarity",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Tighten an argument about Reconstruction-era Black politics"
+        },
+        {
+          "number": 10,
+          "title": "Suggest primary sources for a civil rights paper",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "List speeches, letters, and photographs to investigate"
+        },
+        {
+          "number": 11,
+          "title": "Compare Booker T. Washington and Du Bois strategies",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Contrast their views on education, uplift, and integration"
+        },
+        {
+          "number": 12,
+          "title": "Synthesize three articles on Afrofuturism",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine sources into a coherent thematic literature overview"
+        },
+        {
+          "number": 13,
+          "title": "Build a study guide for a Black feminism exam",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Organize thinkers, concepts, and key texts systematically"
+        },
+        {
+          "number": 14,
+          "title": "Analyze rhetoric in a Malcolm X speech",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Examine metaphors, structure, and audience appeals closely"
+        },
+        {
+          "number": 15,
+          "title": "Plan a research project on Great Migration music",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Outline questions, sources, and methodology for the study"
+        },
+        {
+          "number": 16,
+          "title": "Draft an oral-history interview guide with elders",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Design culturally sensitive questions about community memory"
+        },
+        {
+          "number": 17,
+          "title": "Map connections across diaspora theorists using NotebookLM",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Upload sources and query relationships between competing frameworks"
+        },
+        {
+          "number": 18,
+          "title": "Analyze census data on Black migration patterns",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Use Copilot to chart demographic shifts and verify trends"
+        },
+        {
+          "number": 19,
+          "title": "Design a comparative study of decolonization movements",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Structure hypotheses, cases, and evidence for rigorous analysis"
+        },
+        {
+          "number": 20,
+          "title": "Build a custom GPT tutor on Black political thought",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Train it on syllabus texts to quiz key theorists"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "slug": "american-studies",
+      "name": "American Studies",
+      "programLink": "https://www.hws.edu/academics/american-studies/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Summarize a chapter on American exceptionalism",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense the core argument and supporting evidence quickly"
+        },
+        {
+          "number": 2,
+          "title": "Explain the concept of manifest destiny",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Get a clear overview of the ideology and consequences"
+        },
+        {
+          "number": 3,
+          "title": "Brainstorm topics linking pop culture and politics",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate interdisciplinary angles for a research paper"
+        },
+        {
+          "number": 4,
+          "title": "Define terms like hegemony and cultural capital",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify theoretical vocabulary from assigned readings"
+        },
+        {
+          "number": 5,
+          "title": "Draft an email requesting a museum archive visit",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Professionally arrange access for a material-culture project"
+        },
+        {
+          "number": 6,
+          "title": "Create a timeline of American immigration policy",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "List key laws, waves, and turning points chronologically"
+        },
+        {
+          "number": 7,
+          "title": "Explain the myth of the self-made man",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Understand its origins and role in national identity"
+        },
+        {
+          "number": 8,
+          "title": "Generate discussion questions on a Springsteen album",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Prompt debate about class, work, and Americana"
+        },
+        {
+          "number": 9,
+          "title": "Rephrase an argument about suburbanization",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Improve clarity of a thesis on postwar housing"
+        },
+        {
+          "number": 10,
+          "title": "Suggest films depicting the American Dream",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "List movies useful for a cultural-analysis assignment"
+        },
+        {
+          "number": 11,
+          "title": "Compare consensus and conflict schools of history",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Contrast interpretive frameworks for teaching the American past"
+        },
+        {
+          "number": 12,
+          "title": "Synthesize sources on consumer culture in the 1950s",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Weave articles into a unified thematic argument"
+        },
+        {
+          "number": 13,
+          "title": "Build a study guide on social movements",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Organize theories, cases, and outcomes for exam prep"
+        },
+        {
+          "number": 14,
+          "title": "Analyze advertising imagery for gender norms",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Interpret visual rhetoric across a set of vintage ads"
+        },
+        {
+          "number": 15,
+          "title": "Plan a project on regional foodways and identity",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Outline questions, methods, and sources for fieldwork"
+        },
+        {
+          "number": 16,
+          "title": "Compare theories of American national identity",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Contrast melting-pot, salad-bowl, and pluralist models critically"
+        },
+        {
+          "number": 17,
+          "title": "Analyze historical newspaper text with sentiment tools",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Use code to detect shifting attitudes over decades"
+        },
+        {
+          "number": 18,
+          "title": "Design a mixed-methods study on monument debates",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Combine surveys, interviews, and archival evidence rigorously"
+        },
+        {
+          "number": 19,
+          "title": "Model demographic data on urban migration",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Use Copilot to run and verify statistical trends"
+        },
+        {
+          "number": 20,
+          "title": "Build a custom GPT on American cultural theory",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Train it on course texts for interactive study"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "slug": "anthropology",
+      "name": "Anthropology",
+      "programLink": "https://www.hws.edu/academics/anthropology/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Summarize an ethnography chapter",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense fieldwork findings and key cultural claims"
+        },
+        {
+          "number": 2,
+          "title": "Explain the concept of cultural relativism",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Get a clear definition with illustrative examples"
+        },
+        {
+          "number": 3,
+          "title": "Brainstorm topics for a kinship research paper",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate angles on family, marriage, and descent systems"
+        },
+        {
+          "number": 4,
+          "title": "Define terms like liminality and reciprocity",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify core theoretical vocabulary from lectures"
+        },
+        {
+          "number": 5,
+          "title": "Draft an email to an IRB about fieldwork",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Request guidance on ethics approval for interviews"
+        },
+        {
+          "number": 6,
+          "title": "Create a timeline of anthropological theory",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "List schools from evolutionism to postmodernism chronologically"
+        },
+        {
+          "number": 7,
+          "title": "Explain participant observation methodology",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Understand its purpose, strengths, and limitations"
+        },
+        {
+          "number": 8,
+          "title": "Generate interview questions about food rituals",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Draft open-ended prompts for an ethnographic project"
+        },
+        {
+          "number": 9,
+          "title": "Rephrase field notes into readable prose",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clean up raw observations for a submitted assignment"
+        },
+        {
+          "number": 10,
+          "title": "Suggest ethnographies on migration to read",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "List key texts relevant to a course theme"
+        },
+        {
+          "number": 11,
+          "title": "Compare functionalism and structuralism",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Contrast theoretical assumptions and analytical approaches"
+        },
+        {
+          "number": 12,
+          "title": "Synthesize articles on medical anthropology",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine sources into a coherent literature review"
+        },
+        {
+          "number": 13,
+          "title": "Build a coding scheme for interview transcripts",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Develop thematic categories for qualitative analysis"
+        },
+        {
+          "number": 14,
+          "title": "Analyze artifact descriptions for cultural patterns",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Interpret material objects within their social context"
+        },
+        {
+          "number": 15,
+          "title": "Plan an ethnographic fieldwork project",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Outline site, methods, ethics, and timeline clearly"
+        },
+        {
+          "number": 16,
+          "title": "Compare emic and etic analytical perspectives",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Distinguish insider and outsider interpretive stances"
+        },
+        {
+          "number": 17,
+          "title": "Analyze kinship data and diagram descent systems",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Use code to model relationships and verify structures"
+        },
+        {
+          "number": 18,
+          "title": "Design a rigorous cross-cultural comparative study",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Structure variables, cases, and hypotheses systematically"
+        },
+        {
+          "number": 19,
+          "title": "Run statistical analysis on skeletal measurements",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Model biological-anthropology data and verify results carefully"
+        },
+        {
+          "number": 20,
+          "title": "Build a custom GPT trained on ethnographic methods",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Create a tutor for fieldwork design and coding"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "slug": "anthropology-sociology",
+      "name": "Anthropology & Sociology",
+      "programLink": "https://www.hws.edu/academics/anthropology-and-sociology/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Summarize a reading bridging both disciplines",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense arguments connecting culture and social structure"
+        },
+        {
+          "number": 2,
+          "title": "Explain the sociological imagination",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Get a clear breakdown of Mills's foundational concept"
+        },
+        {
+          "number": 3,
+          "title": "Brainstorm topics on inequality and identity",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate research angles spanning both fields"
+        },
+        {
+          "number": 4,
+          "title": "Define terms like habitus and social capital",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify shared theoretical vocabulary from readings"
+        },
+        {
+          "number": 5,
+          "title": "Draft an email recruiting survey participants",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write a clear, ethical invitation for a study"
+        },
+        {
+          "number": 6,
+          "title": "Create a timeline of social theory",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "List major thinkers from Durkheim to Foucault chronologically"
+        },
+        {
+          "number": 7,
+          "title": "Explain the difference between qualitative and quantitative",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Understand when each method fits a question"
+        },
+        {
+          "number": 8,
+          "title": "Generate focus-group discussion questions",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Draft prompts about community attitudes toward change"
+        },
+        {
+          "number": 9,
+          "title": "Rephrase a research question for precision",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Sharpen a hypothesis about class and mobility"
+        },
+        {
+          "number": 10,
+          "title": "Suggest studies on urbanization to review",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "List key works relevant to a course topic"
+        },
+        {
+          "number": 11,
+          "title": "Compare Marx, Weber, and Durkheim on society",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Contrast their views on class, authority, and solidarity"
+        },
+        {
+          "number": 12,
+          "title": "Synthesize sources on gender and labor",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Weave articles into a unified literature review"
+        },
+        {
+          "number": 13,
+          "title": "Build a study guide on research methods",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Organize designs, sampling, and analysis for exam prep"
+        },
+        {
+          "number": 14,
+          "title": "Analyze survey results for demographic patterns",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Interpret cross-tabulations and summarize key findings"
+        },
+        {
+          "number": 15,
+          "title": "Plan a mixed-methods community study",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Outline interviews, surveys, and observation together"
+        },
+        {
+          "number": 16,
+          "title": "Compare grounded theory and content analysis",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Distinguish two qualitative approaches and their uses"
+        },
+        {
+          "number": 17,
+          "title": "Run regression analysis on inequality data",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Use code to model predictors and verify significance"
+        },
+        {
+          "number": 18,
+          "title": "Design a longitudinal study on social mobility",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Structure waves, variables, and sampling rigorously"
+        },
+        {
+          "number": 19,
+          "title": "Clean and code a large survey dataset",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Use Copilot to recode, weight, and validate variables"
+        },
+        {
+          "number": 20,
+          "title": "Build a custom GPT for statistical methods help",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Train it on textbook material for guided practice"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "slug": "architectural-studies",
+      "name": "Architectural Studies",
+      "programLink": "https://www.hws.edu/academics/architectural-studies/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Summarize a reading on modernist architecture",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense key movements, figures, and design principles"
+        },
+        {
+          "number": 2,
+          "title": "Explain the concept of form follows function",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Get a clear overview of the design philosophy"
+        },
+        {
+          "number": 3,
+          "title": "Brainstorm concepts for a studio design project",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate spatial and thematic ideas for a brief"
+        },
+        {
+          "number": 4,
+          "title": "Define terms like fenestration and cantilever",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify technical vocabulary used in critiques"
+        },
+        {
+          "number": 5,
+          "title": "Draft an email to a firm requesting an interview",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Professionally arrange an informational conversation"
+        },
+        {
+          "number": 6,
+          "title": "Create a timeline of architectural styles",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "List Gothic through Brutalist periods chronologically"
+        },
+        {
+          "number": 7,
+          "title": "Explain principles of sustainable design",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Understand passive strategies and green building basics"
+        },
+        {
+          "number": 8,
+          "title": "Generate questions for a site-analysis walkthrough",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Prompt observation of context, light, and circulation"
+        },
+        {
+          "number": 9,
+          "title": "Rephrase a design statement for a review",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify the concept behind a studio project"
+        },
+        {
+          "number": 10,
+          "title": "Suggest precedent buildings to study",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "List relevant examples for a given design typology"
+        },
+        {
+          "number": 11,
+          "title": "Compare two architects' design philosophies",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Contrast approaches of Corbusier and Wright critically"
+        },
+        {
+          "number": 12,
+          "title": "Synthesize readings on urban public space",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine sources into a coherent design argument"
+        },
+        {
+          "number": 13,
+          "title": "Build a study guide on structural systems",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Organize loads, materials, and forms for exam prep"
+        },
+        {
+          "number": 14,
+          "title": "Analyze a floor plan for circulation flow",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Evaluate spatial logic, access, and program adjacencies"
+        },
+        {
+          "number": 15,
+          "title": "Plan a design-project workflow and milestones",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Outline concept, iteration, and presentation stages"
+        },
+        {
+          "number": 16,
+          "title": "Compare theories of urban planning models",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Contrast garden-city, grid, and new-urbanist approaches"
+        },
+        {
+          "number": 17,
+          "title": "Generate and debug a parametric Grasshopper script",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Write code for a facade pattern and troubleshoot"
+        },
+        {
+          "number": 18,
+          "title": "Model daylighting or energy performance with data",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Simulate conditions and verify results against standards"
+        },
+        {
+          "number": 19,
+          "title": "Design a research study on walkability metrics",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Structure site variables, measurement, and analysis rigorously"
+        },
+        {
+          "number": 20,
+          "title": "Build a custom GPT on building codes and standards",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Train it on regulations for quick project reference"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "slug": "art-art-history",
+      "name": "Art: Art History",
+      "programLink": "https://www.hws.edu/academics/art-history/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Summarize a reading on Renaissance patronage",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense key arguments about art, money, and power"
+        },
+        {
+          "number": 2,
+          "title": "Explain the concept of iconography",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Get a clear definition with illustrative examples"
+        },
+        {
+          "number": 3,
+          "title": "Brainstorm thesis topics on Impressionism",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate angles linking technique, society, and modernity"
+        },
+        {
+          "number": 4,
+          "title": "Define terms like chiaroscuro and contrapposto",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify technical vocabulary for visual analysis"
+        },
+        {
+          "number": 5,
+          "title": "Draft an email requesting a museum image license",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Professionally arrange permission to reproduce a work"
+        },
+        {
+          "number": 6,
+          "title": "Create a timeline of Western art movements",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "List Baroque through Postmodern periods chronologically"
+        },
+        {
+          "number": 7,
+          "title": "Explain the male gaze in visual culture",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Understand the feminist theory and its applications"
+        },
+        {
+          "number": 8,
+          "title": "Generate questions for a gallery visit",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Prompt close looking at composition and context"
+        },
+        {
+          "number": 9,
+          "title": "Rephrase a formal analysis for clarity",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Tighten a description of a painting's composition"
+        },
+        {
+          "number": 10,
+          "title": "Suggest scholarly sources on a specific artist",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "List key texts to begin a research paper"
+        },
+        {
+          "number": 11,
+          "title": "Compare two movements' aesthetic principles",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Contrast Cubism and Futurism approaches critically"
+        },
+        {
+          "number": 12,
+          "title": "Synthesize sources on colonialism and museums",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine scholarship into a coherent literature review"
+        },
+        {
+          "number": 13,
+          "title": "Build a study guide for an exam on medieval art",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Organize works, styles, and contexts systematically"
+        },
+        {
+          "number": 14,
+          "title": "Analyze a painting using formal and contextual methods",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Integrate composition, symbolism, and historical background"
+        },
+        {
+          "number": 15,
+          "title": "Plan a research paper on provenance history",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Outline questions, sources, and argument structure"
+        },
+        {
+          "number": 16,
+          "title": "Compare iconographic and semiotic methods",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Distinguish two interpretive frameworks and their uses"
+        },
+        {
+          "number": 17,
+          "title": "Analyze image metadata across a large collection",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Use code to detect patterns in style or dating"
+        },
+        {
+          "number": 18,
+          "title": "Design a research study on attribution debates",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Structure evidence, comparanda, and argument rigorously"
+        },
+        {
+          "number": 19,
+          "title": "Build an AI image-comparison workflow for style",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Use tools to compare features and verify findings"
+        },
+        {
+          "number": 20,
+          "title": "Build a custom GPT trained on art-historical terms",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Create a study tutor for visual-analysis vocabulary"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "slug": "art-studio-art",
+      "name": "Art: Studio Art",
+      "programLink": "https://www.hws.edu/academics/studio-art/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Brainstorm concepts for a mixed-media series",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate thematic directions and material ideas for a new body of work"
+        },
+        {
+          "number": 2,
+          "title": "Write an artist statement draft",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Turn scattered notes into a coherent one-page statement"
+        },
+        {
+          "number": 3,
+          "title": "Explain color theory concepts",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify complementary, analogous, and split-complementary relationships quickly"
+        },
+        {
+          "number": 4,
+          "title": "Draft a gallery submission email",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Compose a professional inquiry to a local gallery or juror"
+        },
+        {
+          "number": 5,
+          "title": "Summarize an art history reading",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a dense chapter on Bauhaus into key points"
+        },
+        {
+          "number": 6,
+          "title": "Define unfamiliar critique terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain terms like chiaroscuro, impasto, or negative space"
+        },
+        {
+          "number": 7,
+          "title": "Generate reflective prompts for a sketchbook",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Produce daily drawing exercises to build observational skill"
+        },
+        {
+          "number": 8,
+          "title": "Draft wall labels for a student show",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write concise title-card text for exhibited pieces"
+        },
+        {
+          "number": 9,
+          "title": "Explain a printmaking technique",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Walk through the steps of intaglio or screen printing"
+        },
+        {
+          "number": 10,
+          "title": "Suggest framing and presentation options",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Recommend mounting choices for a specific medium and scale"
+        },
+        {
+          "number": 11,
+          "title": "Build a semester portfolio plan",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Sequence projects and deadlines toward a cohesive final body"
+        },
+        {
+          "number": 12,
+          "title": "Compare two artistic movements for an essay",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Synthesize Abstract Expressionism versus Minimalism with examples"
+        },
+        {
+          "number": 13,
+          "title": "Develop a critique framework for peer feedback",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Create structured questions for evaluating composition and intent"
+        },
+        {
+          "number": 14,
+          "title": "Plan a site-specific installation proposal",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Outline materials, space use, and viewer experience logistics"
+        },
+        {
+          "number": 15,
+          "title": "Research grant and residency opportunities",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Compile fitting programs and tailor application talking points"
+        },
+        {
+          "number": 16,
+          "title": "Analyze composition in a reference image",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Break down balance, focal point, and visual movement systematically"
+        },
+        {
+          "number": 17,
+          "title": "Build a custom GPT as a studio critique partner",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Configure a persistent critic tuned to your practice and goals"
+        },
+        {
+          "number": 18,
+          "title": "Design a generative art piece with code",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Write and debug p5.js sketches for algorithmic visuals"
+        },
+        {
+          "number": 19,
+          "title": "Prototype an AR-augmented artwork concept",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Plan technical pipeline for overlaying digital layers on physical work"
+        },
+        {
+          "number": 20,
+          "title": "Create a data-driven visualization artwork",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Transform a dataset into a coded visual, verifying accuracy and aesthetics"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "slug": "asian-studies",
+      "name": "Asian Studies",
+      "programLink": "https://www.hws.edu/academics/asian-studies/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Summarize a reading on Confucian ethics",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a dense philosophy chapter into key arguments"
+        },
+        {
+          "number": 2,
+          "title": "Explain the concept of guanxi",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify the social-relational term with concrete examples"
+        },
+        {
+          "number": 3,
+          "title": "Translate a short passage for comprehension",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Get a rough translation to check reading understanding"
+        },
+        {
+          "number": 4,
+          "title": "Define terms in Buddhist philosophy",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain dharma, karma, and nirvana simply"
+        },
+        {
+          "number": 5,
+          "title": "Brainstorm essay topics on the Meiji Restoration",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate angles on Japan's modernization for a paper"
+        },
+        {
+          "number": 6,
+          "title": "Draft an email to a study-abroad coordinator",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Compose a professional inquiry about a program in Seoul"
+        },
+        {
+          "number": 7,
+          "title": "Create flashcards for language vocabulary",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Turn a vocabulary list into spaced-repetition study prompts"
+        },
+        {
+          "number": 8,
+          "title": "Explain the dynastic cycle in Chinese history",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Summarize the recurring pattern of rise and decline"
+        },
+        {
+          "number": 9,
+          "title": "Summarize a documentary on the Silk Road",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Extract main points from viewing notes"
+        },
+        {
+          "number": 10,
+          "title": "Provide context on a classical Chinese poem",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain imagery and historical background of a Tang poem"
+        },
+        {
+          "number": 11,
+          "title": "Compare political systems across East Asian states",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Synthesize governance models of China, Japan, and Korea"
+        },
+        {
+          "number": 12,
+          "title": "Build a study guide for a religions-of-Asia exam",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Organize traditions, texts, and key figures into review material"
+        },
+        {
+          "number": 13,
+          "title": "Analyze a primary source with historical context",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Interpret a translated imperial edict and its implications"
+        },
+        {
+          "number": 14,
+          "title": "Plan a research paper on postwar Japanese economy",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Structure thesis, sections, and source strategy"
+        },
+        {
+          "number": 15,
+          "title": "Synthesize multiple views on Orientalism",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine Said and critics into a balanced literature summary"
+        },
+        {
+          "number": 16,
+          "title": "Use NotebookLM to query a corpus of course readings",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Upload sources and interrogate themes across texts"
+        },
+        {
+          "number": 17,
+          "title": "Design a comparative research study on migration",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Develop methodology comparing diaspora communities across regions"
+        },
+        {
+          "number": 18,
+          "title": "Build a custom GPT tutor for Mandarin grammar",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Configure a tool that drills patterns and corrects errors"
+        },
+        {
+          "number": 19,
+          "title": "Analyze sentiment in translated social media data",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Write code to process and classify text, verifying translation accuracy"
+        },
+        {
+          "number": 20,
+          "title": "Model historical trade-network relationships",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Build a network analysis of regional exchange, validating sources"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "slug": "biochemistry",
+      "name": "Biochemistry",
+      "programLink": "https://www.hws.edu/academics/biochemistry/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Explain enzyme kinetics concepts",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify Michaelis-Menten and Vmax in plain language"
+        },
+        {
+          "number": 2,
+          "title": "Summarize a journal article's abstract",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a paper on protein folding into key findings"
+        },
+        {
+          "number": 3,
+          "title": "Define metabolic pathway terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain glycolysis intermediates and regulatory steps"
+        },
+        {
+          "number": 4,
+          "title": "Draft an email to a research lab PI",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Compose a professional request to join a lab"
+        },
+        {
+          "number": 5,
+          "title": "Brainstorm hypotheses for a buffer experiment",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate testable ideas about pH effects on activity"
+        },
+        {
+          "number": 6,
+          "title": "Explain a mechanism from a textbook figure",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Walk through an SN2 reaction step by step"
+        },
+        {
+          "number": 7,
+          "title": "Create a mnemonic for amino acid properties",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Build a memory aid for classifying the twenty residues"
+        },
+        {
+          "number": 8,
+          "title": "Summarize lecture notes into a one-pager",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a lecture on the citric acid cycle"
+        },
+        {
+          "number": 9,
+          "title": "Explain how a spectrophotometer measures concentration",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify the Beer-Lambert law application"
+        },
+        {
+          "number": 10,
+          "title": "Define terms for a molecular biology quiz",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain transcription, translation, and post-translational modification"
+        },
+        {
+          "number": 11,
+          "title": "Build a study guide for a metabolism exam",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Organize pathways, enzymes, and regulation into structured review"
+        },
+        {
+          "number": 12,
+          "title": "Compare protein purification methods",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Synthesize tradeoffs of chromatography techniques for a report"
+        },
+        {
+          "number": 13,
+          "title": "Interpret a Lineweaver-Burk plot",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Analyze kinetic data to identify inhibition type"
+        },
+        {
+          "number": 14,
+          "title": "Plan a multi-week lab research project",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Sequence experiments, controls, and timelines toward a goal"
+        },
+        {
+          "number": 15,
+          "title": "Synthesize literature on a signaling pathway",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine multiple papers into a mechanism summary"
+        },
+        {
+          "number": 16,
+          "title": "Use AI to design PCR primers with checks",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Draft primer sequences and verify melting temperatures manually"
+        },
+        {
+          "number": 17,
+          "title": "Write and debug Python to analyze assay data",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Script curve fitting for kinetic parameters and validate output"
+        },
+        {
+          "number": 18,
+          "title": "Model protein-ligand binding computationally",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Run and interpret docking simulations, verifying against literature"
+        },
+        {
+          "number": 19,
+          "title": "Design a rigorous enzyme-inhibition study",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Develop hypotheses, controls, and statistical plan for publication-quality work"
+        },
+        {
+          "number": 20,
+          "title": "Perform statistical analysis of gene expression",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Code differential expression tests and confirm assumptions"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "slug": "biology",
+      "name": "Biology",
+      "programLink": "https://www.hws.edu/academics/biology/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Explain natural selection to a peer",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify the mechanism with a concrete example"
+        },
+        {
+          "number": 2,
+          "title": "Summarize a reading on cellular respiration",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a chapter into essential points"
+        },
+        {
+          "number": 3,
+          "title": "Define ecology vocabulary",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain niche, biome, and trophic level"
+        },
+        {
+          "number": 4,
+          "title": "Brainstorm hypotheses for a plant-growth experiment",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate testable ideas about light and growth"
+        },
+        {
+          "number": 5,
+          "title": "Draft an email to a field-research coordinator",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Compose a request to join a summer fieldwork program"
+        },
+        {
+          "number": 6,
+          "title": "Explain a diagram of the nephron",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Walk through filtration and reabsorption steps"
+        },
+        {
+          "number": 7,
+          "title": "Create a mnemonic for taxonomic ranks",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Build a memory aid for domain-to-species classification"
+        },
+        {
+          "number": 8,
+          "title": "Summarize a nature documentary",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Extract main ecological points from viewing notes"
+        },
+        {
+          "number": 9,
+          "title": "Explain Mendelian inheritance with a Punnett square",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify dominant and recessive cross outcomes"
+        },
+        {
+          "number": 10,
+          "title": "Define terms for an anatomy quiz",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain homeostasis, diffusion, and osmosis"
+        },
+        {
+          "number": 11,
+          "title": "Build a study guide for a genetics exam",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Organize inheritance patterns and problems into review material"
+        },
+        {
+          "number": 12,
+          "title": "Compare PCR and gel electrophoresis methods",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Synthesize how each works and when to use them"
+        },
+        {
+          "number": 13,
+          "title": "Interpret data from a population-ecology dataset",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Analyze growth curves and identify limiting factors"
+        },
+        {
+          "number": 14,
+          "title": "Plan a semester-long field study",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Design sampling schedule, sites, and data-collection protocol"
+        },
+        {
+          "number": 15,
+          "title": "Synthesize sources on an evolutionary debate",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine multiple papers on a contested mechanism"
+        },
+        {
+          "number": 16,
+          "title": "Design a survey protocol for biodiversity sampling",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Create transect methods and data sheets with judgment"
+        },
+        {
+          "number": 17,
+          "title": "Write and debug R code for statistical analysis",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Script ANOVA on experimental data and verify assumptions"
+        },
+        {
+          "number": 18,
+          "title": "Model predator-prey population dynamics",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Simulate Lotka-Volterra equations and interpret behavior"
+        },
+        {
+          "number": 19,
+          "title": "Design a controlled ecological research study",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Develop hypotheses, controls, and statistical plan for the field"
+        },
+        {
+          "number": 20,
+          "title": "Analyze DNA sequence data with bioinformatics tools",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Run alignment code and validate results against references"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "slug": "bodies-disability-and-justice",
+      "name": "Bodies, Disability, and Justice",
+      "programLink": "https://www.hws.edu/academics/gender-sexuality-and-intersectional-justice/bodies-disability-and-justice/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Explain the social model of disability",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify how it differs from the medical model"
+        },
+        {
+          "number": 2,
+          "title": "Summarize a reading on disability rights history",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a chapter on the ADA and activism"
+        },
+        {
+          "number": 3,
+          "title": "Define key terms in the field",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain ableism, accessibility, and neurodiversity"
+        },
+        {
+          "number": 4,
+          "title": "Brainstorm essay topics on embodiment",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate angles connecting bodies and social power"
+        },
+        {
+          "number": 5,
+          "title": "Draft an email requesting an accommodation interview",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Compose a respectful outreach to a disability advocate"
+        },
+        {
+          "number": 6,
+          "title": "Explain intersectionality in plain language",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify how identities overlap in experiences of injustice"
+        },
+        {
+          "number": 7,
+          "title": "Rewrite text into plain-language accessible format",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Simplify a dense passage for wider readability"
+        },
+        {
+          "number": 8,
+          "title": "Summarize a documentary on disability activism",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Extract key arguments from viewing notes"
+        },
+        {
+          "number": 9,
+          "title": "Suggest inclusive-language alternatives",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Recommend respectful terminology for a written assignment"
+        },
+        {
+          "number": 10,
+          "title": "Explain a concept from critical disability theory",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify the meaning of crip theory with examples"
+        },
+        {
+          "number": 11,
+          "title": "Build a study guide comparing disability frameworks",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Organize social, medical, and cultural models into review material"
+        },
+        {
+          "number": 12,
+          "title": "Synthesize multiple sources for a justice essay",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine scholarly and activist texts into a coherent argument"
+        },
+        {
+          "number": 13,
+          "title": "Analyze accessibility of a public space",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Evaluate a building against universal-design principles"
+        },
+        {
+          "number": 14,
+          "title": "Plan a community accessibility awareness project",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Outline goals, stakeholders, and activities with judgment"
+        },
+        {
+          "number": 15,
+          "title": "Compare policy approaches to disability rights",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Contrast ADA with international frameworks for a paper"
+        },
+        {
+          "number": 16,
+          "title": "Create an audit checklist for inclusive event planning",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Build a practical tool covering physical and communication access"
+        },
+        {
+          "number": 17,
+          "title": "Design a qualitative research study on lived experience",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Develop interview methodology and ethical protocol for the field"
+        },
+        {
+          "number": 18,
+          "title": "Analyze survey data on accessibility barriers",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Code statistical patterns and verify interpretation carefully"
+        },
+        {
+          "number": 19,
+          "title": "Build a custom GPT trained on accessibility guidelines",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Configure a tool advising on WCAG and inclusive design"
+        },
+        {
+          "number": 20,
+          "title": "Conduct a critical discourse analysis of policy text",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Systematically analyze language and power, validating findings"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "slug": "business-management-and-entrepreneurship",
+      "name": "Business Management and Entrepreneurship",
+      "programLink": "https://www.hws.edu/academics/Business-Management-and-Entrepreneurship/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Brainstorm startup ideas for a niche market",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate venture concepts targeting a specific customer segment"
+        },
+        {
+          "number": 2,
+          "title": "Summarize a Harvard Business Review case",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a case study into key decisions and lessons"
+        },
+        {
+          "number": 3,
+          "title": "Define management terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain SWOT, KPI, and value proposition"
+        },
+        {
+          "number": 4,
+          "title": "Draft a professional networking email",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Compose outreach to a potential mentor or investor"
+        },
+        {
+          "number": 5,
+          "title": "Explain a marketing concept",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify the four Ps or customer acquisition cost"
+        },
+        {
+          "number": 6,
+          "title": "Write a mission statement draft",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Turn business notes into a concise mission"
+        },
+        {
+          "number": 7,
+          "title": "Brainstorm names for a new product",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate memorable brand-name options for a launch"
+        },
+        {
+          "number": 8,
+          "title": "Summarize a chapter on organizational behavior",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense theory on motivation and leadership"
+        },
+        {
+          "number": 9,
+          "title": "Draft interview questions for a hiring exercise",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Create behavioral questions for a mock candidate"
+        },
+        {
+          "number": 10,
+          "title": "Explain how a balance sheet is structured",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify assets, liabilities, and equity relationships"
+        },
+        {
+          "number": 11,
+          "title": "Build a business plan outline",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Structure sections from market analysis to financials"
+        },
+        {
+          "number": 12,
+          "title": "Analyze a sales dataset with Excel Copilot",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Surface trends and build summary charts from raw data"
+        },
+        {
+          "number": 13,
+          "title": "Compare two competitors strategically",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Synthesize positioning, strengths, and weaknesses for analysis"
+        },
+        {
+          "number": 14,
+          "title": "Create a go-to-market plan for a product",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Sequence launch phases, channels, and messaging"
+        },
+        {
+          "number": 15,
+          "title": "Develop a customer persona from research inputs",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine data points into a detailed target profile"
+        },
+        {
+          "number": 16,
+          "title": "Draft a pitch deck narrative and structure",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Organize problem, solution, and traction into a compelling flow"
+        },
+        {
+          "number": 17,
+          "title": "Build a financial model with formulas",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Construct a multi-year projection and verify all calculations"
+        },
+        {
+          "number": 18,
+          "title": "Design and analyze an A/B marketing test",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Plan methodology and run statistical significance checks"
+        },
+        {
+          "number": 19,
+          "title": "Build a custom GPT for customer support automation",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Configure a tool trained on product FAQs and policies"
+        },
+        {
+          "number": 20,
+          "title": "Model pricing scenarios with sensitivity analysis",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Simulate profit outcomes across variables, validating assumptions"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "slug": "chemistry",
+      "name": "Chemistry",
+      "programLink": "https://www.hws.edu/academics/chemistry/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Explain reaction mechanisms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Walk through an SN2 mechanism step by step with electron arrows"
+        },
+        {
+          "number": 2,
+          "title": "Define chemistry terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify terms like enthalpy, entropy, and Gibbs free energy"
+        },
+        {
+          "number": 3,
+          "title": "Summarize a journal article",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a JACS paper's methods and key findings quickly"
+        },
+        {
+          "number": 4,
+          "title": "Balance chemical equations",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Check and balance redox and combustion equations for homework"
+        },
+        {
+          "number": 5,
+          "title": "Predict product structures",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Suggest likely products for a given organic transformation"
+        },
+        {
+          "number": 6,
+          "title": "Draft a lab safety summary",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write hazard notes for handling reagents before a lab session"
+        },
+        {
+          "number": 7,
+          "title": "Explain spectroscopy peaks",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Interpret why an IR band appears near 1700 wavenumbers"
+        },
+        {
+          "number": 8,
+          "title": "Brainstorm project topics",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate ideas for an undergraduate synthesis research project"
+        },
+        {
+          "number": 9,
+          "title": "Create flashcards",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Turn functional groups and reagents into quiz flashcards"
+        },
+        {
+          "number": 10,
+          "title": "Draft email to professor",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write a polite request to join a research lab"
+        },
+        {
+          "number": 11,
+          "title": "Interpret NMR spectra",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Cross-check integration and splitting to propose a structure"
+        },
+        {
+          "number": 12,
+          "title": "Build a study guide",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Synthesize thermodynamics topics into an organized exam review sheet"
+        },
+        {
+          "number": 13,
+          "title": "Analyze titration data",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Use Excel Copilot to plot curves and find equivalence points"
+        },
+        {
+          "number": 14,
+          "title": "Compare synthesis routes",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Weigh yield, cost, and green-chemistry tradeoffs of two pathways"
+        },
+        {
+          "number": 15,
+          "title": "Design a lab procedure",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Draft a step-by-step protocol for a recrystallization experiment"
+        },
+        {
+          "number": 16,
+          "title": "Explain kinetics from data",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Determine reaction order by evaluating concentration versus time trends"
+        },
+        {
+          "number": 17,
+          "title": "Write Python for spectral analysis",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Code and debug a script to fit and baseline-correct spectra"
+        },
+        {
+          "number": 18,
+          "title": "Run computational chemistry modeling",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Set up and interpret a DFT calculation for molecular geometry"
+        },
+        {
+          "number": 19,
+          "title": "Perform statistical error analysis",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Propagate uncertainty across measurements and validate the calculations"
+        },
+        {
+          "number": 20,
+          "title": "Simulate reaction equilibria",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Model a multi-species equilibrium system and verify against theory"
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "slug": "classics",
+      "name": "Classics",
+      "programLink": "https://www.hws.edu/academics/classics/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Translate a Latin passage",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Get a draft translation of a Cicero excerpt for comparison"
+        },
+        {
+          "number": 2,
+          "title": "Parse Greek verb forms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Identify tense, mood, and voice of a tricky verb"
+        },
+        {
+          "number": 3,
+          "title": "Summarize an ancient text",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a book of the Aeneid into key plot points"
+        },
+        {
+          "number": 4,
+          "title": "Explain a rhetorical device",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify chiasmus with examples from classical oratory"
+        },
+        {
+          "number": 5,
+          "title": "Define mythological figures",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Give quick backgrounds on lesser-known deities and heroes"
+        },
+        {
+          "number": 6,
+          "title": "Brainstorm essay topics",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate thesis ideas on Roman republican politics"
+        },
+        {
+          "number": 7,
+          "title": "Explain a historical event",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Summarize the causes of the Peloponnesian War simply"
+        },
+        {
+          "number": 8,
+          "title": "Create vocabulary drills",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Turn a Greek word list into practice quiz cards"
+        },
+        {
+          "number": 9,
+          "title": "Draft a conference abstract",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write a first draft abstract for an undergraduate symposium"
+        },
+        {
+          "number": 10,
+          "title": "Clarify meter in poetry",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain dactylic hexameter with a scanned example line"
+        },
+        {
+          "number": 11,
+          "title": "Compare translations",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Evaluate how three translators handle a difficult Homeric passage"
+        },
+        {
+          "number": 12,
+          "title": "Synthesize secondary sources",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine scholarly arguments into a coherent literature review"
+        },
+        {
+          "number": 13,
+          "title": "Build a reception timeline",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Trace how a myth was reused across later literary periods"
+        },
+        {
+          "number": 14,
+          "title": "Analyze a primary source",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Assess bias and context in an inscription or Tacitus passage"
+        },
+        {
+          "number": 15,
+          "title": "Plan a research paper",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Outline argument, evidence, and structure for a seminar essay"
+        },
+        {
+          "number": 16,
+          "title": "Use NotebookLM on texts",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Query loaded commentaries to cross-reference themes across works"
+        },
+        {
+          "number": 17,
+          "title": "Build a custom translation GPT",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Configure and test a GPT trained on grammar conventions"
+        },
+        {
+          "number": 18,
+          "title": "Analyze a text corpus computationally",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Run stylometric word-frequency analysis and verify the outputs"
+        },
+        {
+          "number": 19,
+          "title": "Design an epigraphy study",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Plan methodology for comparing dialect features across inscriptions"
+        },
+        {
+          "number": 20,
+          "title": "Map ancient networks with data",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Model trade or citation relationships and validate the results"
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "slug": "computer-science",
+      "name": "Computer Science",
+      "programLink": "https://www.hws.edu/academics/computer-science/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Explain an algorithm",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Walk through how quicksort partitions and recurses"
+        },
+        {
+          "number": 2,
+          "title": "Comment my code",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Add clear docstrings and inline comments to a function"
+        },
+        {
+          "number": 3,
+          "title": "Define a concept",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain polymorphism with a short concrete example"
+        },
+        {
+          "number": 4,
+          "title": "Summarize documentation",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a library's API docs into key usage notes"
+        },
+        {
+          "number": 5,
+          "title": "Brainstorm project ideas",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate app ideas for a semester capstone project"
+        },
+        {
+          "number": 6,
+          "title": "Draft a README",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write setup and usage instructions for a small repo"
+        },
+        {
+          "number": 7,
+          "title": "Explain an error message",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Interpret a stack trace and suggest likely causes"
+        },
+        {
+          "number": 8,
+          "title": "Convert pseudocode",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Translate pseudocode into a Python function draft"
+        },
+        {
+          "number": 9,
+          "title": "Create study flashcards",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Turn Big-O complexities into quick review cards"
+        },
+        {
+          "number": 10,
+          "title": "Draft a cover letter",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write an internship application letter for a software role"
+        },
+        {
+          "number": 11,
+          "title": "Refactor code",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Improve readability and structure while preserving behavior"
+        },
+        {
+          "number": 12,
+          "title": "Compare data structures",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Weigh tradeoffs between hash maps and balanced trees"
+        },
+        {
+          "number": 13,
+          "title": "Write unit tests",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Generate edge-case tests for a given function and review coverage"
+        },
+        {
+          "number": 14,
+          "title": "Plan a system design",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Sketch components and data flow for a URL shortener"
+        },
+        {
+          "number": 15,
+          "title": "Build a study guide",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Synthesize operating systems topics into an organized exam review"
+        },
+        {
+          "number": 16,
+          "title": "Analyze a dataset",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Use pandas to summarize and visualize a CSV, checking logic"
+        },
+        {
+          "number": 17,
+          "title": "Debug complex code",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Diagnose a concurrency bug and verify the proposed fix"
+        },
+        {
+          "number": 18,
+          "title": "Implement an algorithm from a paper",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Translate pseudocode from research into working, tested code"
+        },
+        {
+          "number": 19,
+          "title": "Build a custom RAG chatbot",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Design retrieval, embeddings, and prompts, then evaluate accuracy"
+        },
+        {
+          "number": 20,
+          "title": "Optimize performance",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Profile a slow program and validate speedups against benchmarks"
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "slug": "dance",
+      "name": "Dance",
+      "programLink": "https://www.hws.edu/academics/dance/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Explain a dance term",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Define terms like port de bras or contraction clearly"
+        },
+        {
+          "number": 2,
+          "title": "Summarize a dance reading",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense an article on Merce Cunningham's technique"
+        },
+        {
+          "number": 3,
+          "title": "Brainstorm choreography themes",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate concept ideas for a student dance piece"
+        },
+        {
+          "number": 4,
+          "title": "Explain a historical style",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Summarize how postmodern dance broke from ballet conventions"
+        },
+        {
+          "number": 5,
+          "title": "Draft a program note",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write a short audience description of a performance piece"
+        },
+        {
+          "number": 6,
+          "title": "Suggest music options",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Recommend musical styles that fit a given movement quality"
+        },
+        {
+          "number": 7,
+          "title": "Define anatomy terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain muscles and joints involved in a plie"
+        },
+        {
+          "number": 8,
+          "title": "Create rehearsal reminders",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Draft a checklist and schedule note for cast members"
+        },
+        {
+          "number": 9,
+          "title": "Draft an email to a guest artist",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write a professional invitation for a masterclass"
+        },
+        {
+          "number": 10,
+          "title": "Explain Laban concepts",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify effort qualities like weight, time, and flow"
+        },
+        {
+          "number": 11,
+          "title": "Plan a rehearsal schedule",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Structure multi-week rehearsals across sections and cast availability"
+        },
+        {
+          "number": 12,
+          "title": "Analyze a performance",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Synthesize movement, music, and staging into a critique essay"
+        },
+        {
+          "number": 13,
+          "title": "Compare choreographers",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Contrast the methods and philosophies of two major artists"
+        },
+        {
+          "number": 14,
+          "title": "Build a movement research project",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Plan phases for exploring a theme through improvisation"
+        },
+        {
+          "number": 15,
+          "title": "Design injury-prevention guidance",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine anatomy sources into a conditioning routine outline"
+        },
+        {
+          "number": 16,
+          "title": "Draft a grant proposal",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Organize goals, budget, and narrative for a performance grant"
+        },
+        {
+          "number": 17,
+          "title": "Analyze motion capture data",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Code and debug a script to quantify movement patterns"
+        },
+        {
+          "number": 18,
+          "title": "Design a dance research study",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Plan methodology to assess audience response to choreography"
+        },
+        {
+          "number": 19,
+          "title": "Build a Labanotation tool",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Prototype and test software to encode notation symbols"
+        },
+        {
+          "number": 20,
+          "title": "Model biomechanics of a jump",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Simulate forces on joints and verify against kinesiology data"
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "slug": "economics",
+      "name": "Economics",
+      "programLink": "https://www.hws.edu/academics/economics/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Explain an economic concept",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify comparative advantage with a simple numeric example"
+        },
+        {
+          "number": 2,
+          "title": "Summarize a paper",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense an NBER working paper's findings and method"
+        },
+        {
+          "number": 3,
+          "title": "Define economic terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain elasticity, deadweight loss, and marginal utility"
+        },
+        {
+          "number": 4,
+          "title": "Brainstorm thesis topics",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate research questions in labor or development economics"
+        },
+        {
+          "number": 5,
+          "title": "Interpret a graph",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain what a shift in the supply curve implies"
+        },
+        {
+          "number": 6,
+          "title": "Explain a policy",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Summarize how a carbon tax is intended to work"
+        },
+        {
+          "number": 7,
+          "title": "Draft an email",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write a request for data access to a research office"
+        },
+        {
+          "number": 8,
+          "title": "Create study flashcards",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Turn micro theory formulas into review cards"
+        },
+        {
+          "number": 9,
+          "title": "Explain a news article",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Break down an economic story from the financial press"
+        },
+        {
+          "number": 10,
+          "title": "Outline a problem set answer",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Structure a clear approach to a utility maximization problem"
+        },
+        {
+          "number": 11,
+          "title": "Analyze a dataset in Excel",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Use Copilot to compute summary stats and build charts"
+        },
+        {
+          "number": 12,
+          "title": "Compare economic theories",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Contrast Keynesian and monetarist views on stabilization"
+        },
+        {
+          "number": 13,
+          "title": "Build a literature review",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Synthesize multiple studies on minimum wage effects"
+        },
+        {
+          "number": 14,
+          "title": "Plan an empirical project",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Outline hypothesis, data, and identification strategy"
+        },
+        {
+          "number": 15,
+          "title": "Interpret regression output",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Explain coefficients, significance, and caveats from a table"
+        },
+        {
+          "number": 16,
+          "title": "Build an econometrics study guide",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Organize OLS assumptions and diagnostics for an exam"
+        },
+        {
+          "number": 17,
+          "title": "Run a regression in Python or R",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Write and debug code, then validate model assumptions"
+        },
+        {
+          "number": 18,
+          "title": "Design a causal inference study",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Plan a difference-in-differences design and check identification"
+        },
+        {
+          "number": 19,
+          "title": "Simulate a market model",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Build an agent-based model and verify its equilibrium behavior"
+        },
+        {
+          "number": 20,
+          "title": "Forecast a time series",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Fit and evaluate an ARIMA model, checking residual diagnostics"
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "slug": "educational-studies",
+      "name": "Educational Studies",
+      "programLink": "https://www.hws.edu/academics/education/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Explain a learning theory",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Summarize Vygotsky's zone of proximal development simply"
+        },
+        {
+          "number": 2,
+          "title": "Summarize an education article",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a study on formative assessment practices"
+        },
+        {
+          "number": 3,
+          "title": "Define pedagogy terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify scaffolding, differentiation, and constructivism"
+        },
+        {
+          "number": 4,
+          "title": "Brainstorm lesson topics",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate engaging themes for a middle school unit"
+        },
+        {
+          "number": 5,
+          "title": "Draft a parent email",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write a warm note updating a family on progress"
+        },
+        {
+          "number": 6,
+          "title": "Explain a policy",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Summarize what IDEA requires for special education"
+        },
+        {
+          "number": 7,
+          "title": "Create discussion questions",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate prompts for a class reading on equity"
+        },
+        {
+          "number": 8,
+          "title": "Rewrite for reading level",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Simplify a text to match a fourth-grade audience"
+        },
+        {
+          "number": 9,
+          "title": "Draft classroom rules",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write clear, positive behavior expectations for students"
+        },
+        {
+          "number": 10,
+          "title": "Explain an assessment type",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify the difference between formative and summative assessment"
+        },
+        {
+          "number": 11,
+          "title": "Create a lesson plan",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Build objectives, activities, and assessment aligned to standards"
+        },
+        {
+          "number": 12,
+          "title": "Compare teaching methods",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Contrast inquiry-based and direct instruction approaches"
+        },
+        {
+          "number": 13,
+          "title": "Design a rubric",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Develop criteria and performance levels for a project"
+        },
+        {
+          "number": 14,
+          "title": "Synthesize research sources",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine studies into a literature review on class size"
+        },
+        {
+          "number": 15,
+          "title": "Plan a unit sequence",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Organize a multi-week unit with pacing and scaffolds"
+        },
+        {
+          "number": 16,
+          "title": "Differentiate a lesson",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Adapt one activity for varied readiness and language needs"
+        },
+        {
+          "number": 17,
+          "title": "Analyze student assessment data",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Code and interpret score patterns, verifying statistical claims"
+        },
+        {
+          "number": 18,
+          "title": "Design an education research study",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Plan methodology and instruments to measure an intervention"
+        },
+        {
+          "number": 19,
+          "title": "Build a custom tutoring GPT",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Configure and test an assistant for a specific subject"
+        },
+        {
+          "number": 20,
+          "title": "Model achievement gap data",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Run statistical analysis on disparities and validate the results"
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "slug": "english-and-creative-writing",
+      "name": "English and Creative Writing",
+      "programLink": "https://www.hws.edu/academics/english/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Define literary terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain metonymy, free indirect discourse, or iambic pentameter with clear examples"
+        },
+        {
+          "number": 2,
+          "title": "Summarize a dense novel chapter",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense assigned Faulkner or Woolf reading into a plot recap"
+        },
+        {
+          "number": 3,
+          "title": "Brainstorm short story premises",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate genre prompts, character wants, and inciting incidents for drafting"
+        },
+        {
+          "number": 4,
+          "title": "Draft an email to a professor",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Request a deadline extension on a portfolio submission politely"
+        },
+        {
+          "number": 5,
+          "title": "Explain a poem's meaning",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Unpack imagery and tone in a Keats ode line by line"
+        },
+        {
+          "number": 6,
+          "title": "Generate discussion questions",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Produce seminar questions on theme and narrative voice for a text"
+        },
+        {
+          "number": 7,
+          "title": "Suggest synonyms and word choice",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Offer stronger verbs and precise diction for a flat sentence"
+        },
+        {
+          "number": 8,
+          "title": "Outline a five-paragraph essay",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Structure a thesis and topic sentences for a literary argument"
+        },
+        {
+          "number": 9,
+          "title": "Explain a critical theory basics",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Summarize deconstruction or reader-response theory in plain language"
+        },
+        {
+          "number": 10,
+          "title": "Brainstorm poem titles and forms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Suggest titles, forms, and structures matching a poem's mood"
+        },
+        {
+          "number": 11,
+          "title": "Compare two authors' styles",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Analyze diction, syntax, and imagery across Hemingway and James passages"
+        },
+        {
+          "number": 12,
+          "title": "Build a research paper study guide",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Synthesize sources on postcolonial themes into an annotated argument map"
+        },
+        {
+          "number": 13,
+          "title": "Line-edit a workshop draft",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Get targeted feedback on pacing, rhythm, and dialogue in a scene"
+        },
+        {
+          "number": 14,
+          "title": "Trace a motif across a novel",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Compile and interpret recurring water imagery with chapter citations to verify"
+        },
+        {
+          "number": 15,
+          "title": "Plan a linked story collection",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Develop connective threads, recurring characters, and thematic arc across pieces"
+        },
+        {
+          "number": 16,
+          "title": "Synthesize secondary criticism",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine multiple scholarly readings of a text into a coherent literature review"
+        },
+        {
+          "number": 17,
+          "title": "Build a custom writing-feedback GPT",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Configure a GPT trained on your style guide and workshop rubric"
+        },
+        {
+          "number": 18,
+          "title": "Run computational stylometry analysis",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Write Python to measure sentence length and lexical diversity across authors"
+        },
+        {
+          "number": 19,
+          "title": "Design a corpus text-mining study",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Plan topic modeling of a genre corpus with verification of outputs"
+        },
+        {
+          "number": 20,
+          "title": "Debug NotebookLM source synthesis",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Ingest a scholarly PDF set, then verify AI citations against originals"
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "slug": "environmental-science",
+      "name": "Environmental Science",
+      "programLink": "https://www.hws.edu/academics/environmental-science/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Define ecological terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain trophic cascade, eutrophication, or carrying capacity with examples"
+        },
+        {
+          "number": 2,
+          "title": "Summarize a scientific paper",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a journal article on nitrogen cycling into key findings"
+        },
+        {
+          "number": 3,
+          "title": "Explain the carbon cycle",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Walk through reservoirs and fluxes in accessible language"
+        },
+        {
+          "number": 4,
+          "title": "Brainstorm field project topics",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate local watershed or biodiversity study ideas for a course"
+        },
+        {
+          "number": 5,
+          "title": "Draft a lab partner email",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Coordinate sampling schedules and equipment for a field trip"
+        },
+        {
+          "number": 6,
+          "title": "Explain a statistical concept",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify p-values or confidence intervals for an ecology lab report"
+        },
+        {
+          "number": 7,
+          "title": "Define units and conversions",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain ppm, molarity, and metric conversions for water chemistry"
+        },
+        {
+          "number": 8,
+          "title": "Summarize an IPCC section",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Distill a climate report chapter into main takeaways"
+        },
+        {
+          "number": 9,
+          "title": "Explain a lab protocol",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify steps for a dissolved oxygen or BOD test"
+        },
+        {
+          "number": 10,
+          "title": "Brainstorm poster presentation angles",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Suggest framings and visuals for a research symposium poster"
+        },
+        {
+          "number": 11,
+          "title": "Analyze a water-quality dataset",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Explore trends across sampling sites and flag anomalies for review"
+        },
+        {
+          "number": 12,
+          "title": "Compare remediation methods",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Weigh bioremediation versus chemical treatment for a contaminated site"
+        },
+        {
+          "number": 13,
+          "title": "Build an exam study guide",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Synthesize lecture notes on biogeochemical cycles into practice questions"
+        },
+        {
+          "number": 14,
+          "title": "Plan a field sampling design",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Develop transects, replicates, and controls for a vegetation survey"
+        },
+        {
+          "number": 15,
+          "title": "Synthesize climate impact literature",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine multiple studies on species range shifts into a summary"
+        },
+        {
+          "number": 16,
+          "title": "Interpret a species distribution map",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Analyze range patterns and hypothesize drivers with verification of claims"
+        },
+        {
+          "number": 17,
+          "title": "Write R code for ecological stats",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Build and debug ANOVA or regression analysis of field data"
+        },
+        {
+          "number": 18,
+          "title": "Model population dynamics",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Simulate logistic growth or predator-prey systems and validate outputs"
+        },
+        {
+          "number": 19,
+          "title": "Design a controlled experiment",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Plan hypotheses, variables, and statistical power for a mesocosm study"
+        },
+        {
+          "number": 20,
+          "title": "Run GIS spatial analysis code",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Script land-cover change detection and verify against imagery"
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "slug": "environmental-studies",
+      "name": "Environmental Studies",
+      "programLink": "https://www.hws.edu/academics/environmental-studies/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Define policy terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain cap-and-trade, externality, or the precautionary principle clearly"
+        },
+        {
+          "number": 2,
+          "title": "Summarize an environmental reading",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a chapter on environmental justice into key arguments"
+        },
+        {
+          "number": 3,
+          "title": "Explain an environmental law",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify the Clean Air Act's core provisions in plain terms"
+        },
+        {
+          "number": 4,
+          "title": "Brainstorm case study topics",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate local land-use or conservation conflict ideas for a paper"
+        },
+        {
+          "number": 5,
+          "title": "Draft a stakeholder email",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write an outreach message to a community organization for a project"
+        },
+        {
+          "number": 6,
+          "title": "Explain an ethical framework",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Summarize deep ecology or environmental pragmatism briefly"
+        },
+        {
+          "number": 7,
+          "title": "Define sustainability concepts",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain the triple bottom line and circular economy"
+        },
+        {
+          "number": 8,
+          "title": "Summarize a documentary",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Distill a film on climate migration into discussion points"
+        },
+        {
+          "number": 9,
+          "title": "Explain an economic concept",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify discounting and cost-benefit analysis for environmental policy"
+        },
+        {
+          "number": 10,
+          "title": "Brainstorm advocacy campaign ideas",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Suggest messaging and tactics for a campus sustainability initiative"
+        },
+        {
+          "number": 11,
+          "title": "Compare policy approaches",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Weigh carbon tax versus subsidy strategies across two countries"
+        },
+        {
+          "number": 12,
+          "title": "Synthesize environmental justice sources",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine case studies and theory into a coherent argument"
+        },
+        {
+          "number": 13,
+          "title": "Build a debate prep guide",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Assemble evidence and rebuttals on a resource management controversy"
+        },
+        {
+          "number": 14,
+          "title": "Analyze a demographic dataset",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Explore pollution exposure patterns by neighborhood and flag findings"
+        },
+        {
+          "number": 15,
+          "title": "Plan a community project proposal",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Draft goals, stakeholders, timeline, and evaluation for an initiative"
+        },
+        {
+          "number": 16,
+          "title": "Map a policy stakeholder network",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Identify actors, interests, and leverage points with verification"
+        },
+        {
+          "number": 17,
+          "title": "Design a mixed-methods research study",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Plan surveys and interviews on environmental attitudes with sampling logic"
+        },
+        {
+          "number": 18,
+          "title": "Build a custom policy-analysis GPT",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Configure a GPT that scores proposals against sustainability criteria"
+        },
+        {
+          "number": 19,
+          "title": "Run text analysis of policy documents",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Code keyword and sentiment analysis across legislation and verify"
+        },
+        {
+          "number": 20,
+          "title": "Model a cost-benefit scenario",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Build a spreadsheet simulation of a regulation's projected impacts"
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "slug": "french-and-francophone-studies",
+      "name": "French and Francophone Studies",
+      "programLink": "https://www.hws.edu/academics/french-francophone-and-italian-studies/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Explain a grammar rule",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify the subjunctive mood with conjugation examples in context"
+        },
+        {
+          "number": 2,
+          "title": "Translate a short passage",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Convert a French paragraph to English and note nuances"
+        },
+        {
+          "number": 3,
+          "title": "Define literary and cultural terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain la Negritude or l'existentialisme in accessible language"
+        },
+        {
+          "number": 4,
+          "title": "Summarize a French reading",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a Camus or Senghor text into main ideas"
+        },
+        {
+          "number": 5,
+          "title": "Draft an email in French",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write a formal message to a professor using correct register"
+        },
+        {
+          "number": 6,
+          "title": "Build vocabulary flashcards",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate themed word lists with gender and example sentences"
+        },
+        {
+          "number": 7,
+          "title": "Explain a cultural custom",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify francophone dining etiquette or regional traditions briefly"
+        },
+        {
+          "number": 8,
+          "title": "Brainstorm conversation topics",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Suggest discussion prompts for a spoken French practice session"
+        },
+        {
+          "number": 9,
+          "title": "Correct a short paragraph",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Identify agreement and tense errors in student French writing"
+        },
+        {
+          "number": 10,
+          "title": "Explain false cognates",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "List common faux amis and their true meanings"
+        },
+        {
+          "number": 11,
+          "title": "Compare regional francophone variants",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Analyze Quebec, Senegalese, and Parisian French differences with examples"
+        },
+        {
+          "number": 12,
+          "title": "Analyze a poem in French",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Interpret imagery and versification in a Baudelaire poem carefully"
+        },
+        {
+          "number": 13,
+          "title": "Build a conjugation study guide",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Synthesize irregular verbs across tenses into an organized practice set"
+        },
+        {
+          "number": 14,
+          "title": "Synthesize postcolonial criticism",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine scholarly readings on francophone identity into an argument"
+        },
+        {
+          "number": 15,
+          "title": "Plan an oral presentation",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Structure a cultural topic talk with vocabulary and cue notes"
+        },
+        {
+          "number": 16,
+          "title": "Compare a novel and its translation",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Analyze how translation choices shift tone and verify against source"
+        },
+        {
+          "number": 17,
+          "title": "Design a discourse-analysis study",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Plan analysis of media framing in francophone press with methodology"
+        },
+        {
+          "number": 18,
+          "title": "Build a custom French tutor GPT",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Configure a GPT for immersive dialogue at your proficiency level"
+        },
+        {
+          "number": 19,
+          "title": "Run corpus analysis of a text",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Code frequency and collocation analysis of French prose and verify"
+        },
+        {
+          "number": 20,
+          "title": "Create a translation-quality rubric app",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Build a tool comparing machine translations against human standards"
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "slug": "gender-and-feminist-studies",
+      "name": "Gender and Feminist Studies",
+      "programLink": "https://www.hws.edu/academics/gender-sexuality-and-intersectional-justice/gender-and-feminist-studies/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Define key theoretical terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain intersectionality, the gender binary, or performativity clearly"
+        },
+        {
+          "number": 2,
+          "title": "Summarize a feminist reading",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a bell hooks or Butler chapter into main ideas"
+        },
+        {
+          "number": 3,
+          "title": "Explain a wave of feminism",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify differences between second and third wave movements"
+        },
+        {
+          "number": 4,
+          "title": "Brainstorm essay topics",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate research angles on media representation and gender"
+        },
+        {
+          "number": 5,
+          "title": "Draft an email to an organization",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Reach out to an advocacy group for an interview or internship"
+        },
+        {
+          "number": 6,
+          "title": "Explain a theorist's core idea",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Summarize Foucault on power or Crenshaw on intersectionality"
+        },
+        {
+          "number": 7,
+          "title": "Define terms in queer theory",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain heteronormativity, cisnormativity, and the closet concept"
+        },
+        {
+          "number": 8,
+          "title": "Summarize a documentary",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Distill a film on reproductive rights into discussion points"
+        },
+        {
+          "number": 9,
+          "title": "Brainstorm zine or project ideas",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Suggest creative formats for a feminist activism assignment"
+        },
+        {
+          "number": 10,
+          "title": "Explain a research method",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify standpoint theory or feminist ethnography basics"
+        },
+        {
+          "number": 11,
+          "title": "Compare feminist theories",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Contrast liberal, radical, and materialist feminism across key questions"
+        },
+        {
+          "number": 12,
+          "title": "Analyze media representation",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Examine gender coding in advertising samples and flag patterns"
+        },
+        {
+          "number": 13,
+          "title": "Build a seminar study guide",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Synthesize course readings on the body and biopolitics into questions"
+        },
+        {
+          "number": 14,
+          "title": "Synthesize intersectional scholarship",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine multiple sources on race, class, and gender into an argument"
+        },
+        {
+          "number": 15,
+          "title": "Plan an oral history project",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Design interview questions and consent approach for community narratives"
+        },
+        {
+          "number": 16,
+          "title": "Analyze survey data on attitudes",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Explore gendered response patterns and interpret findings with verification"
+        },
+        {
+          "number": 17,
+          "title": "Design a qualitative research study",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Plan interviews on lived experience with coding and ethics framework"
+        },
+        {
+          "number": 18,
+          "title": "Run text analysis of a corpus",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Code sentiment and framing analysis of gendered news coverage, verify"
+        },
+        {
+          "number": 19,
+          "title": "Build a custom archival-research GPT",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Configure a GPT to surface themes across digitized feminist archives"
+        },
+        {
+          "number": 20,
+          "title": "Model representation statistics",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Write code analyzing gender ratios in film datasets and validate"
+        }
+      ]
+    },
+    {
+      "number": 24,
+      "slug": "geoscience",
+      "name": "Geoscience",
+      "programLink": "https://www.hws.edu/academics/geoscience/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Define geological terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain unconformity, isostasy, or plate boundary types with examples"
+        },
+        {
+          "number": 2,
+          "title": "Summarize a research paper",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a study on sediment transport into key findings"
+        },
+        {
+          "number": 3,
+          "title": "Explain the rock cycle",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Walk through igneous, sedimentary, and metamorphic transitions clearly"
+        },
+        {
+          "number": 4,
+          "title": "Brainstorm field trip observations",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate what to look for at a roadcut or outcrop"
+        },
+        {
+          "number": 5,
+          "title": "Draft a lab report email",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Ask a professor to clarify expectations for a mineralogy assignment"
+        },
+        {
+          "number": 6,
+          "title": "Explain a dating method",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify radiometric dating principles for an intro course"
+        },
+        {
+          "number": 7,
+          "title": "Define units and scales",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain the Moh's hardness scale and geologic time units"
+        },
+        {
+          "number": 8,
+          "title": "Summarize a hazard report",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Distill a USGS earthquake or volcano bulletin into essentials"
+        },
+        {
+          "number": 9,
+          "title": "Explain a lab technique",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify thin section petrography or grain size analysis steps"
+        },
+        {
+          "number": 10,
+          "title": "Brainstorm poster figure ideas",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Suggest diagrams and cross-sections for a research presentation"
+        },
+        {
+          "number": 11,
+          "title": "Interpret a geologic map",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Analyze strike, dip, and structure to reconstruct regional history"
+        },
+        {
+          "number": 12,
+          "title": "Analyze geochemical data",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Explore trace element trends across samples and flag anomalies"
+        },
+        {
+          "number": 13,
+          "title": "Build an exam study guide",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Synthesize structural geology notes into diagrams and practice problems"
+        },
+        {
+          "number": 14,
+          "title": "Compare tectonic models",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Weigh competing hypotheses for a basin's formation with evidence"
+        },
+        {
+          "number": 15,
+          "title": "Plan a field mapping strategy",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Design traverse routes, sampling, and note protocols for an area"
+        },
+        {
+          "number": 16,
+          "title": "Interpret a seismic cross-section",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Analyze reflectors to infer subsurface structure with verification"
+        },
+        {
+          "number": 17,
+          "title": "Write Python for data analysis",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Build and debug scripts to plot and model geochemical datasets"
+        },
+        {
+          "number": 18,
+          "title": "Model groundwater flow",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Simulate aquifer behavior with parameters and validate against data"
+        },
+        {
+          "number": 19,
+          "title": "Design a field research study",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Plan hypotheses, sampling, and analysis for a paleoclimate project"
+        },
+        {
+          "number": 20,
+          "title": "Run GIS terrain analysis code",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Script slope and watershed delineation from DEM data, verify outputs"
+        }
+      ]
+    },
+    {
+      "number": 25,
+      "slug": "greek-and-roman-studies",
+      "name": "Greek and Roman Studies",
+      "programLink": "https://www.hws.edu/academics/classics/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Translate a Latin passage draft",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Get a first-pass English rendering of Cicero to check against your own"
+        },
+        {
+          "number": 2,
+          "title": "Explain Greek verb aspect",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify the difference between aorist and imperfect with examples"
+        },
+        {
+          "number": 3,
+          "title": "Summarize a scholarly article",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a journal piece on Athenian democracy before seminar"
+        },
+        {
+          "number": 4,
+          "title": "Define rhetorical terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Get quick definitions of chiasmus, anaphora, and litotes"
+        },
+        {
+          "number": 5,
+          "title": "Brainstorm essay topics on Virgil",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate angles for a paper on the Aeneid's imperial themes"
+        },
+        {
+          "number": 6,
+          "title": "Decline a Latin noun paradigm",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Produce full case tables to memorize for a quiz"
+        },
+        {
+          "number": 7,
+          "title": "Explain a mythological reference",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Unpack an allusion to Persephone in a poem"
+        },
+        {
+          "number": 8,
+          "title": "Draft an email to a professor",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write a polite note requesting a thesis meeting"
+        },
+        {
+          "number": 9,
+          "title": "Outline Roman Republic timeline",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "List key events from the Gracchi to Augustus"
+        },
+        {
+          "number": 10,
+          "title": "Compare Homeric and Attic Greek",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Note dialect differences in vocabulary and forms"
+        },
+        {
+          "number": 11,
+          "title": "Build a vocabulary study guide",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Organize high-frequency Greek terms with mnemonics from readings"
+        },
+        {
+          "number": 12,
+          "title": "Synthesize views on Sparta's decline",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine multiple sources into a balanced historiographical overview"
+        },
+        {
+          "number": 13,
+          "title": "Analyze meter in a Latin poem",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Scan dactylic hexameter lines and flag your errors"
+        },
+        {
+          "number": 14,
+          "title": "Compare theories of Roman collapse",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Weigh Gibbon against modern economic and climate arguments"
+        },
+        {
+          "number": 15,
+          "title": "Plan a museum object presentation",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Structure a talk on a Greek vase's iconography and context"
+        },
+        {
+          "number": 16,
+          "title": "Draft a research prospectus",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Shape a thesis question on Ptolemaic Egypt with a source plan"
+        },
+        {
+          "number": 17,
+          "title": "Analyze epigraphic dataset patterns",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Write code to map inscription findspots and verify against catalogs"
+        },
+        {
+          "number": 18,
+          "title": "Build a custom translation-check GPT",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Configure a tutor that flags mistranslations of specific authors"
+        },
+        {
+          "number": 19,
+          "title": "Model dialect variation statistically",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Run computational analysis of lexical differences across corpora"
+        },
+        {
+          "number": 20,
+          "title": "Design a reception-history study",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Structure methodology tracing Antigone adaptations with coding scheme"
+        }
+      ]
+    },
+    {
+      "number": 26,
+      "slug": "history",
+      "name": "History",
+      "programLink": "https://www.hws.edu/academics/history/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Summarize a primary source",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a lengthy 19th-century letter into key points"
+        },
+        {
+          "number": 2,
+          "title": "Explain a historiographical term",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify what \"the linguistic turn\" means in the field"
+        },
+        {
+          "number": 3,
+          "title": "Brainstorm research paper topics",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate angles on Reconstruction-era labor history"
+        },
+        {
+          "number": 4,
+          "title": "Create a study timeline",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "List major events of the French Revolution in order"
+        },
+        {
+          "number": 5,
+          "title": "Define key concepts",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain mercantilism, feudalism, and manorialism briefly"
+        },
+        {
+          "number": 6,
+          "title": "Draft discussion questions",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Produce seminar prompts on a assigned monograph"
+        },
+        {
+          "number": 7,
+          "title": "Explain a difficult reading",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Break down a dense Foucault passage in plain language"
+        },
+        {
+          "number": 8,
+          "title": "Write a professor email",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Request an extension on an archival research paper politely"
+        },
+        {
+          "number": 9,
+          "title": "Generate a citation in Chicago style",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Format a footnote for an edited primary source volume"
+        },
+        {
+          "number": 10,
+          "title": "Compare two secondary sources",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Note where two historians disagree on causes of WWI"
+        },
+        {
+          "number": 11,
+          "title": "Synthesize a literature review",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine several articles into a coherent historiographical essay draft"
+        },
+        {
+          "number": 12,
+          "title": "Build a document analysis framework",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Create questions to interrogate bias in propaganda posters"
+        },
+        {
+          "number": 13,
+          "title": "Plan an oral history project",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Design interview questions and consent workflow for a community study"
+        },
+        {
+          "number": 14,
+          "title": "Analyze census data trends",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Interpret migration patterns from tabular historical records"
+        },
+        {
+          "number": 15,
+          "title": "Compare methodologies",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Weigh quantitative cliometrics against microhistory approaches"
+        },
+        {
+          "number": 16,
+          "title": "Draft a thesis chapter outline",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Structure an argument with evidence across several archives"
+        },
+        {
+          "number": 17,
+          "title": "Code and analyze an archival dataset",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Write scripts to quantify shifts in newspaper coverage over decades"
+        },
+        {
+          "number": 18,
+          "title": "Build a custom archive-research GPT",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Configure a tool trained on your source notes for querying"
+        },
+        {
+          "number": 19,
+          "title": "Design a comparative research study",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Structure methodology comparing two revolutions with source verification"
+        },
+        {
+          "number": 20,
+          "title": "Map spatial history with GIS reasoning",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Plan and debug code visualizing plantation networks geographically"
+        }
+      ]
+    },
+    {
+      "number": 27,
+      "slug": "individual-major",
+      "name": "Individual Major",
+      "programLink": "https://www.hws.edu/academics/individual-major/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Explain your interdisciplinary framework",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify how two fields connect for a proposal reader"
+        },
+        {
+          "number": 2,
+          "title": "Brainstorm a cross-disciplinary topic",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate research questions bridging psychology and art"
+        },
+        {
+          "number": 3,
+          "title": "Summarize a reading from another field",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense an economics article for a humanities-focused student"
+        },
+        {
+          "number": 4,
+          "title": "Define unfamiliar disciplinary jargon",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain terms from a field new to your major"
+        },
+        {
+          "number": 5,
+          "title": "Draft a rationale statement",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write a first pass explaining why your major is coherent"
+        },
+        {
+          "number": 6,
+          "title": "Draft an email to a faculty advisor",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Request a meeting to approve your course of study"
+        },
+        {
+          "number": 7,
+          "title": "Compare two disciplinary methods",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Note how a sociologist and historian would study the same event"
+        },
+        {
+          "number": 8,
+          "title": "Outline a capstone project",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "List sections integrating your combined fields of study"
+        },
+        {
+          "number": 9,
+          "title": "Explain a concept across audiences",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Rephrase a technical idea for readers in your other field"
+        },
+        {
+          "number": 10,
+          "title": "Generate a reading list",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Suggest foundational texts spanning your two disciplines"
+        },
+        {
+          "number": 11,
+          "title": "Synthesize sources across fields",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Integrate articles from disparate disciplines into one argument"
+        },
+        {
+          "number": 12,
+          "title": "Build a personalized study plan",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Sequence courses and skills to cover both fields coherently"
+        },
+        {
+          "number": 13,
+          "title": "Design a mixed-methods approach",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine qualitative and quantitative tools for your project"
+        },
+        {
+          "number": 14,
+          "title": "Map how theories translate between fields",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Analyze whether a concept holds meaning in another discipline"
+        },
+        {
+          "number": 15,
+          "title": "Plan a self-designed curriculum defense",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Structure arguments justifying your major to a committee"
+        },
+        {
+          "number": 16,
+          "title": "Compare competing frameworks",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Weigh which disciplinary lens best fits your research question"
+        },
+        {
+          "number": 17,
+          "title": "Build a custom research-assistant GPT",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Configure a tool spanning your specific field combination and sources"
+        },
+        {
+          "number": 18,
+          "title": "Design an original interdisciplinary study",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Structure methodology integrating two fields with validity checks"
+        },
+        {
+          "number": 19,
+          "title": "Analyze a dataset with mixed techniques",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Write and debug code combining methods from both disciplines"
+        },
+        {
+          "number": 20,
+          "title": "Model an integrated theoretical system",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Simulate interactions between variables drawn from separate fields"
+        }
+      ]
+    },
+    {
+      "number": 28,
+      "slug": "international-relations",
+      "name": "International Relations",
+      "programLink": "https://www.hws.edu/academics/international-relations/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Summarize a policy brief",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a think-tank report on sanctions into key points"
+        },
+        {
+          "number": 2,
+          "title": "Explain an IR theory",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify realism versus liberalism in plain terms"
+        },
+        {
+          "number": 3,
+          "title": "Brainstorm essay topics on diplomacy",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate angles on multilateral climate negotiations"
+        },
+        {
+          "number": 4,
+          "title": "Define key terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain hegemony, soft power, and balance of power"
+        },
+        {
+          "number": 5,
+          "title": "Draft a country background note",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Produce a quick profile of a state's political system"
+        },
+        {
+          "number": 6,
+          "title": "Explain a treaty's provisions",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Break down the main articles of a trade agreement"
+        },
+        {
+          "number": 7,
+          "title": "Write a professional email",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Request an informational interview with an NGO staffer"
+        },
+        {
+          "number": 8,
+          "title": "Outline a Model UN position paper",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Structure a delegate's stance on a Security Council topic"
+        },
+        {
+          "number": 9,
+          "title": "Compare two foreign policy doctrines",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Note differences between containment and detente"
+        },
+        {
+          "number": 10,
+          "title": "Generate discussion questions",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Produce seminar prompts on humanitarian intervention debates"
+        },
+        {
+          "number": 11,
+          "title": "Synthesize multiple news sources",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Build a balanced briefing on a conflict from varied outlets"
+        },
+        {
+          "number": 12,
+          "title": "Analyze trade or aid data",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Interpret patterns in bilateral flows from a spreadsheet"
+        },
+        {
+          "number": 13,
+          "title": "Build a negotiation simulation plan",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Design roles and objectives for a mock diplomatic summit"
+        },
+        {
+          "number": 14,
+          "title": "Compare theoretical explanations",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Weigh constructivist and realist accounts of an alliance"
+        },
+        {
+          "number": 15,
+          "title": "Draft a policy memo",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Structure recommendations with options and tradeoffs for a decision-maker"
+        },
+        {
+          "number": 16,
+          "title": "Plan a comparative case study",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Select cases and variables to explain intervention outcomes"
+        },
+        {
+          "number": 17,
+          "title": "Model conflict escalation dynamics",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Build and debug a game-theoretic simulation of deterrence"
+        },
+        {
+          "number": 18,
+          "title": "Analyze a quantitative conflict dataset",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Write code testing hypotheses on civil war onset"
+        },
+        {
+          "number": 19,
+          "title": "Design an original research study",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Structure methodology on trade and democratization with verification"
+        },
+        {
+          "number": 20,
+          "title": "Build a custom geopolitics-analysis GPT",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Configure a tool synthesizing your sources on a specific region"
+        }
+      ]
+    },
+    {
+      "number": 29,
+      "slug": "lgbtq-studies",
+      "name": "LGBTQ+ Studies",
+      "programLink": "https://www.hws.edu/academics/gender-sexuality-and-intersectional-justice/lgbtq-studies/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Define key terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain cisnormativity, heteronormativity, and intersectionality clearly"
+        },
+        {
+          "number": 2,
+          "title": "Summarize a foundational reading",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a Judith Butler essay before seminar"
+        },
+        {
+          "number": 3,
+          "title": "Brainstorm research paper topics",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate angles on queer representation in media"
+        },
+        {
+          "number": 4,
+          "title": "Explain a theoretical concept",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Unpack performativity in accessible language"
+        },
+        {
+          "number": 5,
+          "title": "Draft discussion questions",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Produce prompts on a queer history monograph"
+        },
+        {
+          "number": 6,
+          "title": "Write an inclusive-language email",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Draft a note to an organization about pronoun practices"
+        },
+        {
+          "number": 7,
+          "title": "Compare two activist movements",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Note differences between Stonewall-era and marriage-equality organizing"
+        },
+        {
+          "number": 8,
+          "title": "Outline a history timeline",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "List key events in the gay liberation movement"
+        },
+        {
+          "number": 9,
+          "title": "Explain a difficult passage",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Break down a dense queer theory reading in plain terms"
+        },
+        {
+          "number": 10,
+          "title": "Generate a reading list",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Suggest foundational texts across queer and trans studies"
+        },
+        {
+          "number": 11,
+          "title": "Synthesize sources across disciplines",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine sociology, history, and theory into one argument"
+        },
+        {
+          "number": 12,
+          "title": "Analyze survey data on identity",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Interpret patterns in LGBTQ+ health or demographic datasets"
+        },
+        {
+          "number": 13,
+          "title": "Compare theoretical frameworks",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Weigh social constructionism against essentialist perspectives"
+        },
+        {
+          "number": 14,
+          "title": "Plan a community oral history project",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Design ethical interview questions and consent process"
+        },
+        {
+          "number": 15,
+          "title": "Build a media representation study guide",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Organize a framework for analyzing queer characters across shows"
+        },
+        {
+          "number": 16,
+          "title": "Draft a research prospectus",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Shape a thesis question on trans policy with a source plan"
+        },
+        {
+          "number": 17,
+          "title": "Analyze a text corpus computationally",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Write code tracking shifts in queer terminology over time"
+        },
+        {
+          "number": 18,
+          "title": "Design an original research study",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Structure methodology on discrimination with validity and ethics checks"
+        },
+        {
+          "number": 19,
+          "title": "Build a custom archive-research GPT",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Configure a tool querying your notes on queer historical sources"
+        },
+        {
+          "number": 20,
+          "title": "Model intersectional survey outcomes",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Run and verify statistical analysis of overlapping identity variables"
+        }
+      ]
+    },
+    {
+      "number": 30,
+      "slug": "mathematics",
+      "name": "Mathematics",
+      "programLink": "https://www.hws.edu/academics/mathematics/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Explain a proof technique",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify how induction works with a simple example"
+        },
+        {
+          "number": 2,
+          "title": "Define a concept",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain what a group homomorphism is intuitively"
+        },
+        {
+          "number": 3,
+          "title": "Check a derivative or integral",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Verify your computation of a tricky integral"
+        },
+        {
+          "number": 4,
+          "title": "Summarize a textbook section",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a chapter on metric spaces into key ideas"
+        },
+        {
+          "number": 5,
+          "title": "Brainstorm proof strategies",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Suggest approaches to prove an inequality"
+        },
+        {
+          "number": 6,
+          "title": "Generate practice problems",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Produce extra exercises on eigenvalues to drill"
+        },
+        {
+          "number": 7,
+          "title": "Explain a counterexample",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Show why a false conjecture fails with a concrete case"
+        },
+        {
+          "number": 8,
+          "title": "Draft an email to a professor",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Ask about office hours for a real analysis question"
+        },
+        {
+          "number": 9,
+          "title": "Clarify notation",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain what unfamiliar symbols in a paper mean"
+        },
+        {
+          "number": 10,
+          "title": "Outline lecture concepts",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "List key theorems from a topology unit for review"
+        },
+        {
+          "number": 11,
+          "title": "Build a study guide",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Organize definitions, theorems, and proof sketches for an exam"
+        },
+        {
+          "number": 12,
+          "title": "Debug a proof draft",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Find the logical gap in your argument and suggest fixes"
+        },
+        {
+          "number": 13,
+          "title": "Compare solution methods",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Weigh substitution versus contour integration for a problem"
+        },
+        {
+          "number": 14,
+          "title": "Analyze a dataset statistically",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Compute and interpret regression results on sample data"
+        },
+        {
+          "number": 15,
+          "title": "Plan a research reading sequence",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Sequence papers building toward a senior thesis topic"
+        },
+        {
+          "number": 16,
+          "title": "Explain a paper's main argument",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Synthesize a research article's method and significance"
+        },
+        {
+          "number": 17,
+          "title": "Write and debug simulation code",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Build a Monte Carlo simulation and verify convergence numerically"
+        },
+        {
+          "number": 18,
+          "title": "Model a dynamical system",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Code and analyze a system of differential equations with checks"
+        },
+        {
+          "number": 19,
+          "title": "Verify a computational proof",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Use a proof assistant to formalize and check a theorem"
+        },
+        {
+          "number": 20,
+          "title": "Design a numerical experiment",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Structure and debug code testing a conjecture across cases"
+        }
+      ]
+    },
+    {
+      "number": 31,
+      "slug": "media-society",
+      "name": "Media & Society",
+      "programLink": "https://www.hws.edu/academics/media-and-society/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Summarize a McLuhan reading",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a dense media theory chapter into plain takeaways"
+        },
+        {
+          "number": 2,
+          "title": "Define key terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain hegemony, framing, and agenda-setting with clear examples"
+        },
+        {
+          "number": 3,
+          "title": "Brainstorm essay topics",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate angles on streaming culture or social media surveillance"
+        },
+        {
+          "number": 4,
+          "title": "Draft interview questions",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Create questions for a source on local news decline"
+        },
+        {
+          "number": 5,
+          "title": "Explain a media effects theory",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify cultivation theory using current television examples"
+        },
+        {
+          "number": 6,
+          "title": "Rewrite a headline",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Produce five framings of one event to show bias"
+        },
+        {
+          "number": 7,
+          "title": "Draft a pitch email",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write an outreach email to a podcast producer for internship"
+        },
+        {
+          "number": 8,
+          "title": "Outline a presentation",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Structure slides on representation in advertising campaigns"
+        },
+        {
+          "number": 9,
+          "title": "Explain propaganda techniques",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Break down persuasion tactics in a political ad transcript"
+        },
+        {
+          "number": 10,
+          "title": "Suggest counterarguments",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "List rebuttals to a claim about media echo chambers"
+        },
+        {
+          "number": 11,
+          "title": "Compare two theorists",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Contrast Hall and Adorno on audience reception and culture industry"
+        },
+        {
+          "number": 12,
+          "title": "Analyze a survey dataset",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Explore media consumption survey responses and summarize demographic patterns"
+        },
+        {
+          "number": 13,
+          "title": "Build an annotated bibliography",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Synthesize eight sources on misinformation into structured summaries"
+        },
+        {
+          "number": 14,
+          "title": "Plan a media literacy workshop",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Design an interactive session teaching teens to spot fake news"
+        },
+        {
+          "number": 15,
+          "title": "Conduct thematic coding",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Code interview transcripts about news trust into recurring themes"
+        },
+        {
+          "number": 16,
+          "title": "Create a semiotic analysis guide",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Build a framework decoding signs in magazine advertisements"
+        },
+        {
+          "number": 17,
+          "title": "Run computational content analysis",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Write Python to classify sentiment across thousands of tweets"
+        },
+        {
+          "number": 18,
+          "title": "Design a research study",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Design an experiment measuring framing effects on political opinion"
+        },
+        {
+          "number": 19,
+          "title": "Build a custom media-monitoring GPT",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Create a GPT tracking narrative shifts across news outlets"
+        },
+        {
+          "number": 20,
+          "title": "Scrape and analyze headlines",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Script collection of headlines and compare outlet coverage statistically"
+        }
+      ]
+    },
+    {
+      "number": 32,
+      "slug": "music",
+      "name": "Music",
+      "programLink": "https://www.hws.edu/academics/music/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Explain a music theory concept",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify secondary dominants with notated examples and context"
+        },
+        {
+          "number": 2,
+          "title": "Summarize a composer biography",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a reading on Debussy's life and influences"
+        },
+        {
+          "number": 3,
+          "title": "Define genre terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain modal jazz, counterpoint, and syncopation simply"
+        },
+        {
+          "number": 4,
+          "title": "Brainstorm recital themes",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Suggest cohesive program concepts linking Baroque and modern pieces"
+        },
+        {
+          "number": 5,
+          "title": "Draft program notes",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write audience-friendly notes for a Chopin nocturne"
+        },
+        {
+          "number": 6,
+          "title": "Explain a chord progression",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Break down the harmony in a pop song's verse"
+        },
+        {
+          "number": 7,
+          "title": "Generate practice schedule",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Build a weekly routine balancing scales, etudes, and repertoire"
+        },
+        {
+          "number": 8,
+          "title": "Suggest listening examples",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "List pieces illustrating sonata form for a listening quiz"
+        },
+        {
+          "number": 9,
+          "title": "Draft an ensemble email",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write a message coordinating rehearsal times with bandmates"
+        },
+        {
+          "number": 10,
+          "title": "Explain ear training strategy",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Suggest methods for improving interval and chord recognition"
+        },
+        {
+          "number": 11,
+          "title": "Analyze a score harmonically",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Work through a Bach chorale's voice leading step by step"
+        },
+        {
+          "number": 12,
+          "title": "Compare performance interpretations",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Contrast two recordings of a symphony and evaluate tempo choices"
+        },
+        {
+          "number": 13,
+          "title": "Build a music history study guide",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Synthesize eras, composers, and forms into an exam review"
+        },
+        {
+          "number": 14,
+          "title": "Plan a composition project",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Outline steps to write and arrange an original string quartet"
+        },
+        {
+          "number": 15,
+          "title": "Research ethnomusicology sources",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Synthesize scholarship on gamelan tradition into a lit review"
+        },
+        {
+          "number": 16,
+          "title": "Design a lesson plan",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Create a beginner guitar lesson sequencing chords and strumming"
+        },
+        {
+          "number": 17,
+          "title": "Generate MIDI with code",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Write Python to programmatically compose a melody in a given scale"
+        },
+        {
+          "number": 18,
+          "title": "Analyze audio with a script",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Use code to extract tempo and pitch data from recordings"
+        },
+        {
+          "number": 19,
+          "title": "Build a custom theory-tutor GPT",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Create a GPT that quizzes students on part-writing rules"
+        },
+        {
+          "number": 20,
+          "title": "Model acoustic properties",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Simulate harmonic overtone series and instrument timbre computationally"
+        }
+      ]
+    },
+    {
+      "number": 33,
+      "slug": "philosophy",
+      "name": "Philosophy",
+      "programLink": "https://www.hws.edu/academics/philosophy/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Summarize a Kant reading",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Distill a dense Critique passage into accessible points"
+        },
+        {
+          "number": 2,
+          "title": "Define philosophical terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain epistemology, deontology, and qualia clearly"
+        },
+        {
+          "number": 3,
+          "title": "Explain a thought experiment",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Walk through the trolley problem and its variations"
+        },
+        {
+          "number": 4,
+          "title": "Brainstorm paper theses",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate arguable positions on free will and determinism"
+        },
+        {
+          "number": 5,
+          "title": "Clarify a logical fallacy",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain affirming the consequent with everyday examples"
+        },
+        {
+          "number": 6,
+          "title": "Draft a discussion post",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write a response engaging with a utilitarianism seminar prompt"
+        },
+        {
+          "number": 7,
+          "title": "Explain an argument's structure",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Lay out premises and conclusion of Anselm's ontological argument"
+        },
+        {
+          "number": 8,
+          "title": "Suggest counterexamples",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "List cases challenging a definition of knowledge"
+        },
+        {
+          "number": 9,
+          "title": "Define ethical frameworks",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Compare virtue ethics and consequentialism in brief"
+        },
+        {
+          "number": 10,
+          "title": "Rephrase dense prose",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Restate a Heidegger sentence in plain language"
+        },
+        {
+          "number": 11,
+          "title": "Reconstruct a philosopher's argument",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Map Descartes' Meditations reasoning into a formal outline"
+        },
+        {
+          "number": 12,
+          "title": "Compare competing theories",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Contrast Rawls and Nozick on justice and distribution"
+        },
+        {
+          "number": 13,
+          "title": "Build a symbolic logic study guide",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Synthesize proof rules and truth tables into review sheets"
+        },
+        {
+          "number": 14,
+          "title": "Analyze an argument for validity",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Evaluate whether a syllogism is sound and where it fails"
+        },
+        {
+          "number": 15,
+          "title": "Synthesize secondary literature",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine scholarly interpretations of Nietzsche on morality"
+        },
+        {
+          "number": 16,
+          "title": "Plan a debate structure",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Design pro and con cases on moral realism for class"
+        },
+        {
+          "number": 17,
+          "title": "Formalize proofs with a solver",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Use a logic tool to verify natural deduction proofs"
+        },
+        {
+          "number": 18,
+          "title": "Build a custom Socratic-tutor GPT",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Create a GPT that questions students to test arguments"
+        },
+        {
+          "number": 19,
+          "title": "Model formal logic computationally",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Write code checking validity of propositional logic statements"
+        },
+        {
+          "number": 20,
+          "title": "Design an experimental philosophy study",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Design a survey testing intuitions about knowledge attributions"
+        }
+      ]
+    },
+    {
+      "number": 34,
+      "slug": "physics",
+      "name": "Physics",
+      "programLink": "https://www.hws.edu/academics/physics/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Explain a physics concept",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify why angular momentum is conserved with examples"
+        },
+        {
+          "number": 2,
+          "title": "Summarize a research paper abstract",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a condensed-matter article into plain language"
+        },
+        {
+          "number": 3,
+          "title": "Define key terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain entropy, flux, and eigenstate accessibly"
+        },
+        {
+          "number": 4,
+          "title": "Check unit dimensions",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Verify dimensional consistency of a derived equation"
+        },
+        {
+          "number": 5,
+          "title": "Brainstorm lab project ideas",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Suggest feasible undergraduate optics experiment topics"
+        },
+        {
+          "number": 6,
+          "title": "Explain a derivation step",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Walk through one line of a Lagrangian mechanics derivation"
+        },
+        {
+          "number": 7,
+          "title": "Draft a lab-partner email",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write a message coordinating data collection schedules"
+        },
+        {
+          "number": 8,
+          "title": "Generate practice problems",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Create kinematics problems with worked solutions for review"
+        },
+        {
+          "number": 9,
+          "title": "Explain an experimental setup",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Describe how a Michelson interferometer measures wavelength"
+        },
+        {
+          "number": 10,
+          "title": "Interpret a graph",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain what a velocity-time plot's slope and area represent"
+        },
+        {
+          "number": 11,
+          "title": "Set up a physics problem",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Structure an approach to a multi-step electromagnetism question"
+        },
+        {
+          "number": 12,
+          "title": "Build an exam study guide",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Synthesize thermodynamics laws and formulas into a review sheet"
+        },
+        {
+          "number": 13,
+          "title": "Analyze lab data in a spreadsheet",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Fit data and compute uncertainty with Excel Copilot"
+        },
+        {
+          "number": 14,
+          "title": "Compare theoretical models",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Contrast Bohr and quantum mechanical models of the atom"
+        },
+        {
+          "number": 15,
+          "title": "Plan an experiment procedure",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Outline steps and controls for a pendulum period study"
+        },
+        {
+          "number": 16,
+          "title": "Explain error propagation",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Apply propagation rules across a chain of measured quantities"
+        },
+        {
+          "number": 17,
+          "title": "Write and debug simulation code",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Program and fix a numerical projectile-with-drag simulation"
+        },
+        {
+          "number": 18,
+          "title": "Run a Monte Carlo simulation",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Model radioactive decay statistics computationally and verify results"
+        },
+        {
+          "number": 19,
+          "title": "Fit data with statistical modeling",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Use Python to fit nonlinear curves and estimate parameters"
+        },
+        {
+          "number": 20,
+          "title": "Solve differential equations numerically",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Code a Runge-Kutta solver for coupled oscillator equations"
+        }
+      ]
+    },
+    {
+      "number": 35,
+      "slug": "politics",
+      "name": "Politics",
+      "programLink": "https://www.hws.edu/academics/politics/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Summarize a policy brief",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a healthcare reform document into key points"
+        },
+        {
+          "number": 2,
+          "title": "Define political terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain federalism, gerrymandering, and sovereignty clearly"
+        },
+        {
+          "number": 3,
+          "title": "Explain a political theory",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify social contract theory with historical context"
+        },
+        {
+          "number": 4,
+          "title": "Brainstorm essay topics",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate research angles on voter turnout decline"
+        },
+        {
+          "number": 5,
+          "title": "Draft a constituent email",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write a message to a representative advocating a position"
+        },
+        {
+          "number": 6,
+          "title": "Explain a Supreme Court case",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Summarize the holding and reasoning of a landmark ruling"
+        },
+        {
+          "number": 7,
+          "title": "Suggest counterarguments",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "List rebuttals to an argument about term limits"
+        },
+        {
+          "number": 8,
+          "title": "Outline a debate position",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Structure talking points on immigration policy"
+        },
+        {
+          "number": 9,
+          "title": "Compare two ideologies",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Contrast liberalism and conservatism on the role of government"
+        },
+        {
+          "number": 10,
+          "title": "Draft a press release",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write an announcement for a mock campaign event"
+        },
+        {
+          "number": 11,
+          "title": "Analyze polling data",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Explore survey crosstabs and summarize demographic voting patterns"
+        },
+        {
+          "number": 12,
+          "title": "Synthesize sources for a lit review",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine scholarship on democratic backsliding into themes"
+        },
+        {
+          "number": 13,
+          "title": "Compare political systems",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Contrast parliamentary and presidential governance structures analytically"
+        },
+        {
+          "number": 14,
+          "title": "Build a policy analysis memo",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Structure a cost-benefit evaluation of a proposed regulation"
+        },
+        {
+          "number": 15,
+          "title": "Plan a campaign strategy",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Design a message and outreach plan for a local race"
+        },
+        {
+          "number": 16,
+          "title": "Code legislative text",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Categorize bill provisions into thematic policy areas systematically"
+        },
+        {
+          "number": 17,
+          "title": "Run a regression analysis",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Use R to model factors predicting election outcomes"
+        },
+        {
+          "number": 18,
+          "title": "Design a survey experiment",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Design a study measuring how framing shifts policy support"
+        },
+        {
+          "number": 19,
+          "title": "Build a custom policy-research GPT",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Create a GPT summarizing and comparing legislative proposals"
+        },
+        {
+          "number": 20,
+          "title": "Analyze roll-call voting with code",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Script analysis of legislator voting patterns and party unity"
+        }
+      ]
+    },
+    {
+      "number": 36,
+      "slug": "psychological-science",
+      "name": "Psychological Science",
+      "programLink": "https://www.hws.edu/academics/psychological-science/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Explain a psychological concept",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify cognitive dissonance with relatable examples"
+        },
+        {
+          "number": 2,
+          "title": "Summarize a study",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a journal article's methods and findings plainly"
+        },
+        {
+          "number": 3,
+          "title": "Define key terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain operant conditioning, schema, and heuristic simply"
+        },
+        {
+          "number": 4,
+          "title": "Brainstorm research questions",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate testable hypotheses about sleep and memory"
+        },
+        {
+          "number": 5,
+          "title": "Explain a classic experiment",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Describe the Milgram obedience study and its implications"
+        },
+        {
+          "number": 6,
+          "title": "Draft a participant recruitment email",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write an invitation for a survey study on stress"
+        },
+        {
+          "number": 7,
+          "title": "Suggest measures for a construct",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "List validated scales for measuring anxiety"
+        },
+        {
+          "number": 8,
+          "title": "Explain a statistical concept",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify what a p-value does and does not mean"
+        },
+        {
+          "number": 9,
+          "title": "Create flashcards",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate terms and definitions for a biopsychology exam"
+        },
+        {
+          "number": 10,
+          "title": "Explain APA citation format",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Show how to cite a journal article correctly"
+        },
+        {
+          "number": 11,
+          "title": "Design a survey instrument",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Build clear, unbiased questions measuring a psychological construct"
+        },
+        {
+          "number": 12,
+          "title": "Compare theoretical perspectives",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Contrast behaviorist and cognitive explanations of learning"
+        },
+        {
+          "number": 13,
+          "title": "Build a study guide",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Synthesize developmental psychology stages into an exam review"
+        },
+        {
+          "number": 14,
+          "title": "Analyze data in a spreadsheet",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Compute descriptives and correlations with Excel Copilot"
+        },
+        {
+          "number": 15,
+          "title": "Plan a literature review",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Organize sources on social media and adolescent wellbeing"
+        },
+        {
+          "number": 16,
+          "title": "Interpret statistical output",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Explain an ANOVA table and what results mean"
+        },
+        {
+          "number": 17,
+          "title": "Run statistical analysis in R",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Write and debug code for a mixed-effects regression model"
+        },
+        {
+          "number": 18,
+          "title": "Design an experiment",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Design a controlled study with conditions, controls, and measures"
+        },
+        {
+          "number": 19,
+          "title": "Conduct a power analysis",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Compute required sample size for adequate statistical power"
+        },
+        {
+          "number": 20,
+          "title": "Build a custom research-methods GPT",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Create a GPT that critiques study designs for validity"
+        }
+      ]
+    },
+    {
+      "number": 37,
+      "slug": "public-health-studies",
+      "name": "Public Health Studies",
+      "programLink": "https://www.hws.edu/academics/public-health/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Explain herd immunity threshold",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Get a clear breakdown of how vaccination coverage stops disease spread"
+        },
+        {
+          "number": 2,
+          "title": "Define epidemiology terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Quickly clarify incidence, prevalence, morbidity, and attack rate"
+        },
+        {
+          "number": 3,
+          "title": "Summarize a WHO report",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a lengthy global health report into key takeaways"
+        },
+        {
+          "number": 4,
+          "title": "Brainstorm health campaign slogans",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate catchy messages for a local smoking-cessation initiative"
+        },
+        {
+          "number": 5,
+          "title": "Draft outreach email to clinic",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write a professional email requesting an internship or interview"
+        },
+        {
+          "number": 6,
+          "title": "Explain social determinants of health",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Understand how income, housing, and education shape health outcomes"
+        },
+        {
+          "number": 7,
+          "title": "Simplify a research abstract",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Turn dense journal jargon into plain language for lay audiences"
+        },
+        {
+          "number": 8,
+          "title": "Generate survey questions",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Draft community needs-assessment questions on food access"
+        },
+        {
+          "number": 9,
+          "title": "Create flashcards for biostatistics",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Build quick review cards for confidence intervals and p-values"
+        },
+        {
+          "number": 10,
+          "title": "Explain the SIR model conceptually",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Understand susceptible-infected-recovered compartments without heavy math"
+        },
+        {
+          "number": 11,
+          "title": "Build a study guide from lectures",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Synthesize multiple lecture notes into one organized exam guide"
+        },
+        {
+          "number": 12,
+          "title": "Compare intervention frameworks",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Contrast Health Belief Model with Social Cognitive Theory for a paper"
+        },
+        {
+          "number": 13,
+          "title": "Analyze a county health dataset",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Use Excel Copilot to summarize obesity rates across demographics"
+        },
+        {
+          "number": 14,
+          "title": "Design a health-promotion program plan",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Outline objectives, activities, and evaluation for a wellness project"
+        },
+        {
+          "number": 15,
+          "title": "Synthesize sources for literature review",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine five studies on vaccine hesitancy into themed findings"
+        },
+        {
+          "number": 16,
+          "title": "Draft an infographic content plan",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Organize maternal-health statistics into an accessible visual layout"
+        },
+        {
+          "number": 17,
+          "title": "Build a custom disease-outbreak tutor GPT",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Create a GPT trained on epidemiology texts to quiz students"
+        },
+        {
+          "number": 18,
+          "title": "Write R code for regression analysis",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Generate and debug code modeling smoking versus lung-cancer data"
+        },
+        {
+          "number": 19,
+          "title": "Simulate an epidemic in Python",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Model SIR dynamics with adjustable transmission and recovery rates"
+        },
+        {
+          "number": 20,
+          "title": "Design a full research study protocol",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Develop hypotheses, sampling, IRB considerations, and analysis plan"
+        }
+      ]
+    },
+    {
+      "number": 38,
+      "slug": "religious-studies",
+      "name": "Religious Studies",
+      "programLink": "https://www.hws.edu/academics/religious-studies/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Summarize a Quranic surah",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Get a concise overview of themes in a chosen chapter"
+        },
+        {
+          "number": 2,
+          "title": "Define theological terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify concepts like soteriology, theodicy, and eschatology"
+        },
+        {
+          "number": 3,
+          "title": "Explain the Four Noble Truths",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Understand core Buddhist teachings in accessible language"
+        },
+        {
+          "number": 4,
+          "title": "Brainstorm essay topics on ritual",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate paper ideas comparing rites across traditions"
+        },
+        {
+          "number": 5,
+          "title": "Draft email to a faith community",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write a respectful request to observe a worship service"
+        },
+        {
+          "number": 6,
+          "title": "Summarize a dense theology chapter",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense assigned reading from a systematic theology text"
+        },
+        {
+          "number": 7,
+          "title": "Explain historical-critical method",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Understand how scholars analyze biblical texts contextually"
+        },
+        {
+          "number": 8,
+          "title": "Create a timeline of Reformation events",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Build a quick chronology of key sixteenth-century developments"
+        },
+        {
+          "number": 9,
+          "title": "Define Hebrew or Sanskrit terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Get glosses and transliterations for scripture vocabulary"
+        },
+        {
+          "number": 10,
+          "title": "Generate discussion questions",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Prepare seminar prompts on a Kierkegaard reading"
+        },
+        {
+          "number": 11,
+          "title": "Compare creation narratives",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Synthesize Genesis, Enuma Elish, and other cosmogonies thematically"
+        },
+        {
+          "number": 12,
+          "title": "Build a comparative religion study guide",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Organize doctrines of Islam, Judaism, and Christianity side by side"
+        },
+        {
+          "number": 13,
+          "title": "Analyze rhetorical patterns in a sermon",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Examine structure and persuasion across a set of sermon texts"
+        },
+        {
+          "number": 14,
+          "title": "Plan a research paper on pilgrimage",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Outline argument, sources, and structure for the Hajj study"
+        },
+        {
+          "number": 15,
+          "title": "Synthesize scholarly debates",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine competing interpretations of the historical Jesus"
+        },
+        {
+          "number": 16,
+          "title": "Use NotebookLM on primary texts",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Query uploaded scriptures and commentaries for cross-references"
+        },
+        {
+          "number": 17,
+          "title": "Build a custom scripture-analysis GPT",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Create a tutor GPT comparing translations and interpretive traditions"
+        },
+        {
+          "number": 18,
+          "title": "Design an ethnographic field study",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Develop methodology for observing a local religious community"
+        },
+        {
+          "number": 19,
+          "title": "Analyze a text corpus computationally",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Use tools to trace word frequency across ancient manuscripts"
+        },
+        {
+          "number": 20,
+          "title": "Construct an original comparative framework",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Build a defensible model classifying mysticism across traditions"
+        }
+      ]
+    },
+    {
+      "number": 39,
+      "slug": "sociology",
+      "name": "Sociology",
+      "programLink": "https://www.hws.edu/academics/sociology/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Define sociological concepts",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify anomie, habitus, social capital, and structural strain"
+        },
+        {
+          "number": 2,
+          "title": "Summarize a Durkheim reading",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a classic theory text into key arguments"
+        },
+        {
+          "number": 3,
+          "title": "Explain the difference between sex and gender",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Get a clear sociological distinction with examples"
+        },
+        {
+          "number": 4,
+          "title": "Brainstorm research question ideas",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate topics on inequality, migration, or social movements"
+        },
+        {
+          "number": 5,
+          "title": "Draft email to a survey respondent",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write a polite recruitment message for a class study"
+        },
+        {
+          "number": 6,
+          "title": "Explain intersectionality",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Understand overlapping systems of oppression clearly"
+        },
+        {
+          "number": 7,
+          "title": "Simplify a theory-heavy article",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Turn Bourdieu jargon into plain, understandable language"
+        },
+        {
+          "number": 8,
+          "title": "Create a glossary of key terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Build quick definitions for an exam study sheet"
+        },
+        {
+          "number": 9,
+          "title": "Generate interview questions",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Draft open-ended prompts for a qualitative project"
+        },
+        {
+          "number": 10,
+          "title": "Explain quantitative versus qualitative methods",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Compare the two approaches with brief examples"
+        },
+        {
+          "number": 11,
+          "title": "Analyze a census dataset",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Use Excel Copilot to summarize income inequality trends"
+        },
+        {
+          "number": 12,
+          "title": "Compare sociological theories",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Contrast functionalism, conflict theory, and symbolic interactionism"
+        },
+        {
+          "number": 13,
+          "title": "Build a coding scheme for interviews",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Develop thematic categories for analyzing transcript data"
+        },
+        {
+          "number": 14,
+          "title": "Plan a mixed-methods research design",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Outline survey and interview components for a project"
+        },
+        {
+          "number": 15,
+          "title": "Synthesize a literature review",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine studies on gentrification into organized themes"
+        },
+        {
+          "number": 16,
+          "title": "Create a lesson on social stratification",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Design an explainer with examples and discussion activities"
+        },
+        {
+          "number": 17,
+          "title": "Run regression analysis in R",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Write and debug code modeling education versus earnings"
+        },
+        {
+          "number": 18,
+          "title": "Design a rigorous survey instrument",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Build validated scales while avoiding bias and leading questions"
+        },
+        {
+          "number": 19,
+          "title": "Perform computational text analysis",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Analyze social-media posts for sentiment and framing patterns"
+        },
+        {
+          "number": 20,
+          "title": "Build a custom qualitative-coding GPT",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Create a GPT that applies your codebook to transcripts"
+        }
+      ]
+    },
+    {
+      "number": 40,
+      "slug": "spanish-and-hispanic-studies",
+      "name": "Spanish and Hispanic Studies",
+      "programLink": "https://www.hws.edu/academics/spanish-latin-american-bilingual-studies/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Conjugate verbs with explanations",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Practice subjunctive and preterite forms with clear rules"
+        },
+        {
+          "number": 2,
+          "title": "Translate a short passage",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Convert Spanish text to English and check nuance"
+        },
+        {
+          "number": 3,
+          "title": "Explain a grammar point",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Understand ser versus estar with concrete examples"
+        },
+        {
+          "number": 4,
+          "title": "Summarize a Garcia Marquez story",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Get key plot and themes of a magical-realism text"
+        },
+        {
+          "number": 5,
+          "title": "Draft an email in formal Spanish",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write a professional message using correct register"
+        },
+        {
+          "number": 6,
+          "title": "Build vocabulary flashcards",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate themed word lists for an upcoming quiz"
+        },
+        {
+          "number": 7,
+          "title": "Correct a paragraph you wrote",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Get feedback on grammar and word choice in Spanish"
+        },
+        {
+          "number": 8,
+          "title": "Explain a cultural reference",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify the significance of Dia de los Muertos traditions"
+        },
+        {
+          "number": 9,
+          "title": "Generate conversation practice prompts",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Create dialogue scenarios for speaking practice"
+        },
+        {
+          "number": 10,
+          "title": "Define literary terms in context",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Explain costumbrismo and boom latinoamericano briefly"
+        },
+        {
+          "number": 11,
+          "title": "Analyze a Neruda poem",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Examine imagery, form, and meaning across multiple stanzas"
+        },
+        {
+          "number": 12,
+          "title": "Compare regional dialects",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Contrast Rioplatense, Caribbean, and Castilian features"
+        },
+        {
+          "number": 13,
+          "title": "Plan a research essay on colonialism",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Outline argument and sources on Latin American history"
+        },
+        {
+          "number": 14,
+          "title": "Create a bilingual study guide",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Organize grammar and literature review for a midterm"
+        },
+        {
+          "number": 15,
+          "title": "Synthesize criticism on a novel",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine scholarly readings of Cien anos de soledad"
+        },
+        {
+          "number": 16,
+          "title": "Roleplay a conversation partner",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Sustain an adaptive dialogue that corrects errors gently"
+        },
+        {
+          "number": 17,
+          "title": "Build a custom Spanish-tutor GPT",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Create a GPT giving graded feedback at your proficiency level"
+        },
+        {
+          "number": 18,
+          "title": "Perform stylometric text analysis",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Analyze an author's syntax and vocabulary computationally"
+        },
+        {
+          "number": 19,
+          "title": "Design a sociolinguistic study",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Develop methods to research code-switching in bilingual communities"
+        },
+        {
+          "number": 20,
+          "title": "Produce and verify a literary translation",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Translate a poem preserving meter, then critically evaluate choices"
+        }
+      ]
+    },
+    {
+      "number": 41,
+      "slug": "theatre",
+      "name": "Theatre",
+      "programLink": "https://www.hws.edu/academics/theatre/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Summarize a play's plot",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Get a concise breakdown of acts and character arcs"
+        },
+        {
+          "number": 2,
+          "title": "Explain a theatrical term",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify concepts like blocking, proscenium, and dramaturgy"
+        },
+        {
+          "number": 3,
+          "title": "Brainstorm scene ideas",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate premises for a devised-theatre class assignment"
+        },
+        {
+          "number": 4,
+          "title": "Draft a director's note",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write a short program note explaining your creative vision"
+        },
+        {
+          "number": 5,
+          "title": "Analyze a monologue's subtext",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Uncover underlying motivations in a Shakespeare speech"
+        },
+        {
+          "number": 6,
+          "title": "Define acting methods",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Compare Stanislavski, Meisner, and Brecht in brief"
+        },
+        {
+          "number": 7,
+          "title": "Generate warm-up exercises",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Get vocal and physical warm-ups for a rehearsal"
+        },
+        {
+          "number": 8,
+          "title": "Summarize theatre history period",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense key features of Greek or Elizabethan theatre"
+        },
+        {
+          "number": 9,
+          "title": "Draft an audition self-tape email",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write a professional submission message to a casting director"
+        },
+        {
+          "number": 10,
+          "title": "Explain a character's motivation",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Get an interpretation of a role for scene study"
+        },
+        {
+          "number": 11,
+          "title": "Build a character analysis document",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Synthesize objectives, obstacles, and relationships for a role"
+        },
+        {
+          "number": 12,
+          "title": "Plan a production design concept",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Develop set, lighting, and costume ideas around a theme"
+        },
+        {
+          "number": 13,
+          "title": "Compare interpretations of a play",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Contrast staging choices across notable productions"
+        },
+        {
+          "number": 14,
+          "title": "Create a rehearsal schedule",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Organize scene breakdowns and calls across a timeline"
+        },
+        {
+          "number": 15,
+          "title": "Analyze a script for dramaturgy",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Research historical context and themes for a production packet"
+        },
+        {
+          "number": 16,
+          "title": "Adapt a scene into a new setting",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Reimagine dialogue and staging while preserving core conflict"
+        },
+        {
+          "number": 17,
+          "title": "Design a full production prompt book",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Compile blocking, cues, and notes into a stage-manager bible"
+        },
+        {
+          "number": 18,
+          "title": "Build a custom dramaturgy-research GPT",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Create a GPT surfacing historical context for any script"
+        },
+        {
+          "number": 19,
+          "title": "Generate a lighting-plot planning tool",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Model instrument placement and cue sequencing for a stage"
+        },
+        {
+          "number": 20,
+          "title": "Devise an original interactive performance",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Design branching audience-choice structure with technical logistics"
+        }
+      ]
+    },
+    {
+      "number": 42,
+      "slug": "writing-and-rhetoric",
+      "name": "Writing and Rhetoric",
+      "programLink": "https://www.hws.edu/academics/writing-and-rhetoric/default.aspx",
+      "useCases": [
+        {
+          "number": 1,
+          "title": "Brainstorm essay topics",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Generate angles for a persuasive or personal essay"
+        },
+        {
+          "number": 2,
+          "title": "Define rhetorical terms",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Clarify ethos, pathos, kairos, and enthymeme"
+        },
+        {
+          "number": 3,
+          "title": "Get feedback on a paragraph",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Receive line-level suggestions on clarity and flow"
+        },
+        {
+          "number": 4,
+          "title": "Summarize a rhetorical theory reading",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Condense a dense Aristotle or Burke excerpt"
+        },
+        {
+          "number": 5,
+          "title": "Draft a professional email",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Write a polished message to a professor or editor"
+        },
+        {
+          "number": 6,
+          "title": "Generate a thesis statement",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Sharpen a vague argument into a focused claim"
+        },
+        {
+          "number": 7,
+          "title": "Suggest transitions between paragraphs",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Improve cohesion in a draft with better connective phrasing"
+        },
+        {
+          "number": 8,
+          "title": "Create an outline from notes",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Turn scattered ideas into a structured essay skeleton"
+        },
+        {
+          "number": 9,
+          "title": "Explain a citation style",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Get quick MLA or APA formatting guidance"
+        },
+        {
+          "number": 10,
+          "title": "Rewrite a sentence for tone",
+          "difficulty": "Easy",
+          "level": 1,
+          "description": "Adjust a passage to be more formal or conversational"
+        },
+        {
+          "number": 11,
+          "title": "Analyze a speech rhetorically",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Examine appeals and strategies across a full political address"
+        },
+        {
+          "number": 12,
+          "title": "Compare rhetorical frameworks",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Contrast classical and Toulmin models for an argument paper"
+        },
+        {
+          "number": 13,
+          "title": "Build a peer-review feedback guide",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Develop criteria and prompts for evaluating classmates' drafts"
+        },
+        {
+          "number": 14,
+          "title": "Plan a multimodal composition project",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Outline text, image, and audio elements for a digital essay"
+        },
+        {
+          "number": 15,
+          "title": "Synthesize sources for an argument",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Combine several articles into a coherent position on AI ethics"
+        },
+        {
+          "number": 16,
+          "title": "Reverse-outline a messy draft",
+          "difficulty": "Medium",
+          "level": 2,
+          "description": "Map an existing essay's structure to diagnose organization"
+        },
+        {
+          "number": 17,
+          "title": "Build a custom writing-coach GPT",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Create a GPT giving rubric-aligned feedback in your voice"
+        },
+        {
+          "number": 18,
+          "title": "Design a rhetorical corpus analysis",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Develop methods to study framing across many news articles"
+        },
+        {
+          "number": 19,
+          "title": "Conduct computational discourse analysis",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Use tools to trace metaphor patterns across a text collection"
+        },
+        {
+          "number": 20,
+          "title": "Develop and test a style-transfer workflow",
+          "difficulty": "Hard",
+          "level": 3,
+          "description": "Engineer prompts that adapt prose to a target style, then verify"
+        }
+      ]
+    }
+  ]
+};

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /showcase.html
+
+Sitemap: https://hws-ai-club.netlify.app/sitemap.xml

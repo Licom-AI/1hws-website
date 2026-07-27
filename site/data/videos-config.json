@@ -1,0 +1,778 @@
+{
+  "_comment": "SINGLE SOURCE OF TRUTH for tutorial videos. Edit here, then run: python3 scripts/build_site.py (regenerates static pages + js/videos.js). Every id was verified live via YouTube oEmbed.",
+  "skill": {
+    "general": {
+      "id": "wa6SOJ87MhU",
+      "title": "Full ChatGPT Guide for Students"
+    },
+    "summarize": {
+      "id": "-quC5i44SsI",
+      "title": "Summarize Articles & Videos with ChatGPT"
+    },
+    "explain": {
+      "id": "nBUl8Xz5MVY",
+      "title": "The Fastest Way to Understand Anything with ChatGPT"
+    },
+    "brainstorm": {
+      "id": "LuHx6KdQPHQ",
+      "title": "3 Ways to Brainstorm Anything in ChatGPT"
+    },
+    "outline": {
+      "id": "du-_Ij4AXI0",
+      "title": "How to Outline Using ChatGPT"
+    },
+    "essay": {
+      "id": "-kLUwgtNn60",
+      "title": "Write Essays with ChatGPT (step by step)"
+    },
+    "proofread": {
+      "id": "mim1TlFcX3g",
+      "title": "Proofreading with ChatGPT"
+    },
+    "feedback": {
+      "id": "P9dEs3M_AA4",
+      "title": "Use ChatGPT for Essay Feedback"
+    },
+    "flashcards": {
+      "id": "UWlzhXPUH68",
+      "title": "ChatGPT + Quizlet Flashcards"
+    },
+    "studyplan": {
+      "id": "SDIrnL6nUkE",
+      "title": "Make the Ultimate Self-Study Plan with ChatGPT"
+    },
+    "exam": {
+      "id": "tIvzgSifYHM",
+      "title": "Generate Practice Exam Questions with ChatGPT"
+    },
+    "citation": {
+      "id": "gI9kXjTl3ek",
+      "title": "Write an Annotated Bibliography with ChatGPT"
+    },
+    "research": {
+      "id": "wvPxI_dm0d8",
+      "title": "ChatGPT Deep Research walk-through"
+    },
+    "litreview": {
+      "id": "em39PxLmU-s",
+      "title": "Research Rabbit — literature reviews"
+    },
+    "code": {
+      "id": "W1YOYm9xdwA",
+      "title": "Debug Code with ChatGPT"
+    },
+    "data": {
+      "id": "8qWtU51lxpM",
+      "title": "Use ChatGPT for Data Cleaning & Analysis"
+    },
+    "dataviz": {
+      "id": "in3BS4St3h0",
+      "title": "ChatGPT data analysis: Excel to insights"
+    },
+    "slides": {
+      "id": "KcbXKUR7-a0",
+      "title": "Make Presentations with Gamma AI"
+    },
+    "email": {
+      "id": "NmVrXhbSJ2Y",
+      "title": "Write Emails with ChatGPT / Gemini"
+    },
+    "interview": {
+      "id": "6BJ0T8L7E5s",
+      "title": "ChatGPT as a mock-interview role-play tool"
+    },
+    "language": {
+      "id": "xQXiSGDXknA",
+      "title": "Learn Any Language with ChatGPT"
+    },
+    "notes": {
+      "id": "uSVBfyHBiDU",
+      "title": "Organize notes with Google NotebookLM"
+    },
+    "image": {
+      "id": "r2JQTh8y3yk",
+      "title": "Midjourney beginner tutorial (AI images)"
+    },
+    "customgpt": {
+      "id": "8Ct0rtFA2Hw",
+      "title": "How to Create a Custom GPT (Kevin Stratvert)"
+    },
+    "researchdesign": {
+      "id": "KzmGTTv6H6s",
+      "title": "Using ChatGPT to design a research study (question, method, analysis)"
+    },
+    "lessonplan": {
+      "id": "jPEknia0XNw",
+      "title": "ChatGPT for teachers: create lesson plans"
+    },
+    "vision": {
+      "id": "M1n3xyKu5XA",
+      "title": "Upload Photos to ChatGPT & Ask AI About Them"
+    },
+    "compare": {
+      "id": "xefUis03j_w",
+      "title": "How To Compare Different Things In ChatGPT"
+    },
+    "timeline": {
+      "id": "rZvXeE5aZ3k",
+      "title": "Quick Timelines With AI (turn notes into a timeline)"
+    },
+    "projectplan": {
+      "id": "kXeN0vkpshk",
+      "title": "Plan a Full Project with ChatGPT Projects"
+    },
+    "studymode": {
+      "id": "-k3TtT4iDks",
+      "title": "ChatGPT Study Mode (interactive tutor)"
+    }
+  },
+  "overrides": {
+    "computer-science/16": "8qWtU51lxpM",
+    "computer-science/19": "A3WKdt_MNZQ",
+    "art-art-history/19": "M1n3xyKu5XA",
+    "anthropology-sociology/14": "8qWtU51lxpM",
+    "art-studio-art/15": "wvPxI_dm0d8",
+    "music/5": "-kLUwgtNn60",
+    "english-and-creative-writing/14": "-k3TtT4iDks",
+    "english-and-creative-writing/20": "uSVBfyHBiDU",
+    "theatre/15": "wvPxI_dm0d8",
+    "theatre/17": "du-_Ij4AXI0",
+    "architectural-studies/14": "M1n3xyKu5XA",
+    "architectural-studies/15": "du-_Ij4AXI0",
+    "art-studio-art/10": "LuHx6KdQPHQ",
+    "spanish-and-hispanic-studies/14": "SDIrnL6nUkE",
+    "business-management-and-entrepreneurship/9": "6BJ0T8L7E5s",
+    "theatre/19": "W1YOYm9xdwA",
+    "individual-major/14": "-k3TtT4iDks",
+    "spanish-and-hispanic-studies/18": "W1YOYm9xdwA",
+    "chemistry/14": "xefUis03j_w",
+    "international-relations/16": "KzmGTTv6H6s",
+    "public-health-studies/9": "UWlzhXPUH68",
+    "biochemistry/18": "W1YOYm9xdwA",
+    "biology/18": "W1YOYm9xdwA",
+    "chemistry/18": "W1YOYm9xdwA",
+    "economics/16": "SDIrnL6nUkE",
+    "art-studio-art/16": "M1n3xyKu5XA",
+    "mathematics/15": "SDIrnL6nUkE",
+    "media-society/16": "-k3TtT4iDks",
+    "history/15": "-k3TtT4iDks",
+    "dance/8": "wa6SOJ87MhU",
+    "asian-studies/20": "W1YOYm9xdwA",
+    "chemistry/20": "W1YOYm9xdwA",
+    "economics/19": "W1YOYm9xdwA",
+    "environmental-science/18": "W1YOYm9xdwA",
+    "mathematics/19": "W1YOYm9xdwA",
+    "music/20": "W1YOYm9xdwA",
+    "philosophy/17": "W1YOYm9xdwA",
+    "business-management-and-entrepreneurship/17": "8qWtU51lxpM",
+    "business-management-and-entrepreneurship/20": "8qWtU51lxpM",
+    "economics/20": "8qWtU51lxpM",
+    "spanish-and-hispanic-studies/1": "WVAbJbO2CgI",
+    "spanish-and-hispanic-studies/2": "WVAbJbO2CgI",
+    "spanish-and-hispanic-studies/3": "WVAbJbO2CgI",
+    "spanish-and-hispanic-studies/6": "WVAbJbO2CgI",
+    "spanish-and-hispanic-studies/9": "WVAbJbO2CgI",
+    "spanish-and-hispanic-studies/16": "WVAbJbO2CgI",
+    "spanish-and-hispanic-studies/20": "WVAbJbO2CgI",
+    "french-and-francophone-studies/1": "RDVUioXNMIk",
+    "french-and-francophone-studies/2": "RDVUioXNMIk",
+    "french-and-francophone-studies/6": "RDVUioXNMIk",
+    "french-and-francophone-studies/10": "RDVUioXNMIk",
+    "french-and-francophone-studies/13": "RDVUioXNMIk",
+    "french-and-francophone-studies/16": "RDVUioXNMIk",
+    "computer-science/11": "_4-pggUACz0",
+    "computer-science/13": "-c5WEn18IeE",
+    "computer-science/20": "_4-pggUACz0",
+    "anthropology-sociology/17": "8qWtU51lxpM",
+    "anthropology-sociology/19": "8qWtU51lxpM",
+    "biochemistry/20": "8qWtU51lxpM",
+    "bodies-disability-and-justice/18": "8qWtU51lxpM",
+    "economics/17": "8qWtU51lxpM",
+    "educational-studies/17": "8qWtU51lxpM",
+    "psychological-science/17": "8qWtU51lxpM",
+    "sociology/17": "8qWtU51lxpM",
+    "international-relations/18": "8qWtU51lxpM",
+    "public-health-studies/18": "8qWtU51lxpM",
+    "environmental-science/20": "ADUrUGQgksY",
+    "geoscience/20": "ADUrUGQgksY",
+    "history/20": "ADUrUGQgksY",
+    "mathematics/3": "STJuR1zH8Ck",
+    "american-studies/14": "M1n3xyKu5XA",
+    "art-art-history/14": "M1n3xyKu5XA",
+    "biochemistry/6": "M1n3xyKu5XA",
+    "biology/6": "M1n3xyKu5XA",
+    "biology/9": "M1n3xyKu5XA",
+    "chemistry/7": "M1n3xyKu5XA",
+    "chemistry/11": "M1n3xyKu5XA",
+    "environmental-science/16": "M1n3xyKu5XA",
+    "geoscience/11": "M1n3xyKu5XA",
+    "geoscience/16": "M1n3xyKu5XA",
+    "music/11": "M1n3xyKu5XA",
+    "economics/5": "M1n3xyKu5XA",
+    "physics/10": "M1n3xyKu5XA",
+    "biochemistry/13": "M1n3xyKu5XA",
+    "anthropology-sociology/7": "xefUis03j_w",
+    "sociology/3": "xefUis03j_w",
+    "sociology/10": "xefUis03j_w",
+    "lgbtq-studies/8": "rZvXeE5aZ3k",
+    "greek-and-roman-studies/9": "rZvXeE5aZ3k",
+    "classics/13": "rZvXeE5aZ3k",
+    "educational-studies/15": "jPEknia0XNw",
+    "bodies-disability-and-justice/9": "LuHx6KdQPHQ",
+    "dance/6": "LuHx6KdQPHQ",
+    "english-and-creative-writing/7": "LuHx6KdQPHQ",
+    "media-society/10": "LuHx6KdQPHQ",
+    "music/8": "LuHx6KdQPHQ",
+    "philosophy/8": "LuHx6KdQPHQ",
+    "politics/7": "LuHx6KdQPHQ",
+    "psychological-science/7": "LuHx6KdQPHQ",
+    "art-art-history/8": "LuHx6KdQPHQ",
+    "art-studio-art/7": "LuHx6KdQPHQ",
+    "theatre/7": "LuHx6KdQPHQ",
+    "architectural-studies/8": "LuHx6KdQPHQ",
+    "africana-studies/14": "-k3TtT4iDks",
+    "classics/14": "-k3TtT4iDks",
+    "greek-and-roman-studies/13": "-k3TtT4iDks",
+    "philosophy/14": "-k3TtT4iDks",
+    "religious-studies/13": "-k3TtT4iDks",
+    "spanish-and-hispanic-studies/11": "-k3TtT4iDks",
+    "theatre/5": "-k3TtT4iDks",
+    "writing-and-rhetoric/11": "-k3TtT4iDks",
+    "theatre/11": "-k3TtT4iDks",
+    "bodies-disability-and-justice/20": "-k3TtT4iDks",
+    "sociology/8": "-k3TtT4iDks",
+    "bodies-disability-and-justice/13": "-k3TtT4iDks",
+    "classics/18": "W1YOYm9xdwA",
+    "religious-studies/19": "W1YOYm9xdwA",
+    "sociology/19": "W1YOYm9xdwA",
+    "writing-and-rhetoric/19": "W1YOYm9xdwA",
+    "writing-and-rhetoric/18": "W1YOYm9xdwA",
+    "writing-and-rhetoric/20": "W1YOYm9xdwA",
+    "dance/19": "W1YOYm9xdwA",
+    "biochemistry/16": "W1YOYm9xdwA",
+    "international-relations/13": "kXeN0vkpshk",
+    "business-management-and-entrepreneurship/14": "kXeN0vkpshk",
+    "music/7": "kXeN0vkpshk",
+    "environmental-studies/13": "kXeN0vkpshk",
+    "history/12": "kXeN0vkpshk",
+    "bodies-disability-and-justice/16": "kXeN0vkpshk",
+    "biochemistry/7": "SDIrnL6nUkE",
+    "biology/7": "SDIrnL6nUkE",
+    "classics/2": "xQXiSGDXknA",
+    "greek-and-roman-studies/6": "xQXiSGDXknA",
+    "public-health-studies/7": "-quC5i44SsI",
+    "french-and-francophone-studies/14": "em39PxLmU-s",
+    "spanish-and-hispanic-studies/15": "em39PxLmU-s",
+    "music/15": "wvPxI_dm0d8",
+    "philosophy/16": "du-_Ij4AXI0",
+    "environmental-studies/16": "in3BS4St3h0"
+  },
+  "leadVerb": {
+    "summarize": "summarize",
+    "summarise": "summarize",
+    "explain": "explain",
+    "define": "studymode",
+    "clarify": "explain",
+    "brainstorm": "brainstorm",
+    "debug": "code",
+    "outline": "outline",
+    "proofread": "proofread",
+    "rephrase": "proofread",
+    "rewrite": "proofread",
+    "paraphrase": "proofread",
+    "compare": "compare"
+  },
+  "rules": [
+    [
+      "customgpt",
+      "custom [^.]{0,30}gpt\\b|\\bbuild a gpt|create a gpt|\\bgpt tutor|your own gpt|custom chatbot|\\brag chatbot"
+    ],
+    [
+      "image",
+      "midjourney|dall-?e|\\bai image|image generation|generate an image|concept art|storyboard|character design|album art|movie poster"
+    ],
+    [
+      "compare",
+      "^compare\\b|\\bcompare and contrast\\b|difference between|versus\\b|\\bvs\\.?\\b"
+    ],
+    [
+      "timeline",
+      "(create|build|make|outline)\\s+(a|an|the)?\\s*[\\w -]{0,25}timeline|timeline of"
+    ],
+    [
+      "researchdesign",
+      "design (a|an) [\\w -]{0,40}(study|experiment|survey|protocol|procedure)|research design|mixed-methods|oral history|interview (questions|guide)|coding scheme|thematic coding|survey (instrument|protocol|experiment|questions)|sampling design|field study|study protocol|qualitative (research|study|coding)|grounded theory|plan (a|an)? ?experiment|experiment procedure"
+    ],
+    [
+      "projectplan",
+      "plan (a|an|my)\\s+[\\w -]{0,30}(project|schedule|workshop|proposal|campaign|strategy|collection|defense|sequence)|rehearsal schedule|portfolio plan|semester plan|project plan"
+    ],
+    [
+      "email",
+      "\\bemail|cover letter|cover-letter|outreach message|inquiry message"
+    ],
+    [
+      "code",
+      "debug|refactor|\\bcode\\b|coding|python|javascript|\\bjava\\b|\\bc\\+\\+|algorithm|pseudocode|unit test|compil|\\bapi\\b|\\bregex|\\bscript\\b|grasshopper|stata|\\br script|programming|system design|data structure|profil(er|ing)\\b|profile a (slow )?(program|function)|slow program|optimi[sz]e performance"
+    ],
+    [
+      "dataviz",
+      "visuali[sz]|\\bchart\\b|\\bgraph\\b|dashboard|\\bplot\\b|infographic"
+    ],
+    [
+      "data",
+      "dataset|data set|\\bdata\\b|regression|statistic|econometric|\\bexcel\\b|spreadsheet|quantitative|\\bsurvey data|clean.*data|analyze.*data|survey results|cross-tabulation"
+    ],
+    [
+      "citation",
+      "citation|bibliograph|\\bcite\\b|works cited|reference list"
+    ],
+    [
+      "litreview",
+      "literature review|systematic review|research gap|survey the literature|synthesi[sz]e.*(studies|literature|sources|research)"
+    ],
+    [
+      "research",
+      "deep research|research sources|find.*(sources|papers|studies|articles)|gather sources|background research|research a topic|scoping|reading list|(suggest|recommend|find).*(read|watch|review|study|studies|book|film|ethnograph|article|paper|source)"
+    ],
+    [
+      "slides",
+      "\\bslides?\\b|\\bpresentation|pitch deck|\\bdeck\\b|\\bposter\\b"
+    ],
+    [
+      "interview",
+      "mock interview|practice .{0,20}interview|interview prep|job interview|hiring"
+    ],
+    [
+      "language",
+      "translat|foreign language|vocabular|conjugat|pronunciation|practice.*(spanish|french|german|language|conversation)|role-?play (a )?conversation|conversation partner|conversation practice"
+    ],
+    [
+      "flashcards",
+      "flashcard|quizlet|\\banki\\b"
+    ],
+    [
+      "exam",
+      "practice (exam|test|problem|question)|mock exam|self-?quiz|quiz myself|study questions|exam questions|test yourself"
+    ],
+    [
+      "studyplan",
+      "study plan|study schedule|study guide|revision plan|reading schedule|semester plan|plan.*(study|revision|exam)"
+    ],
+    [
+      "lessonplan",
+      "lesson plan|\\blesson\\b|unit sequence|classroom|teaching unit"
+    ],
+    [
+      "notes",
+      "lecture notes|organize.*notes|notebooklm|class notes"
+    ],
+    [
+      "outline",
+      "\\boutline\\b"
+    ],
+    [
+      "brainstorm",
+      "brainstorm|generate ideas|idea generation|topic ideas|come up with|ideate|discussion question|discussion prompt|focus-group"
+    ],
+    [
+      "feedback",
+      "feedback|critique my|\\brubric\\b|review my (draft|essay|paper|writing)|assess my|grade my"
+    ],
+    [
+      "proofread",
+      "proofread|grammar|polish|improve.*(writing|draft|prose)|rephrase|rewrite|\\bedit\\b|clarity|concise"
+    ],
+    [
+      "essay",
+      "\\bessay|thesis|\\bpaper\\b|paragraph|cover.*(memo)|write.*(report|memo|blog|article|statement|proposal|review)|draft (a|an|my)"
+    ],
+    [
+      "summarize",
+      "summari[sz]|tl;?dr|condense|key (points|takeaways|arguments)|abstract of|distill"
+    ],
+    [
+      "explain",
+      "explain|\\bdefine\\b|clarify|concept|what is|understand|break down|\\beli5|difference between|compare|contrast|interpret|walk.*through"
+    ]
+  ],
+  "videoMeta": {
+    "-c5WEn18IeE": {
+      "title": "How I Use ChatGPT to 10X Test Case Generation. Unbelievable!",
+      "channel": "AI & Automation Hub",
+      "date": "20250524"
+    },
+    "-k3TtT4iDks": {
+      "title": "ChatGPT Study Mode Just Changed Learning FOREVER!",
+      "channel": "Ritesh Hegde - Your AI Partner",
+      "date": "20260519"
+    },
+    "-kLUwgtNn60": {
+      "title": "How to Write an Essay with ChatGPT - AI Academy's Free ChatGPT Course - Lesson 3",
+      "channel": "AI Academy",
+      "date": "20240529"
+    },
+    "-quC5i44SsI": {
+      "title": "How To Summarize Articles and Videos With ChatGPT",
+      "channel": "macmostvideo",
+      "date": "20230208"
+    },
+    "6BJ0T8L7E5s": {
+      "title": "How to Do Interview Practice using ChatGPT",
+      "channel": "w/KMo",
+      "date": "20250523"
+    },
+    "8Ct0rtFA2Hw": {
+      "title": "How to Create a Custom GPT in ChatGPT (Step-by-Step)",
+      "channel": "The AI Productivity Coach",
+      "date": "20260509"
+    },
+    "8qWtU51lxpM": {
+      "title": "ChatGPT for Data Analytics - Full Tutorial",
+      "channel": "Luke Barousse",
+      "date": "20241120"
+    },
+    "A3WKdt_MNZQ": {
+      "title": "Build Your Own POWERFUL RAG Chatbot | Python, LangChain, Streamlit",
+      "channel": "Thomas Janssen",
+      "date": "20250216"
+    },
+    "ADUrUGQgksY": {
+      "title": "ChatGPT for GIS Analysis Mapping With Python",
+      "channel": "construmGIS",
+      "date": "20250404"
+    },
+    "KcbXKUR7-a0": {
+      "title": "How to Use Gamma AI (Full Tutorial for Presentations, Websites & More)",
+      "channel": "Kevin Stratvert",
+      "date": "20250519"
+    },
+    "KzmGTTv6H6s": {
+      "title": "Using ChatGPT to design a research study: research question, method, analysis, discussion, titles.",
+      "channel": "Ranywayz Random",
+      "date": "20230128"
+    },
+    "LuHx6KdQPHQ": {
+      "title": "3 Ways to Brainstorm ANYTHING in ChatGPT! (+ Free Prompt!)",
+      "channel": "AI Foundations",
+      "date": "20231127"
+    },
+    "M1n3xyKu5XA": {
+      "title": "How to Upload Photos on ChatGPT App Ask AI About Your Photos (FULL GUIDE 2025)",
+      "channel": "AI Mastery",
+      "date": "20251022"
+    },
+    "NmVrXhbSJ2Y": {
+      "title": "How to write Emails with ChatGPT, Gemini, or any other AI",
+      "channel": "Accounting Hub by Dr. Scarpin",
+      "date": "20250127"
+    },
+    "P9dEs3M_AA4": {
+      "title": "Grade Your Essay Before You Submit (Steal This “Teacher Rubric” ChatGPT Prompt)",
+      "channel": "Tech Tip Daily",
+      "date": "20260508"
+    },
+    "RDVUioXNMIk": {
+      "title": "Practice Speaking French with ChatGPT: 5 Prompts + Real Roleplay Demo",
+      "channel": "FrenchReady",
+      "date": "20250805"
+    },
+    "SDIrnL6nUkE": {
+      "title": "How To Make The ULTIMATE Self Study Plan With ChatGPT (step by step prompting guide)",
+      "channel": "Tina Huang",
+      "date": "20240922"
+    },
+    "STJuR1zH8Ck": {
+      "title": "How to Use ChatGPT for Solving Calculus Problems | Step-by-Step Tutorial",
+      "channel": "TechXTuber",
+      "date": "20250721"
+    },
+    "UWlzhXPUH68": {
+      "title": "How To Create Flashcards In ChatGPT & Export Them To Quizlet",
+      "channel": "PE TUTOR",
+      "date": "20251215"
+    },
+    "W1YOYm9xdwA": {
+      "title": "ChatGPT Debugging Code Easily with simple Prompts",
+      "channel": "SkillCurb",
+      "date": "20230714"
+    },
+    "WVAbJbO2CgI": {
+      "title": "How To Learn Spanish With AI In 2025",
+      "channel": "Jerry Registre",
+      "date": "20250125"
+    },
+    "_4-pggUACz0": {
+      "title": "What Advanced Prompts Refactor Legacy Code Using ChatGPT? - Learning To Code With AI",
+      "channel": "Learning To Code With AI",
+      "date": "20250917"
+    },
+    "du-_Ij4AXI0": {
+      "title": "How to Write a Complete Research Paper using ChatGPT?",
+      "channel": "Yash Mittra - YMGrad",
+      "date": "20250123"
+    },
+    "em39PxLmU-s": {
+      "title": "Research Rabbit AI Tutorial for Beginners (2026) | Literature Review & Research Gap Finding",
+      "channel": "AAKASH HAKE",
+      "date": "20260509"
+    },
+    "gI9kXjTl3ek": {
+      "title": "How to Write an Annotated Bibliography using ChatGPT (2025 Guide)",
+      "channel": "AI Mastery",
+      "date": "20251105"
+    },
+    "in3BS4St3h0": {
+      "title": "ChatGPT for Data Analysis | Build Charts in 5 Minutes vs. 5 Hours",
+      "channel": "Lillian Chiu",
+      "date": "20251218"
+    },
+    "jPEknia0XNw": {
+      "title": "How to Use ChatGPT for Teaching: Lesson Plans, Worksheets & Classroom Activities",
+      "channel": "EdTech With Nehla",
+      "date": "20260624"
+    },
+    "kXeN0vkpshk": {
+      "title": "Plan a Full Project in 5 Minutes with ChatGPT Projects and Google Sheets",
+      "channel": "Dare Makun",
+      "date": "20251211"
+    },
+    "mim1TlFcX3g": {
+      "title": "Proofreading With ChatGPT",
+      "channel": "UF Training & Organizational Development",
+      "date": "20240117"
+    },
+    "nBUl8Xz5MVY": {
+      "title": "The Fastest Way to Understand Anything with ChatGPT (Full System)",
+      "channel": "Muhammad Sami",
+      "date": "20260702"
+    },
+    "r2JQTh8y3yk": {
+      "title": "Midjourney - Beginner Tutorial in 16 MINS! [2025]",
+      "channel": "Technically Trent",
+      "date": "20250212"
+    },
+    "rZvXeE5aZ3k": {
+      "title": "Quick Timelines With AI",
+      "channel": "Daniel Rich",
+      "date": "20251027"
+    },
+    "tIvzgSifYHM": {
+      "title": "Using ChatGPT to Generate Practice Exam Questions",
+      "channel": "Thomas Almonroeder",
+      "date": "20240720"
+    },
+    "uSVBfyHBiDU": {
+      "title": "How to Use Google NotebookLM (Full Tutorial)",
+      "channel": "Kevin Stratvert",
+      "date": "20260511"
+    },
+    "wa6SOJ87MhU": {
+      "title": "How to Use ChatGPT Complete Beginners Guide in 2026",
+      "channel": "Tech Life Unity",
+      "date": "20251209"
+    },
+    "wvPxI_dm0d8": {
+      "title": "HOW TO use ChatGPT's Deep Research Feature | Full Walk-through",
+      "channel": "NILC Training",
+      "date": "20250311"
+    },
+    "xQXiSGDXknA": {
+      "title": "How to Actually Use AI for Language Learning (LLMs The Expert Way)",
+      "channel": "languagejones",
+      "date": "20260227"
+    },
+    "xefUis03j_w": {
+      "title": "ChatGPT - Master Compare & Contrast: Learn to Analyze and Re-Write Like a Pro!",
+      "channel": "Learn Easy With Us",
+      "date": "20250527"
+    }
+  },
+  "videoTeaches": {
+    "-c5WEn18IeE": {
+      "method": "giving ChatGPT a scenario and having it generate a full set of test cases from it",
+      "takeaway": "How to turn a description of expected behaviour into structured test cases."
+    },
+    "-k3TtT4iDks": {
+      "method": "ChatGPT's Study Mode (type /study), an interactive tutor that guides you with questions step by step instead of just handing over the answer",
+      "takeaway": "How to switch ChatGPT into tutor mode so it drills you on terms and ideas rather than doing the thinking for you."
+    },
+    "-kLUwgtNn60": {
+      "method": "AI Academy's approach to long-form writing: never ask for the whole essay at once — break it into smaller prompts across two tabs and a document so you keep control of the argument",
+      "takeaway": "A workflow that automates the writing but not the thinking, so the argument stays yours and the draft stays checkable."
+    },
+    "-quC5i44SsI": {
+      "method": "MacMost's copy-paste method — pull an article into reader view, paste it into ChatGPT after 'summarize this:', then ask for a set word count or a 10-bullet version; also how to grab a YouTube transcript to summarise a video",
+      "takeaway": "How to compress a long reading or video into a summary of the exact length you need, and why pasting the source keeps it accurate."
+    },
+    "6BJ0T8L7E5s": {
+      "method": "a back-and-forth mock interview with ChatGPT — it asks behavioural questions, you answer, and it critiques how you responded",
+      "takeaway": "A practice loop for interview answers, including feedback on structure and impact."
+    },
+    "8Ct0rtFA2Hw": {
+      "method": "building a Custom GPT from scratch in ChatGPT and feeding it your own past writing so its output sounds like you rather than generic AI",
+      "takeaway": "How to set up a reusable assistant with your instructions baked in, so you stop re-explaining context every session."
+    },
+    "8qWtU51lxpM": {
+      "method": "dragging a dataset straight into ChatGPT and prompting it to describe the data, produce descriptive statistics per column, and chart the columns you care about",
+      "takeaway": "How to interrogate a spreadsheet conversationally, and why the 'analyzing' step means it ran real code rather than guessing."
+    },
+    "A3WKdt_MNZQ": {
+      "method": "how retrieval-augmented generation works, then building a working RAG chatbot with Python, LangChain, Streamlit and a Pinecone vector database",
+      "takeaway": "The architecture behind a document-grounded chatbot, and a working build you can adapt."
+    },
+    "ADUrUGQgksY": {
+      "method": "prompting ChatGPT to write Python (geopandas) that reads spatial files and plots them on a map, then running it in Google Colab",
+      "takeaway": "How to get working geospatial analysis code from a plain-English description of the map you want."
+    },
+    "KcbXKUR7-a0": {
+      "method": "Gamma — turn a one-line prompt into a full slide deck, review the generated outline before it builds, then restyle with themes",
+      "takeaway": "How to get a presentable deck out of a single prompt, editing the outline before any slides are made."
+    },
+    "KzmGTTv6H6s": {
+      "method": "designing a study end-to-end in ChatGPT — research questions, hypotheses, survey items, sample size and sampling method, R code for the analysis, then implications and titles",
+      "takeaway": "A full research-design workflow, including how to answer a reviewer who says your sample is too small."
+    },
+    "LuHx6KdQPHQ": {
+      "method": "three brainstorming methods in ChatGPT — a reusable custom-instructions 'brainstorm paradigm', an AI-diagram tree that fans one topic into dozens of branches, and a SWOT prompt to pressure-test an idea",
+      "takeaway": "Three prompt patterns you can reuse to go from a blank page to a categorised list of options, plus a way to stress-test the one you pick."
+    },
+    "M1n3xyKu5XA": {
+      "method": "uploading an image to ChatGPT with the + button and asking questions about it — the demo uploads a problem and asks ChatGPT to explain what it shows",
+      "takeaway": "How to get AI to read a picture, diagram or screenshot you're stuck on, rather than trying to describe it in words."
+    },
+    "NmVrXhbSJ2Y": {
+      "method": "drafting an email in ChatGPT and improving it through conversation — the first draft is deliberately generic, then detail is added turn by turn — plus what not to paste in for privacy",
+      "takeaway": "Why the first draft always reads like AI, how to iterate it into your own voice, and to keep real names out of the prompt."
+    },
+    "P9dEs3M_AA4": {
+      "method": "a 'teacher rubric' prompt that turns ChatGPT into a strict grader — paste your draft and the rubric, and it grades it and lists exactly what to fix before submission",
+      "takeaway": "A prompt that gives you rubric-based feedback on a draft while you still have time to act on it."
+    },
+    "RDVUioXNMIk": {
+      "method": "five prompts for practising spoken French with ChatGPT's voice mode, with a real roleplay demo in a workplace scenario",
+      "takeaway": "Concrete prompts for a spoken-French practice partner that corrects you as you go."
+    },
+    "SDIrnL6nUkE": {
+      "method": "building a custom study plan with ChatGPT using the Ultralearning why/what/how framework — benchmarking how others learn it, then a week-by-week plan with deliverables and grading rubrics",
+      "takeaway": "A prompt sequence that produces a personalised study schedule with checkable milestones, plus a pass where ChatGPT critiques the plan as an expert."
+    },
+    "STJuR1zH8Ck": {
+      "method": "solving calculus problems in ChatGPT step by step, showing the working rather than just the final answer",
+      "takeaway": "How to prompt for worked steps you can follow and verify, instead of a bare answer."
+    },
+    "UWlzhXPUH68": {
+      "method": "prompting ChatGPT for a set of question-and-answer flashcards on a topic, then exporting the set straight into Quizlet",
+      "takeaway": "A pipeline from topic to a study-ready Quizlet deck in a couple of minutes."
+    },
+    "W1YOYm9xdwA": {
+      "method": "pasting a broken snippet into ChatGPT with the prompt 'scan the following code for potential problems' — it finds the bug (a divide-by-zero), explains why it happens and returns a fixed version",
+      "takeaway": "A debugging prompt formula, plus the habit of re-running the fixed code to confirm the error is actually gone."
+    },
+    "WVAbJbO2CgI": {
+      "method": "ten ways to practise Spanish with AI, from conversation practice on the go through to correcting your own writing",
+      "takeaway": "A set of Spanish-specific AI practice routines you can start using the same day."
+    },
+    "_4-pggUACz0": {
+      "method": "prompts for refactoring legacy code with ChatGPT — restructuring for readability and modernising outdated syntax without changing what the code does",
+      "takeaway": "Refactoring prompts that clean up messy code while preserving its behaviour."
+    },
+    "du-_Ij4AXI0": {
+      "method": "using ChatGPT across the research-paper workflow — finding a topic where a genuine gap exists, then structuring the paper around it",
+      "takeaway": "How to pick a defensible topic and lay out the sections before you start writing."
+    },
+    "em39PxLmU-s": {
+      "method": "ResearchRabbit — seed it with one paper, then explore the citation network visually to surface related work and spot gaps",
+      "takeaway": "A way to map a literature landscape from a single starting paper instead of searching keyword by keyword."
+    },
+    "gI9kXjTl3ek": {
+      "method": "prompting ChatGPT for an annotated bibliography entry for a specific source, then checking it against APA, MLA or Chicago requirements",
+      "takeaway": "How to draft summary-plus-evaluation annotations, and why you must verify every citation detail it produces."
+    },
+    "in3BS4St3h0": {
+      "method": "using ChatGPT to build charts from data in minutes, then refining them and applying your own judgement to the story they tell",
+      "takeaway": "How to get from raw numbers to a readable chart fast, and where human judgement still has to come in."
+    },
+    "jPEknia0XNw": {
+      "method": "using ChatGPT for teaching prep — generating lesson plans, worksheets and classroom activities, then refining them module by module",
+      "takeaway": "How to draft a lesson or unit quickly and then push ChatGPT for the objectives, activities and assessment."
+    },
+    "kXeN0vkpshk": {
+      "method": "ChatGPT Projects as a workspace — turning a rough idea into a full plan with timelines, task assignments and a risk assessment that stays organised across sessions",
+      "takeaway": "How to go from a vague goal to a structured plan with milestones and risks, kept in one persistent workspace."
+    },
+    "mim1TlFcX3g": {
+      "method": "three proofreading prompts run over the same document in ChatGPT — 'suggestions for improvement', 'proofread for clarity', then 'proofread for punctuation' — before editing in your own word processor",
+      "takeaway": "Three targeted passes that catch different problems, and the habit of applying the edits yourself rather than pasting output wholesale."
+    },
+    "nBUl8Xz5MVY": {
+      "method": "a 10-step ChatGPT prompt system — standard definition, an explain-it-to-a-10-year-old version, real-life analogies, a simple diagram, then a comparison table — that you aim at any concept you're stuck on",
+      "takeaway": "A repeatable prompt sequence that turns a confusing idea into a definition, an analogy and a diagram you can check against your course notes."
+    },
+    "r2JQTh8y3yk": {
+      "method": "Midjourney end to end — describe the image you want in plain language, get four variations back, then upscale and download the one you pick",
+      "takeaway": "How to go from a written description to a usable generated image, and how upscaling changes the result."
+    },
+    "rZvXeE5aZ3k": {
+      "method": "a timeline prompt for ChatGPT — paste your notes and ask for a clean chronology with date, event and why-it-matters columns, explicitly telling it not to invent facts and to flag anything uncertain",
+      "takeaway": "A prompt that turns messy notes into a sorted timeline, with a built-in guard against invented dates."
+    },
+    "tIvzgSifYHM": {
+      "method": "a practice-exam prompt that specifies your course, the topic, how many questions, the format and the Bloom's-taxonomy level, plus an answer key — then asks for the rationale behind each answer",
+      "takeaway": "How to generate practice questions at the right difficulty and use the rationales to check your own reasoning."
+    },
+    "uSVBfyHBiDU": {
+      "method": "Google NotebookLM — load PDFs, Drive docs, websites and YouTube videos as sources, then get summaries, ask questions answered only from those sources, and generate mind maps",
+      "takeaway": "How to build a private research assistant grounded in your own documents rather than the open internet."
+    },
+    "wa6SOJ87MhU": {
+      "method": "the fundamentals of ChatGPT — prompting basics, what it can and can't do, and how to personalise it",
+      "takeaway": "Enough grounding to attempt an unfamiliar task with AI and judge whether the answer is trustworthy."
+    },
+    "wvPxI_dm0d8": {
+      "method": "ChatGPT's Deep Research mode — it asks clarifying questions first, then spends minutes reading many sources and returns a long report with every claim linked to a citation",
+      "takeaway": "How to commission a sourced research report, and where to open the activity log to see which sources it actually used."
+    },
+    "xQXiSGDXknA": {
+      "method": "why open-ended chatting in your target language barely works, and how to use an LLM as one deliberate stage in a language-learning pipeline instead",
+      "takeaway": "A realistic picture of what AI can and can't do for language learning, and where it genuinely speeds you up."
+    },
+    "xefUis03j_w": {
+      "method": "a compare-and-contrast prompt in ChatGPT (demonstrated on Buddhism vs Hinduism) that asks for similarities and differences, then expands any point you want more depth on",
+      "takeaway": "A prompt for structured comparisons, and how to push ChatGPT to elaborate on the specific dimension you care about."
+    }
+  },
+  "promptPatterns": {
+    "brainstorm": "Give me 10 options grouped into 3 themes, then mark the 3 most original and explain what makes them stronger.",
+    "citation": "For each source below write a 150-word annotation: what it argues, its method, and how it supports or complicates my argument. Use [APA / MLA / Chicago]. Then remind me to check every citation detail against the original — you can get these wrong.\n\n[PASTE YOUR SOURCES HERE]",
+    "code": "Tell me what's wrong, explain why it happens, then give the corrected version. Walk through the fixed code line by line with a concrete input.\n\n[PASTE YOUR CODE AND THE ERROR HERE]",
+    "compare": "Give me a table of the key similarities and differences, then one short paragraph on which difference matters most and why.",
+    "customgpt": "Draft the name, description, instructions and 4 conversation starters for this Custom GPT. The instructions should tell it to ask clarifying questions and to admit when it doesn't know.",
+    "data": "I'm uploading my dataset. First describe what's in it and flag any data-quality problems, then answer my question, and show the code you ran so I can check it myself.",
+    "dataviz": "Recommend the best chart type for this data and say why, then produce it and explain what it does — and does not — show.",
+    "email": "Keep it under 150 words: polite, specific, with one clear ask. Give me two versions — one formal, one warmer. Don't include real names, ID numbers, or anything private.",
+    "essay": "Help me write this, don't write it for me. First ask me 3 questions about my argument, then propose a thesis and a section plan. Do not draft full paragraphs until I approve the plan.",
+    "exam": "Generate 15 practice questions — a mix of multiple choice and short answer, aimed at the 'apply' and 'analyse' levels. Include an answer key with the reasoning for each.",
+    "explain": "Start with a one-sentence definition, then explain it as if I'm 10, then give a real-world analogy. Finish by flagging anything scholars genuinely disagree about — and tell me what you're unsure of.",
+    "feedback": "Act as a strict professor grading this. Score it against a rubric (argument, evidence, structure, style), give a letter grade, and list the 3 highest-impact fixes. Be blunt. Draft below:\n\n[PASTE YOUR DRAFT HERE]",
+    "flashcards": "Create 20 flashcards formatted as 'Question | Answer', one per line, so I can paste them straight into Quizlet or Anki. Keep each answer under 25 words.",
+    "general": "Walk me through how to do this step by step. Ask me any clarifying questions first, and show your reasoning so I can check it.",
+    "image": "Give me 3 detailed image prompts, each specifying subject, style, lighting, composition and aspect ratio.",
+    "interview": "Act as the interviewer. Ask me one question at a time, wait for my answer, then critique it using the STAR structure and tell me exactly what to cut or add.",
+    "language": "Correct my mistakes, explain each correction briefly in English, then ask me a follow-up question to keep the conversation going.",
+    "lessonplan": "Give learning objectives, a timed activity sequence, the materials needed, and an assessment with a rubric.",
+    "litreview": "Group the sources below into themes, show where they agree and disagree, and name the gap that's left. Do not invent sources.\n\n[PASTE SOURCES OR ABSTRACTS HERE]",
+    "notes": "Answer using only the sources I upload, and cite which source each claim comes from. If my sources don't answer the question, say so instead of guessing.",
+    "outline": "Give a topic-sentence outline only — not full prose. For each section, state the argument it makes and the evidence it would need.",
+    "projectplan": "Break this into phases with milestones, working backwards from [DUE DATE]. Include the top 3 risks and how I'd mitigate each.",
+    "proofread": "Do three passes: (1) clarity, (2) grammar and punctuation, (3) concision. Show every change as a list with a reason — don't silently rewrite. Text below:\n\n[PASTE YOUR TEXT HERE]",
+    "research": "List credible sources with a one-line note on what each contributes. Prioritise peer-reviewed work, include links, and tell me explicitly if you are not certain a source exists.",
+    "researchdesign": "Propose a research question, hypotheses, method, sample and sampling strategy, and the analysis plan. Then critique the weaknesses of your own design.",
+    "slides": "Give me a slide-by-slide outline first (title plus 3 bullets each) and wait for my approval before expanding anything. Aim for [NUMBER] slides.",
+    "studymode": "Define each term in one clear sentence, then give a concrete example of each in context. Once I've read them, quiz me on them one at a time and tell me what I got wrong and why.",
+    "studyplan": "I have [X hours per week] and my exam is on [DATE]. Build a week-by-week plan with specific deliverables, and for each week give me a way to check I've actually learned it.",
+    "summarize": "Give me (1) a three-sentence summary, (2) five bullet-point key claims, and (3) anything the author asserts without supporting evidence. Text below:\n\n[PASTE THE TEXT HERE]",
+    "timeline": "Turn this into a clean chronological timeline with columns for date, event, and why it matters (one sentence each). Do not invent dates — flag anything uncertain.\n\n[PASTE YOUR NOTES HERE]",
+    "vision": "I'm uploading an image. Describe what you can actually see first, then interpret it, and tell me what you're uncertain about."
+  }
+}

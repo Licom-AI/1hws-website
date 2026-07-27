@@ -1,0 +1,20 @@
+# Course media — not part of the website (~60 MB)
+*.MOV
+*.mov
+*.mp4
+*.imscc
+
+# One-off local files, not part of the website
+Screenshot*.png
+AI_Use_Cases_preview.html
+
+# macOS / Office cruft
+.DS_Store
+~$*.xlsx
+
+# Netlify CLI local state
+.netlify/
+
+# Python
+__pycache__/
+*.pyc

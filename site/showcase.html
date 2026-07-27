@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interactive Ideas — HWS AI Club</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  body { background: var(--slate-50); }
+  .showcase-wrap { max-width: 1000px; margin: 0 auto; padding: 40px 24px 80px; }
+  .showcase-head { text-align: center; margin-bottom: 44px; }
+  .showcase-head h1 { font-size: clamp(2rem, 4.5vw, 3rem); }
+  .showcase-head p { color: var(--slate-500); font-size: 1.1rem; max-width: 620px; margin: 0 auto; }
+  .demo { background: var(--white); border: 1px solid var(--slate-100); border-radius: var(--radius);
+          box-shadow: var(--shadow-sm); padding: 28px; margin-bottom: 26px; }
+  .demo-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .chip { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase;
+          padding: 4px 11px; border-radius: 999px; }
+  .chip-num { background: var(--grad-brand); color: #fff; }
+  .chip-ship { background: #ede9fe; color: #5b21b6; }
+  .chip-effort { background: #dcfce7; color: #166534; }
+  .demo h2 { font-size: 1.4rem; margin-bottom: 4px; }
+  .demo > p.demo-desc { color: var(--slate-500); margin-bottom: 20px; }
+  .demo-stage { background: var(--grad-wash); border-radius: var(--radius-sm); padding: 26px; }
+
+  /* Module 1 */
+  .daily-major { color: var(--violet); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .daily-title { font-size: 1.5rem; font-weight: 800; margin: 6px 0 8px; letter-spacing: -0.01em; }
+  .daily-desc { color: var(--slate-500); margin-bottom: 16px; }
+  .daily-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  /* Module 2 */
+  .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+  .field label { font-weight: 700; font-size: 0.85rem; color: var(--slate-700); }
+  select, .prompt-box {
+    width: 100%; font-family: var(--font); font-size: 0.98rem; padding: 12px 14px;
+    border: 1.5px solid var(--slate-200); border-radius: 10px; background: #fff; color: var(--slate-900);
+  }
+  .prompt-box { min-height: 120px; resize: vertical; line-height: 1.5; }
+  .prompt-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+  .mini-btn {
+    display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: 0.9rem;
+    padding: 10px 16px; border-radius: 999px; border: 1.5px solid var(--slate-200);
+    background: #fff; color: var(--slate-900); cursor: pointer; text-decoration: none;
+  }
+  .mini-btn:hover { border-color: var(--violet); }
+  .mini-btn.solid { background: var(--grad-cta); color: #fff; border: none; }
+
+  /* Module 3 */
+  .quiz-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+  .quiz-row .field { flex: 1; min-width: 180px; margin: 0; }
+  .quiz-results { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 6px; }
+  .quiz-hit { display: block; background: #fff; border: 1px solid var(--slate-100); border-radius: 10px;
+              padding: 14px 16px; text-decoration: none; color: var(--slate-900); transition: transform .12s, box-shadow .12s; }
+  .quiz-hit:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .quiz-hit b { display: block; }
+  .quiz-hit span { color: var(--slate-500); font-size: 0.9rem; }
+
+  /* Module 4 */
+  .counters { display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; margin-bottom: 22px; }
+  .counter { text-align: center; }
+  .counter strong { display: block; font-size: 3rem; font-weight: 800; line-height: 1;
+    background: var(--grad-brand); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .counter span { color: var(--slate-500); font-size: 0.85rem; font-weight: 600; }
+  .spotlight { text-align: center; background: #fff; border-radius: 12px; padding: 20px; border: 1px solid var(--slate-100); }
+  .spotlight-major { color: var(--violet); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .spotlight-title { font-size: 1.2rem; font-weight: 800; margin: 6px 0; transition: opacity .3s; }
+
+  /* Module 5 */
+  .palette-input {
+    width: 100%; font-family: var(--font); font-size: 1.05rem; padding: 14px 18px;
+    border: 1.5px solid var(--slate-200); border-radius: 12px; background: #fff;
+  }
+  .palette-results { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; max-height: 320px; overflow-y: auto; }
+  .palette-hit { display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    background: #fff; border: 1px solid var(--slate-100); border-radius: 10px; padding: 11px 15px;
+    text-decoration: none; color: var(--slate-900); }
+  .palette-hit:hover { border-color: var(--violet); background: #faf5ff; }
+  .palette-hit .ph-major { color: var(--slate-400); font-size: 0.8rem; font-weight: 600; white-space: nowrap; }
+  .palette-empty { color: var(--slate-500); padding: 14px; text-align: center; }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="wordmark" href="index.html">
+      <span class="logo-tile" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/>
+          <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/>
+          <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/>
+        </svg>
+      </span>
+      <span class="wordmark-name">AI @ HWS</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">&larr; Back to site</a>
+    </nav>
+  </div>
+</header>
+
+<main class="showcase-wrap">
+  <div class="showcase-head">
+    <h1>Interactive ideas to play with</h1>
+    <p>Five working prototypes built on your real 840 use cases. Try each one, then tell me which to ship to the landing page. This page is unlisted &mdash; only people with the link can see it.</p>
+  </div>
+
+  <!-- 1 -->
+  <section class="demo">
+    <div class="demo-meta"><span class="chip chip-num">Idea 1</span><span class="chip chip-ship">Ships to: hero or library band</span><span class="chip chip-effort">Effort: low</span></div>
+    <h2>Use Case of the Day</h2>
+    <p class="demo-desc">A fresh, curated-feeling pick every day &mdash; gives repeat visitors a reason to come back. Deterministic by date, plus a shuffle.</p>
+    <div class="demo-stage">
+      <p class="daily-major" id="daily-major"></p>
+      <p class="daily-title" id="daily-title"></p>
+      <p class="daily-desc" id="daily-desc"></p>
+      <div class="daily-actions">
+        <a class="mini-btn solid" id="daily-watch" href="#" target="_blank" rel="noopener">&#9654; Watch how-to</a>
+        <button class="mini-btn" id="daily-shuffle" type="button">&#127922; Try another</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="demo">
+    <div class="demo-meta"><span class="chip chip-num">Idea 2</span><span class="chip chip-ship">Ships to: use-case detail pages</span><span class="chip chip-effort">Effort: medium</span></div>
+    <h2>Starter-prompt generator</h2>
+    <p class="demo-desc">Turns any use case into a ready-to-paste prompt with one-click copy and jump-into-the-tool buttons. Removes the &ldquo;okay&hellip; now what do I type?&rdquo; friction.</p>
+    <div class="demo-stage">
+      <div class="field"><label for="pg-major">Major</label><select id="pg-major"></select></div>
+      <div class="field"><label for="pg-uc">Use case</label><select id="pg-uc"></select></div>
+      <div class="field"><label for="pg-prompt">Your starter prompt</label><textarea class="prompt-box" id="pg-prompt" readonly></textarea></div>
+      <div class="prompt-actions">
+        <button class="mini-btn solid" id="pg-copy" type="button">Copy prompt</button>
+        <a class="mini-btn" id="pg-chatgpt" href="#" target="_blank" rel="noopener">Open in ChatGPT</a>
+        <a class="mini-btn" id="pg-claude" href="#" target="_blank" rel="noopener">Open in Claude</a>
+        <a class="mini-btn" id="pg-gemini" href="#" target="_blank" rel="noopener">Open in Gemini</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="demo">
+    <div class="demo-meta"><span class="chip chip-num">Idea 3</span><span class="chip chip-ship">Ships to: hero / dedicated section</span><span class="chip chip-effort">Effort: medium</span></div>
+    <h2>&ldquo;Find your first use case&rdquo; quiz</h2>
+    <p class="demo-desc">Two dropdowns &rarr; three hand-fit recommendations. Perfect for a nervous first-timer who doesn&rsquo;t know where to start.</p>
+    <div class="demo-stage">
+      <div class="quiz-row">
+        <div class="field"><label for="q-major">My major is&hellip;</label><select id="q-major"></select></div>
+        <div class="field"><label for="q-level">I want something&hellip;</label>
+          <select id="q-level"><option value="Easy">Easy &mdash; I&rsquo;m brand new</option><option value="Medium">Medium &mdash; I&rsquo;ve dabbled</option><option value="Hard">Hard &mdash; challenge me</option></select>
+        </div>
+      </div>
+      <div class="quiz-results" id="q-results"></div>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="demo">
+    <div class="demo-meta"><span class="chip chip-num">Idea 4</span><span class="chip chip-ship">Ships to: library band</span><span class="chip chip-effort">Effort: low</span></div>
+    <h2>Animated counters + major spotlight</h2>
+    <p class="demo-desc">Numbers that count up when they scroll into view, plus a spotlight that rotates through majors &mdash; adds motion and shows off the breadth.</p>
+    <div class="demo-stage">
+      <div class="counters">
+        <div class="counter"><strong class="count" data-to="42">0</strong><span>Majors</span></div>
+        <div class="counter"><strong class="count" data-to="840">0</strong><span>Use cases</span></div>
+        <div class="counter"><strong class="count" data-to="3">0</strong><span>Levels</span></div>
+      </div>
+      <div class="spotlight">
+        <p class="spotlight-major" id="sp-major"></p>
+        <p class="spotlight-title" id="sp-title"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="demo">
+    <div class="demo-meta"><span class="chip chip-num">Idea 5</span><span class="chip chip-ship">Ships to: header / global</span><span class="chip chip-effort">Effort: medium</span></div>
+    <h2>Quick-find command palette</h2>
+    <p class="demo-desc">Type anything and instantly filter all 840 use cases &mdash; power-user search that jumps straight to any card. (On the real site this would open with a keyboard shortcut.)</p>
+    <div class="demo-stage">
+      <input class="palette-input" id="pal-input" type="search" placeholder="Try &ldquo;essay&rdquo;, &ldquo;data&rdquo;, &ldquo;debug&rdquo;, &ldquo;summarize&rdquo;&hellip;" aria-label="Search all use cases">
+      <div class="palette-results" id="pal-results"></div>
+    </div>
+  </section>
+</main>
+
+<script src="js/data.js"></script>
+<script src="js/videos.js"></script>
+<script>
+(function () {
+  "use strict";
+  var MAJORS = (window.HWS_AI_DATA || { majors: [] }).majors;
+  var VIDEO_TOOL = "ChatGPT";
+
+  // Flatten all 840 use cases with major context
+  var ALL = [];
+  MAJORS.forEach(function (m) {
+    m.useCases.forEach(function (uc) {
+      ALL.push({ major: m, uc: uc });
+    });
+  });
+
+  function esc(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+  var VIDEOS = window.HWS_VIDEOS;
+  function videoUrl(major, uc) {
+    if (VIDEOS) {
+      var id = VIDEOS.overrides[major.slug + "/" + uc.number];
+      if (!id) {
+        var s = VIDEOS.skill[VIDEOS.classify(uc.title, uc.description)] || VIDEOS.skill.general;
+        id = s && s.id;
+      }
+      if (id) return "https://www.youtube.com/watch?v=" + id;
+    }
+    return "https://www.youtube.com/results?search_query=" + encodeURIComponent("how to " + uc.title + " with " + VIDEO_TOOL);
+  }
+  function deepLink(major, uc) {
+    return "/majors/" + encodeURIComponent(major.slug) + "/#uc-" + uc.number;
+  }
+  function starterPrompt(major, uc) {
+    return "I'm a " + major.name + " student. Help me " + uc.title.charAt(0).toLowerCase() + uc.title.slice(1) +
+      ". Specifically: " + uc.description + ". Ask me for anything you need, then walk me through it step by step.";
+  }
+
+  /* ---- 1. Use Case of the Day ---- */
+  var dailyIdx;
+  function dayOfYear() {
+    var now = new Date();
+    var start = new Date(now.getFullYear(), 0, 0);
+    return Math.floor((now - start) / 86400000);
+  }
+  function renderDaily(idx) {
+    dailyIdx = ((idx % ALL.length) + ALL.length) % ALL.length;
+    var pick = ALL[dailyIdx];
+    document.getElementById("daily-major").textContent = pick.major.name;
+    document.getElementById("daily-title").textContent = pick.uc.title;
+    document.getElementById("daily-desc").textContent = pick.uc.description;
+    document.getElementById("daily-watch").href = videoUrl(pick.major, pick.uc);
+  }
+  renderDaily(dayOfYear());
+  document.getElementById("daily-shuffle").addEventListener("click", function () {
+    renderDaily(Math.floor(Math.random() * ALL.length));
+  });
+
+  /* ---- 2. Starter-prompt generator ---- */
+  var pgMajor = document.getElementById("pg-major");
+  var pgUc = document.getElementById("pg-uc");
+  var pgPrompt = document.getElementById("pg-prompt");
+  MAJORS.forEach(function (m, i) {
+    var o = document.createElement("option");
+    o.value = i; o.textContent = m.name; pgMajor.appendChild(o);
+  });
+  function fillUcOptions() {
+    var m = MAJORS[pgMajor.value];
+    pgUc.innerHTML = "";
+    m.useCases.forEach(function (uc, i) {
+      var o = document.createElement("option");
+      o.value = i; o.textContent = uc.title; pgUc.appendChild(o);
+    });
+  }
+  function refreshPrompt() {
+    var m = MAJORS[pgMajor.value];
+    var uc = m.useCases[pgUc.value];
+    var p = starterPrompt(m, uc);
+    pgPrompt.value = p;
+    var enc = encodeURIComponent(p);
+    document.getElementById("pg-chatgpt").href = "https://chatgpt.com/?q=" + enc;
+    document.getElementById("pg-claude").href = "https://claude.ai/new?q=" + enc;
+    document.getElementById("pg-gemini").href = "https://gemini.google.com/app";
+  }
+  pgMajor.addEventListener("change", function () { fillUcOptions(); refreshPrompt(); });
+  pgUc.addEventListener("change", refreshPrompt);
+  document.getElementById("pg-copy").addEventListener("click", function () {
+    var btn = this;
+    navigator.clipboard.writeText(pgPrompt.value).then(function () {
+      btn.textContent = "Copied ✓";
+      setTimeout(function () { btn.textContent = "Copy prompt"; }, 1600);
+    }, function () {
+      pgPrompt.select();
+    });
+  });
+  fillUcOptions(); refreshPrompt();
+
+  /* ---- 3. Quiz ---- */
+  var qMajor = document.getElementById("q-major");
+  MAJORS.forEach(function (m, i) {
+    var o = document.createElement("option");
+    o.value = i; o.textContent = m.name; qMajor.appendChild(o);
+  });
+  function runQuiz() {
+    var m = MAJORS[qMajor.value];
+    var level = document.getElementById("q-level").value;
+    var hits = m.useCases.filter(function (uc) { return uc.difficulty === level; }).slice(0, 3);
+    var box = document.getElementById("q-results");
+    box.innerHTML = hits.map(function (uc) {
+      return '<a class="quiz-hit" href="' + deepLink(m, uc) + '"><b>' + esc(uc.title) + "</b><span>" + esc(uc.description) + "</span></a>";
+    }).join("");
+  }
+  qMajor.addEventListener("change", runQuiz);
+  document.getElementById("q-level").addEventListener("change", runQuiz);
+  runQuiz();
+
+  /* ---- 4. Counters + spotlight ---- */
+  function countUp(el) {
+    var to = parseInt(el.getAttribute("data-to"), 10);
+    var start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / 1400, 1);
+      el.textContent = Math.round(p * to);
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var counters = document.querySelectorAll(".count");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { countUp(e.target); io.unobserve(e.target); } });
+    }, { threshold: 0.4 });
+    counters.forEach(function (c) { io.observe(c); });
+  } else {
+    counters.forEach(countUp);
+  }
+  var spMajor = document.getElementById("sp-major");
+  var spTitle = document.getElementById("sp-title");
+  var spIdx = 0;
+  function rotateSpot() {
+    var m = MAJORS[spIdx % MAJORS.length];
+    var uc = m.useCases[Math.floor(Math.random() * m.useCases.length)];
+    spTitle.style.opacity = 0;
+    setTimeout(function () {
+      spMajor.textContent = m.name;
+      spTitle.textContent = "“" + uc.title + "”";
+      spTitle.style.opacity = 1;
+    }, 200);
+    spIdx++;
+  }
+  rotateSpot();
+  setInterval(rotateSpot, 3200);
+
+  /* ---- 5. Command palette ---- */
+  var palInput = document.getElementById("pal-input");
+  var palResults = document.getElementById("pal-results");
+  function renderPalette(q) {
+    q = q.trim().toLowerCase();
+    var list;
+    if (!q) {
+      list = ALL.slice(0, 8);
+    } else {
+      list = ALL.filter(function (r) {
+        return r.uc.title.toLowerCase().indexOf(q) !== -1 ||
+               r.uc.description.toLowerCase().indexOf(q) !== -1 ||
+               r.major.name.toLowerCase().indexOf(q) !== -1;
+      }).slice(0, 10);
+    }
+    if (!list.length) {
+      palResults.innerHTML = '<p class="palette-empty">No use cases match &ldquo;' + esc(q) + '&rdquo;.</p>';
+      return;
+    }
+    palResults.innerHTML = list.map(function (r) {
+      return '<a class="palette-hit" href="' + deepLink(r.major, r.uc) + '"><span>' + esc(r.uc.title) +
+        '</span><span class="ph-major">' + esc(r.major.name) + "</span></a>";
+    }).join("");
+  }
+  palInput.addEventListener("input", function () { renderPalette(palInput.value); });
+  renderPalette("");
+})();
+</script>
+</body>
+</html>
