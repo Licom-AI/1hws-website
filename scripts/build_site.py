@@ -25,7 +25,21 @@ BASE_URL = "https://hws-ai-club.netlify.app"
 COLLEGE = "Hobart and William Smith Colleges"
 LOCATION = "Geneva, New York"
 MEETING = "Every Sunday, 5-6 PM · Sanford Room"
+MEETING_START, MEETING_END, MEETING_TZ = "17:00", "18:00", "America/New_York"
 BUILD_DATE = date.today().isoformat()
+
+# AI crawlers/agents worth naming explicitly in robots.txt. The wildcard rule
+# already allows them implicitly, but explicit allow rules are cheap insurance
+# in a fast-moving space where a platform's default posture can change.
+AI_BOTS = [
+    "GPTBot", "ChatGPT-User", "OAI-SearchBot",   # OpenAI
+    "ClaudeBot", "anthropic-ai",                  # Anthropic
+    "PerplexityBot", "Perplexity-User",           # Perplexity
+    "Google-Extended",                            # Google AI (Gemini / AI Overviews)
+    "Applebot-Extended",                          # Apple Intelligence
+    "cohere-ai",                                  # Cohere
+    "CCBot",                                      # Common Crawl (widely used for LLM training)
+]
 
 # The club's community hub. SKOOL_MEMBERS is shown on the homepage as social
 # proof — it goes stale, so update it when it drifts (it is not fetched live).
@@ -294,6 +308,10 @@ def head(title, description, canonical_path, jsonld):
 <meta name="twitter:description" content="{esc(description)}">
 <meta name="twitter:image" content="{BASE_URL}/og-image.png">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -376,6 +394,29 @@ ORG_JSONLD = {
     "areaServed": COLLEGE,
 }
 
+EVENT_JSONLD = {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "HWS AI Club Weekly Meeting",
+    "description": "Beginner-friendly weekly AI workshop and meeting for HWS AI Club, open to all majors and class years — no experience required.",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+        "@type": "Place",
+        "name": "Sanford Room, " + COLLEGE,
+        "address": {"@type": "PostalAddress", "addressLocality": "Geneva", "addressRegion": "NY", "addressCountry": "US"},
+    },
+    "organizer": {"@type": "Organization", "name": "HWS AI Club", "url": BASE_URL + "/"},
+    "eventSchedule": {
+        "@type": "Schedule",
+        "repeatFrequency": "P1W",
+        "byDay": "https://schema.org/Sunday",
+        "startTime": MEETING_START,
+        "endTime": MEETING_END,
+        "scheduleTimezone": MEETING_TZ,
+    },
+}
+
 
 # ---------------------------------------------------------------------------
 # Homepage
@@ -447,6 +488,14 @@ def build_home():
              "acceptedAnswer": {"@type": "Answer", "text": "No. The club is beginner-friendly and requires no coding or prior AI experience — just curiosity."}},
             {"@type": "Question", "name": "When and where does the HWS AI Club meet?",
              "acceptedAnswer": {"@type": "Answer", "text": f"The club meets {MEETING} at {COLLEGE}. All majors and class years are welcome."}},
+            {"@type": "Question", "name": "Is the HWS AI Club free to join?",
+             "acceptedAnswer": {"@type": "Answer", "text": "Yes. The club is completely free, with no application required — just show up to a meeting."}},
+            {"@type": "Question", "name": "What majors can join the HWS AI Club?",
+             "acceptedAnswer": {"@type": "Answer", "text": f"All 42 majors offered at {COLLEGE}. The club's use-case library has 20 AI use cases tailored to each individual major."}},
+            {"@type": "Question", "name": "Do I need a laptop or special software to join?",
+             "acceptedAnswer": {"@type": "Answer", "text": "No special software — just a free account with a tool like ChatGPT, Claude, or Gemini. Bringing a laptop helps, but it isn't required."}},
+            {"@type": "Question", "name": "How do I join the HWS AI Club's online community?",
+             "acceptedAnswer": {"@type": "Answer", "text": f"Through the club's free Skool community at {SKOOL_URL}, which is open to every HWS student for classroom material, discussion, and the events calendar."}},
         ],
     }
     website = {"@context": "https://schema.org", "@type": "WebSite", "name": "HWS AI Club",
@@ -478,11 +527,13 @@ def build_home():
     <div class="section-inner">
       <h2 class="section-title">What We Do</h2>
       <p class="section-sub">We make AI accessible and practical for every student at Hobart and William Smith Colleges</p>
+      <p class="wwd-definition"><strong>HWS AI Club</strong> is a free, student-run AI literacy club at {COLLEGE} in {LOCATION}, open to students in all 42 majors. The club teaches practical, no-code AI skills through weekly workshops and a library of 840 major-specific AI use cases.</p>
       <div class="wwd-grid">
         <article class="card"><span class="icon-tile" aria-hidden="true">{ICONS['tools']}</span><h3>AI Tools Mastery</h3><p>Learn ChatGPT, Claude, Gemini, Midjourney, and cutting-edge AI tools that are transforming how we work and create.</p></article>
         <article class="card"><span class="icon-tile" aria-hidden="true">{ICONS['book']}</span><h3>Smarter Studying</h3><p>AI-powered research, writing, and learning techniques to help you excel in your HWS coursework.</p></article>
         <article class="card"><span class="icon-tile" aria-hidden="true">{ICONS['rocket']}</span><h3>Career Ready</h3><p>Use AI to boost productivity and stand out professionally in the modern job market.</p></article>
       </div>
+      <p class="wwd-summary">In short: come with zero AI experience, leave knowing how to use ChatGPT, Claude, and Gemini for your specific major &mdash; every Sunday, free.</p>
     </div>
   </section>
 
@@ -574,7 +625,7 @@ def build_home():
 {scripts()}
 </body>
 </html>"""
-    (SITE / "index.html").write_text(head(title, desc, "/", [ORG_JSONLD, website, faq]) + "\n" + body + "\n", encoding="utf-8")
+    (SITE / "index.html").write_text(head(title, desc, "/", [ORG_JSONLD, website, faq, EVENT_JSONLD]) + "\n" + body + "\n", encoding="utf-8")
 
 
 # ---------------------------------------------------------------------------
@@ -674,6 +725,35 @@ def uc_card(slug, uc):
     )
 
 
+def video_jsonld(slug, m):
+    """One VideoObject per distinct tutorial linked from this major's use cases
+    (several cards on a page often point at the same video — dedupe by id)."""
+    seen = {}
+    for uc in m["useCases"]:
+        vid = video_id(slug, uc)
+        if vid in seen:
+            continue
+        meta = _VMETA.get(vid)
+        if not meta:
+            continue
+        raw_date = meta.get("date") or ""
+        obj = {
+            "@context": "https://schema.org",
+            "@type": "VideoObject",
+            "name": meta.get("title", "AI tutorial video"),
+            "description": meta.get("title", "AI tutorial video"),
+            "thumbnailUrl": f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg",
+            "contentUrl": f"https://www.youtube.com/watch?v={vid}",
+            "embedUrl": f"https://www.youtube.com/embed/{vid}",
+        }
+        if meta.get("channel"):
+            obj["creator"] = {"@type": "Person", "name": meta["channel"]}
+        if len(raw_date) == 8:
+            obj["uploadDate"] = f"{raw_date[:4]}-{raw_date[4:6]}-{raw_date[6:8]}"
+        seen[vid] = obj
+    return list(seen.values())
+
+
 def build_major(m, prev_m, next_m):
     slug, name = m["slug"], m["name"]
     title = f"AI Use Cases for {name} Majors | HWS AI Club ({COLLEGE})"
@@ -699,6 +779,14 @@ def build_major(m, prev_m, next_m):
             for uc in m["useCases"]
         ],
     }
+    faq = {
+        "@context": "https://schema.org", "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": uc["title"],
+             "acceptedAnswer": {"@type": "Answer", "text": card_text(slug, uc)[0]}}
+            for uc in m["useCases"]
+        ],
+    }
     nav_more = ""
     if prev_m:
         nav_more += f'<a class="pager prev" href="/majors/{prev_m["slug"]}/">&larr; {esc(prev_m["name"])}</a>'
@@ -717,6 +805,7 @@ def build_major(m, prev_m, next_m):
   <p class="page-lede">20 practical, difficulty-rated ways {esc(name)} students at {COLLEGE} can use AI &mdash; each naming the exact tutorial it links to and what you&rsquo;ll take away. Click any card to watch it.</p>
   <p class="policy-note"><strong>Before you use these on graded work:</strong> check your professor&rsquo;s policy on AI.
   It differs by course, and these examples are study aids &mdash; not permission.</p>
+  <h2 class="usecases-heading">All {esc(name)} AI use cases</h2>
   <div class="difficulty-filter" role="group" aria-label="Filter by difficulty">{filters}</div>
   <div class="usecases-grid" id="usecases-grid">
 {cards}
@@ -733,7 +822,8 @@ def build_major(m, prev_m, next_m):
 </html>"""
     d = SITE / "majors" / slug
     d.mkdir(parents=True, exist_ok=True)
-    (d / "index.html").write_text(head(title, desc, f"/majors/{slug}/", [crumbs, itemlist]) + "\n" + body + "\n", encoding="utf-8")
+    jsonld = [crumbs, itemlist, faq] + video_jsonld(slug, m)
+    (d / "index.html").write_text(head(title, desc, f"/majors/{slug}/", jsonld) + "\n" + body + "\n", encoding="utf-8")
 
 
 # ---------------------------------------------------------------------------
@@ -831,10 +921,44 @@ def build_founder(f, others):
 # robots / sitemap / headers / og-image / videos.js
 # ---------------------------------------------------------------------------
 def build_robots():
-    (SITE / "robots.txt").write_text(
-        "User-agent: *\nAllow: /\nDisallow: /showcase.html\n\nSitemap: " + BASE_URL + "/sitemap.xml\n",
-        encoding="utf-8",
-    )
+    lines = ["User-agent: *", "Allow: /", "Disallow: /showcase.html",
+              "Disallow: /data.json", "Disallow: /data/videos-config.json", ""]
+    for bot in AI_BOTS:
+        lines += [f"User-agent: {bot}", "Allow: /", ""]
+    lines.append("Sitemap: " + BASE_URL + "/sitemap.xml")
+    (SITE / "robots.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def build_llms_txt():
+    """llms.txt (emerging llmstxt.org convention) — a plain-language map of the
+    site for AI agents/assistants that consult it, mirroring what's in robots.txt
+    + sitemap.xml but in a format meant to be read, not just crawled."""
+    majors = "\n".join(f"- [{m['name']}]({BASE_URL}/majors/{m['slug']}/)" for m in DATA["majors"])
+    founders = "\n".join(f"- [{f['name']}, {f['role']}]({BASE_URL}/founders/{f['slug']}/)" for f in FOUNDERS)
+    text = f"""# HWS AI Club
+
+> Student-run AI literacy club at {COLLEGE} (HWS) in {LOCATION}. Free and open to \
+students in all 42 majors, no coding experience required. {MEETING}.
+
+HWS AI Club maintains a library of 840 practical AI use cases — 20 per major, rated \
+Easy, Medium, or Hard — across all 42 majors offered at HWS. Each use case names a \
+specific tutorial video and includes a ready-to-paste starter prompt.
+
+## Key pages
+
+- [Homepage]({BASE_URL}/): what the club does, the team, and how to join.
+- [All Majors]({BASE_URL}/majors/): directory of all 42 majors with AI use cases.
+- [Sitemap]({BASE_URL}/sitemap.xml)
+
+## Majors
+
+{majors}
+
+## Founders
+
+{founders}
+"""
+    (SITE / "llms.txt").write_text(text, encoding="utf-8")
 
 
 def build_sitemap():
@@ -976,6 +1100,81 @@ def _og_png_pillow(png):
     return "png (pillow)"
 
 
+def _rasterize(src, out, size):
+    """Rasterize an SVG to a square PNG at `size`px, trying installed SVG tools
+    before falling back to a hand-drawn Pillow tile (mirrors build_og_image)."""
+    for cmd in (
+        ["cairosvg", str(src), "-o", str(out), "-W", str(size), "-H", str(size)],
+        ["rsvg-convert", str(src), "-o", str(out), "-w", str(size), "-h", str(size)],
+        ["magick", str(src), "-resize", f"{size}x{size}", str(out)],
+        ["convert", str(src), "-resize", f"{size}x{size}", str(out)],
+    ):
+        if shutil.which(cmd[0]):
+            try:
+                subprocess.run(cmd, check=True, capture_output=True)
+                return "svg tool"
+            except Exception:
+                continue
+    try:
+        return _icon_pillow(out, size)
+    except Exception as e:  # noqa
+        return "failed (" + type(e).__name__ + ")"
+
+
+def _icon_pillow(out, size):
+    """Fallback: redraw the favicon's rounded gradient tile directly (no SVG
+    rasterizer available). Same brand gradient as assets/favicon.svg."""
+    from PIL import Image, ImageDraw
+
+    img = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    px = img.load()
+    for y in range(size):
+        for x in range(size):
+            t = (x / size + y / size) / 2
+            px[x, y] = (int(0x7c + t * (0x3b - 0x7c)), int(0x3a + t * (0x82 - 0x3a)), int(0xed + t * (0xf6 - 0xed)), 255)
+    mask = Image.new("L", (size, size), 0)
+    ImageDraw.Draw(mask).rounded_rectangle([0, 0, size - 1, size - 1], radius=max(2, size // 4), fill=255)
+    bg = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    bg.paste(img, (0, 0), mask)
+    bg.save(out, "PNG")
+    return "png (pillow fallback)"
+
+
+def build_favicons():
+    """PNG/ICO favicon fallback + apple-touch-icon, rasterized from the existing
+    assets/favicon.svg so there's one source of truth for the brand mark."""
+    src = SITE / "assets" / "favicon.svg"
+    sizes = {"favicon-16x16.png": 16, "favicon-32x32.png": 32, "apple-touch-icon.png": 180}
+    for name, size in sizes.items():
+        _rasterize(src, SITE / "assets" / name, size)
+    try:
+        from PIL import Image
+
+        base = Image.open(SITE / "assets" / "apple-touch-icon.png").convert("RGBA")
+        base.save(SITE / "favicon.ico", format="ICO", sizes=[(16, 16), (32, 32), (48, 48)])
+        return "png + ico"
+    except Exception as e:  # noqa
+        return "png only, ico failed (" + type(e).__name__ + ")"
+
+
+def build_manifest():
+    manifest = {
+        "name": "HWS AI Club",
+        "short_name": "HWS AI Club",
+        "description": f"AI use cases and workshops for every major at {COLLEGE}.",
+        "start_url": "/",
+        "display": "standalone",
+        "theme_color": "#7c3aed",
+        "background_color": "#faf5ff",
+        "icons": [
+            {"src": "/assets/favicon-16x16.png", "sizes": "16x16", "type": "image/png"},
+            {"src": "/assets/favicon-32x32.png", "sizes": "32x32", "type": "image/png"},
+            {"src": "/assets/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"},
+        ],
+    }
+    (SITE / "site.webmanifest").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+
+
 def main():
     build_home()
     build_majors_index()
@@ -985,10 +1184,13 @@ def main():
     for f in FOUNDERS:
         build_founder(f, [o for o in FOUNDERS if o["slug"] != f["slug"]])
     build_robots()
+    build_llms_txt()
     n = build_sitemap()
     build_headers()
     build_videos_js()
     og = build_og_image()
+    ico = build_favicons()
+    build_manifest()
 
     assert len(majors) == 42, "expected 42 majors"
     for m in majors:
@@ -997,8 +1199,8 @@ def main():
         assert (SITE / "founders" / f["slug"] / "index.html").exists()
     print("HWS AI Club static build complete")
     print(f"  homepage + majors index + {len(majors)} major pages + {len(FOUNDERS)} founder pages")
-    print(f"  sitemap: {n} urls | robots.txt, _headers written")
-    print(f"  js/videos.js regenerated from config | og-image: {og}")
+    print(f"  sitemap: {n} urls | robots.txt (+ AI bot allow rules), llms.txt, _headers written")
+    print(f"  js/videos.js regenerated from config | og-image: {og} | favicons: {ico} | manifest written")
 
 
 if __name__ == "__main__":

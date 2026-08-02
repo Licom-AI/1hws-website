@@ -1,0 +1,61 @@
+# HWS AI Club
+
+> Student-run AI literacy club at Hobart and William Smith Colleges (HWS) in Geneva, New York. Free and open to students in all 42 majors, no coding experience required. Every Sunday, 5-6 PM · Sanford Room.
+
+HWS AI Club maintains a library of 840 practical AI use cases — 20 per major, rated Easy, Medium, or Hard — across all 42 majors offered at HWS. Each use case names a specific tutorial video and includes a ready-to-paste starter prompt.
+
+## Key pages
+
+- [Homepage](https://hws-ai-club.netlify.app/): what the club does, the team, and how to join.
+- [All Majors](https://hws-ai-club.netlify.app/majors/): directory of all 42 majors with AI use cases.
+- [Sitemap](https://hws-ai-club.netlify.app/sitemap.xml)
+
+## Majors
+
+- [Africana Studies](https://hws-ai-club.netlify.app/majors/africana-studies/)
+- [American Studies](https://hws-ai-club.netlify.app/majors/american-studies/)
+- [Anthropology](https://hws-ai-club.netlify.app/majors/anthropology/)
+- [Anthropology & Sociology](https://hws-ai-club.netlify.app/majors/anthropology-sociology/)
+- [Architectural Studies](https://hws-ai-club.netlify.app/majors/architectural-studies/)
+- [Art: Art History](https://hws-ai-club.netlify.app/majors/art-art-history/)
+- [Art: Studio Art](https://hws-ai-club.netlify.app/majors/art-studio-art/)
+- [Asian Studies](https://hws-ai-club.netlify.app/majors/asian-studies/)
+- [Biochemistry](https://hws-ai-club.netlify.app/majors/biochemistry/)
+- [Biology](https://hws-ai-club.netlify.app/majors/biology/)
+- [Bodies, Disability, and Justice](https://hws-ai-club.netlify.app/majors/bodies-disability-and-justice/)
+- [Business Management and Entrepreneurship](https://hws-ai-club.netlify.app/majors/business-management-and-entrepreneurship/)
+- [Chemistry](https://hws-ai-club.netlify.app/majors/chemistry/)
+- [Classics](https://hws-ai-club.netlify.app/majors/classics/)
+- [Computer Science](https://hws-ai-club.netlify.app/majors/computer-science/)
+- [Dance](https://hws-ai-club.netlify.app/majors/dance/)
+- [Economics](https://hws-ai-club.netlify.app/majors/economics/)
+- [Educational Studies](https://hws-ai-club.netlify.app/majors/educational-studies/)
+- [English and Creative Writing](https://hws-ai-club.netlify.app/majors/english-and-creative-writing/)
+- [Environmental Science](https://hws-ai-club.netlify.app/majors/environmental-science/)
+- [Environmental Studies](https://hws-ai-club.netlify.app/majors/environmental-studies/)
+- [French and Francophone Studies](https://hws-ai-club.netlify.app/majors/french-and-francophone-studies/)
+- [Gender and Feminist Studies](https://hws-ai-club.netlify.app/majors/gender-and-feminist-studies/)
+- [Geoscience](https://hws-ai-club.netlify.app/majors/geoscience/)
+- [Greek and Roman Studies](https://hws-ai-club.netlify.app/majors/greek-and-roman-studies/)
+- [History](https://hws-ai-club.netlify.app/majors/history/)
+- [Individual Major](https://hws-ai-club.netlify.app/majors/individual-major/)
+- [International Relations](https://hws-ai-club.netlify.app/majors/international-relations/)
+- [LGBTQ+ Studies](https://hws-ai-club.netlify.app/majors/lgbtq-studies/)
+- [Mathematics](https://hws-ai-club.netlify.app/majors/mathematics/)
+- [Media & Society](https://hws-ai-club.netlify.app/majors/media-society/)
+- [Music](https://hws-ai-club.netlify.app/majors/music/)
+- [Philosophy](https://hws-ai-club.netlify.app/majors/philosophy/)
+- [Physics](https://hws-ai-club.netlify.app/majors/physics/)
+- [Politics](https://hws-ai-club.netlify.app/majors/politics/)
+- [Psychological Science](https://hws-ai-club.netlify.app/majors/psychological-science/)
+- [Public Health Studies](https://hws-ai-club.netlify.app/majors/public-health-studies/)
+- [Religious Studies](https://hws-ai-club.netlify.app/majors/religious-studies/)
+- [Sociology](https://hws-ai-club.netlify.app/majors/sociology/)
+- [Spanish and Hispanic Studies](https://hws-ai-club.netlify.app/majors/spanish-and-hispanic-studies/)
+- [Theatre](https://hws-ai-club.netlify.app/majors/theatre/)
+- [Writing and Rhetoric](https://hws-ai-club.netlify.app/majors/writing-and-rhetoric/)
+
+## Founders
+
+- [Dominic Schimizzi, Co-Founder](https://hws-ai-club.netlify.app/founders/dominic-schimizzi/)
+- [Zackary Hanna, Co-Founder](https://hws-ai-club.netlify.app/founders/zackary-hanna/)
