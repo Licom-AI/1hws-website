@@ -542,6 +542,128 @@ main.page > h1 { font-size: clamp(1.8rem, 3.4vw, 2.4rem); }
   margin: 0;
 }
 
+/* ---------- Founder cards (link through to /founders/<slug>/) ---------- */
+.founder-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-color: var(--slate-100);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.founder-card:hover,
+.founder-card:focus-visible {
+  border-color: #ddd6fe;
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.founder-card .team-avatar { transition: transform 0.15s ease; }
+.founder-card:hover .team-avatar { transform: scale(1.04); }
+/* Photo variant of the avatar tile — same circle, real image instead of initials. */
+.founder-photo {
+  object-fit: cover;
+  object-position: center top;
+  background: var(--slate-100);
+  padding: 0;
+}
+.founder-more {
+  display: inline-block;
+  margin-top: 14px;
+  color: var(--violet);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.founder-more span { display: inline-block; transition: transform 0.15s ease; }
+.founder-card:hover .founder-more span { transform: translateX(3px); }
+
+/* ---------- Founder page ---------- */
+.founder-hero {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 30px;
+}
+.founder-hero h1 { margin-bottom: 6px; }
+.founder-avatar {
+  flex-shrink: 0;
+  width: 84px;
+  height: 84px;
+  font-size: 1.5rem;
+}
+.founder-subtitle {
+  color: var(--violet);
+  font-weight: 600;
+  margin: 0;
+}
+.founder-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 40px;
+  align-items: start;
+}
+.founder-prose p {
+  color: var(--slate-700);
+  font-size: 1.04rem;
+  margin-bottom: 16px;
+}
+.founder-prose h2 {
+  font-size: 1.25rem;
+  margin: 32px 0 16px;
+}
+.founder-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+.founder-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1.5px solid var(--slate-200);
+  border-radius: 999px;
+  padding: 9px 18px;
+  color: var(--violet);
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.founder-link:hover { border-color: var(--violet); background: #faf5ff; }
+.founder-side {
+  background: var(--white);
+  border: 1px solid var(--slate-100);
+  border-radius: var(--radius);
+  padding: 24px 22px;
+  box-shadow: var(--shadow-sm);
+}
+.founder-facts { margin: 0; }
+.founder-fact + .founder-fact {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--slate-100);
+}
+.founder-fact dt {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--slate-500);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.founder-fact dd {
+  margin: 0;
+  color: var(--slate-900);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.founder-fact dd a { text-decoration: none; }
+.founder-fact dd a:hover { text-decoration: underline; }
+@media (max-width: 760px) {
+  .founder-body { grid-template-columns: 1fr; gap: 28px; }
+  .founder-hero { gap: 16px; }
+  .founder-avatar { width: 66px; height: 66px; font-size: 1.2rem; }
+}
+
 /* ---------- Join band ---------- */
 .lp-join {
   background: var(--grad-brand);

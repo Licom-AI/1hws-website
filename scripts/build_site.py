@@ -34,6 +34,117 @@ TEAM = [
     ("JP", "Josh Powell", "Club Officer", "Helping more students at HWS get started with AI", "team-avatar-1"),
 ]
 
+# Organisations that appear in founders' link rows. Kept out of schema.org sameAs,
+# which is for other profiles *of the person* — these map to worksFor / memberOf.
+LICOM = ("Licom AI", "https://licom.ai/")
+SUNDAI = ("Sundai", "https://www.sundai.club/")
+ORG_URLS = {LICOM[1], SUNDAI[1]}
+
+# Sourced from research/founders/ — see each subject's README for the full bio drafts
+# and the open questions still to confirm before this copy is treated as final.
+# Each entry also generates its own page at /founders/<slug>/.
+FOUNDERS = [
+    {
+        "slug": "zackary-hanna",
+        "initials": "ZH",
+        "name": "Zackary Hanna",
+        "role": "Co-Founder",
+        "avatar": "team-avatar-1",
+        "blurb": "Founder of Licom AI, because the gap isn&rsquo;t knowledge, it&rsquo;s implementation",
+        "meta": (
+            "Zackary Hanna co-founded the HWS AI Club at Hobart and William Smith Colleges and is "
+            "the founder and CEO of Licom AI, a B2B AI consulting and implementation agency. He "
+            "studies at Northeastern University and sits on the board of Sundai."
+        ),
+        "subtitle": "Co-Founder, HWS AI Club &middot; Founder &amp; CEO, Licom AI",
+        "bio": [
+            "Zack co-founded the HWS AI Club in August 2025 and is the founder and CEO of Licom AI, "
+            "a B2B AI consulting and implementation agency he started from his dorm room and grew to "
+            "a team of six. His client work spans full ERP platforms, logistics optimization, and AI "
+            "voice agents.",
+            "He now studies at Northeastern University. He co-founded the club while at Hobart and "
+            "William Smith, where he held a Trustee Scholarship and sat on the Investment Club board, "
+            "and in summer 2026 he joined Enlaye &mdash; an AI-native construction risk platform out "
+            "of the Harvard Innovation Labs &mdash; as the only undergraduate on an all-Harvard team.",
+            "He also sits on the board of Sundai, the Boston community out of MIT and Harvard that "
+            "builds and launches AI prototypes every Sunday.",
+            "His view, and the reason the club exists: the gap isn&rsquo;t knowledge, it&rsquo;s "
+            "implementation. Most people know AI matters. Far fewer can make it work inside the way "
+            "they actually study or run a business.",
+        ],
+        "school": ("Northeastern University", "https://www.northeastern.edu/"),
+        "memberOf": SUNDAI,
+        # Falls back to the initials avatar if the file is missing (build prints a warning).
+        "photo": "/assets/founders/zackary-hanna.jpg",
+        "facts": [
+            ("Studying", "Northeastern University"),
+            ("Hometown", "Huntington Beach, California"),
+            ("Company", f'<a href="{LICOM[1]}" target="_blank" rel="noopener">Licom AI</a> &mdash; Founder &amp; CEO'),
+            ("Board", f'<a href="{SUNDAI[1]}" target="_blank" rel="noopener">Sundai</a>'),
+            ("Previously", "Hobart and William Smith Colleges"),
+        ],
+        "highlights": [
+            "Co-founded the club in August 2025",
+            "Built the club&rsquo;s AI curriculum and ran hands-on workshops",
+            "Demoed OpenClaw &mdash; a personal agent wired into his Mac mini and driven over WhatsApp",
+            "Brought in guest speakers, including Lee Jokl, AI strategy lead at T. Rowe Price and Unanet",
+        ],
+        "links": [
+            LICOM,
+            SUNDAI,
+            ("Personal site", "https://www.zackhanna.com/"),
+            ("LinkedIn", "https://www.linkedin.com/in/zackary-hanna-515138331/"),
+        ],
+    },
+    {
+        "slug": "dominic-schimizzi",
+        "initials": "DS",
+        "name": "Dominic Schimizzi",
+        "role": "Co-Founder",
+        "avatar": "team-avatar-2",
+        "blurb": "Students are already using AI, they just need guidance doing it well",
+        "meta": (
+            "Dominic Schimizzi co-founded the HWS AI Club at Hobart and William Smith Colleges and "
+            "is a founder and CSO of Licom AI. Economics major, class of 2026, and a national "
+            "champion with Hobart hockey."
+        ),
+        "subtitle": "Co-Founder, HWS AI Club &middot; Founder &amp; CSO, Licom AI",
+        # Falls back to the initials avatar if the file is missing (build prints a warning).
+        "photo": "/assets/founders/dominic-schimizzi.jpg",
+        "bio": [
+            "Dominic co-founded the HWS AI Club and is a founder and CSO of Licom AI, the AI "
+            "consulting agency he started with Zack Hanna. He graduated from Hobart and William "
+            "Smith in 2026 with a degree in Economics.",
+            "He also played forward for Hobart hockey, winning a national championship in 2024&ndash;25 "
+            "and earning a place on the SUNYAC Commissioner&rsquo;s Academic Honor Roll.",
+            "Dominic is the club&rsquo;s loudest advocate for AI literacy. In his article "
+            "&ldquo;The Dangerous Gap,&rdquo; he argues that universities fail students by treating AI "
+            "as something to ban rather than a skill to teach &mdash; because students are already "
+            "using it, just without guidance. He now works as an AI Implementor at Metro Development "
+            "Group in Tampa, at the intersection of two things he cares about: artificial intelligence "
+            "and real estate development.",
+        ],
+        "facts": [
+            ("Major", "Economics, class of 2026"),
+            ("Hometown", "Greensburg, Pennsylvania"),
+            ("Company", f'<a href="{LICOM[1]}" target="_blank" rel="noopener">Licom AI</a> &mdash; Founder &amp; CSO'),
+            ("Currently", "AI Implementor, Metro Development Group"),
+            ("Athletics", "Hobart Ice Hockey &middot; 2024&ndash;25 National Champion"),
+        ],
+        "highlights": [
+            "Co-founded the club in August 2025",
+            "Wrote &ldquo;The Dangerous Gap,&rdquo; the club&rsquo;s clearest public argument for AI literacy",
+            "Spoke on the CrossRealms podcast about AI literacy for new graduates",
+            "Led club sessions on agentic AI and chaining tools together",
+        ],
+        "links": [
+            LICOM,
+            ("LinkedIn", "https://www.linkedin.com/in/dominic-schimizzi/"),
+            ("Hobart Athletics profile", "https://hwsathletics.com/sports/mens-ice-hockey/roster/dominic-schimizzi/22634"),
+        ],
+    },
+]
+
 # ---------------------------------------------------------------------------
 # Video resolution — mirrors js/videos.js (cross-checked by the verify step)
 # ---------------------------------------------------------------------------
@@ -196,6 +307,7 @@ def site_header():
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="/#about">About</a>
+      <a href="/#founders">Meet The Founders</a>
       <a href="/#team">Team</a>
       <a href="/majors/">Use Cases</a>
       <a class="nav-cta" href="/#join">Join Us</a>
@@ -217,6 +329,7 @@ def site_footer():
     <nav class="footer-nav" aria-label="Footer">
       <a href="/#about">About</a>
       <a href="/#join">Events</a>
+      <a href="/#founders">Meet The Founders</a>
       <a href="/#team">Team</a>
       <a href="/majors/">Use Cases</a>
     </nav>
@@ -266,6 +379,47 @@ def team_cards():
         out.append(
             f'<article class="card team-card"><span class="team-avatar {avclass}" aria-hidden="true">{initials}</span>'
             f"<h3>{esc(name)}</h3><p class=\"team-role\">{esc(role)}</p><p class=\"team-bio\">{esc(bio)}</p></article>"
+        )
+    return "\n".join(out)
+
+
+_PHOTO_WARNED = set()
+
+
+def founder_photo(f):
+    """Path to the founder's photo, or None if it isn't on disk yet. Warns once."""
+    if not f.get("photo"):
+        return None
+    if (SITE / f["photo"].lstrip("/")).exists():
+        return f["photo"]
+    if f["slug"] not in _PHOTO_WARNED:
+        _PHOTO_WARNED.add(f["slug"])
+        print(f"  ! {f['name']}: no photo at site{f['photo']} - using initials avatar")
+    return None
+
+
+def founder_avatar(f, extra_class=""):
+    """Photo if one exists, else the initials tile. Same shape either way."""
+    cls = f"team-avatar {extra_class} {f['avatar']}".strip()
+    photo = founder_photo(f)
+    if photo:
+        return (f'<img class="{cls} founder-photo" src="{photo}" alt="{esc(f["name"])}" '
+                f'width="256" height="256" loading="lazy" decoding="async">')
+    return f'<span class="{cls}" aria-hidden="true">{f["initials"]}</span>'
+
+
+def founder_cards():
+    """Founder cards link through to their own page. Hand-authored copy in FOUNDERS
+    carries intentional HTML entities, so blurb/subtitle are emitted unescaped."""
+    out = []
+    for f in FOUNDERS:
+        out.append(
+            f'<a class="card team-card founder-card" href="/founders/{f["slug"]}/">'
+            f'{founder_avatar(f)}'
+            f'<h3>{esc(f["name"])}</h3>'
+            f'<p class="team-role">{esc(f["role"])}</p>'
+            f'<p class="team-bio">{f["blurb"]}</p>'
+            f'<span class="founder-more">Read more <span aria-hidden="true">&rarr;</span></span></a>'
         )
     return "\n".join(out)
 
@@ -376,6 +530,16 @@ def build_home():
       <p class="join-sub">No experience, no application &mdash; just show up. Open to all majors and class years at {COLLEGE}.</p>
       <p class="join-meeting">{MEETING}</p>
       <a class="btn-secondary" href="/majors/">Start with your major&rsquo;s use cases &rarr;</a>
+    </div>
+  </section>
+
+  <section class="lp-section" id="founders">
+    <div class="section-inner">
+      <h2 class="section-title">Meet the Founders</h2>
+      <p class="section-sub">The students who started HWS AI Club</p>
+      <div class="team-grid">
+{founder_cards()}
+      </div>
     </div>
   </section>
 </main>
@@ -546,6 +710,97 @@ def build_major(m, prev_m, next_m):
 
 
 # ---------------------------------------------------------------------------
+# Per-founder pages
+# ---------------------------------------------------------------------------
+def build_founder(f, others):
+    slug, name = f["slug"], f["name"]
+    title = f"{name} — {f['role']}, HWS AI Club | {COLLEGE}"
+    affiliation = [{"@type": "EducationalOrganization", "name": "HWS AI Club", "url": BASE_URL + "/"}]
+    if f.get("school"):  # currently enrolled — affiliation, not alumniOf
+        affiliation.append({"@type": "CollegeOrUniversity", "name": f["school"][0], "url": f["school"][1]})
+    person = {
+        "@context": "https://schema.org", "@type": "Person",
+        "name": name,
+        "url": f"{BASE_URL}/founders/{slug}/",
+        "jobTitle": f["role"],
+        "description": f["meta"],
+        "affiliation": affiliation if len(affiliation) > 1 else affiliation[0],
+        "alumniOf": {"@type": "CollegeOrUniversity", "name": COLLEGE, "url": "https://www.hws.edu/"},
+        "worksFor": {"@type": "Organization", "name": LICOM[0], "url": LICOM[1]},
+        "sameAs": [url for _, url in f["links"] if url not in ORG_URLS],
+    }
+    if f.get("memberOf"):
+        person["memberOf"] = {"@type": "Organization", "name": f["memberOf"][0], "url": f["memberOf"][1]}
+    if founder_photo(f):
+        person["image"] = BASE_URL + f["photo"]
+    crumbs = breadcrumb([("Home", "/"), ("Founders", "/#founders"), (name, f"/founders/{slug}/")])
+
+    paras = "\n      ".join(f"<p>{p}</p>" for p in f["bio"])
+    facts = "\n        ".join(
+        f'<div class="founder-fact"><dt>{label}</dt><dd>{value}</dd></div>'
+        for label, value in f["facts"]
+    )
+    highlights = "\n        ".join(
+        f'<li><span class="check-dot" aria-hidden="true">&#10003;</span>{h}</li>'
+        for h in f["highlights"]
+    )
+    links = "\n        ".join(
+        f'<a class="founder-link" href="{esc(url)}" target="_blank" rel="noopener">{esc(label)} '
+        f'<span aria-hidden="true">&#8599;</span></a>'
+        for label, url in f["links"]
+    )
+    siblings = "".join(
+        f'<a class="pager next" href="/founders/{o["slug"]}/">{esc(o["name"])} &rarr;</a>'
+        for o in others
+    )
+
+    body = f"""<body class="view-inner">
+{site_header()}
+<main id="main" class="page">
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/#founders">Founders</a> / {esc(name)}</nav>
+  <div class="founder-hero">
+    {founder_avatar(f, "founder-avatar")}
+    <div>
+      <h1>{esc(name)}</h1>
+      <p class="founder-subtitle">{f["subtitle"]}</p>
+    </div>
+  </div>
+  <div class="founder-body">
+    <div class="founder-prose">
+      {paras}
+      <h2>At the club</h2>
+      <ul class="check-list">
+        {highlights}
+      </ul>
+      <div class="founder-links">
+        {links}
+      </div>
+    </div>
+    <aside class="founder-side" aria-label="Quick facts">
+      <dl class="founder-facts">
+        {facts}
+      </dl>
+    </aside>
+  </div>
+  <nav class="major-pager" aria-label="More founders">{siblings}</nav>
+  <section class="sibling-majors">
+    <h2>Explore the club</h2>
+    <p class="siblings"><a href="/#about">What we do</a> &middot; <a href="/majors/">AI use cases for all 42 majors</a> &middot; <a href="/#join">Join the club</a></p>
+  </section>
+</main>
+{site_footer()}
+{scripts()}
+</body>
+</html>"""
+    d = SITE / "founders" / slug
+    d.mkdir(parents=True, exist_ok=True)
+    (d / "index.html").write_text(
+        head(title, f["meta"], f"/founders/{slug}/", [crumbs, person]) + "\n" + body + "\n",
+        encoding="utf-8",
+    )
+
+
+# ---------------------------------------------------------------------------
 # robots / sitemap / headers / og-image / videos.js
 # ---------------------------------------------------------------------------
 def build_robots():
@@ -558,6 +813,7 @@ def build_robots():
 def build_sitemap():
     urls = [("/", "1.0"), ("/majors/", "0.9")]
     urls += [(f"/majors/{m['slug']}/", "0.8") for m in DATA["majors"]]
+    urls += [(f"/founders/{f['slug']}/", "0.6") for f in FOUNDERS]
     items = "\n".join(
         f"  <url><loc>{BASE_URL}{p}</loc><lastmod>{BUILD_DATE}</lastmod><priority>{pr}</priority></url>"
         for p, pr in urls
@@ -653,13 +909,23 @@ def _og_png_pillow(png):
     draw = ImageDraw.Draw(img)
 
     def font(sz, bold=True):
-        for name in (["/System/Library/Fonts/Supplemental/Arial Bold.ttf" if bold else "/System/Library/Fonts/Supplemental/Arial.ttf",
-                      "/Library/Fonts/Arial.ttf", "/System/Library/Fonts/Helvetica.ttc"]):
+        # Cross-platform: without a real TTF, Pillow falls back to a tiny bitmap font
+        # and the OG card renders effectively blank. Cover macOS, Windows and Linux.
+        candidates = [
+            "/System/Library/Fonts/Supplemental/Arial Bold.ttf" if bold else "/System/Library/Fonts/Supplemental/Arial.ttf",
+            "/Library/Fonts/Arial.ttf",
+            "/System/Library/Fonts/Helvetica.ttc",
+            "C:/Windows/Fonts/arialbd.ttf" if bold else "C:/Windows/Fonts/arial.ttf",
+            "C:/Windows/Fonts/segoeuib.ttf" if bold else "C:/Windows/Fonts/segoeui.ttf",
+            "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf" if bold else "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+            "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf" if bold else "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",
+        ]
+        for name in candidates:
             try:
                 return ImageFont.truetype(name, sz)
             except Exception:
                 continue
-        return ImageFont.load_default()
+        raise RuntimeError("no TrueType font found for og-image; refusing to render with bitmap fallback")
 
     # brand tile
     tile = Image.new("RGB", (120, 120), "#5a2fd0")
@@ -689,6 +955,8 @@ def main():
     majors = DATA["majors"]
     for i, m in enumerate(majors):
         build_major(m, majors[i - 1] if i > 0 else None, majors[i + 1] if i + 1 < len(majors) else None)
+    for f in FOUNDERS:
+        build_founder(f, [o for o in FOUNDERS if o["slug"] != f["slug"]])
     build_robots()
     n = build_sitemap()
     build_headers()
@@ -698,8 +966,10 @@ def main():
     assert len(majors) == 42, "expected 42 majors"
     for m in majors:
         assert (SITE / "majors" / m["slug"] / "index.html").exists()
+    for f in FOUNDERS:
+        assert (SITE / "founders" / f["slug"] / "index.html").exists()
     print("HWS AI Club static build complete")
-    print(f"  homepage + majors index + {len(majors)} major pages")
+    print(f"  homepage + majors index + {len(majors)} major pages + {len(FOUNDERS)} founder pages")
     print(f"  sitemap: {n} urls | robots.txt, _headers written")
     print(f"  js/videos.js regenerated from config | og-image: {og}")
 
