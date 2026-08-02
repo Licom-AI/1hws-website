@@ -27,6 +27,11 @@ LOCATION = "Geneva, New York"
 MEETING = "Every Sunday, 5-6 PM · Sanford Room"
 BUILD_DATE = date.today().isoformat()
 
+# The club's community hub. SKOOL_MEMBERS is shown on the homepage as social
+# proof — it goes stale, so update it when it drifts (it is not fetched live).
+SKOOL_URL = "https://www.skool.com/hws-ai-club-7506"
+SKOOL_MEMBERS = 41
+
 TEAM = [
     ("CS", "Connor Shibley", "President", "Passionate about making AI accessible to everyone", "team-avatar-1"),
     ("AK", "Amanda Kronowitz", "Vice President", "Exploring AI tools for research and projects", "team-avatar-2"),
@@ -45,12 +50,59 @@ ORG_URLS = {LICOM[1], SUNDAI[1]}
 # Each entry also generates its own page at /founders/<slug>/.
 FOUNDERS = [
     {
+        "slug": "dominic-schimizzi",
+        "initials": "DS",
+        "name": "Dominic Schimizzi",
+        "role": "Co-Founder",
+        "avatar": "team-avatar-2",
+        "blurb": "Graduated HWS &rsquo;26; now AI Implementor at Metro Development Group",
+        "meta": (
+            "Dominic Schimizzi co-founded the HWS AI Club at Hobart and William Smith Colleges and "
+            "is a founder and CSO of Licom AI. Economics major, class of 2026, and a national "
+            "champion with Hobart hockey."
+        ),
+        "subtitle": "Co-Founder, HWS AI Club &middot; Founder &amp; CSO, Licom AI",
+        # Falls back to the initials avatar if the file is missing (build prints a warning).
+        "photo": "/assets/founders/dominic-schimizzi.jpg",
+        "bio": [
+            "Dominic co-founded the HWS AI Club and is a founder and CSO of Licom AI, the AI "
+            "consulting agency he started with Zack Hanna. He graduated from Hobart and William "
+            "Smith in 2026 with a degree in Economics.",
+            "He also played forward for Hobart hockey, winning a national championship in 2024&ndash;25 "
+            "and earning a place on the SUNYAC Commissioner&rsquo;s Academic Honor Roll.",
+            "Dominic is the club&rsquo;s loudest advocate for AI literacy. In his article "
+            "&ldquo;The Dangerous Gap,&rdquo; he argues that universities fail students by treating AI "
+            "as something to ban rather than a skill to teach &mdash; because students are already "
+            "using it, just without guidance. He now works as an AI Implementor at Metro Development "
+            "Group in Tampa, at the intersection of two things he cares about: artificial intelligence "
+            "and real estate development.",
+        ],
+        "facts": [
+            ("Major", "Economics, class of 2026"),
+            ("Hometown", "Greensburg, Pennsylvania"),
+            ("Company", f'<a href="{LICOM[1]}" target="_blank" rel="noopener">Licom AI</a> &mdash; Founder &amp; CSO'),
+            ("Currently", "AI Implementor, Metro Development Group"),
+            ("Athletics", "Hobart Ice Hockey &middot; 2024&ndash;25 National Champion"),
+        ],
+        "highlights": [
+            "Co-founded the club in August 2025",
+            "Wrote &ldquo;The Dangerous Gap,&rdquo; the club&rsquo;s clearest public argument for AI literacy",
+            "Spoke on the CrossRealms podcast about AI literacy for new graduates",
+            "Led club sessions on agentic AI and chaining tools together",
+        ],
+        "links": [
+            LICOM,
+            ("LinkedIn", "https://www.linkedin.com/in/dominic-schimizzi/"),
+            ("Hobart Athletics profile", "https://hwsathletics.com/sports/mens-ice-hockey/roster/dominic-schimizzi/22634"),
+        ],
+    },
+    {
         "slug": "zackary-hanna",
         "initials": "ZH",
         "name": "Zackary Hanna",
         "role": "Co-Founder",
         "avatar": "team-avatar-1",
-        "blurb": "Founder of Licom AI, because the gap isn&rsquo;t knowledge, it&rsquo;s implementation",
+        "blurb": "Transferred to Northeastern; building at Enlaye, a startup in the Harvard Innovation Labs",
         "meta": (
             "Zackary Hanna co-founded the HWS AI Club at Hobart and William Smith Colleges and is "
             "the founder and CEO of Licom AI, a B2B AI consulting and implementation agency. He "
@@ -94,53 +146,6 @@ FOUNDERS = [
             SUNDAI,
             ("Personal site", "https://www.zackhanna.com/"),
             ("LinkedIn", "https://www.linkedin.com/in/zackary-hanna-515138331/"),
-        ],
-    },
-    {
-        "slug": "dominic-schimizzi",
-        "initials": "DS",
-        "name": "Dominic Schimizzi",
-        "role": "Co-Founder",
-        "avatar": "team-avatar-2",
-        "blurb": "Students are already using AI, they just need guidance doing it well",
-        "meta": (
-            "Dominic Schimizzi co-founded the HWS AI Club at Hobart and William Smith Colleges and "
-            "is a founder and CSO of Licom AI. Economics major, class of 2026, and a national "
-            "champion with Hobart hockey."
-        ),
-        "subtitle": "Co-Founder, HWS AI Club &middot; Founder &amp; CSO, Licom AI",
-        # Falls back to the initials avatar if the file is missing (build prints a warning).
-        "photo": "/assets/founders/dominic-schimizzi.jpg",
-        "bio": [
-            "Dominic co-founded the HWS AI Club and is a founder and CSO of Licom AI, the AI "
-            "consulting agency he started with Zack Hanna. He graduated from Hobart and William "
-            "Smith in 2026 with a degree in Economics.",
-            "He also played forward for Hobart hockey, winning a national championship in 2024&ndash;25 "
-            "and earning a place on the SUNYAC Commissioner&rsquo;s Academic Honor Roll.",
-            "Dominic is the club&rsquo;s loudest advocate for AI literacy. In his article "
-            "&ldquo;The Dangerous Gap,&rdquo; he argues that universities fail students by treating AI "
-            "as something to ban rather than a skill to teach &mdash; because students are already "
-            "using it, just without guidance. He now works as an AI Implementor at Metro Development "
-            "Group in Tampa, at the intersection of two things he cares about: artificial intelligence "
-            "and real estate development.",
-        ],
-        "facts": [
-            ("Major", "Economics, class of 2026"),
-            ("Hometown", "Greensburg, Pennsylvania"),
-            ("Company", f'<a href="{LICOM[1]}" target="_blank" rel="noopener">Licom AI</a> &mdash; Founder &amp; CSO'),
-            ("Currently", "AI Implementor, Metro Development Group"),
-            ("Athletics", "Hobart Ice Hockey &middot; 2024&ndash;25 National Champion"),
-        ],
-        "highlights": [
-            "Co-founded the club in August 2025",
-            "Wrote &ldquo;The Dangerous Gap,&rdquo; the club&rsquo;s clearest public argument for AI literacy",
-            "Spoke on the CrossRealms podcast about AI literacy for new graduates",
-            "Led club sessions on agentic AI and chaining tools together",
-        ],
-        "links": [
-            LICOM,
-            ("LinkedIn", "https://www.linkedin.com/in/dominic-schimizzi/"),
-            ("Hobart Athletics profile", "https://hwsathletics.com/sports/mens-ice-hockey/roster/dominic-schimizzi/22634"),
         ],
     },
 ]
@@ -307,9 +312,10 @@ def site_header():
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="/#about">About</a>
-      <a href="/#founders">Meet The Founders</a>
       <a href="/#team">Team</a>
       <a href="/majors/">Use Cases</a>
+      <a href="/#community">Community</a>
+      <a href="/#founders">Meet The Founders</a>
       <a class="nav-cta" href="/#join">Join Us</a>
     </nav>
   </div>
@@ -329,9 +335,10 @@ def site_footer():
     <nav class="footer-nav" aria-label="Footer">
       <a href="/#about">About</a>
       <a href="/#join">Events</a>
-      <a href="/#founders">Meet The Founders</a>
       <a href="/#team">Team</a>
       <a href="/majors/">Use Cases</a>
+      <a href="/#community">Community</a>
+      <a href="/#founders">Meet The Founders</a>
     </nav>
     <div class="footer-legal">
       <p class="footer-integrity"><strong>Check your course policy first.</strong> AI rules differ by class and
@@ -533,6 +540,22 @@ def build_home():
     </div>
   </section>
 
+  <section class="lp-section lp-skool" id="community">
+    <div class="section-inner">
+      <h2 class="section-title">Join the Community</h2>
+      <p class="section-sub">The club&rsquo;s hub lives on Skool &mdash; the official community for learning material and club activities, all in one place.</p>
+      <div class="wwd-grid skool-grid">
+        <article class="card"><span class="icon-tile" aria-hidden="true">{ICONS['book']}</span><h3>Classroom &amp; learning material</h3><p>Video walkthroughs and course material covering AI fundamentals, Claude API, MCP, and building AI agents with Make.com.</p></article>
+        <article class="card"><span class="icon-tile" aria-hidden="true">{ICONS['tools']}</span><h3>Workshops &amp; discussion</h3><p>Ask questions, share what you&rsquo;re building, and get help from other students working through the same tools.</p></article>
+        <article class="card"><span class="icon-tile" aria-hidden="true">{ICONS['rocket']}</span><h3>Calendar &amp; club activities</h3><p>Meetings, guest speakers, and events &mdash; so you always know what&rsquo;s coming up and never miss a session.</p></article>
+      </div>
+      <div class="skool-cta">
+        <a class="btn-primary" href="{SKOOL_URL}" target="_blank" rel="noopener">Join the Skool community <span aria-hidden="true">&#8599;</span></a>
+        <p class="skool-meta">Free to join &middot; {SKOOL_MEMBERS} members &middot; Open to every HWS student</p>
+      </div>
+    </div>
+  </section>
+
   <section class="lp-section" id="founders">
     <div class="section-inner">
       <h2 class="section-title">Meet the Founders</h2>
@@ -540,6 +563,10 @@ def build_home():
       <div class="team-grid">
 {founder_cards()}
       </div>
+      <figure class="founders-photo">
+        <img src="/assets/founders/founders-together.jpg" width="633" height="900" loading="lazy" decoding="async"
+             alt="Zackary Hanna and Dominic Schimizzi, co-founders of the HWS AI Club">
+      </figure>
     </div>
   </section>
 </main>
