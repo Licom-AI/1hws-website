@@ -134,6 +134,8 @@ button { font: inherit; cursor: pointer; }
 .site-nav {
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 4px;
 }
 .site-nav a {
@@ -574,6 +576,37 @@ main.page > h1 { font-size: clamp(1.8rem, 3.4vw, 2.4rem); }
 }
 .founder-more span { display: inline-block; transition: transform 0.15s ease; }
 .founder-card:hover .founder-more span { transform: translateX(3px); }
+
+/* ---------- Skool community ---------- */
+.lp-skool { background: var(--grad-wash); }
+.skool-grid { margin-top: 38px; }
+.skool-cta {
+  text-align: center;
+  margin-top: 40px;
+}
+.skool-meta {
+  margin-top: 14px;
+  color: var(--slate-500);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+/* Group photo under the founder cards. Portrait crop, so cap the width and
+   centre it rather than letting it dominate the section. */
+.founders-photo {
+  margin: 40px auto 0;
+  max-width: 420px;
+}
+.founders-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+}
+@media (max-width: 520px) {
+  .founders-photo { max-width: 100%; margin-top: 30px; }
+}
 
 /* ---------- Founder page ---------- */
 .founder-hero {
