@@ -1,0 +1,13 @@
+# Netlify publishes the repository root by default, which 404s: there is no
+# index.html at the root — the site lives in site/. Without this file a
+# git-connected deploy also exposes README.md, scripts/, research/ and the
+# source spreadsheet as public URLs.
+#
+# The generated HTML is committed to the repo, so there is no build step here.
+# Netlify just serves the already-built directory. Regenerate locally with
+# `python3 scripts/build_site.py` and commit the result.
+
+[build]
+  publish = "site"
+
+# site/_headers is picked up automatically once publish points at site/.
