@@ -620,12 +620,6 @@ def build_home():
         <a class="btn-primary" href="{SKOOL_URL}" target="_blank" rel="noopener">Join the Skool community <span aria-hidden="true">&#8599;</span></a>
         <p class="skool-meta">Free to join &middot; {SKOOL_MEMBERS} members &middot; Open to every HWS student</p>
       </div>
-      <div class="skool-song">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4gZYw4chUdkjumdu0ODJ9t?utm_source=generator"
-                width="100%" height="152" frameborder="0" allowfullscreen
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy" title="Spotify player: Personal Jesus by Marilyn Manson"></iframe>
-      </div>
     </div>
   </section>
 
