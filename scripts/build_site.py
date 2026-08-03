@@ -112,10 +112,10 @@ FOUNDERS = [
         # The one song he wants to be remembered by. Confirmed via Spotify's oEmbed
         # + og:description on the track page (title/artist/album), not hand-typed.
         "song": {
-            "title": "End of Line",
-            "artist": "Daft Punk",
-            "album": "TRON: Legacy (Original Motion Picture Soundtrack)",
-            "spotify_track_id": "09TlxralXOGX35LUutvw7I",
+            "title": "Personal Jesus",
+            "artist": "Marilyn Manson",
+            "album": "Personal Jesus (Single)",
+            "spotify_track_id": "4gZYw4chUdkjumdu0ODJ9t",
         },
     },
     {
