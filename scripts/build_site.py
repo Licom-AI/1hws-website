@@ -169,6 +169,14 @@ FOUNDERS = [
             ("Personal site", "https://www.zackhanna.com/"),
             ("LinkedIn", "https://www.linkedin.com/in/zackary-hanna-515138331/"),
         ],
+        # The one song he wants to be remembered by. Title/artist confirmed via
+        # Spotify's embed payload for this exact track id. "album" is optional and
+        # deliberately omitted here — the caption renders without it.
+        "song": {
+            "title": "Personal Jesus",
+            "artist": "Marilyn Manson",
+            "spotify_track_id": "4gZYw4chUdkjumdu0ODJ9t",
+        },
     },
 ]
 
@@ -883,9 +891,10 @@ def build_founder(f, others):
     if f.get("song"):
         s = f["song"]
         first_name = name.split()[0]
+        album_part = f" &mdash; {esc(s['album'])}" if s.get("album") else ""
         song_html = f"""
       <h2>The Song {esc(first_name)} Wants to Be Remembered By</h2>
-      <p class="founder-song-caption">&ldquo;{esc(s['title'])}&rdquo; by {esc(s['artist'])} &mdash; {esc(s['album'])}.</p>
+      <p class="founder-song-caption">&ldquo;{esc(s['title'])}&rdquo; by {esc(s['artist'])}{album_part}.</p>
       <div class="founder-song">
         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/{esc(s['spotify_track_id'])}?utm_source=generator"
                 width="100%" height="152" frameborder="0" allowfullscreen
