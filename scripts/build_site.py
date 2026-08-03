@@ -109,6 +109,14 @@ FOUNDERS = [
             ("LinkedIn", "https://www.linkedin.com/in/dominic-schimizzi/"),
             ("Hobart Athletics profile", "https://hwsathletics.com/sports/mens-ice-hockey/roster/dominic-schimizzi/22634"),
         ],
+        # The one song he wants to be remembered by. Confirmed via Spotify's oEmbed
+        # + og:description on the track page (title/artist/album), not hand-typed.
+        "song": {
+            "title": "End of Line",
+            "artist": "Daft Punk",
+            "album": "TRON: Legacy (Original Motion Picture Soundtrack)",
+            "spotify_track_id": "09TlxralXOGX35LUutvw7I",
+        },
     },
     {
         "slug": "zackary-hanna",
@@ -871,6 +879,20 @@ def build_founder(f, others):
         for o in others
     )
 
+    song_html = ""
+    if f.get("song"):
+        s = f["song"]
+        first_name = name.split()[0]
+        song_html = f"""
+      <h2>The Song {esc(first_name)} Wants to Be Remembered By</h2>
+      <p class="founder-song-caption">&ldquo;{esc(s['title'])}&rdquo; by {esc(s['artist'])} &mdash; {esc(s['album'])}.</p>
+      <div class="founder-song">
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/{esc(s['spotify_track_id'])}?utm_source=generator"
+                width="100%" height="152" frameborder="0" allowfullscreen
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy" title="Spotify player: {esc(s['title'])} by {esc(s['artist'])}"></iframe>
+      </div>"""
+
     body = f"""<body class="view-inner">
 {site_header()}
 <main id="main" class="page">
@@ -891,7 +913,7 @@ def build_founder(f, others):
       </ul>
       <div class="founder-links">
         {links}
-      </div>
+      </div>{song_html}
     </div>
     <aside class="founder-side" aria-label="Quick facts">
       <dl class="founder-facts">

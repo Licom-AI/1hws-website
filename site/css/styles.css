@@ -680,6 +680,16 @@ main.page > h1 { font-size: clamp(1.8rem, 3.4vw, 2.4rem); }
   transition: border-color 0.15s ease, background 0.15s ease;
 }
 .founder-link:hover { border-color: var(--violet); background: #faf5ff; }
+.founder-song-caption {
+  color: var(--slate-500);
+  font-size: 0.95rem;
+  margin: -8px 0 14px;
+}
+.founder-song iframe {
+  display: block;
+  max-width: 420px;
+  width: 100%;
+}
 .founder-side {
   background: var(--white);
   border: 1px solid var(--slate-100);
