@@ -597,6 +597,17 @@ main.page > h1 { font-size: clamp(1.8rem, 3.4vw, 2.4rem); }
 
 /* ---------- Skool community ---------- */
 .lp-skool { background: var(--grad-wash); }
+.skool-photo {
+  margin: 32px auto 0;
+  max-width: 720px;
+}
+.skool-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+}
 .skool-grid { margin-top: 38px; }
 .skool-cta {
   text-align: center;

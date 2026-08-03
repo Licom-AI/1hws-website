@@ -611,6 +611,10 @@ def build_home():
     <div class="section-inner">
       <h2 class="section-title">Join the Community</h2>
       <p class="section-sub">The club&rsquo;s hub lives on Skool &mdash; the official community for learning material and club activities, all in one place.</p>
+      <figure class="skool-photo">
+        <img src="/assets/community/club-session.jpg" width="1392" height="994" loading="lazy" decoding="async"
+             alt="HWS AI Club members at a weekly meeting">
+      </figure>
       <div class="wwd-grid skool-grid">
         <article class="card"><span class="icon-tile" aria-hidden="true">{ICONS['book']}</span><h3>Classroom &amp; learning material</h3><p>Video walkthroughs and course material covering AI fundamentals, Claude API, MCP, and building AI agents with Make.com.</p></article>
         <article class="card"><span class="icon-tile" aria-hidden="true">{ICONS['tools']}</span><h3>Workshops &amp; discussion</h3><p>Ask questions, share what you&rsquo;re building, and get help from other students working through the same tools.</p></article>
