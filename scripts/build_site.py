@@ -612,7 +612,7 @@ def build_home():
       <h2 class="section-title">Join the Community</h2>
       <p class="section-sub">The club&rsquo;s hub lives on Skool &mdash; the official community for learning material and club activities, all in one place.</p>
       <figure class="skool-photo">
-        <img src="/assets/community/club-session.jpg" width="1392" height="994" loading="lazy" decoding="async"
+        <img src="/assets/community/club-session.jpg" width="1280" height="1280" loading="lazy" decoding="async"
              alt="HWS AI Club members at a weekly meeting">
       </figure>
       <div class="wwd-grid skool-grid">
