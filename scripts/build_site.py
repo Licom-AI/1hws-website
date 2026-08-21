@@ -173,9 +173,9 @@ FOUNDERS = [
         # Spotify's embed payload for this exact track id. "album" is optional and
         # deliberately omitted here — the caption renders without it.
         "song": {
-            "title": "Personal Jesus",
+            "title": "The Arsonist",
             "artist": "Marilyn Manson",
-            "spotify_track_id": "4gZYw4chUdkjumdu0ODJ9t",
+            "spotify_track_id": "7uXhNhHb8BFQB0l54BI8N7",
         },
     },
 ]
