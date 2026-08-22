@@ -177,6 +177,12 @@ FOUNDERS = [
             "artist": "Marilyn Manson",
             "spotify_track_id": "7uXhNhHb8BFQB0l54BI8N7",
         },
+        "extra_photo": {
+            "src": "/assets/founders/zackary-hanna-speaking.jpg",
+            "width": 1440,
+            "height": 1080,
+            "alt": "Zackary Hanna speaking at an HWS AI Club session",
+        },
     },
 ]
 
@@ -906,6 +912,15 @@ def build_founder(f, others):
                 loading="lazy" title="Spotify player: {esc(s['title'])} by {esc(s['artist'])}"></iframe>
       </div>"""
 
+    photo_html = ""
+    if f.get("extra_photo"):
+        p = f["extra_photo"]
+        photo_html = f"""
+      <figure class="founder-extra-photo">
+        <img src="{esc(p['src'])}" width="{p['width']}" height="{p['height']}" loading="lazy" decoding="async"
+             alt="{esc(p['alt'])}">
+      </figure>"""
+
     body = f"""<body class="view-inner">
 {site_header()}
 <main id="main" class="page">
@@ -926,7 +941,7 @@ def build_founder(f, others):
       </ul>
       <div class="founder-links">
         {links}
-      </div>{song_html}
+      </div>{song_html}{photo_html}
     </div>
     <aside class="founder-side" aria-label="Quick facts">
       <dl class="founder-facts">

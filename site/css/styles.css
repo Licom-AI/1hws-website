@@ -701,6 +701,16 @@ main.page > h1 { font-size: clamp(1.8rem, 3.4vw, 2.4rem); }
   max-width: 420px;
   width: 100%;
 }
+.founder-extra-photo {
+  margin: 28px 0 0;
+}
+.founder-extra-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+}
 .founder-side {
   background: var(--white);
   border: 1px solid var(--slate-100);
