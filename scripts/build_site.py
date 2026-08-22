@@ -173,9 +173,9 @@ FOUNDERS = [
         # Spotify's embed payload for this exact track id. "album" is optional and
         # deliberately omitted here — the caption renders without it.
         "song": {
-            "title": "The Arsonist",
+            "title": "All The Vilest Things",
             "artist": "Marilyn Manson",
-            "spotify_track_id": "7uXhNhHb8BFQB0l54BI8N7",
+            "spotify_track_id": "3JoqnjCO80olWZrRNhBqVq",
         },
         "extra_photo": {
             "src": "/assets/founders/zackary-hanna-speaking.jpg",
