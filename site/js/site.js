@@ -7,6 +7,52 @@
 
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ---- GA4 event helper ----
+     Wraps gtag() so a blocked/missing analytics script (ad blockers, consent
+     tools) never breaks the feature it's attached to. See docs/ANALYTICS.md
+     for the full event list and which of these are configured as GA4
+     conversions. */
+  function track(name, params) {
+    if (typeof window.gtag === "function") window.gtag("event", name, params || {});
+  }
+
+  function currentMajorSlug() {
+    var m = location.pathname.match(/^\/majors\/([^/]+)\/?/);
+    return m ? m[1] : null;
+  }
+
+  /* ---- CTA clicks: join intent, library entry, and the real conversion ----
+     Any element with data-cta is tracked generically, so a new CTA only needs
+     the attribute — no JS change. skool-join is the site's real conversion
+     (clicking through to the club's actual community); everything else is a
+     softer intent/engagement signal. */
+  document.addEventListener("click", function (e) {
+    var el = e.target.closest && e.target.closest("[data-cta]");
+    if (!el) return;
+    var cta = el.getAttribute("data-cta");
+    if (cta === "skool-join") {
+      track("join_community_click", { link_url: el.getAttribute("href"), location: cta });
+    } else if (cta.indexOf("browse") !== -1 || cta.indexOf("library") !== -1) {
+      track("library_cta_click", { location: cta });
+    } else {
+      track("join_cta_click", { location: cta });
+    }
+  });
+
+  /* ---- Tutorial video clicks: which use case's linked video actually gets watched ---- */
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest(".uc-watch");
+    if (!a) return;
+    var card = a.closest(".usecase-card");
+    track("tutorial_video_click", {
+      major: currentMajorSlug(),
+      use_case_number: card ? card.getAttribute("data-uc") : null,
+      difficulty: card ? card.getAttribute("data-difficulty") : null,
+      video_title: a.getAttribute("data-video-title"),
+      link_url: a.getAttribute("href")
+    });
+  });
+
   /* ---- Backward-compat: old hash-router links still work ----
      e.g. /#/major/history  ->  /majors/history/   |   /#/majors -> /majors/ */
   (function hashCompat() {
@@ -74,6 +120,15 @@
     var pre = document.getElementById(btn.getAttribute("data-copy"));
     if (!pre) return;
     var text = pre.textContent;
+    var card = btn.closest(".usecase-card");
+
+    // Fired on click intent, not on confirmed clipboard success: a copy that
+    // silently fails still means the student engaged with this exact prompt.
+    track("prompt_copied", {
+      major: currentMajorSlug(),
+      use_case_number: card ? card.getAttribute("data-uc") : null,
+      difficulty: card ? card.getAttribute("data-difficulty") : null
+    });
 
     function flash(label) {
       var prev = btn.getAttribute("data-label") || "Copy";

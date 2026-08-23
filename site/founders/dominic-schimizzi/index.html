@@ -1,6 +1,22 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0S5QWRS2Q6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-0S5QWRS2Q6', {
+    content_group: (function () {
+      var p = location.pathname;
+      if (p === '/') return 'home';
+      if (p === '/majors/') return 'majors_index';
+      if (p.indexOf('/majors/') === 0) return 'major_page';
+      if (p.indexOf('/founders/') === 0) return 'founder_page';
+      return 'other';
+    })()
+  });
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dominic Schimizzi — Co-Founder, HWS AI Club | Hobart and William Smith Colleges</title>
@@ -44,7 +60,7 @@
       <a href="/majors/">Use Cases</a>
       <a href="/#community">Community</a>
       <a href="/#founders">Meet The Founders</a>
-      <a class="nav-cta" href="/#join">Join Us</a>
+      <a class="nav-cta" href="/#join" data-cta="nav-join">Join Us</a>
     </nav>
   </div>
 </header>

@@ -83,6 +83,14 @@ site/
   data/videos-config.json  video + prompt config (hand-maintained)
 ```
 
+## For AI agents
+
+Start at [AGENTS.md](AGENTS.md) (or [CLAUDE.md](CLAUDE.md) for Claude Code specifically).
+Deeper references live in [docs/](docs/): [ARCHITECTURE.md](docs/ARCHITECTURE.md) (how the
+generator works), [CONTENT_GUIDE.md](docs/CONTENT_GUIDE.md) (data schemas), and
+[DEPLOYMENT.md](docs/DEPLOYMENT.md) (build artifacts, Netlify, verification), and
+[ANALYTICS.md](docs/ANALYTICS.md) (GA4 event taxonomy).
+
 ## A note on the videos
 
 Every linked tutorial was watched end-to-end before being attached to a use case, and each
