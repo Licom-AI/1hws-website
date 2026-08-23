@@ -27,10 +27,10 @@ To change the measurement ID: edit `GA_MEASUREMENT_ID` in `scripts/build_site.py
 
 Beyond GA4's automatic `page_view` (and Enhanced Measurement's automatic `scroll` /
 `click` (outbound) / `file_download`, which should be left on in the GA4 UI — see
-[Automatic events](#automatic-events-check-these-in-the-ga4-ui) below), six custom events
+[Automatic events](#automatic-events-check-these-in-the-ga4-ui) below), nine custom events
 cover the actions that actually matter for a club recruiting site: did someone get real
-value from the use-case library, did they take a step toward joining, and did the founder
-pages get looked at.
+value from the use-case library, did they take a step toward joining, and — per founder,
+individually — did their page get looked at, clicked into, and actually engaged with.
 
 | Event | Fired when | Key params | Type |
 | --- | --- | --- | --- |
@@ -40,28 +40,39 @@ pages get looked at.
 | `library_cta_click` | Clicking "Browse Use Cases" / "Find your major" (entry points into `/majors/`) | `location` (`hero-browse` \| `library-browse`) | Micro-conversion |
 | `join_community_click` | Clicking "Join the Skool community" — the actual outbound signup | `link_url`, `location: "skool-join"` | **Conversion** — the real signup action |
 | `founder_card_click` | Clicking a founder card on the homepage, or the "next founder" pager on a founder page | `founder` (slug), `location` (`founder-card` \| `founder-pager`) | Engagement — see [Founder pages](#founder-pages) below |
+| `founder_link_click` | Clicking one of a founder's outbound links (LinkedIn, Licom AI, Sundai, school) | `founder` (slug), `link_label`, `link_url` | Engagement |
+| `song_played` | Pressing play on a founder's "remembered by" Spotify embed | `founder` (slug), `song_title`, `song_artist` | Engagement |
+| `song_completed` | Listening to ≥90% of that song (mirrors the site's scroll-depth threshold) | `founder` (slug), `song_title`, `song_artist` | Engagement |
 
 ### Founder pages
 
-Two layers cover the founder pages (`/founders/dominic-schimizzi/`, `/founders/zackary-hanna/`):
+Every interaction on a founder page is tracked individually, with a `founder` param
+(`dominic-schimizzi` \| `zackary-hanna`) on every custom event, so Zack's and Dom's pages
+can be filtered and compared separately in GA4 — not just lumped into one "founder page"
+bucket:
 
-- **`page_view`** (automatic) fires when either page loads, tagged `content_group:
-  "founder_page"` — this answers "how many people viewed a founder page," from any entry
-  point (homepage card, direct link, search).
-- **`founder_card_click`** (custom) fires on the *click that leads there* — the founder
-  card on the homepage's "Meet the Founders" section, and the "next founder" pager link at
-  the bottom of a founder page. This answers "did the homepage cards actually get clicked,"
-  which `page_view` alone can't distinguish from someone landing on the page directly.
+- **`page_view`** (automatic), tagged `content_group: "founder_page"` — raw visits, any
+  entry point (homepage card, direct link, search).
+- **`founder_card_click`** — the click that *leads there*: the homepage "Meet the Founders"
+  card, or the "next founder" pager at the bottom of a founder page. Distinguishes "the
+  card got clicked" from someone landing on the page directly.
+- **`founder_link_click`** — each outbound link on the page (LinkedIn, Licom AI, Sundai,
+  school), with which link specifically (`link_label`). Layered on top of, not a duplicate
+  of, Enhanced Measurement's generic outbound-click event — that one only tells you *a*
+  link left the site; this tells you *which* founder and *which* link.
+- **`song_played`** / **`song_completed`** — real Spotify playback state, not a click
+  guess: the embed is cross-origin, so a plain click listener on the page can't see inside
+  it. `site.js` instead loads Spotify's own iFrame API (`open.spotify.com/embed/iframe-api/v1`)
+  and listens to its `playback_update` events, firing `song_played` on the first
+  paused→playing transition and `song_completed` once position/duration crosses 90%. If
+  Spotify's API is blocked or its shape changes, the code fails silently (wrapped in
+  try/catch) — the embed itself still works, tracking just no-ops.
 
-The outbound links *on* a founder page (LinkedIn, Licom AI, Sundai, school site) aren't
-separately custom-tracked — they're external links, so GA4 Enhanced Measurement's automatic
-outbound-click tracking already covers them without any code here.
-
-All six are generic, attribute-driven, and extensible: any element with `data-cta="..."`
-on it is picked up automatically by the delegated click handler in `site.js` — adding a new
-CTA never requires a JS change, only the attribute on the new element (see `uc_card()`,
-`site_header()`, and `build_home()` in `scripts/build_site.py` for the existing
-`data-cta` values).
+All nine are generic, attribute-driven, and extensible: any element with `data-cta="..."`
+is picked up automatically by the delegated click handler in `site.js` — adding a new CTA
+never requires a JS change, only the attribute on the new element (see `uc_card()`,
+`site_header()`, `founder_cards()`, and `build_founder()` in `scripts/build_site.py` for
+the existing `data-cta` values).
 
 Naming follows `object_action` snake_case, matching standard GA4/GTM convention, so these
 read naturally next to GA4's own automatic events (`page_view`, `scroll`, `click`).
@@ -71,16 +82,24 @@ read naturally next to GA4's own automatic events (`page_view`, `scroll`, `click
 These can't be set from the repo — they're GA4 property settings, done once at
 analytics.google.com for property `G-0S5QWRS2Q6`:
 
-1. **Mark conversions** (Admin → Events → toggle "Mark as conversion"):
-   `prompt_copied` and `join_community_click`. Don't mark the four intent/engagement events
-   as conversions — GA4 caps conversions at 30 per property, and diluting the conversion
-   list with micro-signals makes Google Ads/Analytics optimization worse, not better.
-2. **Confirm Enhanced Measurement** is on (Admin → Data Streams → your stream → Enhanced
+1. **Register custom dimensions** (Admin → Custom definitions → Create custom dimension) —
+   **do this first**, or the per-founder (and per-major, per-video) breakdowns won't show up
+   anywhere in Reports/Explore. GA4 captures event params automatically, but only exposes
+   them in the UI once registered. Register at minimum: `founder`, `major`,
+   `use_case_number`, `difficulty`, `video_title`, `link_label`, `song_title`, `location`
+   — event-scoped, matching the parameter name exactly (case-sensitive). This is what lets
+   you build a report or Exploration and split any of these events by `founder` to compare
+   Zack's page against Dom's.
+2. **Mark conversions** (Admin → Events → toggle "Mark as conversion"):
+   `prompt_copied` and `join_community_click`. Don't mark the other seven engagement/intent
+   events as conversions — GA4 caps conversions at 30 per property, and diluting the
+   conversion list with micro-signals makes Google Ads/Analytics optimization worse, not better.
+3. **Confirm Enhanced Measurement** is on (Admin → Data Streams → your stream → Enhanced
    measurement): page views, scrolls, and outbound clicks should be enabled. Outbound click
    tracking is what covers the HWS program-page links and any other external link *not*
-   already captured by one of the six custom events above — leave it on rather than
-   building a sixth custom event to duplicate it.
-3. **Internal traffic filter**, once the club has regular contributors testing the site, so
+   already captured by one of the nine custom events above — leave it on rather than
+   building another custom event to duplicate it.
+4. **Internal traffic filter**, once the club has regular contributors testing the site, so
    dev/maintainer visits don't skew the (currently small) traffic numbers: Admin → Data
    Filters → Internal Traffic.
 

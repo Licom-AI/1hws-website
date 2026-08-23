@@ -32,6 +32,12 @@
     var cta = el.getAttribute("data-cta");
     if (cta === "skool-join") {
       track("join_community_click", { link_url: el.getAttribute("href"), location: cta });
+    } else if (cta === "founder-link") {
+      track("founder_link_click", {
+        founder: el.getAttribute("data-founder"),
+        link_label: el.getAttribute("data-link-label"),
+        link_url: el.getAttribute("href")
+      });
     } else if (cta.indexOf("founder") !== -1) {
       track("founder_card_click", { founder: el.getAttribute("data-founder"), location: cta });
     } else if (cta.indexOf("browse") !== -1 || cta.indexOf("library") !== -1) {
@@ -54,6 +60,52 @@
       link_url: a.getAttribute("href")
     });
   });
+
+  /* ---- Founder song embed: real play / near-complete tracking ----
+     Uses Spotify's own iFrame API (playback_update events) rather than
+     guessing from clicks — a click on the embed can't be observed directly
+     since it's cross-origin, but the API exposes real transport state. Loads
+     only on pages that actually have a song embed, and never breaks the
+     embed itself if Spotify's API is unavailable or changes shape. */
+  (function spotifyTracking() {
+    var placeholders = Array.prototype.slice.call(document.querySelectorAll("[data-spotify-uri]"));
+    if (!placeholders.length) return;
+
+    window.onSpotifyIframeApiReady = function (IFrameAPI) {
+      placeholders.forEach(function (el) {
+        var founder = el.getAttribute("data-founder");
+        var songTitle = el.getAttribute("data-song-title");
+        var songArtist = el.getAttribute("data-song-artist");
+        var hasPlayed = false;
+        var hasCompleted = false;
+
+        try {
+          IFrameAPI.createController(
+            el,
+            { uri: el.getAttribute("data-spotify-uri"), width: "100%", height: "152" },
+            function (controller) {
+              controller.addListener("playback_update", function (e) {
+                var d = (e && e.data) || {};
+                if (!d.isPaused && !hasPlayed) {
+                  hasPlayed = true;
+                  track("song_played", { founder: founder, song_title: songTitle, song_artist: songArtist });
+                }
+                if (!hasCompleted && d.duration > 0 && d.position / d.duration >= 0.9) {
+                  hasCompleted = true;
+                  track("song_completed", { founder: founder, song_title: songTitle, song_artist: songArtist });
+                }
+              });
+            }
+          );
+        } catch (err) { /* Spotify API shape changed — embed still works, tracking just no-ops */ }
+      });
+    };
+
+    var script = document.createElement("script");
+    script.src = "https://open.spotify.com/embed/iframe-api/v1";
+    script.async = true;
+    document.head.appendChild(script);
+  })();
 
   /* ---- Backward-compat: old hash-router links still work ----
      e.g. /#/major/history  ->  /majors/history/   |   /#/majors -> /majors/ */

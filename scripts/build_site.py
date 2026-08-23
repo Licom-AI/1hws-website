@@ -918,7 +918,8 @@ def build_founder(f, others):
         for h in f["highlights"]
     )
     links = "\n        ".join(
-        f'<a class="founder-link" href="{esc(url)}" target="_blank" rel="noopener">{esc(label)} '
+        f'<a class="founder-link" href="{esc(url)}" target="_blank" rel="noopener" '
+        f'data-cta="founder-link" data-founder="{slug}" data-link-label="{esc(label)}">{esc(label)} '
         f'<span aria-hidden="true">&#8599;</span></a>'
         for label, url in f["links"]
     )
@@ -937,10 +938,14 @@ def build_founder(f, others):
       <h2>The Song {esc(first_name)} Wants to Be Remembered By</h2>
       <p class="founder-song-caption">&ldquo;{esc(s['title'])}&rdquo; by {esc(s['artist'])}{album_part}.</p>
       <div class="founder-song">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/{esc(s['spotify_track_id'])}?utm_source=generator"
-                width="100%" height="152" frameborder="0" allowfullscreen
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy" title="Spotify player: {esc(s['title'])} by {esc(s['artist'])}"></iframe>
+        <div id="spotify-embed-{slug}" class="spotify-embed-placeholder"
+             data-spotify-uri="spotify:track:{esc(s['spotify_track_id'])}"
+             data-founder="{slug}" data-song-title="{esc(s['title'])}" data-song-artist="{esc(s['artist'])}">
+          <noscript>
+            <a href="https://open.spotify.com/track/{esc(s['spotify_track_id'])}" target="_blank" rel="noopener">
+              Listen to &ldquo;{esc(s['title'])}&rdquo; by {esc(s['artist'])} on Spotify &#8599;</a>
+          </noscript>
+        </div>
       </div>"""
 
     photo_html = ""
