@@ -1,6 +1,22 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0S5QWRS2Q6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-0S5QWRS2Q6', {
+    content_group: (function () {
+      var p = location.pathname;
+      if (p === '/') return 'home';
+      if (p === '/majors/') return 'majors_index';
+      if (p.indexOf('/majors/') === 0) return 'major_page';
+      if (p.indexOf('/founders/') === 0) return 'founder_page';
+      return 'other';
+    })()
+  });
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HWS AI Club — AI for Every Major at Hobart and William Smith Colleges</title>
@@ -46,7 +62,7 @@
       <a href="/majors/">Use Cases</a>
       <a href="/#community">Community</a>
       <a href="/#founders">Meet The Founders</a>
-      <a class="nav-cta" href="/#join">Join Us</a>
+      <a class="nav-cta" href="/#join" data-cta="nav-join">Join Us</a>
     </nav>
   </div>
 </header>
@@ -60,8 +76,8 @@
       <h1 class="hero-title">AI for Everyone at Hobart and William Smith</h1>
       <p class="hero-sub">The student-run AI club at Hobart and William Smith Colleges (HWS). Learn practical AI skills to excel as a student and future professional &mdash; no coding required.</p>
       <div class="hero-actions">
-        <a class="btn-primary" href="/#join">Join the Club</a>
-        <a class="btn-secondary" href="/majors/">Browse Use Cases</a>
+        <a class="btn-primary" href="/#join" data-cta="hero-join">Join the Club</a>
+        <a class="btn-secondary" href="/majors/" data-cta="hero-browse">Browse Use Cases</a>
       </div>
       <p class="hero-meeting">Every Sunday, 5-6 PM · Sanford Room</p>
     </div>
@@ -93,7 +109,7 @@
           <li><span class="check-dot" aria-hidden="true">&#10003;</span>Guest speakers from the tech industry</li>
           <li><span class="check-dot" aria-hidden="true">&#10003;</span>Build a portfolio of AI-enhanced projects</li>
         </ul>
-        <a class="btn-primary" href="/#join">Get Started Today</a>
+        <a class="btn-primary" href="/#join" data-cta="no-experience-join">Get Started Today</a>
       </div>
       <div class="tile-stack">
         <div class="photo-tile">Workshop Session</div>
@@ -112,7 +128,7 @@
         <div class="library-stat"><strong>840</strong><span>Use cases</span></div>
         <div class="library-stat"><strong>3</strong><span>Difficulty levels</span></div>
       </div>
-      <div class="library-cta"><a class="btn-primary" href="/majors/">Find your major &rarr;</a></div>
+      <div class="library-cta"><a class="btn-primary" href="/majors/" data-cta="library-browse">Find your major &rarr;</a></div>
     </div>
   </section>
 
@@ -134,7 +150,7 @@
       <h2 class="section-title">Ready to Join?</h2>
       <p class="join-sub">No experience, no application &mdash; just show up. Open to all majors and class years at Hobart and William Smith Colleges.</p>
       <p class="join-meeting">Every Sunday, 5-6 PM · Sanford Room</p>
-      <a class="btn-secondary" href="/majors/">Start with your major&rsquo;s use cases &rarr;</a>
+      <a class="btn-secondary" href="/majors/" data-cta="join-section-majors">Start with your major&rsquo;s use cases &rarr;</a>
     </div>
   </section>
 
@@ -152,7 +168,7 @@
         <article class="card"><span class="icon-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></span><h3>Calendar &amp; club activities</h3><p>Meetings, guest speakers, and events &mdash; so you always know what&rsquo;s coming up and never miss a session.</p></article>
       </div>
       <div class="skool-cta">
-        <a class="btn-primary" href="https://www.skool.com/hws-ai-club-7506" target="_blank" rel="noopener">Join the Skool community <span aria-hidden="true">&#8599;</span></a>
+        <a class="btn-primary" href="https://www.skool.com/hws-ai-club-7506" target="_blank" rel="noopener" data-cta="skool-join">Join the Skool community <span aria-hidden="true">&#8599;</span></a>
         <p class="skool-meta">Free to join &middot; 41 members &middot; Open to every HWS student</p>
       </div>
     </div>

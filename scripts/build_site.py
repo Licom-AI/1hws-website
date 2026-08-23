@@ -26,6 +26,33 @@ COLLEGE = "Hobart and William Smith Colleges"
 LOCATION = "Geneva, New York"
 MEETING = "Every Sunday, 5-6 PM · Sanford Room"
 MEETING_START, MEETING_END, MEETING_TZ = "17:00", "18:00", "America/New_York"
+
+# GA4 property for this site. The custom events it receives (prompt_copied,
+# tutorial_video_click, join_community_click, join_cta_click, library_cta_click)
+# are fired from site/js/site.js — see docs/ANALYTICS.md for the full event
+# taxonomy and which events are configured as GA4 conversions.
+GA_MEASUREMENT_ID = "G-0S5QWRS2Q6"
+
+# Loaded first in <head>, per Google's own placement guidance, so pageviews are
+# never missed on a fast-loading static page. content_group is computed from the
+# URL rather than threaded through every head() call site, so it stays a
+# one-line addition here instead of touching every page builder.
+GA_SNIPPET = f"""<script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{ dataLayer.push(arguments); }}
+  gtag('js', new Date());
+  gtag('config', '{GA_MEASUREMENT_ID}', {{
+    content_group: (function () {{
+      var p = location.pathname;
+      if (p === '/') return 'home';
+      if (p === '/majors/') return 'majors_index';
+      if (p.indexOf('/majors/') === 0) return 'major_page';
+      if (p.indexOf('/founders/') === 0) return 'founder_page';
+      return 'other';
+    }})()
+  }});
+</script>"""
 BUILD_DATE = date.today().isoformat()
 
 # AI crawlers/agents worth naming explicitly in robots.txt. The wildcard rule
@@ -312,6 +339,7 @@ def head(title, description, canonical_path, jsonld):
     return f"""<!doctype html>
 <html lang="en">
 <head>
+{GA_SNIPPET}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(title)}</title>
@@ -356,7 +384,7 @@ def site_header():
       <a href="/majors/">Use Cases</a>
       <a href="/#community">Community</a>
       <a href="/#founders">Meet The Founders</a>
-      <a class="nav-cta" href="/#join">Join Us</a>
+      <a class="nav-cta" href="/#join" data-cta="nav-join">Join Us</a>
     </nav>
   </div>
 </header>"""
@@ -538,8 +566,8 @@ def build_home():
       <h1 class="hero-title">AI for Everyone at Hobart and William Smith</h1>
       <p class="hero-sub">The student-run AI club at {COLLEGE} (HWS). Learn practical AI skills to excel as a student and future professional &mdash; no coding required.</p>
       <div class="hero-actions">
-        <a class="btn-primary" href="/#join">Join the Club</a>
-        <a class="btn-secondary" href="/majors/">Browse Use Cases</a>
+        <a class="btn-primary" href="/#join" data-cta="hero-join">Join the Club</a>
+        <a class="btn-secondary" href="/majors/" data-cta="hero-browse">Browse Use Cases</a>
       </div>
       <p class="hero-meeting">{MEETING}</p>
     </div>
@@ -571,7 +599,7 @@ def build_home():
           <li><span class="check-dot" aria-hidden="true">&#10003;</span>Guest speakers from the tech industry</li>
           <li><span class="check-dot" aria-hidden="true">&#10003;</span>Build a portfolio of AI-enhanced projects</li>
         </ul>
-        <a class="btn-primary" href="/#join">Get Started Today</a>
+        <a class="btn-primary" href="/#join" data-cta="no-experience-join">Get Started Today</a>
       </div>
       <div class="tile-stack">
         <div class="photo-tile">Workshop Session</div>
@@ -590,7 +618,7 @@ def build_home():
         <div class="library-stat"><strong>840</strong><span>Use cases</span></div>
         <div class="library-stat"><strong>3</strong><span>Difficulty levels</span></div>
       </div>
-      <div class="library-cta"><a class="btn-primary" href="/majors/">Find your major &rarr;</a></div>
+      <div class="library-cta"><a class="btn-primary" href="/majors/" data-cta="library-browse">Find your major &rarr;</a></div>
     </div>
   </section>
 
@@ -609,7 +637,7 @@ def build_home():
       <h2 class="section-title">Ready to Join?</h2>
       <p class="join-sub">No experience, no application &mdash; just show up. Open to all majors and class years at {COLLEGE}.</p>
       <p class="join-meeting">{MEETING}</p>
-      <a class="btn-secondary" href="/majors/">Start with your major&rsquo;s use cases &rarr;</a>
+      <a class="btn-secondary" href="/majors/" data-cta="join-section-majors">Start with your major&rsquo;s use cases &rarr;</a>
     </div>
   </section>
 
@@ -627,7 +655,7 @@ def build_home():
         <article class="card"><span class="icon-tile" aria-hidden="true">{ICONS['rocket']}</span><h3>Calendar &amp; club activities</h3><p>Meetings, guest speakers, and events &mdash; so you always know what&rsquo;s coming up and never miss a session.</p></article>
       </div>
       <div class="skool-cta">
-        <a class="btn-primary" href="{SKOOL_URL}" target="_blank" rel="noopener">Join the Skool community <span aria-hidden="true">&#8599;</span></a>
+        <a class="btn-primary" href="{SKOOL_URL}" target="_blank" rel="noopener" data-cta="skool-join">Join the Skool community <span aria-hidden="true">&#8599;</span></a>
         <p class="skool-meta">Free to join &middot; {SKOOL_MEMBERS} members &middot; Open to every HWS student</p>
       </div>
     </div>
@@ -739,6 +767,7 @@ def uc_card(slug, uc):
         f'<pre class="uc-prompt-text" id="{pid}">{esc(prompt)}</pre>'
         f'</div>'
         f'<a class="uc-watch" href="{esc(url)}" target="_blank" rel="noopener" '
+        f'data-video-title="{esc(vtitle)}" '
         f'aria-label="Watch &quot;{esc(vtitle)}&quot; on YouTube (opens in a new tab)">'
         f'<span class="uc-watch-play" aria-hidden="true">&#9654;</span>'
         f'<span class="uc-watch-txt">'
