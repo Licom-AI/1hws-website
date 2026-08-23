@@ -32,6 +32,8 @@
     var cta = el.getAttribute("data-cta");
     if (cta === "skool-join") {
       track("join_community_click", { link_url: el.getAttribute("href"), location: cta });
+    } else if (cta.indexOf("founder") !== -1) {
+      track("founder_card_click", { founder: el.getAttribute("data-founder"), location: cta });
     } else if (cta.indexOf("browse") !== -1 || cta.indexOf("library") !== -1) {
       track("library_cta_click", { location: cta });
     } else {

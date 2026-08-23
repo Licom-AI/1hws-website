@@ -512,7 +512,8 @@ def founder_cards():
     out = []
     for f in FOUNDERS:
         out.append(
-            f'<a class="card team-card founder-card" href="/founders/{f["slug"]}/">'
+            f'<a class="card team-card founder-card" href="/founders/{f["slug"]}/" '
+            f'data-cta="founder-card" data-founder="{f["slug"]}">'
             f'{founder_avatar(f)}'
             f'<h3>{esc(f["name"])}</h3>'
             f'<p class="team-role">{esc(f["role"])}</p>'
@@ -922,7 +923,8 @@ def build_founder(f, others):
         for label, url in f["links"]
     )
     siblings = "".join(
-        f'<a class="pager next" href="/founders/{o["slug"]}/">{esc(o["name"])} &rarr;</a>'
+        f'<a class="pager next" href="/founders/{o["slug"]}/" '
+        f'data-cta="founder-pager" data-founder="{o["slug"]}">{esc(o["name"])} &rarr;</a>'
         for o in others
     )
 

@@ -27,9 +27,10 @@ To change the measurement ID: edit `GA_MEASUREMENT_ID` in `scripts/build_site.py
 
 Beyond GA4's automatic `page_view` (and Enhanced Measurement's automatic `scroll` /
 `click` (outbound) / `file_download`, which should be left on in the GA4 UI — see
-[Automatic events](#automatic-events-check-these-in-the-ga4-ui) below), five custom events
+[Automatic events](#automatic-events-check-these-in-the-ga4-ui) below), six custom events
 cover the actions that actually matter for a club recruiting site: did someone get real
-value from the use-case library, and did they take a step toward joining.
+value from the use-case library, did they take a step toward joining, and did the founder
+pages get looked at.
 
 | Event | Fired when | Key params | Type |
 | --- | --- | --- | --- |
@@ -38,8 +39,25 @@ value from the use-case library, and did they take a step toward joining.
 | `join_cta_click` | Clicking any "Join the Club" / "Get Started Today" / nav "Join Us" button (all link to the in-page `#join` section) | `location` (`hero-join` \| `no-experience-join` \| `nav-join` \| `join-section-majors`) | Micro-conversion / intent |
 | `library_cta_click` | Clicking "Browse Use Cases" / "Find your major" (entry points into `/majors/`) | `location` (`hero-browse` \| `library-browse`) | Micro-conversion |
 | `join_community_click` | Clicking "Join the Skool community" — the actual outbound signup | `link_url`, `location: "skool-join"` | **Conversion** — the real signup action |
+| `founder_card_click` | Clicking a founder card on the homepage, or the "next founder" pager on a founder page | `founder` (slug), `location` (`founder-card` \| `founder-pager`) | Engagement — see [Founder pages](#founder-pages) below |
 
-All five are generic, attribute-driven, and extensible: any element with `data-cta="..."`
+### Founder pages
+
+Two layers cover the founder pages (`/founders/dominic-schimizzi/`, `/founders/zackary-hanna/`):
+
+- **`page_view`** (automatic) fires when either page loads, tagged `content_group:
+  "founder_page"` — this answers "how many people viewed a founder page," from any entry
+  point (homepage card, direct link, search).
+- **`founder_card_click`** (custom) fires on the *click that leads there* — the founder
+  card on the homepage's "Meet the Founders" section, and the "next founder" pager link at
+  the bottom of a founder page. This answers "did the homepage cards actually get clicked,"
+  which `page_view` alone can't distinguish from someone landing on the page directly.
+
+The outbound links *on* a founder page (LinkedIn, Licom AI, Sundai, school site) aren't
+separately custom-tracked — they're external links, so GA4 Enhanced Measurement's automatic
+outbound-click tracking already covers them without any code here.
+
+All six are generic, attribute-driven, and extensible: any element with `data-cta="..."`
 on it is picked up automatically by the delegated click handler in `site.js` — adding a new
 CTA never requires a JS change, only the attribute on the new element (see `uc_card()`,
 `site_header()`, and `build_home()` in `scripts/build_site.py` for the existing
@@ -54,13 +72,13 @@ These can't be set from the repo — they're GA4 property settings, done once at
 analytics.google.com for property `G-0S5QWRS2Q6`:
 
 1. **Mark conversions** (Admin → Events → toggle "Mark as conversion"):
-   `prompt_copied` and `join_community_click`. Don't mark the three intent/engagement events
+   `prompt_copied` and `join_community_click`. Don't mark the four intent/engagement events
    as conversions — GA4 caps conversions at 30 per property, and diluting the conversion
    list with micro-signals makes Google Ads/Analytics optimization worse, not better.
 2. **Confirm Enhanced Measurement** is on (Admin → Data Streams → your stream → Enhanced
    measurement): page views, scrolls, and outbound clicks should be enabled. Outbound click
    tracking is what covers the HWS program-page links and any other external link *not*
-   already captured by one of the five custom events above — leave it on rather than
+   already captured by one of the six custom events above — leave it on rather than
    building a sixth custom event to duplicate it.
 3. **Internal traffic filter**, once the club has regular contributors testing the site, so
    dev/maintainer visits don't skew the (currently small) traffic numbers: Admin → Data
