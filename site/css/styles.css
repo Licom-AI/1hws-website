@@ -1307,34 +1307,6 @@ main.page > h1 { font-size: clamp(1.8rem, 3.4vw, 2.4rem); }
 
 /* --- HWS campus events and clubs hub -------------------------------------- */
 .campus-hub { max-width: 1180px; }
-.events-hero {
-  position: relative;
-  overflow: hidden;
-  margin: 0 0 34px;
-  padding: clamp(30px, 6vw, 64px);
-  border-radius: 24px;
-  background:
-    radial-gradient(circle at 86% 12%, rgba(196, 181, 253, 0.34), transparent 32%),
-    linear-gradient(135deg, #111827 0%, #24144d 58%, #5b21b6 100%);
-  color: #fff;
-  box-shadow: 0 24px 60px rgba(30, 19, 65, 0.2);
-}
-.events-hero .breadcrumb,
-.events-hero .breadcrumb a { color: rgba(255, 255, 255, 0.76); }
-.events-hero .campus-event-kicker { color: #c4b5fd; }
-.events-hero h1 {
-  max-width: 760px;
-  margin: 12px 0 14px;
-  color: #fff;
-  font-size: clamp(2.25rem, 5vw, 4.25rem);
-  letter-spacing: -0.045em;
-  line-height: 0.98;
-}
-.events-hero .page-lede {
-  max-width: 760px;
-  margin-bottom: 0;
-  color: rgba(255, 255, 255, 0.82);
-}
 .campus-hub-section { margin: 52px 0; padding-top: 8px; }
 .calendar-shell {
   margin-top: 0;
@@ -1350,6 +1322,7 @@ main.page > h1 { font-size: clamp(1.8rem, 3.4vw, 2.4rem); }
   justify-content: space-between;
   gap: 24px;
 }
+.campus-section-heading h1,
 .campus-section-heading h2,
 .campus-hub-section > h2 { margin-top: 0; }
 .campus-event-kicker {
@@ -1671,8 +1644,6 @@ main.page > h1 { font-size: clamp(1.8rem, 3.4vw, 2.4rem); }
 
 @media (max-width: 720px) {
   .campus-hub { padding-inline: 14px; }
-  .events-hero { margin-inline: -4px; padding: 28px 22px 32px; border-radius: 18px; }
-  .events-hero h1 { font-size: clamp(2.2rem, 12vw, 3.4rem); }
   .calendar-shell { padding: 18px 14px; border-radius: 16px; }
   .campus-section-heading { display: block; }
   .campus-update-status { text-align: left; }

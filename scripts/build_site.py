@@ -1389,16 +1389,9 @@ def build_events_page():
     body = f"""<body class="view-inner">
 {site_header()}
 <main id="main" class="page campus-hub" data-calendar-id="d4da22d5-7840-45cf-91c3-023390a85fc8" data-snapshot-retrieved="{esc(snapshot_time)}">
-  <header class="events-hero">
-    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / HWS Campus Events and Clubs</nav>
-    <p class="campus-event-kicker">The HWS campus, in one place</p>
-    <h1>HWS Campus Events and Clubs</h1>
-    <p class="page-lede">Find what is happening at Hobart and William Smith, discover student organizations, and join the HWS AI Club. Official HWS links remain available for registration and final confirmation.</p>
-  </header>
-
   <section id="events-calendar" class="campus-hub-section calendar-shell" aria-labelledby="upcoming-hws-events">
     <div class="campus-section-heading">
-      <div><p class="campus-event-kicker">Official HWS calendar snapshot</p><h2 id="upcoming-hws-events">Upcoming HWS events</h2></div>
+      <div><p class="campus-event-kicker">Official HWS calendar snapshot</p><h1 id="upcoming-hws-events">Upcoming HWS events</h1></div>
       <p id="campus-update-status" class="campus-update-status" aria-live="polite">Showing the snapshot from {esc(snapshot_time[:10])}.</p>
     </div>
     <p class="calendar-intro">Browse campus lectures, activities, performances, athletics, and student-engagement events by month.</p>

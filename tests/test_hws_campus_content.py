@@ -125,6 +125,8 @@ class GeneratedCampusHubTests(unittest.TestCase):
         calendar_pos = self.page.index('id="upcoming-hws-events"')
         club_meeting_pos = self.page.index('id="ai-club-meeting"')
         self.assertLess(calendar_pos, club_meeting_pos)
+        self.assertNotIn('class="events-hero"', self.page)
+        self.assertIn('<h1 id="upcoming-hws-events">Upcoming HWS events</h1>', self.page)
 
     def test_static_fallback_contains_exactly_twenty_four_events(self):
         self.assertEqual(24, self.page.count('class="event-fallback-item"'))
