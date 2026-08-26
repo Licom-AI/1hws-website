@@ -234,6 +234,43 @@ FOUNDERS = [
     },
 ]
 
+# Divisions, used for related-major linking and for grouping the /majors/ index.
+#
+# Every major page used to link all 41 others in one undifferentiated run, which
+# told a crawler that Anthropology relates to Physics exactly as strongly as it
+# relates to Anthropology & Sociology. Grouping gives the internal link graph a
+# topical shape and stops each page spraying its authority 41 ways.
+#
+# Roughly HWS's own divisional structure; a major listed here must exist in
+# data.json, and every major must appear exactly once (asserted at build time).
+DIVISIONS = [
+    ("Natural Sciences & Mathematics", [
+        "biochemistry", "biology", "chemistry", "computer-science", "environmental-science",
+        "geoscience", "mathematics", "physics", "psychological-science",
+    ]),
+    ("Social Sciences", [
+        "anthropology", "anthropology-sociology", "economics", "educational-studies",
+        "environmental-studies", "international-relations", "politics", "public-health-studies",
+        "sociology", "business-management-and-entrepreneurship",
+    ]),
+    ("Humanities", [
+        "classics", "english-and-creative-writing", "french-and-francophone-studies",
+        "greek-and-roman-studies", "history", "philosophy", "religious-studies",
+        "spanish-and-hispanic-studies", "writing-and-rhetoric",
+    ]),
+    ("Arts & Media", [
+        "architectural-studies", "art-art-history", "art-studio-art", "dance",
+        "media-society", "music", "theatre",
+    ]),
+    ("Interdisciplinary Studies", [
+        "africana-studies", "american-studies", "asian-studies",
+        "bodies-disability-and-justice", "gender-and-feminist-studies", "lgbtq-studies",
+        "individual-major",
+    ]),
+]
+DIVISION_OF = {slug: label for label, slugs in DIVISIONS for slug in slugs}
+
+
 # ---------------------------------------------------------------------------
 # Video resolution — mirrors js/videos.js (cross-checked by the verify step)
 # ---------------------------------------------------------------------------
@@ -283,21 +320,43 @@ def starter_prompt(slug, uc):
     art = "an" if major[:1].upper() in "AEIOU" else "a"
     task = uc["title"].rstrip(". ")
     detail = uc["description"].rstrip(". ")
-    return f"I'm {art} {major} student at HWS. My task: {task} — {detail}.\n\n{instructions}"
+    # The closing line is a genuine prompt improvement — grounding a model in the
+    # field it is answering for measurably sharpens terminology and examples — and
+    # it also means the shared instruction block is no longer the last thing on
+    # the page, so no two majors' prompts read identically end to end.
+    grounding = (f"Keep the terminology, examples, and level of detail appropriate for an "
+                 f"undergraduate {major} course.")
+    return (f"I'm {art} {major} student at HWS. My task: {task} — {detail}.\n\n"
+            f"{instructions}\n\n{grounding}")
 
 
 def card_text(slug, uc):
     """Compose honest card copy: the task, what the linked video actually teaches,
     and what the student walks away with. Keeps site/data.json canonical — swap a
-    video in videos-config.json and every card using it re-describes itself."""
+    video in videos-config.json and every card using it re-describes itself.
+
+    The method/takeaway strings come from videoTeaches, which has 38 entries
+    serving all 840 use cases — so each one was previously reproduced verbatim on
+    roughly 22 cards, and every one of those sentences appeared identically on all
+    42 major pages. Both are now composed with the major woven into the same
+    sentence rather than appended as a new one, which is what a duplicate-content
+    check actually measures.
+    """
     t = _VTEACH.get(video_id(slug, uc), {})
+    major = _MAJOR_NAME.get(slug, "your major")
     desc = uc["description"].rstrip(". ")
     method, takeaway = t.get("method"), t.get("takeaway")
     if method:
-        desc = f"{desc}. The linked tutorial covers {method}."
+        desc = (f"{desc}. The linked tutorial covers {method}, and the starter prompt "
+                f"below already frames it for {major}.")
     else:
         desc = f"{desc}."
-    return desc, (takeaway or NEXT_STEPS.get(uc["difficulty"], ""))
+    if takeaway:
+        tail = TAKEAWAY_TAIL.get(uc["difficulty"], "").format(major=major)
+        nxt = f"{takeaway.rstrip('. ')} — {tail}" if tail else takeaway
+    else:
+        nxt = NEXT_STEPS.get(uc["difficulty"], "")
+    return desc, nxt
 
 
 def _join_titles(titles):
@@ -347,18 +406,18 @@ def major_faq(slug, m):
         ),
         (
             f"What do I need to start using AI as a {name} student?",
-            "A free account with ChatGPT, Claude, or Gemini, and nothing else — no coding, no paid "
-            f"subscription, no special software. Every use case on this page links to one of "
-            f"{n_videos} tutorial videos that walks through the technique, and ships with a starter "
-            f"prompt already written for {name} coursework.",
+            f"A free account with ChatGPT, Claude, or Gemini is the whole list — no coding, no paid "
+            f"subscription, and nothing to install. The {len(ucs)} {name} use cases here draw on "
+            f"{n_videos} tutorial videos between them, and each card ships with a starter prompt "
+            f"already framed for {name} coursework, so the first thing you do is paste, not write.",
         ),
         (
             f"Is it OK to use AI for {name} coursework at HWS?",
-            "It depends on the course, and the professor decides. Policies differ between "
-            f"instructors and even between assignments, so check the syllabus before using any of "
-            f"these on graded work. The use cases here are study aids — a prompt like "
-            f"\"{hardest.rstrip('. ')}\" is meant to help you learn the material faster, not to "
-            "produce work you hand in as your own. When in doubt, ask first.",
+            f"Your {name} professor decides, and the answer changes from course to course and even "
+            f"between assignments — so read the syllabus before any of this touches graded work. "
+            f"Everything on this page is a study aid: a use case like \"{hardest.rstrip('. ')}\" "
+            f"exists to get you through {name} material faster, not to produce something you submit "
+            f"as your own. If the syllabus is silent, ask before you use it.",
         ),
     ]
 
@@ -428,6 +487,15 @@ NEXT_STEPS = {
     "Easy": "Just open ChatGPT, Claude, or Gemini and try it now.",
     "Medium": "Try it yourself, then double-check the output against your course material or notes.",
     "Hard": "Attempt it, then review the result with a professor or TA before relying on it.",
+}
+
+# Closes the "what you'll take away" line. Escalates with difficulty exactly as
+# NEXT_STEPS does, and names the major, so the sentence differs across pages
+# instead of repeating one of 38 shared strings on all 42 of them.
+TAKEAWAY_TAIL = {
+    "Easy": "enough to use on {major} work this week.",
+    "Medium": "worth checking against your {major} course material before you lean on it.",
+    "Hard": "bring the result to a {major} professor or TA before it goes near graded work.",
 }
 BADGE_CLASS = {"Easy": "badge-easy", "Medium": "badge-medium", "Hard": "badge-hard"}
 
@@ -954,19 +1022,39 @@ def uc_card(slug, uc):
 
 def build_major(m, prev_m, next_m):
     slug, name = m["slug"], m["name"]
-    title = f"AI Use Cases for {name} Majors | HWS AI Club ({COLLEGE})"
-    desc = (
-        f"20 practical AI use cases for {name} students at {COLLEGE} (HWS) — rated by difficulty, "
-        "each naming the exact tutorial video it links to and what you take away. From summarizing readings to advanced projects."
-    )
+    ucs = m["useCases"]
+    by_diff = {d: [u for u in ucs if u["difficulty"] == d] for d in ("Easy", "Medium", "Hard")}
+    # The college name used to occupy ~40 of the title's characters on every one
+    # of the 42 pages, pushing them to ~97 and guaranteeing truncation in SERPs.
+    title = f"AI Use Cases for {name} Majors | HWS AI Club"
+    # Built from this major's own easiest and hardest use cases. The previous
+    # description varied only by {name} and closed with an identical clause on all
+    # 42 pages, which reads to a crawler as 42 duplicate descriptions.
+    first_easy = (by_diff["Easy"] or ucs)[0]["title"].rstrip(". ")
+    last_hard = (by_diff["Hard"] or by_diff["Medium"] or ucs)[-1]["title"].rstrip(". ")
+    # Kept under ~160 characters so Google doesn't truncate it mid-sentence. The
+    # sample title is what makes each of the 42 descriptions distinct, so it is
+    # only dropped when a long major name leaves no room for it.
+    stem = (f"{len(ucs)} AI use cases for {name} students at HWS, Easy to Hard — "
+            f"each with a tutorial and a starter prompt.")
+    # A real sample title is what makes each description distinct, so for long
+    # major names try the shorter titles rather than dropping the sample.
+    samples = sorted((u["title"].rstrip(". ") for u in (by_diff["Easy"] or ucs)), key=len)
+    samples = [first_easy] + [s for s in samples if s != first_easy]
+    desc = stem
+    for s in samples:
+        if len(f"{stem} Try: {s}.") <= 160:
+            desc = f"{stem} Try: {s}."
+            break
     cards = "\n".join(uc_card(slug, uc) for uc in m["useCases"])
     filters = "".join(
         f'<button type="button" class="filter-btn" data-filter="{f}" aria-pressed="{"true" if f=="All" else "false"}">{f}</button>'
         for f in ["All", "Easy", "Medium", "Hard"]
     )
-    siblings = " · ".join(
-        f'<a href="/majors/{mm["slug"]}/">{esc(mm["name"])}</a>' for mm in DATA["majors"] if mm["slug"] != slug
-    )
+    division = DIVISION_OF.get(slug)
+    related = [mm for mm in DATA["majors"]
+               if mm["slug"] != slug and DIVISION_OF.get(mm["slug"]) == division]
+    siblings = " · ".join(f'<a href="/majors/{mm["slug"]}/">{esc(mm["name"])}</a>' for mm in related)
     crumbs = breadcrumb([("Home", "/"), ("All Majors", "/majors/"), (name, f"/majors/{slug}/")])
     itemlist = {
         "@context": "https://schema.org", "@type": "ItemList",
@@ -979,6 +1067,17 @@ def build_major(m, prev_m, next_m):
     }
     faq_pairs = major_faq(slug, m)
     faq = faq_jsonld(faq_pairs, f"{BASE_URL}/majors/{slug}/#faq")
+
+    # Lede built from this major's own numbers and titles rather than one shared
+    # sentence with {name} substituted in. n_videos genuinely varies (12-14).
+    n_videos = len({video_id(slug, uc) for uc in ucs})
+    split = ", ".join(f"{len(by_diff[d])} {d.lower()}" for d in ("Easy", "Medium", "Hard") if by_diff[d])
+    lede = (
+        f"{len(ucs)} practical, difficulty-rated ways {esc(name)} students at {COLLEGE} can use AI "
+        f"&mdash; {split}. They start at &ldquo;{esc(first_easy)}&rdquo; and run up to "
+        f"&ldquo;{esc(last_hard)}&rdquo;, drawing on {n_videos} tutorials between them. Every card "
+        f"carries a starter prompt already written for {esc(name)}, so you can copy it and go."
+    )
     nav_more = ""
     if prev_m:
         nav_more += f'<a class="pager prev" href="/majors/{prev_m["slug"]}/">&larr; {esc(prev_m["name"])}</a>'
@@ -994,7 +1093,7 @@ def build_major(m, prev_m, next_m):
     <h1>AI Use Cases for {esc(name)} at HWS</h1>
     <a class="program-link" href="{program}" target="_blank" rel="noopener">Learn more about the {esc(name)} program <span aria-hidden="true">&#8599;</span></a>
   </div>
-  <p class="page-lede">20 practical, difficulty-rated ways {esc(name)} students at {COLLEGE} can use AI &mdash; each naming the exact tutorial it links to and what you&rsquo;ll take away. Click any card to watch it.</p>
+  <p class="page-lede">{lede}</p>
   <p class="policy-note"><strong>Before you use these on graded work:</strong> check your professor&rsquo;s policy on AI.
   It differs by course, and these examples are study aids &mdash; not permission.</p>
   <h2 class="usecases-heading">All {esc(name)} AI use cases</h2>
@@ -1005,8 +1104,9 @@ def build_major(m, prev_m, next_m):
   <nav class="major-pager" aria-label="More majors">{nav_more}</nav>
 {faq_html(faq_pairs, f"{name} AI questions, answered")}
   <section class="sibling-majors">
-    <h2>Explore AI use cases for other majors at HWS</h2>
+    <h2>Other {esc(division)} majors at HWS</h2>
     <p class="siblings">{siblings}</p>
+    <p class="siblings-all"><a href="/majors/">Browse AI use cases for all 42 HWS majors &rarr;</a></p>
   </section>
 </main>
 {site_footer()}
@@ -1429,6 +1529,15 @@ def main():
     build_manifest()
 
     assert len(majors) == 42, "expected 42 majors"
+    # DIVISIONS drives related-major linking and the /majors/ grouping, so a major
+    # missing from it would silently lose its internal links.
+    slugs = {m["slug"] for m in majors}
+    mapped = [s for _, ss in DIVISIONS for s in ss]
+    assert len(mapped) == len(set(mapped)), f"major listed twice in DIVISIONS: {sorted(s for s in mapped if mapped.count(s) > 1)}"
+    assert set(mapped) == slugs, (
+        f"DIVISIONS out of sync with data.json — missing: {sorted(slugs - set(mapped))}, "
+        f"unknown: {sorted(set(mapped) - slugs)}"
+    )
     for m in majors:
         assert (SITE / "majors" / m["slug"] / "index.html").exists()
     for f in FOUNDERS:
