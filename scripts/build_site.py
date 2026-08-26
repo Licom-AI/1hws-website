@@ -75,8 +75,6 @@ GA_SNIPPET = f"""<script async src="https://www.googletagmanager.com/gtag/js?id=
       if (p === '/') return 'home';
       if (p === '/majors/') return 'majors_index';
       if (p.indexOf('/majors/') === 0) return 'major_page';
-      if (p === '/tasks/') return 'tasks_index';
-      if (p.indexOf('/tasks/') === 0) return 'task_page';
       if (p.indexOf('/founders/') === 0) return 'founder_page';
       if (p === '/events/') return 'events';
       if (p === '/academic-calendar/') return 'academic_calendar';
@@ -602,7 +600,7 @@ def esc(s):
 # ---------------------------------------------------------------------------
 # Shared chrome
 # ---------------------------------------------------------------------------
-def head(title, description, canonical_path, jsonld):
+def head(title, description, canonical_path, jsonld, robots="index, follow, max-image-preview:large"):
     canonical = BASE_URL + canonical_path
     blocks = "\n".join(
         '<script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False) + "</script>"
@@ -617,7 +615,7 @@ def head(title, description, canonical_path, jsonld):
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(description)}">
 <link rel="canonical" href="{esc(canonical)}">
-<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="robots" content="{esc(robots)}">
 <meta name="author" content="HWS AI Club">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="HWS AI Club">
@@ -653,7 +651,6 @@ def site_header():
     <nav class="site-nav" aria-label="Primary">
       <a href="/#about">About</a>
       <a href="/majors/">By Major</a>
-      <a href="/tasks/">By Task</a>
       <a href="/events/">Events</a>
       <a href="/academic-calendar/">Academic Calendar</a>
       <a href="/resources/ai-at-hws/">Resources</a>
@@ -682,7 +679,6 @@ def site_footer():
       <a href="/academic-calendar/">Academic Calendar</a>
       <a href="/#team">Team</a>
       <a href="/majors/">By Major</a>
-      <a href="/tasks/">By Task</a>
       <a href="/resources/ai-at-hws/">Resources</a>
       <a href="/faq/">FAQ</a>
       <a href="/ai-policy/">AI &amp; Coursework</a>
@@ -1036,10 +1032,6 @@ def build_majors_index():
   <div id="majors-grid">
 {cards}
   </div>
-  <section class="sibling-majors">
-    <h2>Not sure which major to pick?</h2>
-    <p class="siblings-all"><a href="/tasks/">Browse the same use cases by task instead &rarr;</a></p>
-  </section>
 </main>
 {site_footer()}
 {scripts()}
@@ -1611,7 +1603,6 @@ def build_ai_policy_page():
   <section class="sibling-majors">
     <h2>Next</h2>
     <p class="siblings"><a href="/majors/">Browse AI use cases for your major</a> &middot;
-    <a href="/tasks/">Browse by task</a> &middot;
     <a href="/faq/">Club FAQ</a></p>
     <p class="siblings-all"><a href="https://www.hws.edu/academics/catalogue/" target="_blank" rel="noopener">HWS academic catalogue and policies &#8599;</a></p>
   </section>
@@ -1660,7 +1651,6 @@ def build_ai_resources_page():
     <p>HWS AI Club is free, open to every major, and meets {MEETING}. Use the library for a major-specific
     starting point, then bring questions to a workshop or the community.</p>
     <p class="siblings"><a href="/majors/">Browse 840 AI use cases by major</a> &middot;
-    <a href="/tasks/">Browse them by task</a> &middot;
     <a href="/ai-policy/">Read the coursework guide</a></p>
     <p class="siblings-all"><a class="btn-primary" href="{SKOOL_URL}" target="_blank" rel="noopener" data-cta="skool-join">Join the Skool community <span aria-hidden="true">&#8599;</span></a></p>
   </section>
@@ -1793,7 +1783,7 @@ def build_task_hub(hub, prev_h, next_h):
     d = SITE / "tasks" / slug
     d.mkdir(parents=True, exist_ok=True)
     (d / "index.html").write_text(
-        head(title, desc, f"/tasks/{slug}/", [crumbs])
+        head(title, desc, f"/tasks/{slug}/", [crumbs], robots="noindex, follow")
         + "\n" + body + "\n", encoding="utf-8")
     return total
 
@@ -1833,7 +1823,7 @@ def build_tasks_index():
 </html>"""
     (SITE / "tasks").mkdir(exist_ok=True)
     (SITE / "tasks" / "index.html").write_text(
-        head(title, desc, "/tasks/", [crumbs]) + "\n" + body + "\n", encoding="utf-8")
+        head(title, desc, "/tasks/", [crumbs], robots="noindex, follow") + "\n" + body + "\n", encoding="utf-8")
 
 
 # ---------------------------------------------------------------------------
@@ -1999,7 +1989,6 @@ def build_llms_txt():
     + sitemap.xml but in a format meant to be read, not just crawled."""
     majors = "\n".join(f"- [{m['name']}]({BASE_URL}/majors/{m['slug']}/)" for m in DATA["majors"])
     founders = "\n".join(f"- [{f['name']}, {f['role']}]({BASE_URL}/founders/{f['slug']}/)" for f in FOUNDERS)
-    tasks = "\n".join(f"- [{h['label']}]({BASE_URL}/tasks/{h['slug']}/): {h['blurb']}" for h in TASK_HUBS)
     text = f"""# HWS AI Club
 
 > Student-run AI literacy club at {COLLEGE} (HWS) in {LOCATION}. Free and open to \
@@ -2013,7 +2002,6 @@ specific tutorial video and includes a ready-to-paste starter prompt.
 
 - [Homepage]({BASE_URL}/): what the club does, the team, and how to join.
 - [All Majors]({BASE_URL}/majors/): directory of all 42 majors with AI use cases.
-- [AI Tasks]({BASE_URL}/tasks/): the same 840 use cases grouped by task rather than by major.
 - [HWS Campus Events and Clubs]({BASE_URL}/events/): the HWS AI Club meeting, a searchable official campus-event snapshot, and the permission-gated clubs directory.
 - [HWS Academic Calendar]({BASE_URL}/academic-calendar/): a student-friendly 2026-2027 semester-date summary sourced from HWS, with a link to the official calendar.
 - [AI resources at HWS]({BASE_URL}/resources/ai-at-hws/): official campus resources alongside club workshops and practical guides.
@@ -2021,10 +2009,6 @@ specific tutorial video and includes a ready-to-paste starter prompt.
 - [AI and coursework]({BASE_URL}/ai-policy/): what is and isn't allowed academically, and why \
 that is set per course by the instructor rather than college-wide.
 - [Sitemap]({BASE_URL}/sitemap.xml)
-
-## Tasks
-
-{tasks}
 
 ## Majors
 
@@ -2056,8 +2040,6 @@ def build_sitemap():
     pages = [("/", SITE / "index.html")]
     pages += [("/majors/", SITE / "majors" / "index.html")]
     pages += [(f"/majors/{m['slug']}/", SITE / "majors" / m["slug"] / "index.html") for m in DATA["majors"]]
-    pages += [("/tasks/", SITE / "tasks" / "index.html")]
-    pages += [(f"/tasks/{h['slug']}/", SITE / "tasks" / h["slug"] / "index.html") for h in TASK_HUBS]
     pages += [("/events/", SITE / "events" / "index.html")]
     pages += [("/academic-calendar/", SITE / "academic-calendar" / "index.html"),
               ("/resources/ai-at-hws/", SITE / "resources" / "ai-at-hws" / "index.html"),

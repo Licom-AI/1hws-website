@@ -106,6 +106,17 @@ class SeoMigrationSourceTests(unittest.TestCase):
         self.assertNotIn('"@type": "Event"', calendar)
         self.assertNotIn('"@type": "FAQPage"', calendar)
 
+    def test_task_browsing_is_retired_from_navigation_and_sitemaps(self):
+        homepage = (ROOT / "site" / "index.html").read_text(encoding="utf-8")
+        sitemap = (ROOT / "site" / "sitemap.xml").read_text(encoding="utf-8")
+        llms = (ROOT / "site" / "llms.txt").read_text(encoding="utf-8")
+        task_page = (ROOT / "site" / "tasks" / "explain-a-concept" / "index.html").read_text(encoding="utf-8")
+
+        self.assertNotIn('href="/tasks/">By Task</a>', homepage)
+        self.assertNotIn("/tasks/", sitemap)
+        self.assertNotIn("## Tasks", llms)
+        self.assertIn('<meta name="robots" content="noindex, follow">', task_page)
+
 
 if __name__ == "__main__":
     unittest.main()

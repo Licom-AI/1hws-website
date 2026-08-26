@@ -14,8 +14,6 @@
       if (p === '/') return 'home';
       if (p === '/majors/') return 'majors_index';
       if (p.indexOf('/majors/') === 0) return 'major_page';
-      if (p === '/tasks/') return 'tasks_index';
-      if (p.indexOf('/tasks/') === 0) return 'task_page';
       if (p.indexOf('/founders/') === 0) return 'founder_page';
       if (p === '/events/') return 'events';
       if (p === '/academic-calendar/') return 'academic_calendar';
@@ -29,7 +27,7 @@
 <title>AI for Write an essay | HWS AI Club</title>
 <meta name="description" content="20 ways students in 17 HWS majors use AI for drafting an essay, rated Easy to Hard. Automating the typing while the argument stays yours.">
 <link rel="canonical" href="https://www.hwsaiclub.com/tasks/write-an-essay/">
-<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="robots" content="noindex, follow">
 <meta name="author" content="HWS AI Club">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="HWS AI Club">
@@ -63,7 +61,6 @@
     <nav class="site-nav" aria-label="Primary">
       <a href="/#about">About</a>
       <a href="/majors/">By Major</a>
-      <a href="/tasks/">By Task</a>
       <a href="/events/">Events</a>
       <a href="/academic-calendar/">Academic Calendar</a>
       <a href="/resources/ai-at-hws/">Resources</a>
@@ -154,7 +151,6 @@
       <a href="/academic-calendar/">Academic Calendar</a>
       <a href="/#team">Team</a>
       <a href="/majors/">By Major</a>
-      <a href="/tasks/">By Task</a>
       <a href="/resources/ai-at-hws/">Resources</a>
       <a href="/faq/">FAQ</a>
       <a href="/ai-policy/">AI &amp; Coursework</a>

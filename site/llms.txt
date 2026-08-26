@@ -8,31 +8,12 @@ HWS AI Club maintains a library of 840 practical AI use cases — 20 per major, 
 
 - [Homepage](https://www.hwsaiclub.com/): what the club does, the team, and how to join.
 - [All Majors](https://www.hwsaiclub.com/majors/): directory of all 42 majors with AI use cases.
-- [AI Tasks](https://www.hwsaiclub.com/tasks/): the same 840 use cases grouped by task rather than by major.
 - [HWS Campus Events and Clubs](https://www.hwsaiclub.com/events/): the HWS AI Club meeting, a searchable official campus-event snapshot, and the permission-gated clubs directory.
 - [HWS Academic Calendar](https://www.hwsaiclub.com/academic-calendar/): a student-friendly 2026-2027 semester-date summary sourced from HWS, with a link to the official calendar.
 - [AI resources at HWS](https://www.hwsaiclub.com/resources/ai-at-hws/): official campus resources alongside club workshops and practical guides.
 - [FAQ](https://www.hwsaiclub.com/faq/): what the club is, when it meets, what it costs, what you need.
 - [AI and coursework](https://www.hwsaiclub.com/ai-policy/): what is and isn't allowed academically, and why that is set per course by the instructor rather than college-wide.
 - [Sitemap](https://www.hwsaiclub.com/sitemap.xml)
-
-## Tasks
-
-- [Explain a concept](https://www.hwsaiclub.com/tasks/explain-a-concept/): Turning something you half-understand into something you could teach back.
-- [Write and debug code](https://www.hwsaiclub.com/tasks/write-and-debug-code/): Getting a script working, and understanding why it broke in the first place.
-- [Compare two things](https://www.hwsaiclub.com/tasks/compare-two-things/): Laying two things side by side and finding the difference that actually matters.
-- [Design a study](https://www.hwsaiclub.com/tasks/design-a-study/): Pressure-testing a research design before you commit a semester to it.
-- [Summarize a reading](https://www.hwsaiclub.com/tasks/summarize-a-reading/): Compressing something long into the parts you actually need.
-- [Brainstorm ideas](https://www.hwsaiclub.com/tasks/brainstorm-ideas/): Getting unstuck on what to write about, argue, or investigate.
-- [Study for an exam](https://www.hwsaiclub.com/tasks/study-for-an-exam/): Being drilled on the material instead of handed the answers.
-- [Draft an email](https://www.hwsaiclub.com/tasks/draft-an-email/): Writing the awkward email you have been putting off for three days.
-- [Analyze data](https://www.hwsaiclub.com/tasks/analyze-data/): Reading a dataset, a table, or a result you are not sure how to interpret.
-- [Build a custom GPT](https://www.hwsaiclub.com/tasks/build-a-custom-gpt/): Setting up a reusable tool instead of retyping the same prompt every week.
-- [Review the literature](https://www.hwsaiclub.com/tasks/review-the-literature/): Mapping what has already been said before you add to it.
-- [Make a study plan](https://www.hwsaiclub.com/tasks/make-a-study-plan/): Turning a syllabus and a deadline into a week-by-week plan.
-- [Plan a project](https://www.hwsaiclub.com/tasks/plan-a-project/): Breaking something large into steps with dates attached.
-- [Outline a paper](https://www.hwsaiclub.com/tasks/outline-a-paper/): Getting the shape of an argument down before writing a word of it.
-- [Write an essay](https://www.hwsaiclub.com/tasks/write-an-essay/): Automating the typing while the argument stays yours.
 
 ## Majors
 

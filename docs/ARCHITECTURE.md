@@ -31,7 +31,7 @@ it always regenerates everything.
 | `build_home()` | `site/index.html` — hero, team (`TEAM` constant), founders (`FOUNDERS` constant), FAQ, Organization/Event/WebSite JSON-LD |
 | `build_majors_index()` | `site/majors/index.html` — searchable grid of all 42 majors |
 | `build_major(m, prev_m, next_m)` | `site/majors/<slug>/index.html` — one page per major, prev/next links, use-case cards |
-| `build_tasks_index()` / `build_task_hub()` | `site/tasks/index.html` and `site/tasks/<slug>/index.html` — task-first routes to the same major-specific use cases |
+| `build_tasks_index()` / `build_task_hub()` | `site/tasks/index.html` and `site/tasks/<slug>/index.html` — retained noindex legacy routes for old shared links; not part of the public navigation or sitemap |
 | `build_events_page()` | `site/events/index.html` — calendar-first campus hub, HWS AI Club meeting, validated 24-event fallback snapshot, reusable event dialog, and permission-gated clubs directory |
 | `build_ai_resources_page()` / `build_faq_page()` / `build_ai_policy_page()` | `site/resources/ai-at-hws/`, `site/faq/`, and `site/ai-policy/` — cited HWS resources, visible Q&A, and coursework guidance |
 | `build_founder(f, others)` | `site/founders/<slug>/index.html` — one page per entry in `FOUNDERS`, `Person` JSON-LD |
