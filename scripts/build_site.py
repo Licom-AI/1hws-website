@@ -1391,10 +1391,10 @@ def build_events_page():
 <main id="main" class="page campus-hub" data-calendar-id="d4da22d5-7840-45cf-91c3-023390a85fc8" data-snapshot-retrieved="{esc(snapshot_time)}">
   <section id="events-calendar" class="campus-hub-section calendar-shell" aria-labelledby="upcoming-hws-events">
     <div class="campus-section-heading">
-      <div><p class="campus-event-kicker">Official HWS calendar snapshot</p><h1 id="upcoming-hws-events">Upcoming HWS events</h1></div>
+      <div><p class="campus-event-kicker">Hobart and William Smith campus calendar</p><h1 id="upcoming-hws-events">HWS Events Calendar</h1></div>
       <p id="campus-update-status" class="campus-update-status" aria-live="polite">Showing the snapshot from {esc(snapshot_time[:10])}.</p>
     </div>
-    <p class="calendar-intro">Browse campus lectures, activities, performances, athletics, and student-engagement events by month.</p>
+    <p class="calendar-intro">Find upcoming HWS events at Hobart and William Smith Colleges in Geneva, New York. Search the campus calendar by keyword or category for lectures, student activities, athletics, performances, club meetings, dates, times, and locations.</p>
     <div class="campus-filters calendar-filters" role="search" aria-label="Filter HWS events">
       <label for="event-search">Keyword <input id="event-search" type="search" placeholder="Search title, place, or organizer" autocomplete="off"></label>
       <label for="event-category">Category <select id="event-category"><option value="">All categories</option>{event_options}</select></label>
@@ -1447,6 +1447,25 @@ def build_events_page():
     <p class="siblings-all"><a class="btn-primary" href="{SKOOL_URL}" target="_blank" rel="noopener" data-cta="skool-join">Join the Skool community <span aria-hidden="true">&#8599;</span></a></p>
   </section>
 
+  <section class="campus-hub-section events-answer-guide" aria-labelledby="hws-event-information">
+    <p class="campus-event-kicker">HWS event information</p>
+    <h2 id="hws-event-information">Finding events at Hobart and William Smith</h2>
+    <div class="events-answer-grid">
+      <article>
+        <h3>Where can I find upcoming HWS events?</h3>
+        <p>Use the HWS Events Calendar above to browse current campus events by month, keyword, and category. Listings include event titles, dates, Eastern times, locations, organizers, descriptions, and links to the official HWS record.</p>
+      </article>
+      <article>
+        <h3>Is this the HWS academic calendar?</h3>
+        <p>No. This page covers campus and community events. For official semester dates such as the first day of classes, registration, breaks, reading days, and final exams, use the <a href="https://www.hws.edu/catalogue/default.aspx" target="_blank" rel="noopener" data-campus-source="academic-calendar">HWS academic calendar and catalogue &#8599;</a>.</p>
+      </article>
+      <article>
+        <h3>Where can HWS students find clubs and activities?</h3>
+        <p>Campus activities appear in the calendar when HWS publishes them. For the complete organization list, use the <a href="https://www.hws.edu/offices/student-engagement/clubs-and-organizations.aspx" target="_blank" rel="noopener" data-campus-source="club-directory">official HWS clubs and organizations directory &#8599;</a>. HWS AI Club meeting and joining information appears on this page.</p>
+      </article>
+    </div>
+  </section>
+
   <section class="campus-hub-section" aria-labelledby="hws-clubs-directory">
     <p class="campus-event-kicker">Student organizations</p>
     <h2 id="hws-clubs-directory">HWS clubs and organizations</h2>
@@ -1476,8 +1495,8 @@ def build_events_page():
 </html>"""
     (SITE / "events").mkdir(exist_ok=True)
     (SITE / "events" / "index.html").write_text(
-        head("HWS Campus Events and Clubs | HWS AI Club",
-             "Find upcoming HWS campus events, student clubs, and the HWS AI Club community at Hobart and William Smith Colleges in Geneva, New York.",
+        head("HWS Events Calendar & Campus Activities | HWS AI Club",
+             "Browse upcoming HWS events at Hobart and William Smith Colleges: lectures, student activities, athletics, performances, club meetings, dates, and locations.",
              "/events/", [crumbs, EVENT_JSONLD]) + "\n" + body + "\n",
         encoding="utf-8")
 

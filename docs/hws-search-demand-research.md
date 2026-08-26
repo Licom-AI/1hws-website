@@ -119,6 +119,41 @@ The dominant pattern was consistent:
 - Instagram and Facebook appeared for social/event discovery.
 - Some full-name event/club searches included an AI Overview.
 
+## Event-page keyword evidence — August 26, 2026
+
+OpenSEO was run against the exact official HWS Community Events Calendar URL and returned
+10 ranking rows. Only the rows whose intent actually matches this site's campus calendar
+were retained for optimization:
+
+| Keyword | Official page rank | U.S. monthly volume | KD | Intent |
+| --- | ---: | ---: | ---: | --- |
+| `hws events` | 2 | 30 | 1 | Informational |
+| `hws events calendar` | 2 | 30 | 0 | Informational |
+| `hobart rowing schedule` | 17 | 40 | 0 | Informational / navigational |
+
+The remaining exact-page rows were unrelated time strings, another university's calendar,
+or other false matches. Their larger volumes were not treated as opportunities. Individual
+athletics schedules also remain better served by official team pages than by a general
+campus calendar.
+
+A focused OpenSEO metric check found:
+
+| Keyword | U.S. monthly volume | KD | Intent | Page decision |
+| --- | ---: | ---: | --- | --- |
+| `hws academic calendar` | 1,000 | 1 | Navigational | Link prominently to the official HWS catalogue/calendar; do not imply this page owns academic deadlines |
+| `hobart and william smith academic calendar` | 880 | 9 | Navigational | Same official route and clear intent distinction |
+| `hws clubs` | 30 | 0 | Navigational | Keep the official clubs-directory route and accurate permission gate |
+| `hws events` | 30 | 1 | Informational | Primary page theme |
+| `hws events calendar` | 30 | 0 | Informational | Primary title and H1 theme |
+| `hws student activities` | unknown | unknown | Informational | Use naturally only because the feed contains student-activity listings |
+
+Google Search Console is still not connected inside the OpenSEO project, so this is
+third-party keyword evidence rather than the site's actual impressions or clicks. The
+implemented page therefore targets `HWS events calendar` and `HWS events`, answers common
+event/academic-calendar/club questions in visible text, and routes navigational academic
+and club searches to the authoritative HWS pages. No volume was assigned to keyword
+variants OpenSEO omitted.
+
 ### What this means for the HWS AI Club
 
 The club should not try to outrank HWS's general Clubs page for every generic campus

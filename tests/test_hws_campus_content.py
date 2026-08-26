@@ -95,7 +95,7 @@ class GeneratedCampusHubTests(unittest.TestCase):
 
     def test_page_contains_hub_controls_sources_attribution_and_skool(self):
         for expected in (
-            "Upcoming HWS events",
+            "HWS Events Calendar",
             'id="event-search"',
             'id="event-category"',
             'id="events-calendar"',
@@ -126,7 +126,7 @@ class GeneratedCampusHubTests(unittest.TestCase):
         club_meeting_pos = self.page.index('id="ai-club-meeting"')
         self.assertLess(calendar_pos, club_meeting_pos)
         self.assertNotIn('class="events-hero"', self.page)
-        self.assertIn('<h1 id="upcoming-hws-events">Upcoming HWS events</h1>', self.page)
+        self.assertIn('<h1 id="upcoming-hws-events">HWS Events Calendar</h1>', self.page)
 
     def test_static_fallback_contains_exactly_twenty_four_events(self):
         self.assertEqual(24, self.page.count('class="event-fallback-item"'))
@@ -142,8 +142,14 @@ class GeneratedCampusHubTests(unittest.TestCase):
         self.assertNotIn('"@type": "ItemList"', self.page)
 
     def test_title_canonical_and_static_content_are_present(self):
-        self.assertIn("<title>HWS Campus Events and Clubs | HWS AI Club</title>", self.page)
+        self.assertIn("<title>HWS Events Calendar &amp; Campus Activities | HWS AI Club</title>", self.page)
         self.assertIn('<link rel="canonical" href="https://www.hwsaiclub.com/events/">', self.page)
+        self.assertIn('<h1 id="upcoming-hws-events">HWS Events Calendar</h1>', self.page)
+        self.assertIn("Find upcoming HWS events at Hobart and William Smith Colleges", self.page)
+        self.assertIn("Where can I find upcoming HWS events?", self.page)
+        self.assertIn("Is this the HWS academic calendar?", self.page)
+        self.assertIn("Where can HWS students find clubs and activities?", self.page)
+        self.assertIn("https://www.hws.edu/catalogue/default.aspx", self.page)
         self.assertIn('data-campus-event-id=', self.page)
         self.assertIn('<time datetime=', self.page)
 
