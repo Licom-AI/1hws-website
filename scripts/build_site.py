@@ -844,9 +844,6 @@ def build_home():
             "No coding required; join the HWS AI Club community.")
     faq_pairs = HOME_FAQ
 
-    home_task_links = " · ".join(
-        f'<a href="/tasks/{h["slug"]}/">{esc(h["label"])}</a>' for h in TASK_HUBS[:8]
-    )
     faq_home_html = faq_items_html(faq_pairs, "        ")
     website = {"@context": "https://schema.org", "@type": "WebSite",
                "@id": WEBSITE_ID,
@@ -920,15 +917,6 @@ def build_home():
         <div class="library-stat"><strong>3</strong><span>Difficulty levels</span></div>
       </div>
       <div class="library-cta"><a class="btn-primary" href="/majors/" data-cta="library-browse">Find your major &rarr;</a></div>
-    </div>
-  </section>
-
-  <section class="lp-section lp-tasks">
-    <div class="section-inner">
-      <h2 class="section-title">Or start from what you need to do</h2>
-      <p class="section-sub">The same 840 use cases, grouped by task instead of by department &mdash; because most people arrive with a problem, not a major.</p>
-      <p class="siblings">{home_task_links}</p>
-      <div class="library-cta"><a class="btn-secondary" href="/tasks/">Browse all {len(TASK_HUBS)} tasks &rarr;</a></div>
     </div>
   </section>
 
