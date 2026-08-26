@@ -1192,3 +1192,50 @@ main.page > h1 { font-size: clamp(1.8rem, 3.4vw, 2.4rem); }
 @media (prefers-color-scheme: dark) {
   .policy-note { background: rgba(124, 58, 237, 0.12); }
 }
+
+/* --- FAQ blocks (homepage + per-major) ------------------------------------- */
+/* Rendered from the same pairs that generate the FAQPage JSON-LD, so what a
+   reader sees and what a crawler parses can never drift apart. */
+.faq-section {
+  margin: 48px 0 8px;
+  max-width: 820px;
+}
+.faq-section > h2 {
+  font-size: 1.35rem;
+  margin-bottom: 4px;
+}
+.faq-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 20px;
+  text-align: left;
+}
+.faq-item {
+  padding: 18px 20px;
+  border: 1px solid rgba(124, 58, 237, 0.16);
+  border-radius: var(--radius-sm, 10px);
+  background: var(--white, #fff);
+}
+.faq-q {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.faq-a {
+  margin: 0;
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: var(--slate-600, #475569);
+}
+.lp-faq .faq-list {
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (prefers-color-scheme: dark) {
+  .faq-item {
+    background: rgba(124, 58, 237, 0.07);
+    border-color: rgba(124, 58, 237, 0.28);
+  }
+}

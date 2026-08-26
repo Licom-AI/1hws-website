@@ -147,6 +147,17 @@
       var visible = cards.filter(function (c) { return c.style.display !== "none"; });
       if (visible.length === 1) window.location.href = visible[0].getAttribute("href");
     });
+
+    /* Honour ?q= so the SearchAction target advertised in the homepage's WebSite
+       JSON-LD lands on a genuinely filtered page. Without this the sitelinks
+       searchbox would point at a URL that ignores its own query. */
+    try {
+      var q0 = new URLSearchParams(window.location.search).get("q");
+      if (q0) {
+        search.value = q0;
+        search.dispatchEvent(new Event("input"));
+      }
+    } catch (err) { /* older browser: the list just renders unfiltered */ }
   }
 
   /* ---- Major page: difficulty filter ---- */

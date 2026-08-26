@@ -27,6 +27,23 @@ LOCATION = "Geneva, New York"
 MEETING = "Every Sunday, 5-6 PM · Sanford Room"
 MEETING_START, MEETING_END, MEETING_TZ = "17:00", "18:00", "America/New_York"
 
+# Schema.org Event needs a concrete startDate to validate; a recurring series needs
+# real bounds. These are the first and last Sunday meetings of the current term and
+# are deliberately hand-maintained rather than computed from date.today() — a
+# computed "next Sunday" would change the generated HTML every week and break the
+# build's no-diff idempotency guarantee. Update once per semester.
+TERM_FIRST_MEETING = "2026-08-30"
+TERM_LAST_MEETING = "2026-12-13"
+MEETING_UTC_OFFSET = "-04:00"  # America/New_York during the fall term (EDT)
+
+# Where else this club exists on the web. schema.org sameAs is how an answer engine
+# connects this site to the organisation that HWS and the local press already write
+# about — without it the site is an unlinked island. Add profiles as they appear.
+ORG_SAME_AS = [
+    "https://hws.campuslabs.com/engage/organization/aiclub",
+    "https://www.skool.com/hws-ai-club-7506",
+]
+
 # GA4 property for this site. The custom events it receives (prompt_copied,
 # tutorial_video_click, join_community_click, join_cta_click, library_cta_click)
 # are fired from site/js/site.js — see docs/ANALYTICS.md for the full event
@@ -103,6 +120,9 @@ FOUNDERS = [
             "champion with Hobart hockey."
         ),
         "subtitle": "Co-Founder, HWS AI Club &middot; Founder &amp; CSO, Licom AI",
+        # Drives schema.org Person.worksFor. (org, url) — url may be None when the
+        # organisation has no canonical page we've verified.
+        "worksFor": [LICOM, ("Metro Development Group", None)],
         # Falls back to the initials avatar if the file is missing (build prints a warning).
         "photo": "/assets/founders/dominic-schimizzi.jpg",
         "bio": [
@@ -158,6 +178,7 @@ FOUNDERS = [
             "studies at Northeastern University and sits on the board of Sundai."
         ),
         "subtitle": "Co-Founder, HWS AI Club &middot; Founder &amp; CEO, Licom AI",
+        "worksFor": [LICOM, ("Enlaye", None)],
         "bio": [
             "Zack co-founded the HWS AI Club in August 2025 and is the founder and CEO of Licom AI, "
             "a B2B AI consulting and implementation agency he started from his dorm room and grew to "
@@ -277,6 +298,107 @@ def card_text(slug, uc):
     else:
         desc = f"{desc}."
     return desc, (takeaway or NEXT_STEPS.get(uc["difficulty"], ""))
+
+
+def _join_titles(titles):
+    """'A', 'B' and 'C' — for prose answers, not lists."""
+    titles = [t.rstrip(". ").lower() for t in titles]
+    if len(titles) <= 1:
+        return titles[0] if titles else ""
+    return ", ".join(titles[:-1]) + " and " + titles[-1]
+
+
+def major_faq(slug, m):
+    """Genuine question/answer pairs for one major, composed from its own data.
+
+    This replaces the previous behaviour of marking up all 20 use-case titles as
+    schema.org Question entities. A title like "Explain natural selection to a
+    peer" is an imperative task, not a question, and Google requires FAQPage
+    markup to be real Q&A that is *visible on the page* — the old markup was
+    neither, and duplicated the ItemList on the same page besides.
+
+    Every answer here is built from values unique to this major (its difficulty
+    split, its own use-case titles, the tutorials it actually links), so the 42
+    pages stay distinct instead of converging on shared boilerplate.
+    """
+    name = m["name"]
+    ucs = m["useCases"]
+    by_diff = {d: [u for u in ucs if u["difficulty"] == d] for d in ("Easy", "Medium", "Hard")}
+    easy = [u["title"] for u in by_diff["Easy"][:3]]
+    mixed = [u["title"] for u in (by_diff["Medium"] or by_diff["Easy"])[:2]]
+    hardest = (by_diff["Hard"] or by_diff["Medium"] or ucs)[-1]["title"]
+    split = ", ".join(f"{len(by_diff[d])} {d.lower()}" for d in ("Easy", "Medium", "Hard") if by_diff[d])
+    n_videos = len({video_id(slug, uc) for uc in ucs})
+
+    return [
+        (
+            f"How can {name} students use AI at HWS?",
+            f"This page lists {len(ucs)} practical AI use cases written specifically for {name} "
+            f"students at {COLLEGE} — {split} by difficulty. They range from everyday coursework "
+            f"help such as {_join_titles(easy[:2])} through to project-scale work like "
+            f"{hardest.rstrip('. ').lower()}. Each one comes with a starter prompt you can paste "
+            f"straight into ChatGPT, Claude, or Gemini.",
+        ),
+        (
+            f"Which AI use cases should a {name} major try first?",
+            f"Start with the {len(by_diff['Easy'])} rated Easy — they need no setup and work on the "
+            f"first try. For {name} that means {_join_titles(easy)}. Once those feel routine, move "
+            f"up to the Medium tier, which includes {_join_titles(mixed)}.",
+        ),
+        (
+            f"What do I need to start using AI as a {name} student?",
+            "A free account with ChatGPT, Claude, or Gemini, and nothing else — no coding, no paid "
+            f"subscription, no special software. Every use case on this page links to one of "
+            f"{n_videos} tutorial videos that walks through the technique, and ships with a starter "
+            f"prompt already written for {name} coursework.",
+        ),
+        (
+            f"Is it OK to use AI for {name} coursework at HWS?",
+            "It depends on the course, and the professor decides. Policies differ between "
+            f"instructors and even between assignments, so check the syllabus before using any of "
+            f"these on graded work. The use cases here are study aids — a prompt like "
+            f"\"{hardest.rstrip('. ')}\" is meant to help you learn the material faster, not to "
+            "produce work you hand in as your own. When in doubt, ask first.",
+        ),
+    ]
+
+
+def faq_jsonld(pairs, page_id=None):
+    """FAQPage node. Only ever call this for Q&A that is rendered on the page."""
+    node = {
+        "@context": "https://schema.org", "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}}
+            for q, a in pairs
+        ],
+    }
+    if page_id:
+        node["@id"] = page_id
+    return node
+
+
+def faq_items_html(pairs, indent="    "):
+    """Visible rendering of the same pairs that feed faq_jsonld — one source of
+    truth, so the markup can never drift from what a reader actually sees."""
+    return "\n".join(
+        f'{indent}<div class="faq-item">\n'
+        f'{indent}  <h3 class="faq-q">{esc(q)}</h3>\n'
+        f'{indent}  <p class="faq-a">{esc(a)}</p>\n'
+        f'{indent}</div>'
+        for q, a in pairs
+    )
+
+
+def faq_html(pairs, heading, heading_id="faq"):
+    """A whole FAQ section, for inner pages that aren't built from lp-section."""
+    return (
+        f'  <section class="faq-section" id="{heading_id}">\n'
+        f'    <h2>{esc(heading)}</h2>\n'
+        f'    <div class="faq-list">\n'
+        f'{faq_items_html(pairs, "      ")}\n'
+        f'    </div>\n'
+        f'  </section>'
+    )
 
 
 def classify(title, description):
@@ -423,19 +545,29 @@ def scripts():
     return '<script src="/js/site.js"></script>'
 
 
+# Stable @id anchors. Every JSON-LD node the site emits more than once refers to
+# the same URI, so crawlers merge them into one entity instead of reading a dozen
+# unrelated organisations that happen to share a name.
+ORG_ID = BASE_URL + "/#organization"
+WEBSITE_ID = BASE_URL + "/#website"
+COLLEGE_ID = "https://www.hws.edu/#organization"
+
+COLLEGE_NODE = {"@type": "CollegeOrUniversity", "@id": COLLEGE_ID, "name": COLLEGE, "url": "https://www.hws.edu/"}
+
 ORG_JSONLD = {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
+    "@id": ORG_ID,
     "name": "HWS AI Club",
     "alternateName": ["Hobart and William Smith AI Club", "AI @ HWS", "HWS Artificial Intelligence Club"],
     "url": BASE_URL + "/",
-    "logo": BASE_URL + "/assets/favicon.svg",
+    # Must be raster: Google's logo parser rejects SVG. build_favicons() writes this.
+    "logo": {"@type": "ImageObject", "url": BASE_URL + "/assets/logo-512.png", "width": 512, "height": 512},
+    "image": BASE_URL + "/og-image.png",
+    "sameAs": ORG_SAME_AS,
+    "foundingDate": "2025-08",
     "description": f"Student-run AI literacy club at {COLLEGE} helping every major learn to use AI well.",
-    "parentOrganization": {
-        "@type": "CollegeOrUniversity",
-        "name": COLLEGE,
-        "url": "https://www.hws.edu/",
-    },
+    "parentOrganization": COLLEGE_NODE,
     "location": {
         "@type": "Place",
         "name": COLLEGE,
@@ -447,20 +579,28 @@ ORG_JSONLD = {
 EVENT_JSONLD = {
     "@context": "https://schema.org",
     "@type": "Event",
+    "@id": BASE_URL + "/#weekly-meeting",
     "name": "HWS AI Club Weekly Meeting",
     "description": "Beginner-friendly weekly AI workshop and meeting for HWS AI Club, open to all majors and class years — no experience required.",
+    # startDate/endDate are required for validation; the Schedule below carries the
+    # recurrence. Both bound the current term — see TERM_FIRST_MEETING.
+    "startDate": f"{TERM_FIRST_MEETING}T{MEETING_START}:00{MEETING_UTC_OFFSET}",
+    "endDate": f"{TERM_FIRST_MEETING}T{MEETING_END}:00{MEETING_UTC_OFFSET}",
     "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
     "eventStatus": "https://schema.org/EventScheduled",
+    "isAccessibleForFree": True,
     "location": {
         "@type": "Place",
         "name": "Sanford Room, " + COLLEGE,
         "address": {"@type": "PostalAddress", "addressLocality": "Geneva", "addressRegion": "NY", "addressCountry": "US"},
     },
-    "organizer": {"@type": "Organization", "name": "HWS AI Club", "url": BASE_URL + "/"},
+    "organizer": {"@id": ORG_ID},
     "eventSchedule": {
         "@type": "Schedule",
         "repeatFrequency": "P1W",
         "byDay": "https://schema.org/Sunday",
+        "startDate": TERM_FIRST_MEETING,
+        "endDate": TERM_LAST_MEETING,
         "startTime": MEETING_START,
         "endTime": MEETING_END,
         "scheduleTimezone": MEETING_TZ,
@@ -529,30 +669,38 @@ def build_home():
         f"The student-run AI club at {COLLEGE} (HWS) in {LOCATION}. Learn practical AI skills with 840 "
         "use cases across all 42 majors — no coding required. Free, open to everyone."
     )
-    faq = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {"@type": "Question", "name": "What is the HWS AI Club?",
-             "acceptedAnswer": {"@type": "Answer", "text": f"HWS AI Club is a student-run organization at {COLLEGE} that helps students of every major learn to use AI tools well, with hands-on workshops and a library of 840 AI use cases across all 42 majors."}},
-            {"@type": "Question", "name": "Do I need coding experience to join?",
-             "acceptedAnswer": {"@type": "Answer", "text": "No. The club is beginner-friendly and requires no coding or prior AI experience — just curiosity."}},
-            {"@type": "Question", "name": "When and where does the HWS AI Club meet?",
-             "acceptedAnswer": {"@type": "Answer", "text": f"The club meets {MEETING} at {COLLEGE}. All majors and class years are welcome."}},
-            {"@type": "Question", "name": "Is the HWS AI Club free to join?",
-             "acceptedAnswer": {"@type": "Answer", "text": "Yes. The club is completely free, with no application required — just show up to a meeting."}},
-            {"@type": "Question", "name": "What majors can join the HWS AI Club?",
-             "acceptedAnswer": {"@type": "Answer", "text": f"All 42 majors offered at {COLLEGE}. The club's use-case library has 20 AI use cases tailored to each individual major."}},
-            {"@type": "Question", "name": "Do I need a laptop or special software to join?",
-             "acceptedAnswer": {"@type": "Answer", "text": "No special software — just a free account with a tool like ChatGPT, Claude, or Gemini. Bringing a laptop helps, but it isn't required."}},
-            {"@type": "Question", "name": "How do I join the HWS AI Club's online community?",
-             "acceptedAnswer": {"@type": "Answer", "text": f"Through the club's free Skool community at {SKOOL_URL}, which is open to every HWS student for classroom material, discussion, and the events calendar."}},
-        ],
-    }
-    website = {"@context": "https://schema.org", "@type": "WebSite", "name": "HWS AI Club",
+    # These pairs feed BOTH the visible FAQ section rendered below and the FAQPage
+    # markup. They previously existed only in JSON-LD with no on-page equivalent,
+    # which is a structured-data policy violation — markup has to reflect content
+    # the reader can actually see.
+    faq_pairs = [
+        ("What is the HWS AI Club?",
+         f"HWS AI Club is a student-run organization at {COLLEGE} that helps students of every major learn to use AI tools well, with hands-on workshops and a library of 840 AI use cases across all 42 majors."),
+        ("Do I need coding experience to join?",
+         "No. The club is beginner-friendly and requires no coding or prior AI experience — just curiosity."),
+        ("When and where does the HWS AI Club meet?",
+         f"The club meets {MEETING} at {COLLEGE}. All majors and class years are welcome."),
+        ("Is the HWS AI Club free to join?",
+         "Yes. The club is completely free, with no application required — just show up to a meeting."),
+        ("What majors can join the HWS AI Club?",
+         f"All 42 majors offered at {COLLEGE}. The club's use-case library has 20 AI use cases tailored to each individual major."),
+        ("Do I need a laptop or special software to join?",
+         "No special software — just a free account with a tool like ChatGPT, Claude, or Gemini. Bringing a laptop helps, but it isn't required."),
+        ("How do I join the HWS AI Club's online community?",
+         f"Through the club's free Skool community at {SKOOL_URL}, which is open to every HWS student for classroom material, discussion, and the events calendar."),
+    ]
+    faq = faq_jsonld(faq_pairs, BASE_URL + "/#faq")
+    faq_home_html = faq_items_html(faq_pairs, "        ")
+    website = {"@context": "https://schema.org", "@type": "WebSite",
+               "@id": WEBSITE_ID,
+               "name": "HWS AI Club",
                "url": BASE_URL + "/",
+               "publisher": {"@id": ORG_ID},
+               # site.js reads ?q= on /majors/ and pre-fills the filter, so this
+               # target is a real destination rather than a decorative one.
                "potentialAction": {"@type": "SearchAction",
-                                   "target": BASE_URL + "/majors/?q={search_term_string}",
+                                   "target": {"@type": "EntryPoint",
+                                              "urlTemplate": BASE_URL + "/majors/?q={search_term_string}"},
                                    "query-input": "required name=search_term_string"}}
 
     body = f"""<body class="view-home">
@@ -675,6 +823,15 @@ def build_home():
       </figure>
     </div>
   </section>
+  <section class="lp-section lp-faq" id="faq">
+    <div class="section-inner">
+      <h2 class="section-title">Common questions</h2>
+      <p class="section-sub">Everything students ask before their first meeting</p>
+      <div class="faq-list">
+{faq_home_html}
+      </div>
+    </div>
+  </section>
 </main>
 {site_footer()}
 {scripts()}
@@ -781,33 +938,18 @@ def uc_card(slug, uc):
     )
 
 
-def video_jsonld(slug, m):
-    """One VideoObject per distinct tutorial linked from this major's use cases
-    (several cards on a page often point at the same video — dedupe by id)."""
-    seen = {}
-    for uc in m["useCases"]:
-        vid = video_id(slug, uc)
-        if vid in seen:
-            continue
-        meta = _VMETA.get(vid)
-        if not meta:
-            continue
-        raw_date = meta.get("date") or ""
-        obj = {
-            "@context": "https://schema.org",
-            "@type": "VideoObject",
-            "name": meta.get("title", "AI tutorial video"),
-            "description": meta.get("title", "AI tutorial video"),
-            "thumbnailUrl": f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg",
-            "contentUrl": f"https://www.youtube.com/watch?v={vid}",
-            "embedUrl": f"https://www.youtube.com/embed/{vid}",
-        }
-        if meta.get("channel"):
-            obj["creator"] = {"@type": "Person", "name": meta["channel"]}
-        if len(raw_date) == 8:
-            obj["uploadDate"] = f"{raw_date[:4]}-{raw_date[4:6]}-{raw_date[6:8]}"
-        seen[vid] = obj
-    return list(seen.values())
+# NOTE: this file used to emit one schema.org VideoObject per distinct tutorial
+# linked from a major page. That markup was removed deliberately, not lost.
+#
+# The tutorials are third-party YouTube videos that the site links to but does not
+# host and does not embed — there is no iframe anywhere in the generated HTML.
+# Google's video structured-data guidelines require the video be playable on the
+# page carrying the markup, so ~13 VideoObjects x 42 pages was a guideline
+# violation with no upside; the hqdefault.jpg thumbnails (480px) also sat well
+# under the 1200px minimum, so the nodes would have failed validation regardless.
+#
+# Video titles, channels and dates are still shown to readers on each card via
+# _VMETA in uc_card() — that part is honest and stays.
 
 
 def build_major(m, prev_m, next_m):
@@ -835,14 +977,8 @@ def build_major(m, prev_m, next_m):
             for uc in m["useCases"]
         ],
     }
-    faq = {
-        "@context": "https://schema.org", "@type": "FAQPage",
-        "mainEntity": [
-            {"@type": "Question", "name": uc["title"],
-             "acceptedAnswer": {"@type": "Answer", "text": card_text(slug, uc)[0]}}
-            for uc in m["useCases"]
-        ],
-    }
+    faq_pairs = major_faq(slug, m)
+    faq = faq_jsonld(faq_pairs, f"{BASE_URL}/majors/{slug}/#faq")
     nav_more = ""
     if prev_m:
         nav_more += f'<a class="pager prev" href="/majors/{prev_m["slug"]}/">&larr; {esc(prev_m["name"])}</a>'
@@ -867,6 +1003,7 @@ def build_major(m, prev_m, next_m):
 {cards}
   </div>
   <nav class="major-pager" aria-label="More majors">{nav_more}</nav>
+{faq_html(faq_pairs, f"{name} AI questions, answered")}
   <section class="sibling-majors">
     <h2>Explore AI use cases for other majors at HWS</h2>
     <p class="siblings">{siblings}</p>
@@ -878,7 +1015,7 @@ def build_major(m, prev_m, next_m):
 </html>"""
     d = SITE / "majors" / slug
     d.mkdir(parents=True, exist_ok=True)
-    jsonld = [crumbs, itemlist, faq] + video_jsonld(slug, m)
+    jsonld = [crumbs, itemlist, faq]
     (d / "index.html").write_text(head(title, desc, f"/majors/{slug}/", jsonld) + "\n" + body + "\n", encoding="utf-8")
 
 
@@ -888,25 +1025,35 @@ def build_major(m, prev_m, next_m):
 def build_founder(f, others):
     slug, name = f["slug"], f["name"]
     title = f"{name} — {f['role']}, HWS AI Club | {COLLEGE}"
-    affiliation = [{"@type": "EducationalOrganization", "name": "HWS AI Club", "url": BASE_URL + "/"}]
+    affiliation = [{"@id": ORG_ID}]
     if f.get("school"):  # currently enrolled — affiliation, not alumniOf
         affiliation.append({"@type": "CollegeOrUniversity", "name": f["school"][0], "url": f["school"][1]})
+    # worksFor comes from the founder's own record. It used to be hardcoded to
+    # Licom AI for both, which published a factual error for Dominic — his current
+    # role is at Metro Development Group.
+    works = [{"@type": "Organization", "name": org, **({"url": url} if url else {})}
+             for org, url in f.get("worksFor", [])]
     person = {
         "@context": "https://schema.org", "@type": "Person",
+        "@id": f"{BASE_URL}/founders/{slug}/#person",
         "name": name,
         "url": f"{BASE_URL}/founders/{slug}/",
         "jobTitle": f["role"],
         "description": f["meta"],
         "affiliation": affiliation if len(affiliation) > 1 else affiliation[0],
-        "alumniOf": {"@type": "CollegeOrUniversity", "name": COLLEGE, "url": "https://www.hws.edu/"},
-        "worksFor": {"@type": "Organization", "name": LICOM[0], "url": LICOM[1]},
+        "alumniOf": COLLEGE_NODE,
         "sameAs": [url for _, url in f["links"] if url not in ORG_URLS],
     }
+    if works:
+        person["worksFor"] = works if len(works) > 1 else works[0]
     if f.get("memberOf"):
         person["memberOf"] = {"@type": "Organization", "name": f["memberOf"][0], "url": f["memberOf"][1]}
     if founder_photo(f):
         person["image"] = BASE_URL + f["photo"]
-    crumbs = breadcrumb([("Home", "/"), ("Founders", "/#founders"), (name, f"/founders/{slug}/")])
+    # Two levels, not three: there is no /founders/ index page, and a fragment URL
+    # like /#founders resolves to the homepage, which makes the middle crumb a
+    # duplicate of the first as far as a validator is concerned.
+    crumbs = breadcrumb([("Home", "/"), (name, f"/founders/{slug}/")])
 
     paras = "\n      ".join(f"<p>{p}</p>" for p in f["bio"])
     facts = "\n        ".join(
@@ -960,7 +1107,7 @@ def build_founder(f, others):
     body = f"""<body class="view-inner">
 {site_header()}
 <main id="main" class="page">
-  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/#founders">Founders</a> / {esc(name)}</nav>
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / {esc(name)}</nav>
   <div class="founder-hero">
     {founder_avatar(f, "founder-avatar")}
     <div>
@@ -1230,7 +1377,10 @@ def build_favicons():
     """PNG/ICO favicon fallback + apple-touch-icon, rasterized from the existing
     assets/favicon.svg so there's one source of truth for the brand mark."""
     src = SITE / "assets" / "favicon.svg"
-    sizes = {"favicon-16x16.png": 16, "favicon-32x32.png": 32, "apple-touch-icon.png": 180}
+    # logo-512.png exists for schema.org Organization.logo, which Google will not
+    # accept as SVG and wants at >=112px. Same source mark as the favicons.
+    sizes = {"favicon-16x16.png": 16, "favicon-32x32.png": 32,
+             "apple-touch-icon.png": 180, "logo-512.png": 512}
     for name, size in sizes.items():
         _rasterize(src, SITE / "assets" / name, size)
     try:
