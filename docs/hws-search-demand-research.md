@@ -222,7 +222,7 @@ evidence reported above; no volume has been invented for the club-specific varia
 | `how to join the HWS AI Club`, membership eligibility | `/faq/` | Exact visible question, concise joining answer, cost, experience, meeting, and eligibility details | Optimized |
 | `HWS AI Club meetings`, `HWS AI Club workshops`, `HWS AI Club events` | `/events/` | Weekly meeting name, current schedule and location, beginner-friendly workshop description, and Skool CTA | Optimized |
 | `hws events`, `hws events calendar` | `/events/` | Exact title/H1 theme, searchable official event snapshot, dates, locations, categories, attribution, and official source links | Optimized |
-| `hws academic calendar`, `hobart and william smith academic calendar` | Official HWS academic calendar, linked from `/events/` | Direct-answer distinction and prominent official link; the club site does not claim to own academic deadlines | Routed, not targeted as the authoritative result |
+| `hws academic calendar`, `hobart and william smith academic calendar` | `/academic-calendar/` | Student-friendly 2026-2027 semester-date summary, exact title/H1 theme, official HWS source attribution, and prominent official-calendar link | Targeted as a non-official companion |
 | `hws clubs`, `HWS student organizations`, `HWS student activities` | Official HWS directory, linked from `/events/` | Visible clubs/activities answer and official directory route; permission-gated local listing avoids unsupported republication | Routed, with supporting coverage |
 | `AI resources for HWS students` | `/resources/ai-at-hws/` | Exact title/H1, cited HWS Library and Career Services resources, workshops, meeting details, and policy disclaimer | Optimized |
 | `AI for [major] students at HWS` | `/majors/<major>/` | Exact per-major title pattern, HWS-qualified H1/body copy, 20 distinct use cases, tutorials, prompts, and responsible-use guidance | Optimized |
@@ -235,6 +235,12 @@ queries such as acceptance rate, tuition, PeopleSoft, campus maps, housing, admi
 athletics team schedules, or celebrity/guest names. Those searches need authoritative
 HWS service pages, and forcing them onto an AI-club site would create weak relevance,
 mislead users, and dilute the pages that can realistically rank.
+
+The academic-calendar page is an intentional exception: it has genuine documented search
+demand and the site can provide a useful, sourced student reference. It must retain its
+official HWS citation, review date, and statement that HWS controls the authoritative
+calendar. It should be refreshed whenever HWS publishes a new academic year or changes
+the listed dates.
 
 ### Verification contract
 

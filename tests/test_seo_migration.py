@@ -95,6 +95,17 @@ class SeoMigrationSourceTests(unittest.TestCase):
         self.assertIn("<h1>AI Use Cases for Biology at HWS</h1>", biology)
         self.assertIn("<title>AI Resources for HWS Students | HWS AI Club</title>", resources)
 
+    def test_academic_calendar_page_is_source_attributed_and_indexable(self):
+        calendar = (ROOT / "site" / "academic-calendar" / "index.html").read_text(encoding="utf-8")
+        self.assertIn("<title>HWS Academic Calendar 2026-2027 | HWS AI Club</title>", calendar)
+        self.assertIn('<link rel="canonical" href="https://www.hwsaiclub.com/academic-calendar/">', calendar)
+        self.assertIn("<h1>HWS Academic Calendar 2026-2027</h1>", calendar)
+        self.assertIn("https://www.hws.edu/catalogue/calendar.aspx", calendar)
+        self.assertIn("First day of classes", calendar)
+        self.assertIn("Commencement", calendar)
+        self.assertNotIn('"@type": "Event"', calendar)
+        self.assertNotIn('"@type": "FAQPage"', calendar)
+
 
 if __name__ == "__main__":
     unittest.main()

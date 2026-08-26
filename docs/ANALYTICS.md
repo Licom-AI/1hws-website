@@ -11,8 +11,8 @@ the generator works in general; this doc covers only the analytics layer.
 - **`GA_MEASUREMENT_ID`** and **`GA_SNIPPET`** — constants near the top of
   `scripts/build_site.py`, right after `BASE_URL`. `GA_SNIPPET` is the literal `gtag.js`
   loader plus a `content_group` classifier computed from `location.pathname`
-  (`home` / `majors_index` / `major_page` / `tasks_index` / `task_page` / `faq` /
-  `ai_policy` / `founder_page` / `other`).
+  (`home` / `majors_index` / `major_page` / `tasks_index` / `task_page` / `events` /
+  `academic_calendar` / `ai_resources` / `faq` / `ai_policy` / `founder_page` / `other`).
 - **`head()`** (`scripts/build_site.py`) — injects `{GA_SNIPPET}` immediately after the
   `<head>` tag, before every other tag, on every page. This is the single point of control:
   change the measurement ID or the snippet once here, rebuild, and it's live on every

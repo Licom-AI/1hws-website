@@ -149,7 +149,8 @@ class GeneratedCampusHubTests(unittest.TestCase):
         self.assertIn("Where can I find upcoming HWS events?", self.page)
         self.assertIn("Is this the HWS academic calendar?", self.page)
         self.assertIn("Where can HWS students find clubs and activities?", self.page)
-        self.assertIn("https://www.hws.edu/catalogue/default.aspx", self.page)
+        self.assertIn('href="/academic-calendar/"', self.page)
+        self.assertIn("https://www.hws.edu/catalogue/calendar.aspx", self.page)
         self.assertIn('data-campus-event-id=', self.page)
         self.assertIn('<time datetime=', self.page)
 

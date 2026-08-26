@@ -1292,6 +1292,50 @@ main.page > h1 { font-size: clamp(1.8rem, 3.4vw, 2.4rem); }
 
 .siblings-all { margin-top: 12px; font-weight: 600; }
 
+/* ---------- Academic calendar -------------------------------------------- */
+.academic-calendar-page { max-width: 1000px; }
+.academic-calendar-term { margin: 44px 0; }
+.academic-calendar-term h2 { margin-bottom: 16px; }
+.academic-calendar-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--slate-200);
+  border-radius: 16px;
+  background: var(--white);
+}
+.academic-calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 620px;
+  text-align: left;
+}
+.academic-calendar-table caption {
+  padding: 16px 20px 10px;
+  color: var(--slate-600);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: left;
+}
+.academic-calendar-table th,
+.academic-calendar-table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--slate-200);
+  vertical-align: top;
+}
+.academic-calendar-table thead th {
+  background: var(--slate-50);
+  color: var(--slate-700);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.academic-calendar-table tbody th {
+  width: 36%;
+  color: var(--slate-900);
+  font-weight: 700;
+}
+.academic-calendar-table tbody tr:last-child th,
+.academic-calendar-table tbody tr:last-child td { border-bottom: 0; }
+
 @media (prefers-color-scheme: dark) {
   .task-major { background: rgba(124, 58, 237, 0.1); }
 }

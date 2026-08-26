@@ -1,0 +1,64 @@
+{
+  "academicYear": "2026-2027",
+  "sourceUrl": "https://www.hws.edu/catalogue/calendar.aspx",
+  "retrievedAt": "2026-08-26",
+  "terms": [
+    {
+      "name": "Fall Semester",
+      "dates": [
+        {"date": "August 26-30, 2026", "event": "New Student Orientation"},
+        {"date": "August 30, 2026", "event": "Campus residences open"},
+        {"date": "August 31, 2026", "event": "First day of classes"},
+        {"date": "August 31-September 4, 2026", "event": "Student add/drop period; work due for spring semester incompletes"},
+        {"date": "September 5-11, 2026", "event": "Restricted add/drop period (last day to add or drop a course)"},
+        {"date": "September 11, 2026", "event": "Grades due for spring semester incompletes"},
+        {"date": "September 25, 2026", "event": "Last day to change grading basis (CR/DCR/NC) for spring semester courses"},
+        {"date": "October 2-4, 2026", "event": "Homecoming and Family Weekend"},
+        {"date": "October 16, 2026", "event": "Midterm Statuses due"},
+        {"date": "October 17-20, 2026", "event": "Fall recess"},
+        {"date": "November 2-13, 2026", "event": "Advising Period"},
+        {"date": "November 16-December 2, 2026", "event": "Spring Semester 2027 Registration"},
+        {"date": "November 25-29, 2026", "event": "November recess"},
+        {"date": "December 11, 2026", "event": "Last day of classes; last day to withdraw from a course"},
+        {"date": "December 11, 2026", "event": "Last day for January graduates to change a grading basis (CR/DCR/NC)"},
+        {"date": "December 12-14, 2026", "event": "Reading Days"},
+        {"date": "December 15-18, 2026", "event": "Final examinations"},
+        {"date": "December 18, 2026", "event": "Semester ends after last exam"},
+        {"date": "December 19, 2026", "event": "Residences close at noon"},
+        {"date": "December 19, 2026-January 18, 2027", "event": "Winter Break"},
+        {"date": "January 2-17, 2027", "event": "J-Term"},
+        {"date": "January 10, 2027", "event": "No Class"}
+      ]
+    },
+    {
+      "name": "Spring Semester",
+      "dates": [
+        {"date": "January 18, 2027", "event": "Campus residences open"},
+        {"date": "January 19, 2027", "event": "First day of classes"},
+        {"date": "January 19-25, 2027", "event": "Student add/drop period"},
+        {"date": "January 26-February 1, 2027", "event": "Restricted add/drop period (last day to add or drop a course)"},
+        {"date": "February 12, 2027", "event": "Work due for fall semester incompletes"},
+        {"date": "February 26, 2027", "event": "Grades due for fall semester incompletes"},
+        {"date": "March 5, 2027", "event": "Midterm Statuses due; deadline for Juniors to have declared a minor"},
+        {"date": "March 12, 2027", "event": "Last day to change grading basis (CR/DCR/NC) for fall semester courses; deadline for Sophomores to declare a major"},
+        {"date": "March 13-21, 2027", "event": "Spring Break"},
+        {"date": "March 22-April 2, 2027", "event": "Advising Period"},
+        {"date": "April 5-14, 2027", "event": "Fall Semester 2027 Registration"},
+        {"date": "April 9, 2027", "event": "Last day for Seniors to withdraw from a spring course or change a grading basis (CR/DCR/NC)"},
+        {"date": "April 21, 2027", "event": "HWS Day"},
+        {"date": "April 30, 2027", "event": "Moving Up Day"},
+        {"date": "May 3, 2027", "event": "Last day of classes; last day to withdraw from a course (for non-Seniors)"},
+        {"date": "May 4-6, 2027", "event": "Reading Days"},
+        {"date": "May 7-10, 2027", "event": "Final examinations"},
+        {"date": "May 11, 2027", "event": "Residences close at noon; Spring Semester Grades Due"},
+        {"date": "May 16, 2027", "event": "Commencement"},
+        {"date": "May 17, 2027", "event": "Senior residences close"},
+        {"date": "May 17-June 4, 2027", "event": "Maymester"},
+        {"date": "May 17-June 18, 2027", "event": "5-Week Summer Session 1"},
+        {"date": "May 31, 2027", "event": "Memorial Day Holiday"},
+        {"date": "June 7-25, 2027", "event": "3-Week Summer Session 2"},
+        {"date": "June 19, 2027", "event": "Juneteenth Holiday"}
+      ]
+    }
+  ]
+}

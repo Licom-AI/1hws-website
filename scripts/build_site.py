@@ -25,6 +25,9 @@ VCONF = json.loads((SITE / "data" / "videos-config.json").read_text(encoding="ut
 HWS_CONTENT_CONFIG = json.loads((SITE / "data" / "hws-content-config.json").read_text(encoding="utf-8"))
 HWS_EVENTS = json.loads((SITE / "data" / "hws-events.json").read_text(encoding="utf-8"))
 HWS_CLUBS = json.loads((SITE / "data" / "hws-clubs.json").read_text(encoding="utf-8"))
+HWS_ACADEMIC_CALENDAR = json.loads(
+    (SITE / "data" / "hws-academic-calendar.json").read_text(encoding="utf-8")
+)
 
 # --- One place to change when moving to a custom domain -----------------------
 BASE_URL = "https://www.hwsaiclub.com"
@@ -76,6 +79,7 @@ GA_SNIPPET = f"""<script async src="https://www.googletagmanager.com/gtag/js?id=
       if (p.indexOf('/tasks/') === 0) return 'task_page';
       if (p.indexOf('/founders/') === 0) return 'founder_page';
       if (p === '/events/') return 'events';
+      if (p === '/academic-calendar/') return 'academic_calendar';
       if (p === '/resources/ai-at-hws/') return 'ai_resources';
       if (p === '/faq/') return 'faq';
       if (p === '/ai-policy/') return 'ai_policy';
@@ -651,6 +655,7 @@ def site_header():
       <a href="/majors/">By Major</a>
       <a href="/tasks/">By Task</a>
       <a href="/events/">Events</a>
+      <a href="/academic-calendar/">Academic Calendar</a>
       <a href="/resources/ai-at-hws/">Resources</a>
       <a href="/faq/">FAQ</a>
       <a href="/#founders">Meet The Founders</a>
@@ -674,6 +679,7 @@ def site_footer():
       <a href="/#about">About</a>
       <a href="/#join">Events</a>
       <a href="/events/">Club Events</a>
+      <a href="/academic-calendar/">Academic Calendar</a>
       <a href="/#team">Team</a>
       <a href="/majors/">By Major</a>
       <a href="/tasks/">By Task</a>
@@ -1434,7 +1440,7 @@ def build_events_page():
       </article>
       <article>
         <h3>Is this the HWS academic calendar?</h3>
-        <p>No. This page covers campus and community events. For official semester dates such as the first day of classes, registration, breaks, reading days, and final exams, use the <a href="https://www.hws.edu/catalogue/default.aspx" target="_blank" rel="noopener" data-campus-source="academic-calendar">HWS academic calendar and catalogue &#8599;</a>.</p>
+        <p>No. This page covers campus and community events. For a student-friendly academic-date summary, use the <a href="/academic-calendar/">HWS Academic Calendar</a>. For official semester dates such as the first day of classes, registration, breaks, reading days, and final exams, use the <a href="https://www.hws.edu/catalogue/calendar.aspx" target="_blank" rel="noopener" data-campus-source="academic-calendar">official HWS academic calendar &#8599;</a>.</p>
       </article>
       <article>
         <h3>Where can HWS students find clubs and activities?</h3>
@@ -1476,6 +1482,77 @@ def build_events_page():
              "Browse upcoming HWS events at Hobart and William Smith Colleges: lectures, student activities, athletics, performances, club meetings, dates, and locations.",
              "/events/", [crumbs, EVENT_JSONLD]) + "\n" + body + "\n",
         encoding="utf-8")
+
+
+def build_academic_calendar_page():
+    """A source-attributed, student-friendly summary of official HWS dates.
+
+    The HWS Academic Calendar remains authoritative. This page improves discovery
+    and scanability without claiming to administer the institutional calendar.
+    Dates live in a small reviewed data file so they are easy to replace each
+    academic year and never depend on unreliable runtime scraping.
+    """
+    year = HWS_ACADEMIC_CALENDAR["academicYear"]
+    source_url = HWS_ACADEMIC_CALENDAR["sourceUrl"]
+    retrieved_at = HWS_ACADEMIC_CALENDAR["retrievedAt"]
+    terms = HWS_ACADEMIC_CALENDAR["terms"]
+    assert re.fullmatch(r"\d{4}-\d{4}", year), "academic calendar year must be YYYY-YYYY"
+    assert source_url.startswith("https://www.hws.edu/"), "academic calendar must use an official HWS source"
+    assert terms, "academic calendar needs at least one term"
+
+    tables = []
+    for term in terms:
+        rows = "\n".join(
+            f"          <tr><th scope=\"row\">{esc(item['date'])}</th><td>{esc(item['event'])}</td></tr>"
+            for item in term["dates"]
+        )
+        tables.append(f"""  <section class="academic-calendar-term">
+    <h2>{esc(term["name"])}</h2>
+    <div class="academic-calendar-table-wrap">
+      <table class="academic-calendar-table">
+        <caption>{esc(term["name"])} {esc(year)} dates</caption>
+        <thead><tr><th scope="col">Date</th><th scope="col">What happens</th></tr></thead>
+        <tbody>
+{rows}
+        </tbody>
+      </table>
+    </div>
+  </section>""")
+
+    crumbs = breadcrumb([("Home", "/"), ("HWS Academic Calendar", "/academic-calendar/")])
+    body = f"""<body class="view-inner">
+{site_header()}
+<main id="main" class="page academic-calendar-page">
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / HWS Academic Calendar</nav>
+  <h1>HWS Academic Calendar {esc(year)}</h1>
+  <p class="page-lede">Key Hobart and William Smith semester dates for {esc(year)}: first days of classes,
+  add/drop, registration, breaks, reading days, final exams, and commencement.</p>
+  <p class="policy-note"><strong>Use this as a student-friendly reference, then confirm important deadlines with HWS.</strong>
+  HWS maintains the official academic calendar, and dates or policies can change. This page was checked on
+  {esc(retrieved_at)} against the <a href="{esc(source_url)}" target="_blank" rel="noopener" data-campus-source="academic-calendar">official HWS Academic Calendar &#8599;</a>.</p>
+{chr(10).join(tables)}
+  <section class="sibling-majors">
+    <h2>Need something else?</h2>
+    <p class="siblings"><a href="/events/">Browse HWS campus events</a> &middot;
+    <a href="https://www.hws.edu/offices/registrar/exam_sched.aspx" target="_blank" rel="noopener">View official final-exam schedules &#8599;</a> &middot;
+    <a href="/majors/">Explore AI use cases by major</a></p>
+  </section>
+</main>
+{site_footer()}
+{scripts()}
+</body>
+</html>"""
+    output = SITE / "academic-calendar"
+    output.mkdir(exist_ok=True)
+    (output / "index.html").write_text(
+        head(
+            f"HWS Academic Calendar {year} | HWS AI Club",
+            f"HWS Academic Calendar {year}: classes, breaks, registration, reading days, final exams, and commencement. Confirm details with official HWS.",
+            "/academic-calendar/",
+            [crumbs],
+        ) + "\n" + body + "\n",
+        encoding="utf-8",
+    )
 
 
 def build_ai_policy_page():
@@ -1938,6 +2015,7 @@ specific tutorial video and includes a ready-to-paste starter prompt.
 - [All Majors]({BASE_URL}/majors/): directory of all 42 majors with AI use cases.
 - [AI Tasks]({BASE_URL}/tasks/): the same 840 use cases grouped by task rather than by major.
 - [HWS Campus Events and Clubs]({BASE_URL}/events/): the HWS AI Club meeting, a searchable official campus-event snapshot, and the permission-gated clubs directory.
+- [HWS Academic Calendar]({BASE_URL}/academic-calendar/): a student-friendly 2026-2027 semester-date summary sourced from HWS, with a link to the official calendar.
 - [AI resources at HWS]({BASE_URL}/resources/ai-at-hws/): official campus resources alongside club workshops and practical guides.
 - [FAQ]({BASE_URL}/faq/): what the club is, when it meets, what it costs, what you need.
 - [AI and coursework]({BASE_URL}/ai-policy/): what is and isn't allowed academically, and why \
@@ -1981,7 +2059,8 @@ def build_sitemap():
     pages += [("/tasks/", SITE / "tasks" / "index.html")]
     pages += [(f"/tasks/{h['slug']}/", SITE / "tasks" / h["slug"] / "index.html") for h in TASK_HUBS]
     pages += [("/events/", SITE / "events" / "index.html")]
-    pages += [("/resources/ai-at-hws/", SITE / "resources" / "ai-at-hws" / "index.html"),
+    pages += [("/academic-calendar/", SITE / "academic-calendar" / "index.html"),
+              ("/resources/ai-at-hws/", SITE / "resources" / "ai-at-hws" / "index.html"),
               ("/faq/", SITE / "faq" / "index.html"), ("/ai-policy/", SITE / "ai-policy" / "index.html")]
     pages += [(f"/founders/{f['slug']}/", SITE / "founders" / f["slug"] / "index.html") for f in FOUNDERS]
 
@@ -2244,6 +2323,7 @@ def main():
                        TASK_HUBS[i + 1] if i + 1 < len(TASK_HUBS) else None)
     build_faq_page()
     build_events_page()
+    build_academic_calendar_page()
     build_ai_policy_page()
     build_ai_resources_page()
     for f in FOUNDERS:
@@ -2273,6 +2353,7 @@ def main():
         assert (SITE / "founders" / f["slug"] / "index.html").exists()
     for h in TASK_HUBS:
         assert (SITE / "tasks" / h["slug"] / "index.html").exists()
+    assert (SITE / "academic-calendar" / "index.html").exists()
     for p in ("tasks/index.html", "events/index.html", "resources/ai-at-hws/index.html", "faq/index.html", "ai-policy/index.html"):
         assert (SITE / p).exists(), f"missing {p}"
     # Every task hub must resolve to a real archetype, or it would render empty.
