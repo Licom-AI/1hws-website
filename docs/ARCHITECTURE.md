@@ -31,6 +31,7 @@ it always regenerates everything.
 | `build_majors_index()` | `site/majors/index.html` — searchable grid of all 42 majors |
 | `build_major(m, prev_m, next_m)` | `site/majors/<slug>/index.html` — one page per major, prev/next links, use-case cards |
 | `build_tasks_index()` / `build_task_hub()` | `site/tasks/index.html` and `site/tasks/<slug>/index.html` — task-first routes to the same major-specific use cases |
+| `build_events_page()` | `site/events/index.html` — HWS AI Club meetings and workshops, with an authoritative link to the HWS campus events calendar |
 | `build_ai_resources_page()` / `build_faq_page()` / `build_ai_policy_page()` | `site/resources/ai-at-hws/`, `site/faq/`, and `site/ai-policy/` — cited HWS resources, visible Q&A, and coursework guidance |
 | `build_founder(f, others)` | `site/founders/<slug>/index.html` — one page per entry in `FOUNDERS`, `Person` JSON-LD |
 

@@ -26,7 +26,7 @@ headers in the Vercel project or a deliberately approved `vercel.json`.
 Running `python3 scripts/build_site.py` regenerates, in order (see `main()`):
 
 - `site/index.html`, `site/majors/index.html`, `site/majors/<slug>/index.html` ×42,
-  `site/tasks/index.html`, 15 task-hub pages, `site/faq/index.html`,
+  `site/tasks/index.html`, 15 task-hub pages, `site/events/index.html`, `site/faq/index.html`,
   `site/ai-policy/index.html`, `site/resources/ai-at-hws/index.html`, and
   `site/founders/<slug>/index.html` ×2
 - `site/robots.txt` — includes explicit `Allow` rules for named AI bots (`AI_BOTS` in

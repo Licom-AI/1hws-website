@@ -68,6 +68,20 @@ class SeoMigrationSourceTests(unittest.TestCase):
         self.assertIn('href="https://www.skool.com/hws-ai-club-7506"', join_section)
         self.assertIn('data-cta="skool-join"', join_section)
 
+    def test_homepage_targets_full_hws_club_entity_phrase(self):
+        homepage = (ROOT / "site" / "index.html").read_text(encoding="utf-8")
+        self.assertIn("<title>Hobart and William Smith AI Club | HWS AI Club</title>", homepage)
+        self.assertIn("students at Hobart and William Smith Colleges", homepage)
+        self.assertIn("HWS AI Club", homepage)
+        self.assertIn("student organization at Hobart and William Smith Colleges", homepage)
+
+    def test_hws_events_page_answers_club_event_intent(self):
+        events = (ROOT / "site" / "events" / "index.html").read_text(encoding="utf-8")
+        self.assertIn("HWS AI Club Events at Hobart and William Smith", events)
+        self.assertIn("https://www.hws.edu/news/calendar.aspx", events)
+        self.assertIn("https://www.hws.edu/offices/student-engagement/clubs-and-organizations.aspx", events)
+        self.assertIn('data-cta="skool-join"', events)
+
 
 if __name__ == "__main__":
     unittest.main()

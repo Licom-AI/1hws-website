@@ -37,7 +37,7 @@ per task archetype. It feeds **both** the Python generator and the generated
 python3 scripts/build_site.py
 ```
 
-Regenerates the homepage, majors, task hubs, FAQ, AI-coursework guide, founder pages,
+Regenerates the homepage, majors, task hubs, HWS AI Club events page, FAQ, AI-coursework guide, founder pages,
 `js/videos.js`, `sitemap.xml`, `robots.txt`, and legacy `_headers`.
 Re-running it on an unchanged repo produces no diff.
 
@@ -70,6 +70,7 @@ Netlify as the primary site.
 | A use-case title, description, or difficulty | `site/data.json` |
 | Which video a use case links to, or its starter prompt | `site/data/videos-config.json` |
 | Team roster, meeting time, site-wide copy | constants at the top of `scripts/build_site.py` |
+| HWS AI Club events page copy and official HWS links | `build_events_page()` in `scripts/build_site.py` |
 | Styling | `site/css/styles.css` |
 | Interactive behaviour (filters, copy button, deep links) | `site/js/site.js` |
 
@@ -85,6 +86,7 @@ scripts/
 site/
   index.html           homepage            (generated)
   majors/              42 major pages      (generated)
+  events/              HWS AI Club events (generated)
   js/site.js           progressive enhancement (hand-written)
   js/videos.js         video resolver      (generated)
   css/styles.css       styles              (hand-written)

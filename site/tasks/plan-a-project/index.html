@@ -17,6 +17,7 @@
       if (p === '/tasks/') return 'tasks_index';
       if (p.indexOf('/tasks/') === 0) return 'task_page';
       if (p.indexOf('/founders/') === 0) return 'founder_page';
+      if (p === '/events/') return 'events';
       if (p === '/resources/ai-at-hws/') return 'ai_resources';
       if (p === '/faq/') return 'faq';
       if (p === '/ai-policy/') return 'ai_policy';
@@ -62,6 +63,7 @@
       <a href="/#about">About</a>
       <a href="/majors/">By Major</a>
       <a href="/tasks/">By Task</a>
+      <a href="/events/">Events</a>
       <a href="/resources/ai-at-hws/">Resources</a>
       <a href="/faq/">FAQ</a>
       <a href="/#founders">Meet The Founders</a>
@@ -149,6 +151,7 @@
     <nav class="footer-nav" aria-label="Footer">
       <a href="/#about">About</a>
       <a href="/#join">Events</a>
+      <a href="/events/">Club Events</a>
       <a href="/#team">Team</a>
       <a href="/majors/">By Major</a>
       <a href="/tasks/">By Task</a>

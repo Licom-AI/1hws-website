@@ -71,6 +71,7 @@ GA_SNIPPET = f"""<script async src="https://www.googletagmanager.com/gtag/js?id=
       if (p === '/tasks/') return 'tasks_index';
       if (p.indexOf('/tasks/') === 0) return 'task_page';
       if (p.indexOf('/founders/') === 0) return 'founder_page';
+      if (p === '/events/') return 'events';
       if (p === '/resources/ai-at-hws/') return 'ai_resources';
       if (p === '/faq/') return 'faq';
       if (p === '/ai-policy/') return 'ai_policy';
@@ -645,6 +646,7 @@ def site_header():
       <a href="/#about">About</a>
       <a href="/majors/">By Major</a>
       <a href="/tasks/">By Task</a>
+      <a href="/events/">Events</a>
       <a href="/resources/ai-at-hws/">Resources</a>
       <a href="/faq/">FAQ</a>
       <a href="/#founders">Meet The Founders</a>
@@ -667,6 +669,7 @@ def site_footer():
     <nav class="footer-nav" aria-label="Footer">
       <a href="/#about">About</a>
       <a href="/#join">Events</a>
+      <a href="/events/">Club Events</a>
       <a href="/#team">Team</a>
       <a href="/majors/">By Major</a>
       <a href="/tasks/">By Task</a>
@@ -832,9 +835,9 @@ def founder_cards():
 
 
 def build_home():
-    title = "HWS AI Club | AI Workshops and Resources for HWS Students"
-    desc = ("Free, student-run AI workshops and 840 practical use cases for HWS students in every major. "
-            "No coding experience required; join the Skool community.")
+    title = "Hobart and William Smith AI Club | HWS AI Club"
+    desc = ("Student-run AI workshops and 840 practical use cases for students at Hobart and William Smith Colleges. "
+            "No coding required; join the HWS AI Club community.")
     faq_pairs = HOME_FAQ
 
     # The homepage previously linked to zero major pages — every one of the 42 was
@@ -880,7 +883,7 @@ def build_home():
     <div class="section-inner">
       <h2 class="section-title">What We Do</h2>
       <p class="section-sub">We make AI accessible and practical for every student at Hobart and William Smith Colleges</p>
-      <p class="wwd-definition"><strong>HWS AI Club</strong> is a free, student-run AI literacy club at {COLLEGE} in {LOCATION}, open to students in all 42 majors. The club teaches practical, no-code AI skills through weekly workshops and a library of 840 major-specific AI use cases.</p>
+      <p class="wwd-definition"><strong>HWS AI Club</strong> is a free, student-run AI literacy club and student organization at {COLLEGE} in {LOCATION}. Open to students in all 42 majors, the club teaches practical, no-code AI skills through weekly workshops and a library of 840 major-specific AI use cases.</p>
       <div class="wwd-grid">
         <article class="card"><span class="icon-tile" aria-hidden="true">{ICONS['tools']}</span><h3>AI Tools Mastery</h3><p>Learn ChatGPT, Claude, Gemini, Midjourney, and cutting-edge AI tools that are transforming how we work and create.</p></article>
         <article class="card"><span class="icon-tile" aria-hidden="true">{ICONS['book']}</span><h3>Smarter Studying</h3><p>AI-powered research, writing, and learning techniques to help you excel in your HWS coursework.</p></article>
@@ -1275,6 +1278,67 @@ def build_faq_page():
              "Answers to what the HWS AI Club is, when it meets, what it costs, whether you need "
              "coding experience, and how the 840-use-case library is organised.",
              "/faq/", [crumbs]) + "\n" + body + "\n",
+        encoding="utf-8")
+
+
+def build_events_page():
+    """A focused landing page for the club's own meetings and workshops.
+
+    This page targets event intent the club can genuinely answer, while linking to
+    the official HWS calendar for campus-wide events it does not own.
+    """
+    crumbs = breadcrumb([("Home", "/"), ("HWS AI Club Events", "/events/")])
+    event_questions = [
+        ("Who can attend HWS AI Club events?",
+         f"Any student at {COLLEGE} can attend. Meetings are open to every major and class year, "
+         "and no coding or prior AI experience is required."),
+        ("Do HWS AI Club events require an application?",
+         "No. The club is a drop-in student organization: come to a meeting or workshop when the "
+         "topic is useful to you, then join the online community if you want the materials."),
+        ("Where can I find the full HWS campus events calendar?",
+         "The official HWS Community Events Calendar is the source for campus-wide events. This page "
+         "only describes HWS AI Club meetings and workshops."),
+    ]
+    body = f"""<body class="view-inner">
+{site_header()}
+<main id="main" class="page">
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / HWS AI Club Events</nav>
+  <h1>HWS AI Club Events at Hobart and William Smith</h1>
+  <p class="page-lede">Find meetings and workshops from the HWS AI Club, a student organization at Hobart and William Smith Colleges in Geneva, New York. Every event is beginner-friendly and open to all majors.</p>
+  <section class="sibling-majors">
+    <h2>Weekly HWS AI Club meeting</h2>
+    <p><strong>When:</strong> {MEETING}</p>
+    <p><strong>Where:</strong> Sanford Room, {COLLEGE}</p>
+    <p>Bring a question, a class project, or just curiosity. The club teaches practical AI skills through hands-on workshops, discussion, and major-specific examples.</p>
+    <p class="siblings-all"><a class="btn-primary" href="{SKOOL_URL}" target="_blank" rel="noopener" data-cta="skool-join">Join the Skool community <span aria-hidden="true">&#8599;</span></a></p>
+  </section>
+  <section class="sibling-majors">
+    <h2>Find other HWS events</h2>
+    <p>For lectures, student activities, organization events, and other campus programming, use the official HWS Community Events Calendar. The AI Club does not manage or speak for that calendar.</p>
+    <p class="siblings-all"><a href="https://www.hws.edu/news/calendar.aspx" target="_blank" rel="noopener">Open the HWS Community Events Calendar &#8599;</a></p>
+  </section>
+  <section class="sibling-majors">
+    <h2>HWS clubs and organizations</h2>
+    <p>HWS AI Club is a student organization at Hobart and William Smith Colleges. To compare clubs, find other ways to get involved, or check the current official directory, visit HWS Student Engagement.</p>
+    <p class="siblings-all"><a href="https://www.hws.edu/offices/student-engagement/clubs-and-organizations.aspx" target="_blank" rel="noopener">Browse official HWS clubs and organizations &#8599;</a></p>
+  </section>
+{faq_html(event_questions, "Questions about HWS AI Club events")}
+  <section class="sibling-majors">
+    <h2>Explore the club</h2>
+    <p class="siblings"><a href="/faq/">Read the HWS AI Club FAQ</a> &middot;
+    <a href="/resources/ai-at-hws/">Find AI resources for HWS students</a> &middot;
+    <a href="/majors/">Browse AI use cases by major</a></p>
+  </section>
+</main>
+{site_footer()}
+{scripts()}
+</body>
+</html>"""
+    (SITE / "events").mkdir(exist_ok=True)
+    (SITE / "events" / "index.html").write_text(
+        head("HWS AI Club Events | Hobart and William Smith",
+             "Find HWS AI Club meetings and workshops at Hobart and William Smith Colleges in Geneva, NY, plus the official HWS campus events calendar.",
+             "/events/", [crumbs, EVENT_JSONLD]) + "\n" + body + "\n",
         encoding="utf-8")
 
 
@@ -1737,6 +1801,7 @@ specific tutorial video and includes a ready-to-paste starter prompt.
 - [Homepage]({BASE_URL}/): what the club does, the team, and how to join.
 - [All Majors]({BASE_URL}/majors/): directory of all 42 majors with AI use cases.
 - [AI Tasks]({BASE_URL}/tasks/): the same 840 use cases grouped by task rather than by major.
+- [HWS AI Club Events]({BASE_URL}/events/): current club meetings and workshops, with a link to the official HWS campus events calendar.
 - [AI resources at HWS]({BASE_URL}/resources/ai-at-hws/): official campus resources alongside club workshops and practical guides.
 - [FAQ]({BASE_URL}/faq/): what the club is, when it meets, what it costs, what you need.
 - [AI and coursework]({BASE_URL}/ai-policy/): what is and isn't allowed academically, and why \
@@ -1779,6 +1844,7 @@ def build_sitemap():
     pages += [(f"/majors/{m['slug']}/", SITE / "majors" / m["slug"] / "index.html") for m in DATA["majors"]]
     pages += [("/tasks/", SITE / "tasks" / "index.html")]
     pages += [(f"/tasks/{h['slug']}/", SITE / "tasks" / h["slug"] / "index.html") for h in TASK_HUBS]
+    pages += [("/events/", SITE / "events" / "index.html")]
     pages += [("/resources/ai-at-hws/", SITE / "resources" / "ai-at-hws" / "index.html"),
               ("/faq/", SITE / "faq" / "index.html"), ("/ai-policy/", SITE / "ai-policy" / "index.html")]
     pages += [(f"/founders/{f['slug']}/", SITE / "founders" / f["slug"] / "index.html") for f in FOUNDERS]
@@ -2041,6 +2107,7 @@ def main():
         build_task_hub(h, TASK_HUBS[i - 1] if i > 0 else None,
                        TASK_HUBS[i + 1] if i + 1 < len(TASK_HUBS) else None)
     build_faq_page()
+    build_events_page()
     build_ai_policy_page()
     build_ai_resources_page()
     for f in FOUNDERS:
@@ -2070,14 +2137,14 @@ def main():
         assert (SITE / "founders" / f["slug"] / "index.html").exists()
     for h in TASK_HUBS:
         assert (SITE / "tasks" / h["slug"] / "index.html").exists()
-    for p in ("tasks/index.html", "resources/ai-at-hws/index.html", "faq/index.html", "ai-policy/index.html"):
+    for p in ("tasks/index.html", "events/index.html", "resources/ai-at-hws/index.html", "faq/index.html", "ai-policy/index.html"):
         assert (SITE / p).exists(), f"missing {p}"
     # Every task hub must resolve to a real archetype, or it would render empty.
     for h in TASK_HUBS:
         assert task_members(h["arch"]), f"task hub '{h['slug']}' matched no use cases"
     print("HWS AI Club static build complete")
     print(f"  homepage + majors index + {len(majors)} major pages + {len(FOUNDERS)} founder pages")
-    print(f"  tasks index + {len(TASK_HUBS)} task hubs + AI resources + faq + ai-policy")
+    print(f"  tasks index + {len(TASK_HUBS)} task hubs + events + AI resources + faq + ai-policy")
     print(f"  sitemap: {n} urls | robots.txt (+ AI bot allow rules), llms.txt, _headers written")
     print(f"  js/videos.js regenerated from config | og-image: {og} | favicons: {ico} | manifest written")
 
