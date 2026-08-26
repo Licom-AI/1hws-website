@@ -32,7 +32,7 @@ it always regenerates everything.
 | `build_majors_index()` | `site/majors/index.html` — searchable grid of all 42 majors |
 | `build_major(m, prev_m, next_m)` | `site/majors/<slug>/index.html` — one page per major, prev/next links, use-case cards |
 | `build_tasks_index()` / `build_task_hub()` | `site/tasks/index.html` and `site/tasks/<slug>/index.html` — task-first routes to the same major-specific use cases |
-| `build_events_page()` | `site/events/index.html` — combined HWS AI Club meeting, validated campus-event snapshot, and permission-gated clubs directory |
+| `build_events_page()` | `site/events/index.html` — calendar-first campus hub, HWS AI Club meeting, validated 24-event fallback snapshot, reusable event dialog, and permission-gated clubs directory |
 | `build_ai_resources_page()` / `build_faq_page()` / `build_ai_policy_page()` | `site/resources/ai-at-hws/`, `site/faq/`, and `site/ai-policy/` — cited HWS resources, visible Q&A, and coursework guidance |
 | `build_founder(f, others)` | `site/founders/<slug>/index.html` — one page per entry in `FOUNDERS`, `Person` JSON-LD |
 
@@ -110,11 +110,18 @@ difficulty filter, and the starter-prompt copy button (three-tier fallback: asyn
 → `execCommand("copy")` → leave text selected for manual copy). Also handles the
 `#uc-<number>` deep-link flash-highlight on major pages. The site is fully usable with JS
 disabled — everything here is enhancement, not a dependency.
-`site/js/campus-hub.js` is loaded only on `/events/`. It keeps the server-rendered event
-cards visible, loads the full local snapshot for filtering, then attempts one five-second
-live RSS refresh. A live response replaces the snapshot only after complete client-side
-validation and is cached in `sessionStorage` for 15 minutes. External values are inserted
-with DOM methods and `textContent`, never source-controlled `innerHTML`.
+`site/js/campus-hub.js` is loaded only on `/events/`. The server-rendered 24-event agenda
+stays visible until a complete local or live dataset passes client-side validation. The
+accepted dataset drives a Monday-first desktop month grid and, below 721px, a chronological
+day-grouped agenda. Both views use one filter/month state and one accessible dialog for day
+overflow and event details. The script attempts one five-second live RSS refresh and caches
+a valid response in `sessionStorage` for 15 minutes. External values are inserted with DOM
+methods and `textContent`, never source-controlled `innerHTML`.
+
+Calendar-day placement uses `America/New_York`: all-day source end dates are inclusive,
+while timed end instants are exclusive so an event ending at midnight does not spill into
+the next day. Without JavaScript, or when both data requests fail validation, the static
+agenda and its official links remain usable.
 
 ## HWS campus-content synchronization
 

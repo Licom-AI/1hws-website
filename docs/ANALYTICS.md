@@ -23,7 +23,7 @@ the generator works in general; this doc covers only the analytics layer.
   functionality — copying a prompt, following a link — never depends on analytics succeeding.
 
 `site/js/campus-hub.js` progressively refreshes `/events/` from the documented HWS
-calendar feed and tracks campus-hub filters, event expansion, official-source exits, and
+calendar feed and tracks campus-hub filters, month navigation, event-dialog opens, official-source exits, and
 permission-approved club searches. The static snapshot remains usable when analytics or
 the live feed is blocked.
 
@@ -50,8 +50,8 @@ individually — did their page get looked at, clicked into, and actually engage
 | `founder_link_click` | Clicking one of a founder's outbound links (LinkedIn, Licom AI, Sundai, school) | `founder` (slug), `link_label`, `link_url` | Engagement |
 | `song_played` | Pressing play on a founder's "remembered by" Spotify embed | `founder` (slug), `song_title`, `song_artist` | Engagement |
 | `song_completed` | Listening to ≥90% of that song (mirrors the site's scroll-depth threshold) | `founder` (slug), `song_title`, `song_artist` | Engagement |
-| `campus_event_filter` | Changing an event keyword/category/date filter or loading 30 more days | `filter_type`, `query_present`, `category`, `days` | Hub engagement |
-| `campus_event_expand` | Opening an imported HWS event's details in place | `event_id` | Event-interest signal |
+| `campus_event_filter` | Changing an event keyword/category filter or navigating calendar months | `filter_type`, `query_present`, `category`, `active_month`; month navigation also includes `navigation_type` | Hub engagement |
+| `campus_event_expand` | Opening an imported HWS event in the reusable details dialog | `event_id`, `active_month` | Event-interest signal |
 | `campus_official_source_click` | Following an official event, registration, calendar, or club-directory link | `source_type`, `link_url` | Source exit / assisted journey |
 | `campus_club_search` | Searching or filtering the approved club directory | `query_present`, `category`, `results` | Club-discovery engagement |
 
@@ -143,7 +143,7 @@ here; they come from Enhanced Measurement being enabled on the data stream.
   Search and whose landing page is `/events/`.
 - **Filter usage:** sessions with at least one `campus_event_filter` or
   `campus_club_search`; use sessions, not raw keystrokes, for the headline rate.
-- **Event expansion rate:** sessions with `campus_event_expand` divided by hub sessions.
+- **Event expansion rate:** sessions that open at least one event-detail dialog (`campus_event_expand`) divided by hub sessions.
 - **Official-source exit rate:** hub sessions with `campus_official_source_click` divided by
   hub sessions; break down by `source_type` rather than treating every exit as equivalent.
 - **Assisted Skool conversion:** sessions with a campus-hub engagement event followed by
