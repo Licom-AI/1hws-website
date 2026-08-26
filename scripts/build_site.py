@@ -844,15 +844,6 @@ def build_home():
             "No coding required; join the HWS AI Club community.")
     faq_pairs = HOME_FAQ
 
-    # The homepage previously linked to zero major pages — every one of the 42 was
-    # two clicks deep behind /majors/, and five of the six nav items were homepage
-    # fragments, so the homepage absorbed nearly all internal link equity and
-    # passed almost none of it on. One representative major per division, plus the
-    # task hubs, gives the crawler a real path down into the site.
-    home_major_links = " · ".join(
-        f'<a href="/majors/{s}/">{esc(_MAJOR_NAME[s])}</a>'
-        for s in (slugs[0] for _, slugs in DIVISIONS) if s in _MAJOR_NAME
-    )
     home_task_links = " · ".join(
         f'<a href="/tasks/{h["slug"]}/">{esc(h["label"])}</a>' for h in TASK_HUBS[:8]
     )
@@ -927,10 +918,6 @@ def build_home():
         <div class="library-stat"><strong>42</strong><span>Majors covered</span></div>
         <div class="library-stat"><strong>840</strong><span>Use cases</span></div>
         <div class="library-stat"><strong>3</strong><span>Difficulty levels</span></div>
-      </div>
-      <div class="home-major-links">
-        <p class="home-major-lead">Jump straight in:</p>
-        <p class="siblings">{home_major_links}</p>
       </div>
       <div class="library-cta"><a class="btn-primary" href="/majors/" data-cta="library-browse">Find your major &rarr;</a></div>
     </div>

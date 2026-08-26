@@ -1290,15 +1290,6 @@ main.page > h1 { font-size: clamp(1.8rem, 3.4vw, 2.4rem); }
 .task-diff-medium { background: var(--medium-bg, #fef3c7); color: var(--medium-text, #92400e); }
 .task-diff-hard { background: var(--hard-bg, #fee2e2); color: var(--hard-text, #991b1b); }
 
-/* --- Homepage jump links --------------------------------------------------- */
-.home-major-links { margin: 22px 0 6px; }
-.home-major-lead {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  opacity: 0.65;
-  margin: 0 0 6px;
-}
 .siblings-all { margin-top: 12px; font-weight: 600; }
 
 @media (prefers-color-scheme: dark) {
