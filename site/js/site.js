@@ -127,6 +127,7 @@
   var grid = document.getElementById("majors-grid");
   if (search && grid) {
     var cards = Array.prototype.slice.call(grid.querySelectorAll(".major-card"));
+    var divisions = Array.prototype.slice.call(grid.querySelectorAll(".major-division"));
     var hint = document.getElementById("search-hint");
     search.addEventListener("input", function () {
       var q = search.value.trim().toLowerCase();
@@ -135,6 +136,14 @@
         var match = c.textContent.toLowerCase().indexOf(q) !== -1;
         c.style.display = match ? "" : "none";
         if (match) shown++;
+      });
+      /* The list is grouped under division headings, so a heading with every
+         card filtered out would otherwise sit there looking like a dead section. */
+      divisions.forEach(function (d) {
+        var any = Array.prototype.some.call(d.querySelectorAll(".major-card"), function (c) {
+          return c.style.display !== "none";
+        });
+        d.style.display = any ? "" : "none";
       });
       if (hint) {
         hint.textContent = q
@@ -148,9 +157,7 @@
       if (visible.length === 1) window.location.href = visible[0].getAttribute("href");
     });
 
-    /* Honour ?q= so the SearchAction target advertised in the homepage's WebSite
-       JSON-LD lands on a genuinely filtered page. Without this the sitelinks
-       searchbox would point at a URL that ignores its own query. */
+    /* Honour ?q= so a shared filtered-majors URL opens in the expected state. */
     try {
       var q0 = new URLSearchParams(window.location.search).get("q");
       if (q0) {

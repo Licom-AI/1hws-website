@@ -28,8 +28,10 @@ it always regenerates everything.
 | Function | Emits |
 | --- | --- |
 | `build_home()` | `site/index.html` — hero, team (`TEAM` constant), founders (`FOUNDERS` constant), FAQ, Organization/Event/WebSite JSON-LD |
-| `build_majors_index()` | `site/majors/index.html` — searchable grid of all 42 majors, `ItemList` JSON-LD |
+| `build_majors_index()` | `site/majors/index.html` — searchable grid of all 42 majors |
 | `build_major(m, prev_m, next_m)` | `site/majors/<slug>/index.html` — one page per major, prev/next links, use-case cards |
+| `build_tasks_index()` / `build_task_hub()` | `site/tasks/index.html` and `site/tasks/<slug>/index.html` — task-first routes to the same major-specific use cases |
+| `build_ai_resources_page()` / `build_faq_page()` / `build_ai_policy_page()` | `site/resources/ai-at-hws/`, `site/faq/`, and `site/ai-policy/` — cited HWS resources, visible Q&A, and coursework guidance |
 | `build_founder(f, others)` | `site/founders/<slug>/index.html` — one page per entry in `FOUNDERS`, `Person` JSON-LD |
 
 Shared page furniture — `head()` (meta/OG/canonical/JSON-LD injection, plus the GA4 tag —
@@ -78,9 +80,10 @@ Each is its own `build_*` function, all called from `main()`:
   plain-language, prose site map for AI agents/assistants, distinct from `sitemap.xml`
   (machine sitemap) and `robots.txt` (crawl rules) even though all three enumerate the same
   pages.
-- `build_sitemap()` — `sitemap.xml` from `DATA["majors"]` + `FOUNDERS`.
-- `build_headers()` — Netlify `_headers` (global `X-Robots-Tag: all`, `noindex` on
-  `showcase.html`).
+- `build_sitemap()` — `sitemap.xml` from the homepage, majors, task hubs, AI-resource
+  hub, FAQ, AI-coursework guide, and founders.
+- `build_headers()` — legacy Netlify `_headers`. Vercel is the production host and does
+  not consume this file; use page-level directives or approved Vercel configuration there.
 - `build_videos_js()` — `site/js/videos.js`, a runtime-readable projection of
   `videos-config.json` for any client-side use.
 - `build_og_image()` / `build_favicons()` — raster assets; see
@@ -89,13 +92,12 @@ Each is its own `build_*` function, all called from `main()`:
 
 ## JSON-LD conventions
 
-Every page injects `@context: schema.org` structured data via `head()`'s `jsonld` param.
-Types in use: `EducationalOrganization` + `Event` (home), `FAQPage` (home and each major
-page, different questions), `WebSite` with `SearchAction` (home), `ItemList` (majors index,
-and per-major use-case list), `BreadcrumbList` (major and founder pages), `VideoObject`
-(per use case, from `videoMeta`), and `Person` (founder pages, with `alumniOf` / `worksFor`
-/ `memberOf` built from the `FOUNDERS` constant + the module-level `LICOM`/`SUNDAI`
-constants). Follow the existing type for a given page kind rather than introducing a new one.
+Every page injects only the schema.org data it can keep accurate via `head()`'s `jsonld`
+param. Types in use: `EducationalOrganization` + a current `Event` + `WebSite` (home),
+`BreadcrumbList` (inner pages), and `Person` (founder pages, with verified `worksFor` /
+`memberOf` details from the `FOUNDERS` constant). Visible Q&A stays in HTML, and the build
+does not emit FAQPage, SearchAction, ItemList, or VideoObject markup. Keep that minimal
+policy unless a real supported consumer and maintained facts justify an addition.
 
 ## Client-side JS (`site/js/site.js`)
 

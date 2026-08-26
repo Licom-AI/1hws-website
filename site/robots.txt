@@ -100,4 +100,4 @@ Disallow: /showcase.html
 Disallow: /data.json
 Disallow: /data/
 
-Sitemap: https://hws-ai-club.netlify.app/sitemap.xml
+Sitemap: https://www.hwsaiclub.com/sitemap.xml

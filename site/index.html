@@ -14,26 +14,31 @@
       if (p === '/') return 'home';
       if (p === '/majors/') return 'majors_index';
       if (p.indexOf('/majors/') === 0) return 'major_page';
+      if (p === '/tasks/') return 'tasks_index';
+      if (p.indexOf('/tasks/') === 0) return 'task_page';
       if (p.indexOf('/founders/') === 0) return 'founder_page';
+      if (p === '/resources/ai-at-hws/') return 'ai_resources';
+      if (p === '/faq/') return 'faq';
+      if (p === '/ai-policy/') return 'ai_policy';
       return 'other';
     })()
   });
 </script>
-<title>HWS AI Club — AI for Every Major at Hobart and William Smith Colleges</title>
-<meta name="description" content="The student-run AI club at Hobart and William Smith Colleges (HWS) in Geneva, New York. Learn practical AI skills with 840 use cases across all 42 majors — no coding required. Free, open to everyone.">
-<link rel="canonical" href="https://hws-ai-club.netlify.app/">
+<title>HWS AI Club | AI Workshops and Resources for HWS Students</title>
+<meta name="description" content="Free, student-run AI workshops and 840 practical use cases for HWS students in every major. No coding experience required; join the Skool community.">
+<link rel="canonical" href="https://www.hwsaiclub.com/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="author" content="HWS AI Club">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="HWS AI Club">
-<meta property="og:title" content="HWS AI Club — AI for Every Major at Hobart and William Smith Colleges">
-<meta property="og:description" content="The student-run AI club at Hobart and William Smith Colleges (HWS) in Geneva, New York. Learn practical AI skills with 840 use cases across all 42 majors — no coding required. Free, open to everyone.">
-<meta property="og:url" content="https://hws-ai-club.netlify.app/">
-<meta property="og:image" content="https://hws-ai-club.netlify.app/og-image.png">
+<meta property="og:title" content="HWS AI Club | AI Workshops and Resources for HWS Students">
+<meta property="og:description" content="Free, student-run AI workshops and 840 practical use cases for HWS students in every major. No coding experience required; join the Skool community.">
+<meta property="og:url" content="https://www.hwsaiclub.com/">
+<meta property="og:image" content="https://www.hwsaiclub.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="HWS AI Club — AI for Every Major at Hobart and William Smith Colleges">
-<meta name="twitter:description" content="The student-run AI club at Hobart and William Smith Colleges (HWS) in Geneva, New York. Learn practical AI skills with 840 use cases across all 42 majors — no coding required. Free, open to everyone.">
-<meta name="twitter:image" content="https://hws-ai-club.netlify.app/og-image.png">
+<meta name="twitter:title" content="HWS AI Club | AI Workshops and Resources for HWS Students">
+<meta name="twitter:description" content="Free, student-run AI workshops and 840 practical use cases for HWS students in every major. No coding experience required; join the Skool community.">
+<meta name="twitter:image" content="https://www.hwsaiclub.com/og-image.png">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
@@ -43,10 +48,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/styles.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "EducationalOrganization", "@id": "https://hws-ai-club.netlify.app/#organization", "name": "HWS AI Club", "alternateName": ["Hobart and William Smith AI Club", "AI @ HWS", "HWS Artificial Intelligence Club"], "url": "https://hws-ai-club.netlify.app/", "logo": {"@type": "ImageObject", "url": "https://hws-ai-club.netlify.app/assets/logo-512.png", "width": 512, "height": 512}, "image": "https://hws-ai-club.netlify.app/og-image.png", "sameAs": ["https://hws.campuslabs.com/engage/organization/aiclub", "https://www.skool.com/hws-ai-club-7506"], "foundingDate": "2025-08", "description": "Student-run AI literacy club at Hobart and William Smith Colleges helping every major learn to use AI well.", "parentOrganization": {"@type": "CollegeOrUniversity", "@id": "https://www.hws.edu/#organization", "name": "Hobart and William Smith Colleges", "url": "https://www.hws.edu/"}, "location": {"@type": "Place", "name": "Hobart and William Smith Colleges", "address": {"@type": "PostalAddress", "addressLocality": "Geneva", "addressRegion": "NY", "addressCountry": "US"}}, "areaServed": "Hobart and William Smith Colleges"}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "@id": "https://hws-ai-club.netlify.app/#website", "name": "HWS AI Club", "url": "https://hws-ai-club.netlify.app/", "publisher": {"@id": "https://hws-ai-club.netlify.app/#organization"}, "potentialAction": {"@type": "SearchAction", "target": {"@type": "EntryPoint", "urlTemplate": "https://hws-ai-club.netlify.app/majors/?q={search_term_string}"}, "query-input": "required name=search_term_string"}}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the HWS AI Club?", "acceptedAnswer": {"@type": "Answer", "text": "HWS AI Club is a student-run organization at Hobart and William Smith Colleges that helps students of every major learn to use AI tools well, with hands-on workshops and a library of 840 AI use cases across all 42 majors."}}, {"@type": "Question", "name": "Do I need coding experience to join?", "acceptedAnswer": {"@type": "Answer", "text": "No. The club is beginner-friendly and requires no coding or prior AI experience — just curiosity."}}, {"@type": "Question", "name": "When and where does the HWS AI Club meet?", "acceptedAnswer": {"@type": "Answer", "text": "The club meets Every Sunday, 5-6 PM · Sanford Room at Hobart and William Smith Colleges. All majors and class years are welcome."}}, {"@type": "Question", "name": "Is the HWS AI Club free to join?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The club is completely free, with no application required — just show up to a meeting."}}, {"@type": "Question", "name": "What majors can join the HWS AI Club?", "acceptedAnswer": {"@type": "Answer", "text": "All 42 majors offered at Hobart and William Smith Colleges. The club's use-case library has 20 AI use cases tailored to each individual major."}}, {"@type": "Question", "name": "Do I need a laptop or special software to join?", "acceptedAnswer": {"@type": "Answer", "text": "No special software — just a free account with a tool like ChatGPT, Claude, or Gemini. Bringing a laptop helps, but it isn't required."}}, {"@type": "Question", "name": "How do I join the HWS AI Club's online community?", "acceptedAnswer": {"@type": "Answer", "text": "Through the club's free Skool community at https://www.skool.com/hws-ai-club-7506, which is open to every HWS student for classroom material, discussion, and the events calendar."}}], "@id": "https://hws-ai-club.netlify.app/#faq"}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Event", "@id": "https://hws-ai-club.netlify.app/#weekly-meeting", "name": "HWS AI Club Weekly Meeting", "description": "Beginner-friendly weekly AI workshop and meeting for HWS AI Club, open to all majors and class years — no experience required.", "startDate": "2026-08-30T17:00:00-04:00", "endDate": "2026-08-30T18:00:00-04:00", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "isAccessibleForFree": true, "location": {"@type": "Place", "name": "Sanford Room, Hobart and William Smith Colleges", "address": {"@type": "PostalAddress", "addressLocality": "Geneva", "addressRegion": "NY", "addressCountry": "US"}}, "organizer": {"@id": "https://hws-ai-club.netlify.app/#organization"}, "eventSchedule": {"@type": "Schedule", "repeatFrequency": "P1W", "byDay": "https://schema.org/Sunday", "startDate": "2026-08-30", "endDate": "2026-12-13", "startTime": "17:00", "endTime": "18:00", "scheduleTimezone": "America/New_York"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "EducationalOrganization", "@id": "https://www.hwsaiclub.com/#organization", "name": "HWS AI Club", "alternateName": ["Hobart and William Smith AI Club", "AI @ HWS", "HWS Artificial Intelligence Club"], "url": "https://www.hwsaiclub.com/", "logo": {"@type": "ImageObject", "url": "https://www.hwsaiclub.com/assets/logo-512.png", "width": 512, "height": 512}, "image": "https://www.hwsaiclub.com/og-image.png", "sameAs": ["https://hws.campuslabs.com/engage/organization/aiclub", "https://www.skool.com/hws-ai-club-7506"], "description": "Student-run AI literacy club at Hobart and William Smith Colleges helping every major learn to use AI well.", "location": {"@type": "Place", "name": "Hobart and William Smith Colleges", "address": {"@type": "PostalAddress", "addressLocality": "Geneva", "addressRegion": "NY", "addressCountry": "US"}}, "areaServed": "Hobart and William Smith Colleges"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "@id": "https://www.hwsaiclub.com/#website", "name": "HWS AI Club", "alternateName": "AI @ HWS", "url": "https://www.hwsaiclub.com/", "publisher": {"@id": "https://www.hwsaiclub.com/#organization"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Event", "@id": "https://www.hwsaiclub.com/#weekly-meeting", "name": "HWS AI Club Weekly Meeting", "description": "Beginner-friendly weekly AI workshop and meeting for HWS AI Club, open to all majors and class years — no experience required.", "startDate": "2026-08-30T17:00:00-04:00", "endDate": "2026-08-30T18:00:00-04:00", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "isAccessibleForFree": true, "location": {"@type": "Place", "name": "Sanford Room, Hobart and William Smith Colleges", "address": {"@type": "PostalAddress", "addressLocality": "Geneva", "addressRegion": "NY", "addressCountry": "US"}}, "organizer": {"@id": "https://www.hwsaiclub.com/#organization"}, "eventSchedule": {"@type": "Schedule", "repeatFrequency": "P1W", "byDay": "https://schema.org/Sunday", "startDate": "2026-08-30", "endDate": "2026-12-13", "startTime": "17:00", "endTime": "18:00", "scheduleTimezone": "America/New_York"}}</script>
 </head>
 <body class="view-home">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -58,11 +62,12 @@
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="/#about">About</a>
-      <a href="/#team">Team</a>
-      <a href="/majors/">Use Cases</a>
-      <a href="/#community">Community</a>
+      <a href="/majors/">By Major</a>
+      <a href="/tasks/">By Task</a>
+      <a href="/resources/ai-at-hws/">Resources</a>
+      <a href="/faq/">FAQ</a>
       <a href="/#founders">Meet The Founders</a>
-      <a class="nav-cta" href="/#join" data-cta="nav-join">Join Us</a>
+      <a class="nav-cta" href="https://www.skool.com/hws-ai-club-7506" target="_blank" rel="noopener" data-cta="skool-join">Join Us</a>
     </nav>
   </div>
 </header>
@@ -76,7 +81,7 @@
       <h1 class="hero-title">AI for Everyone at Hobart and William Smith</h1>
       <p class="hero-sub">The student-run AI club at Hobart and William Smith Colleges (HWS). Learn practical AI skills to excel as a student and future professional &mdash; no coding required.</p>
       <div class="hero-actions">
-        <a class="btn-primary" href="/#join" data-cta="hero-join">Join the Club</a>
+        <a class="btn-primary" href="https://www.skool.com/hws-ai-club-7506" target="_blank" rel="noopener" data-cta="skool-join">Join the Club <span aria-hidden="true">&#8599;</span></a>
         <a class="btn-secondary" href="/majors/" data-cta="hero-browse">Browse Use Cases</a>
       </div>
       <p class="hero-meeting">Every Sunday, 5-6 PM · Sanford Room</p>
@@ -109,7 +114,7 @@
           <li><span class="check-dot" aria-hidden="true">&#10003;</span>Guest speakers from the tech industry</li>
           <li><span class="check-dot" aria-hidden="true">&#10003;</span>Build a portfolio of AI-enhanced projects</li>
         </ul>
-        <a class="btn-primary" href="/#join" data-cta="no-experience-join">Get Started Today</a>
+        <a class="btn-primary" href="https://www.skool.com/hws-ai-club-7506" target="_blank" rel="noopener" data-cta="skool-join">Get Started Today <span aria-hidden="true">&#8599;</span></a>
       </div>
       <div class="tile-stack">
         <div class="photo-tile">Workshop Session</div>
@@ -128,7 +133,20 @@
         <div class="library-stat"><strong>840</strong><span>Use cases</span></div>
         <div class="library-stat"><strong>3</strong><span>Difficulty levels</span></div>
       </div>
+      <div class="home-major-links">
+        <p class="home-major-lead">Jump straight in:</p>
+        <p class="siblings"><a href="/majors/biochemistry/">Biochemistry</a> · <a href="/majors/anthropology/">Anthropology</a> · <a href="/majors/classics/">Classics</a> · <a href="/majors/architectural-studies/">Architectural Studies</a> · <a href="/majors/africana-studies/">Africana Studies</a></p>
+      </div>
       <div class="library-cta"><a class="btn-primary" href="/majors/" data-cta="library-browse">Find your major &rarr;</a></div>
+    </div>
+  </section>
+
+  <section class="lp-section lp-tasks">
+    <div class="section-inner">
+      <h2 class="section-title">Or start from what you need to do</h2>
+      <p class="section-sub">The same 840 use cases, grouped by task instead of by department &mdash; because most people arrive with a problem, not a major.</p>
+      <p class="siblings"><a href="/tasks/explain-a-concept/">Explain a concept</a> · <a href="/tasks/write-and-debug-code/">Write and debug code</a> · <a href="/tasks/compare-two-things/">Compare two things</a> · <a href="/tasks/design-a-study/">Design a study</a> · <a href="/tasks/summarize-a-reading/">Summarize a reading</a> · <a href="/tasks/brainstorm-ideas/">Brainstorm ideas</a> · <a href="/tasks/study-for-an-exam/">Study for an exam</a> · <a href="/tasks/draft-an-email/">Draft an email</a></p>
+      <div class="library-cta"><a class="btn-secondary" href="/tasks/">Browse all 15 tasks &rarr;</a></div>
     </div>
   </section>
 
@@ -150,6 +168,7 @@
       <h2 class="section-title">Ready to Join?</h2>
       <p class="join-sub">No experience, no application &mdash; just show up. Open to all majors and class years at Hobart and William Smith Colleges.</p>
       <p class="join-meeting">Every Sunday, 5-6 PM · Sanford Room</p>
+      <a class="btn-primary" href="https://www.skool.com/hws-ai-club-7506" target="_blank" rel="noopener" data-cta="skool-join">Join the Skool community <span aria-hidden="true">&#8599;</span></a>
       <a class="btn-secondary" href="/majors/" data-cta="join-section-majors">Start with your major&rsquo;s use cases &rarr;</a>
     </div>
   </section>
@@ -238,7 +257,11 @@
       <a href="/#about">About</a>
       <a href="/#join">Events</a>
       <a href="/#team">Team</a>
-      <a href="/majors/">Use Cases</a>
+      <a href="/majors/">By Major</a>
+      <a href="/tasks/">By Task</a>
+      <a href="/resources/ai-at-hws/">Resources</a>
+      <a href="/faq/">FAQ</a>
+      <a href="/ai-policy/">AI &amp; Coursework</a>
       <a href="/#community">Community</a>
       <a href="/#founders">Meet The Founders</a>
     </nav>

@@ -10,4 +10,13 @@
 [build]
   publish = "site"
 
+# The legacy Netlify hostname remains under this account solely to preserve old
+# links and Google's migration signals. Keep this rule path-preserving and live
+# for at least a year; Vercel serves the preferred production domain.
+[[redirects]]
+  from = "https://hws-ai-club.netlify.app/*"
+  to = "https://www.hwsaiclub.com/:splat"
+  status = 301
+  force = true
+
 # site/_headers is picked up automatically once publish points at site/.

@@ -14,26 +14,31 @@
       if (p === '/') return 'home';
       if (p === '/majors/') return 'majors_index';
       if (p.indexOf('/majors/') === 0) return 'major_page';
+      if (p === '/tasks/') return 'tasks_index';
+      if (p.indexOf('/tasks/') === 0) return 'task_page';
       if (p.indexOf('/founders/') === 0) return 'founder_page';
+      if (p === '/resources/ai-at-hws/') return 'ai_resources';
+      if (p === '/faq/') return 'faq';
+      if (p === '/ai-policy/') return 'ai_policy';
       return 'other';
     })()
   });
 </script>
-<title>AI Use Cases for Chemistry Majors | HWS AI Club</title>
+<title>AI for Chemistry Students | HWS AI Club</title>
 <meta name="description" content="20 AI use cases for Chemistry students at HWS, Easy to Hard — each with a tutorial and a starter prompt. Try: Explain reaction mechanisms.">
-<link rel="canonical" href="https://hws-ai-club.netlify.app/majors/chemistry/">
+<link rel="canonical" href="https://www.hwsaiclub.com/majors/chemistry/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="author" content="HWS AI Club">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="HWS AI Club">
-<meta property="og:title" content="AI Use Cases for Chemistry Majors | HWS AI Club">
+<meta property="og:title" content="AI for Chemistry Students | HWS AI Club">
 <meta property="og:description" content="20 AI use cases for Chemistry students at HWS, Easy to Hard — each with a tutorial and a starter prompt. Try: Explain reaction mechanisms.">
-<meta property="og:url" content="https://hws-ai-club.netlify.app/majors/chemistry/">
-<meta property="og:image" content="https://hws-ai-club.netlify.app/og-image.png">
+<meta property="og:url" content="https://www.hwsaiclub.com/majors/chemistry/">
+<meta property="og:image" content="https://www.hwsaiclub.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="AI Use Cases for Chemistry Majors | HWS AI Club">
+<meta name="twitter:title" content="AI for Chemistry Students | HWS AI Club">
 <meta name="twitter:description" content="20 AI use cases for Chemistry students at HWS, Easy to Hard — each with a tutorial and a starter prompt. Try: Explain reaction mechanisms.">
-<meta name="twitter:image" content="https://hws-ai-club.netlify.app/og-image.png">
+<meta name="twitter:image" content="https://www.hwsaiclub.com/og-image.png">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
@@ -43,9 +48,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/styles.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://hws-ai-club.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "All Majors", "item": "https://hws-ai-club.netlify.app/majors/"}, {"@type": "ListItem", "position": 3, "name": "Chemistry", "item": "https://hws-ai-club.netlify.app/majors/chemistry/"}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "AI Use Cases for Chemistry at HWS", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Explain reaction mechanisms", "description": "Walk through an SN2 mechanism step by step with electron arrows. The linked tutorial covers a 10-step ChatGPT prompt system — standard definition, an explain-it-to-a-10-year-old version, real-life analogies, a simple diagram, then a comparison table — that you aim at any concept you're stuck on, and the starter prompt below already frames it for Chemistry."}, {"@type": "ListItem", "position": 2, "name": "Define chemistry terms", "description": "Clarify terms like enthalpy, entropy, and Gibbs free energy. The linked tutorial covers ChatGPT's Study Mode (type /study), an interactive tutor that guides you with questions step by step instead of just handing over the answer, and the starter prompt below already frames it for Chemistry."}, {"@type": "ListItem", "position": 3, "name": "Summarize a journal article", "description": "Condense a JACS paper's methods and key findings quickly. The linked tutorial covers MacMost's copy-paste method — pull an article into reader view, paste it into ChatGPT after 'summarize this:', then ask for a set word count or a 10-bullet version; also how to grab a YouTube transcript to summarise a video, and the starter prompt below already frames it for Chemistry."}, {"@type": "ListItem", "position": 4, "name": "Balance chemical equations", "description": "Check and balance redox and combustion equations for homework. The linked tutorial covers the fundamentals of ChatGPT — prompting basics, what it can and can't do, and how to personalise it, and the starter prompt below already frames it for Chemistry."}, {"@type": "ListItem", "position": 5, "name": "Predict product structures", "description": "Suggest likely products for a given organic transformation. The linked tutorial covers the fundamentals of ChatGPT — prompting basics, what it can and can't do, and how to personalise it, and the starter prompt below already frames it for Chemistry."}, {"@type": "ListItem", "position": 6, "name": "Draft a lab safety summary", "description": "Write hazard notes for handling reagents before a lab session. The linked tutorial covers AI Academy's approach to long-form writing: never ask for the whole essay at once — break it into smaller prompts across two tabs and a document so you keep control of the argument, and the starter prompt below already frames it for Chemistry."}, {"@type": "ListItem", "position": 7, "name": "Explain spectroscopy peaks", "description": "Interpret why an IR band appears near 1700 wavenumbers. The linked tutorial covers uploading an image to ChatGPT with the + button and asking questions about it — the demo uploads a problem and asks ChatGPT to explain what it shows, and the starter prompt below already frames it for Chemistry."}, {"@type": "ListItem", "position": 8, "name": "Brainstorm topics for a synthesis research project", "description": "Generate ideas for an undergraduate synthesis research project. The linked tutorial covers three brainstorming methods in ChatGPT — a reusable custom-instructions 'brainstorm paradigm', an AI-diagram tree that fans one topic into dozens of branches, and a SWOT prompt to pressure-test an idea, and the starter prompt below already frames it for Chemistry."}, {"@type": "ListItem", "position": 9, "name": "Create flashcards for functional groups and reagents", "description": "Cover structure, reactivity, and a worked example for each, then self-test. The linked tutorial covers prompting ChatGPT for a set of question-and-answer flashcards on a topic, then exporting the set straight into Quizlet, and the starter prompt below already frames it for Chemistry."}, {"@type": "ListItem", "position": 10, "name": "Draft email to professor", "description": "Write a polite request to join a research lab. The linked tutorial covers drafting an email in ChatGPT and improving it through conversation — the first draft is deliberately generic, then detail is added turn by turn — plus what not to paste in for privacy, and the starter prompt below already frames it for Chemistry."}, {"@type": "ListItem", "position": 11, "name": "Interpret NMR spectra", "description": "Cross-check integration and splitting to propose a structure. The linked tutorial covers uploading an image to ChatGPT with the + button and asking questions about it — the demo uploads a problem and asks ChatGPT to explain what it shows, and the starter prompt below already frames it for Chemistry."}, {"@type": "ListItem", "position": 12, "name": "Build a thermodynamics exam study guide", "description": "Synthesize thermodynamics topics into an organized exam review sheet. The linked tutorial covers building a custom study plan with ChatGPT using the Ultralearning why/what/how framework — benchmarking how others learn it, then a week-by-week plan with deliverables and grading rubrics, and the starter prompt below already frames it for Chemistry."}, {"@type": "ListItem", "position": 13, "name": "Analyze titration data", "description": "Use Excel Copilot to plot curves and find equivalence points. The linked tutorial covers using ChatGPT to build charts from data in minutes, then refining them and applying your own judgement to the story they tell, and the starter prompt below already frames it for Chemistry."}, {"@type": "ListItem", "position": 14, "name": "Compare synthesis routes", "description": "Weigh yield, cost, and green-chemistry tradeoffs of two pathways. The linked tutorial covers a compare-and-contrast prompt in ChatGPT (demonstrated on Buddhism vs Hinduism) that asks for similarities and differences, then expands any point you want more depth on, and the starter prompt below already frames it for Chemistry."}, {"@type": "ListItem", "position": 15, "name": "Design a lab procedure", "description": "Draft a step-by-step protocol for a recrystallization experiment. The linked tutorial covers designing a study end-to-end in ChatGPT — research questions, hypotheses, survey items, sample size and sampling method, R code for the analysis, then implications and titles, and the starter prompt below already frames it for Chemistry."}, {"@type": "ListItem", "position": 16, "name": "Explain kinetics from data", "description": "Determine reaction order by evaluating concentration versus time trends. The linked tutorial covers a 10-step ChatGPT prompt system — standard definition, an explain-it-to-a-10-year-old version, real-life analogies, a simple diagram, then a comparison table — that you aim at any concept you're stuck on, and the starter prompt below already frames it for Chemistry."}, {"@type": "ListItem", "position": 17, "name": "Write Python for spectral analysis", "description": "Code and debug a script to fit and baseline-correct spectra. The linked tutorial covers pasting a broken snippet into ChatGPT with the prompt 'scan the following code for potential problems' — it finds the bug (a divide-by-zero), explains why it happens and returns a fixed version, and the starter prompt below already frames it for Chemistry."}, {"@type": "ListItem", "position": 18, "name": "Run computational chemistry modeling", "description": "Set up and interpret a DFT calculation for molecular geometry. The linked tutorial covers pasting a broken snippet into ChatGPT with the prompt 'scan the following code for potential problems' — it finds the bug (a divide-by-zero), explains why it happens and returns a fixed version, and the starter prompt below already frames it for Chemistry."}, {"@type": "ListItem", "position": 19, "name": "Perform statistical error analysis", "description": "Propagate uncertainty across measurements and validate the calculations. The linked tutorial covers dragging a dataset straight into ChatGPT and prompting it to describe the data, produce descriptive statistics per column, and chart the columns you care about, and the starter prompt below already frames it for Chemistry."}, {"@type": "ListItem", "position": 20, "name": "Simulate reaction equilibria", "description": "Model a multi-species equilibrium system and verify against theory. The linked tutorial covers pasting a broken snippet into ChatGPT with the prompt 'scan the following code for potential problems' — it finds the bug (a divide-by-zero), explains why it happens and returns a fixed version, and the starter prompt below already frames it for Chemistry."}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How can Chemistry students use AI at HWS?", "acceptedAnswer": {"@type": "Answer", "text": "This page lists 20 practical AI use cases written specifically for Chemistry students at Hobart and William Smith Colleges — 10 easy, 6 medium, 4 hard by difficulty. They range from everyday coursework help such as explain reaction mechanisms and define chemistry terms through to project-scale work like simulate reaction equilibria. Each one comes with a starter prompt you can paste straight into ChatGPT, Claude, or Gemini."}}, {"@type": "Question", "name": "Which AI use cases should a Chemistry major try first?", "acceptedAnswer": {"@type": "Answer", "text": "Start with the 10 rated Easy — they need no setup and work on the first try. For Chemistry that means explain reaction mechanisms, define chemistry terms and summarize a journal article. Once those feel routine, move up to the Medium tier, which includes interpret nmr spectra and build a thermodynamics exam study guide."}}, {"@type": "Question", "name": "What do I need to start using AI as a Chemistry student?", "acceptedAnswer": {"@type": "Answer", "text": "A free account with ChatGPT, Claude, or Gemini is the whole list — no coding, no paid subscription, and nothing to install. The 20 Chemistry use cases here draw on 15 tutorial videos between them, and each card ships with a starter prompt already framed for Chemistry coursework, so the first thing you do is paste, not write."}}, {"@type": "Question", "name": "Is it OK to use AI for Chemistry coursework at HWS?", "acceptedAnswer": {"@type": "Answer", "text": "Your Chemistry professor decides, and the answer changes from course to course and even between assignments — so read the syllabus before any of this touches graded work. Everything on this page is a study aid: a use case like \"Simulate reaction equilibria\" exists to get you through Chemistry material faster, not to produce something you submit as your own. If the syllabus is silent, ask before you use it."}}], "@id": "https://hws-ai-club.netlify.app/majors/chemistry/#faq"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.hwsaiclub.com/"}, {"@type": "ListItem", "position": 2, "name": "All Majors", "item": "https://www.hwsaiclub.com/majors/"}, {"@type": "ListItem", "position": 3, "name": "Chemistry", "item": "https://www.hwsaiclub.com/majors/chemistry/"}]}</script>
 </head>
 <body class="view-inner">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -57,11 +60,12 @@
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="/#about">About</a>
-      <a href="/#team">Team</a>
-      <a href="/majors/">Use Cases</a>
-      <a href="/#community">Community</a>
+      <a href="/majors/">By Major</a>
+      <a href="/tasks/">By Task</a>
+      <a href="/resources/ai-at-hws/">Resources</a>
+      <a href="/faq/">FAQ</a>
       <a href="/#founders">Meet The Founders</a>
-      <a class="nav-cta" href="/#join" data-cta="nav-join">Join Us</a>
+      <a class="nav-cta" href="https://www.skool.com/hws-ai-club-7506" target="_blank" rel="noopener" data-cta="skool-join">Join Us</a>
     </nav>
   </div>
 </header>
@@ -227,7 +231,11 @@ Keep the terminology, examples, and level of detail appropriate for an undergrad
       <a href="/#about">About</a>
       <a href="/#join">Events</a>
       <a href="/#team">Team</a>
-      <a href="/majors/">Use Cases</a>
+      <a href="/majors/">By Major</a>
+      <a href="/tasks/">By Task</a>
+      <a href="/resources/ai-at-hws/">Resources</a>
+      <a href="/faq/">FAQ</a>
+      <a href="/ai-policy/">AI &amp; Coursework</a>
       <a href="/#community">Community</a>
       <a href="/#founders">Meet The Founders</a>
     </nav>

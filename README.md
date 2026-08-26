@@ -4,7 +4,7 @@ The website for the AI Club at **Hobart and William Smith Colleges** (Geneva, Ne
 It publishes **840 AI use cases across 42 majors** — 20 per major — where every use case
 carries a copy-paste starter prompt and links to a specific, hand-verified tutorial video.
 
-**Live:** https://hws-ai-club.netlify.app
+**Live:** https://www.hwsaiclub.com/
 
 No framework, no build dependencies beyond Python. The site is plain static HTML/CSS/JS,
 generated from data files so that content and presentation stay separate.
@@ -37,8 +37,15 @@ per task archetype. It feeds **both** the Python generator and the generated
 python3 scripts/build_site.py
 ```
 
-Regenerates all 44 pages plus `js/videos.js`, `sitemap.xml`, `robots.txt` and `_headers`.
+Regenerates the homepage, majors, task hubs, FAQ, AI-coursework guide, founder pages,
+`js/videos.js`, `sitemap.xml`, `robots.txt`, and legacy `_headers`.
 Re-running it on an unchanged repo produces no diff.
+
+Run the focused migration/schema regression checks with:
+
+```bash
+python -m unittest tests.test_seo_migration
+```
 
 To re-import from the spreadsheet (only needed when the xlsx itself changes):
 
@@ -48,11 +55,13 @@ python3 scripts/extract_data.py    # requires openpyxl
 
 ## Deploying
 
-Netlify, from the `site/` directory:
+Vercel is the production host. After rebuilding and reviewing the generated `site/` diff,
+deploy through the configured Vercel project. The repository has no Vercel CLI command or
+`vercel.json` because the production project settings own that configuration.
 
-```bash
-cd site && netlify deploy --prod --dir .
-```
+`netlify.toml` is retained only to serve a permanent, path-preserving redirect from
+`https://hws-ai-club.netlify.app/*` to `https://www.hwsaiclub.com/:splat`. Do not deploy
+Netlify as the primary site.
 
 ## Editing content
 
@@ -88,7 +97,7 @@ site/
 Start at [AGENTS.md](AGENTS.md) (or [CLAUDE.md](CLAUDE.md) for Claude Code specifically).
 Deeper references live in [docs/](docs/): [ARCHITECTURE.md](docs/ARCHITECTURE.md) (how the
 generator works), [CONTENT_GUIDE.md](docs/CONTENT_GUIDE.md) (data schemas), and
-[DEPLOYMENT.md](docs/DEPLOYMENT.md) (build artifacts, Netlify, verification), and
+[DEPLOYMENT.md](docs/DEPLOYMENT.md) (build artifacts, Vercel and legacy redirects, verification), and
 [ANALYTICS.md](docs/ANALYTICS.md) (GA4 event taxonomy).
 
 ## A note on the videos

@@ -1,186 +1,262 @@
 {
   "/": {
     "date": "2026-08-26",
-    "hash": "1315f19353a378ba"
+    "hash": "c60c4b194bf5c7d8"
+  },
+  "/ai-policy/": {
+    "date": "2026-08-26",
+    "hash": "57d65cd6805c3933"
+  },
+  "/faq/": {
+    "date": "2026-08-26",
+    "hash": "cb0061b7eb7c962f"
   },
   "/founders/dominic-schimizzi/": {
     "date": "2026-08-26",
-    "hash": "62f8a1578acb47a2"
+    "hash": "b6bfd537b33dd424"
   },
   "/founders/zackary-hanna/": {
     "date": "2026-08-26",
-    "hash": "67587b5083def262"
+    "hash": "02bb6ff8b2c011f6"
   },
   "/majors/": {
     "date": "2026-08-26",
-    "hash": "e31af3b6322f0d86"
+    "hash": "0ccd726dfe6a0acb"
   },
   "/majors/africana-studies/": {
     "date": "2026-08-26",
-    "hash": "87e297632640f6ec"
+    "hash": "cc2375039a49800e"
   },
   "/majors/american-studies/": {
     "date": "2026-08-26",
-    "hash": "65b7506a99f73793"
+    "hash": "9c473ebbd2320ca0"
   },
   "/majors/anthropology-sociology/": {
     "date": "2026-08-26",
-    "hash": "3a031cd541023d71"
+    "hash": "d986bdcc49cd74ef"
   },
   "/majors/anthropology/": {
     "date": "2026-08-26",
-    "hash": "c9086df6241c704e"
+    "hash": "79c4cfec84cabf40"
   },
   "/majors/architectural-studies/": {
     "date": "2026-08-26",
-    "hash": "61c4de6f48d91f38"
+    "hash": "50ff47cdc4f411c4"
   },
   "/majors/art-art-history/": {
     "date": "2026-08-26",
-    "hash": "248e485597a7f1a3"
+    "hash": "40e48f9c93d1ac2b"
   },
   "/majors/art-studio-art/": {
     "date": "2026-08-26",
-    "hash": "c83fd56706a4ae5d"
+    "hash": "cf14567cc53fc359"
   },
   "/majors/asian-studies/": {
     "date": "2026-08-26",
-    "hash": "689f040debe8ab44"
+    "hash": "4201e96ecfc7696f"
   },
   "/majors/biochemistry/": {
     "date": "2026-08-26",
-    "hash": "4b948c6d0de7f2f4"
+    "hash": "896c4ff10905f660"
   },
   "/majors/biology/": {
     "date": "2026-08-26",
-    "hash": "850a5a2476e05ca6"
+    "hash": "a956967810725ef6"
   },
   "/majors/bodies-disability-and-justice/": {
     "date": "2026-08-26",
-    "hash": "ecc3785fb6da6b8c"
+    "hash": "64009145af508b9a"
   },
   "/majors/business-management-and-entrepreneurship/": {
     "date": "2026-08-26",
-    "hash": "cd656ad3e8df6d3c"
+    "hash": "1778dd7873767df0"
   },
   "/majors/chemistry/": {
     "date": "2026-08-26",
-    "hash": "6296be8d56e94c4c"
+    "hash": "7e5e92652fd7a0bf"
   },
   "/majors/classics/": {
     "date": "2026-08-26",
-    "hash": "ddef19dac1283903"
+    "hash": "9a6082a5edf290e3"
   },
   "/majors/computer-science/": {
     "date": "2026-08-26",
-    "hash": "3624b9099fb8b11e"
+    "hash": "858f5e937cbbaea2"
   },
   "/majors/dance/": {
     "date": "2026-08-26",
-    "hash": "a41a8653e1c76550"
+    "hash": "194a52cb489a5cb1"
   },
   "/majors/economics/": {
     "date": "2026-08-26",
-    "hash": "ac763657f9e22953"
+    "hash": "bebb299d20720eec"
   },
   "/majors/educational-studies/": {
     "date": "2026-08-26",
-    "hash": "a2166b96738cf09b"
+    "hash": "bc6d98d0719bc384"
   },
   "/majors/english-and-creative-writing/": {
     "date": "2026-08-26",
-    "hash": "cf34ae2ef8c02838"
+    "hash": "39263e2c12672681"
   },
   "/majors/environmental-science/": {
     "date": "2026-08-26",
-    "hash": "6d457e40b2bbb949"
+    "hash": "2dc19f42c579eb1a"
   },
   "/majors/environmental-studies/": {
     "date": "2026-08-26",
-    "hash": "d395ca49ed9abd27"
+    "hash": "b83db11cf7e95238"
   },
   "/majors/french-and-francophone-studies/": {
     "date": "2026-08-26",
-    "hash": "cb809a419bde60fb"
+    "hash": "6dea82af2f29a361"
   },
   "/majors/gender-and-feminist-studies/": {
     "date": "2026-08-26",
-    "hash": "42fb0d050c225487"
+    "hash": "d4a83cc82a3cdd71"
   },
   "/majors/geoscience/": {
     "date": "2026-08-26",
-    "hash": "ed89745a1653b0a1"
+    "hash": "bb7ffabe6a4e3a55"
   },
   "/majors/greek-and-roman-studies/": {
     "date": "2026-08-26",
-    "hash": "8d2a24de5e00f467"
+    "hash": "29e63938d336dda5"
   },
   "/majors/history/": {
     "date": "2026-08-26",
-    "hash": "9bf4ce8e4dabe2b1"
+    "hash": "2757e51f8ff0025a"
   },
   "/majors/individual-major/": {
     "date": "2026-08-26",
-    "hash": "06e530276f83e161"
+    "hash": "124255b39a85dceb"
   },
   "/majors/international-relations/": {
     "date": "2026-08-26",
-    "hash": "3839d085cb34313c"
+    "hash": "78c1570df8e32efc"
   },
   "/majors/lgbtq-studies/": {
     "date": "2026-08-26",
-    "hash": "c05fcca4c82ce4a8"
+    "hash": "384669f01b6fa490"
   },
   "/majors/mathematics/": {
     "date": "2026-08-26",
-    "hash": "e4863ce6f57dc6ed"
+    "hash": "e5e0d28f47c94b85"
   },
   "/majors/media-society/": {
     "date": "2026-08-26",
-    "hash": "219472a8be035686"
+    "hash": "c5c5f6a5940186d9"
   },
   "/majors/music/": {
     "date": "2026-08-26",
-    "hash": "2dd14e9c61548db4"
+    "hash": "29ce7611a9e54cd9"
   },
   "/majors/philosophy/": {
     "date": "2026-08-26",
-    "hash": "3af7e2172a037f08"
+    "hash": "88aa3211f259b2e5"
   },
   "/majors/physics/": {
     "date": "2026-08-26",
-    "hash": "b44970dd4996f716"
+    "hash": "a447495f488b2e17"
   },
   "/majors/politics/": {
     "date": "2026-08-26",
-    "hash": "7842651ed911e3b9"
+    "hash": "daa7413f2d656b9b"
   },
   "/majors/psychological-science/": {
     "date": "2026-08-26",
-    "hash": "c8f5902800197e07"
+    "hash": "8998e54c728586eb"
   },
   "/majors/public-health-studies/": {
     "date": "2026-08-26",
-    "hash": "77d22970e1101c2f"
+    "hash": "55063531473c70e7"
   },
   "/majors/religious-studies/": {
     "date": "2026-08-26",
-    "hash": "97e921f8eb32a646"
+    "hash": "965562075249f2ff"
   },
   "/majors/sociology/": {
     "date": "2026-08-26",
-    "hash": "1cd590e0c683cc92"
+    "hash": "b00250a344a176ba"
   },
   "/majors/spanish-and-hispanic-studies/": {
     "date": "2026-08-26",
-    "hash": "19c08f0f052bbd18"
+    "hash": "f5bc9abc14ea2f4d"
   },
   "/majors/theatre/": {
     "date": "2026-08-26",
-    "hash": "ce1820954099fc5b"
+    "hash": "7c95a58d5d04b6da"
   },
   "/majors/writing-and-rhetoric/": {
     "date": "2026-08-26",
-    "hash": "031f73892a86891f"
+    "hash": "dd3d6a2c01411828"
+  },
+  "/resources/ai-at-hws/": {
+    "date": "2026-08-26",
+    "hash": "bb482ca204d228a7"
+  },
+  "/tasks/": {
+    "date": "2026-08-26",
+    "hash": "075683b910890da2"
+  },
+  "/tasks/analyze-data/": {
+    "date": "2026-08-26",
+    "hash": "0e2a5c5df01fff07"
+  },
+  "/tasks/brainstorm-ideas/": {
+    "date": "2026-08-26",
+    "hash": "331401cda019ea35"
+  },
+  "/tasks/build-a-custom-gpt/": {
+    "date": "2026-08-26",
+    "hash": "07f10fb88fc87330"
+  },
+  "/tasks/compare-two-things/": {
+    "date": "2026-08-26",
+    "hash": "2a7b0bae10b732e0"
+  },
+  "/tasks/design-a-study/": {
+    "date": "2026-08-26",
+    "hash": "dd6fb91097569927"
+  },
+  "/tasks/draft-an-email/": {
+    "date": "2026-08-26",
+    "hash": "223913e9c8c20641"
+  },
+  "/tasks/explain-a-concept/": {
+    "date": "2026-08-26",
+    "hash": "b898ac764c6c307a"
+  },
+  "/tasks/make-a-study-plan/": {
+    "date": "2026-08-26",
+    "hash": "750d0c7696e581e0"
+  },
+  "/tasks/outline-a-paper/": {
+    "date": "2026-08-26",
+    "hash": "c6b8c61fdec3e4e7"
+  },
+  "/tasks/plan-a-project/": {
+    "date": "2026-08-26",
+    "hash": "a513fce88f6ddfca"
+  },
+  "/tasks/review-the-literature/": {
+    "date": "2026-08-26",
+    "hash": "f6963abd57180163"
+  },
+  "/tasks/study-for-an-exam/": {
+    "date": "2026-08-26",
+    "hash": "22be9ab195257b91"
+  },
+  "/tasks/summarize-a-reading/": {
+    "date": "2026-08-26",
+    "hash": "6d4cf4cc6ecdca4e"
+  },
+  "/tasks/write-an-essay/": {
+    "date": "2026-08-26",
+    "hash": "fc9494d155326ade"
+  },
+  "/tasks/write-and-debug-code/": {
+    "date": "2026-08-26",
+    "hash": "1544c8411dc4892e"
   }
 }

@@ -6,56 +6,78 @@ HWS AI Club maintains a library of 840 practical AI use cases — 20 per major, 
 
 ## Key pages
 
-- [Homepage](https://hws-ai-club.netlify.app/): what the club does, the team, and how to join.
-- [All Majors](https://hws-ai-club.netlify.app/majors/): directory of all 42 majors with AI use cases.
-- [Sitemap](https://hws-ai-club.netlify.app/sitemap.xml)
+- [Homepage](https://www.hwsaiclub.com/): what the club does, the team, and how to join.
+- [All Majors](https://www.hwsaiclub.com/majors/): directory of all 42 majors with AI use cases.
+- [AI Tasks](https://www.hwsaiclub.com/tasks/): the same 840 use cases grouped by task rather than by major.
+- [AI resources at HWS](https://www.hwsaiclub.com/resources/ai-at-hws/): official campus resources alongside club workshops and practical guides.
+- [FAQ](https://www.hwsaiclub.com/faq/): what the club is, when it meets, what it costs, what you need.
+- [AI and coursework](https://www.hwsaiclub.com/ai-policy/): what is and isn't allowed academically, and why that is set per course by the instructor rather than college-wide.
+- [Sitemap](https://www.hwsaiclub.com/sitemap.xml)
+
+## Tasks
+
+- [Explain a concept](https://www.hwsaiclub.com/tasks/explain-a-concept/): Turning something you half-understand into something you could teach back.
+- [Write and debug code](https://www.hwsaiclub.com/tasks/write-and-debug-code/): Getting a script working, and understanding why it broke in the first place.
+- [Compare two things](https://www.hwsaiclub.com/tasks/compare-two-things/): Laying two things side by side and finding the difference that actually matters.
+- [Design a study](https://www.hwsaiclub.com/tasks/design-a-study/): Pressure-testing a research design before you commit a semester to it.
+- [Summarize a reading](https://www.hwsaiclub.com/tasks/summarize-a-reading/): Compressing something long into the parts you actually need.
+- [Brainstorm ideas](https://www.hwsaiclub.com/tasks/brainstorm-ideas/): Getting unstuck on what to write about, argue, or investigate.
+- [Study for an exam](https://www.hwsaiclub.com/tasks/study-for-an-exam/): Being drilled on the material instead of handed the answers.
+- [Draft an email](https://www.hwsaiclub.com/tasks/draft-an-email/): Writing the awkward email you have been putting off for three days.
+- [Analyze data](https://www.hwsaiclub.com/tasks/analyze-data/): Reading a dataset, a table, or a result you are not sure how to interpret.
+- [Build a custom GPT](https://www.hwsaiclub.com/tasks/build-a-custom-gpt/): Setting up a reusable tool instead of retyping the same prompt every week.
+- [Review the literature](https://www.hwsaiclub.com/tasks/review-the-literature/): Mapping what has already been said before you add to it.
+- [Make a study plan](https://www.hwsaiclub.com/tasks/make-a-study-plan/): Turning a syllabus and a deadline into a week-by-week plan.
+- [Plan a project](https://www.hwsaiclub.com/tasks/plan-a-project/): Breaking something large into steps with dates attached.
+- [Outline a paper](https://www.hwsaiclub.com/tasks/outline-a-paper/): Getting the shape of an argument down before writing a word of it.
+- [Write an essay](https://www.hwsaiclub.com/tasks/write-an-essay/): Automating the typing while the argument stays yours.
 
 ## Majors
 
-- [Africana Studies](https://hws-ai-club.netlify.app/majors/africana-studies/)
-- [American Studies](https://hws-ai-club.netlify.app/majors/american-studies/)
-- [Anthropology](https://hws-ai-club.netlify.app/majors/anthropology/)
-- [Anthropology & Sociology](https://hws-ai-club.netlify.app/majors/anthropology-sociology/)
-- [Architectural Studies](https://hws-ai-club.netlify.app/majors/architectural-studies/)
-- [Art: Art History](https://hws-ai-club.netlify.app/majors/art-art-history/)
-- [Art: Studio Art](https://hws-ai-club.netlify.app/majors/art-studio-art/)
-- [Asian Studies](https://hws-ai-club.netlify.app/majors/asian-studies/)
-- [Biochemistry](https://hws-ai-club.netlify.app/majors/biochemistry/)
-- [Biology](https://hws-ai-club.netlify.app/majors/biology/)
-- [Bodies, Disability, and Justice](https://hws-ai-club.netlify.app/majors/bodies-disability-and-justice/)
-- [Business Management and Entrepreneurship](https://hws-ai-club.netlify.app/majors/business-management-and-entrepreneurship/)
-- [Chemistry](https://hws-ai-club.netlify.app/majors/chemistry/)
-- [Classics](https://hws-ai-club.netlify.app/majors/classics/)
-- [Computer Science](https://hws-ai-club.netlify.app/majors/computer-science/)
-- [Dance](https://hws-ai-club.netlify.app/majors/dance/)
-- [Economics](https://hws-ai-club.netlify.app/majors/economics/)
-- [Educational Studies](https://hws-ai-club.netlify.app/majors/educational-studies/)
-- [English and Creative Writing](https://hws-ai-club.netlify.app/majors/english-and-creative-writing/)
-- [Environmental Science](https://hws-ai-club.netlify.app/majors/environmental-science/)
-- [Environmental Studies](https://hws-ai-club.netlify.app/majors/environmental-studies/)
-- [French and Francophone Studies](https://hws-ai-club.netlify.app/majors/french-and-francophone-studies/)
-- [Gender and Feminist Studies](https://hws-ai-club.netlify.app/majors/gender-and-feminist-studies/)
-- [Geoscience](https://hws-ai-club.netlify.app/majors/geoscience/)
-- [Greek and Roman Studies](https://hws-ai-club.netlify.app/majors/greek-and-roman-studies/)
-- [History](https://hws-ai-club.netlify.app/majors/history/)
-- [Individual Major](https://hws-ai-club.netlify.app/majors/individual-major/)
-- [International Relations](https://hws-ai-club.netlify.app/majors/international-relations/)
-- [LGBTQ+ Studies](https://hws-ai-club.netlify.app/majors/lgbtq-studies/)
-- [Mathematics](https://hws-ai-club.netlify.app/majors/mathematics/)
-- [Media & Society](https://hws-ai-club.netlify.app/majors/media-society/)
-- [Music](https://hws-ai-club.netlify.app/majors/music/)
-- [Philosophy](https://hws-ai-club.netlify.app/majors/philosophy/)
-- [Physics](https://hws-ai-club.netlify.app/majors/physics/)
-- [Politics](https://hws-ai-club.netlify.app/majors/politics/)
-- [Psychological Science](https://hws-ai-club.netlify.app/majors/psychological-science/)
-- [Public Health Studies](https://hws-ai-club.netlify.app/majors/public-health-studies/)
-- [Religious Studies](https://hws-ai-club.netlify.app/majors/religious-studies/)
-- [Sociology](https://hws-ai-club.netlify.app/majors/sociology/)
-- [Spanish and Hispanic Studies](https://hws-ai-club.netlify.app/majors/spanish-and-hispanic-studies/)
-- [Theatre](https://hws-ai-club.netlify.app/majors/theatre/)
-- [Writing and Rhetoric](https://hws-ai-club.netlify.app/majors/writing-and-rhetoric/)
+- [Africana Studies](https://www.hwsaiclub.com/majors/africana-studies/)
+- [American Studies](https://www.hwsaiclub.com/majors/american-studies/)
+- [Anthropology](https://www.hwsaiclub.com/majors/anthropology/)
+- [Anthropology & Sociology](https://www.hwsaiclub.com/majors/anthropology-sociology/)
+- [Architectural Studies](https://www.hwsaiclub.com/majors/architectural-studies/)
+- [Art: Art History](https://www.hwsaiclub.com/majors/art-art-history/)
+- [Art: Studio Art](https://www.hwsaiclub.com/majors/art-studio-art/)
+- [Asian Studies](https://www.hwsaiclub.com/majors/asian-studies/)
+- [Biochemistry](https://www.hwsaiclub.com/majors/biochemistry/)
+- [Biology](https://www.hwsaiclub.com/majors/biology/)
+- [Bodies, Disability, and Justice](https://www.hwsaiclub.com/majors/bodies-disability-and-justice/)
+- [Business Management and Entrepreneurship](https://www.hwsaiclub.com/majors/business-management-and-entrepreneurship/)
+- [Chemistry](https://www.hwsaiclub.com/majors/chemistry/)
+- [Classics](https://www.hwsaiclub.com/majors/classics/)
+- [Computer Science](https://www.hwsaiclub.com/majors/computer-science/)
+- [Dance](https://www.hwsaiclub.com/majors/dance/)
+- [Economics](https://www.hwsaiclub.com/majors/economics/)
+- [Educational Studies](https://www.hwsaiclub.com/majors/educational-studies/)
+- [English and Creative Writing](https://www.hwsaiclub.com/majors/english-and-creative-writing/)
+- [Environmental Science](https://www.hwsaiclub.com/majors/environmental-science/)
+- [Environmental Studies](https://www.hwsaiclub.com/majors/environmental-studies/)
+- [French and Francophone Studies](https://www.hwsaiclub.com/majors/french-and-francophone-studies/)
+- [Gender and Feminist Studies](https://www.hwsaiclub.com/majors/gender-and-feminist-studies/)
+- [Geoscience](https://www.hwsaiclub.com/majors/geoscience/)
+- [Greek and Roman Studies](https://www.hwsaiclub.com/majors/greek-and-roman-studies/)
+- [History](https://www.hwsaiclub.com/majors/history/)
+- [Individual Major](https://www.hwsaiclub.com/majors/individual-major/)
+- [International Relations](https://www.hwsaiclub.com/majors/international-relations/)
+- [LGBTQ+ Studies](https://www.hwsaiclub.com/majors/lgbtq-studies/)
+- [Mathematics](https://www.hwsaiclub.com/majors/mathematics/)
+- [Media & Society](https://www.hwsaiclub.com/majors/media-society/)
+- [Music](https://www.hwsaiclub.com/majors/music/)
+- [Philosophy](https://www.hwsaiclub.com/majors/philosophy/)
+- [Physics](https://www.hwsaiclub.com/majors/physics/)
+- [Politics](https://www.hwsaiclub.com/majors/politics/)
+- [Psychological Science](https://www.hwsaiclub.com/majors/psychological-science/)
+- [Public Health Studies](https://www.hwsaiclub.com/majors/public-health-studies/)
+- [Religious Studies](https://www.hwsaiclub.com/majors/religious-studies/)
+- [Sociology](https://www.hwsaiclub.com/majors/sociology/)
+- [Spanish and Hispanic Studies](https://www.hwsaiclub.com/majors/spanish-and-hispanic-studies/)
+- [Theatre](https://www.hwsaiclub.com/majors/theatre/)
+- [Writing and Rhetoric](https://www.hwsaiclub.com/majors/writing-and-rhetoric/)
 
 ## Founders
 
-- [Dominic Schimizzi, Co-Founder](https://hws-ai-club.netlify.app/founders/dominic-schimizzi/)
-- [Zackary Hanna, Co-Founder](https://hws-ai-club.netlify.app/founders/zackary-hanna/)
+- [Dominic Schimizzi, Co-Founder](https://www.hwsaiclub.com/founders/dominic-schimizzi/)
+- [Zackary Hanna, Co-Founder](https://www.hwsaiclub.com/founders/zackary-hanna/)

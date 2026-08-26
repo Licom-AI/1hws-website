@@ -7,6 +7,7 @@ robots.txt, sitemap.xml, _headers, og-image, and the runtime js/videos.js.
 
 Run:  python3 scripts/build_site.py
 """
+import collections
 import hashlib
 import html
 import json
@@ -22,7 +23,7 @@ DATA = json.loads((SITE / "data.json").read_text(encoding="utf-8"))
 VCONF = json.loads((SITE / "data" / "videos-config.json").read_text(encoding="utf-8"))
 
 # --- One place to change when moving to a custom domain -----------------------
-BASE_URL = "https://hws-ai-club.netlify.app"
+BASE_URL = "https://www.hwsaiclub.com"
 COLLEGE = "Hobart and William Smith Colleges"
 LOCATION = "Geneva, New York"
 MEETING = "Every Sunday, 5-6 PM · Sanford Room"
@@ -67,7 +68,12 @@ GA_SNIPPET = f"""<script async src="https://www.googletagmanager.com/gtag/js?id=
       if (p === '/') return 'home';
       if (p === '/majors/') return 'majors_index';
       if (p.indexOf('/majors/') === 0) return 'major_page';
+      if (p === '/tasks/') return 'tasks_index';
+      if (p.indexOf('/tasks/') === 0) return 'task_page';
       if (p.indexOf('/founders/') === 0) return 'founder_page';
+      if (p === '/resources/ai-at-hws/') return 'ai_resources';
+      if (p === '/faq/') return 'faq';
+      if (p === '/ai-policy/') return 'ai_policy';
       return 'other';
     }})()
   }});
@@ -277,6 +283,81 @@ DIVISIONS = [
 ]
 DIVISION_OF = {slug: label for label, slugs in DIVISIONS for slug in slugs}
 
+# Task hubs — the cross-cutting view of the same 840 use cases.
+#
+# The library is organised by major, but students search by task ("how do I use
+# AI to summarize a reading"), not by department. These pages group every use
+# case that shares a task archetype, across all 42 majors, which turns 840 rows
+# that only existed inside 42 pages into a second, genuinely different set of
+# landing pages — and gives major pages deep inbound links with descriptive
+# anchor text instead of bare major names.
+#
+# `arch` must be a key produced by classify(). Archetypes below ~20 use cases are
+# deliberately left out: a hub with six entries is a thin page, and "general" is
+# a fallback bucket, not something anyone searches for.
+TASK_HUBS = [
+    {"arch": "explain", "slug": "explain-a-concept", "label": "Explain a concept",
+     "h1": "Using AI to Explain Concepts You're Stuck On",
+     "gerund": "explaining a concept",
+     "blurb": "Turning something you half-understand into something you could teach back."},
+    {"arch": "code", "slug": "write-and-debug-code", "label": "Write and debug code",
+     "h1": "Using AI to Write and Debug Code",
+     "gerund": "writing or debugging code",
+     "blurb": "Getting a script working, and understanding why it broke in the first place."},
+    {"arch": "compare", "slug": "compare-two-things", "label": "Compare two things",
+     "h1": "Using AI to Compare Two Ideas, Texts, or Methods",
+     "gerund": "comparing two things",
+     "blurb": "Laying two things side by side and finding the difference that actually matters."},
+    {"arch": "researchdesign", "slug": "design-a-study", "label": "Design a study",
+     "h1": "Using AI to Design a Study or Research Project",
+     "gerund": "designing a study",
+     "blurb": "Pressure-testing a research design before you commit a semester to it."},
+    {"arch": "summarize", "slug": "summarize-a-reading", "label": "Summarize a reading",
+     "h1": "Using AI to Summarize Readings, Papers, and Lectures",
+     "gerund": "summarizing a reading",
+     "blurb": "Compressing something long into the parts you actually need."},
+    {"arch": "brainstorm", "slug": "brainstorm-ideas", "label": "Brainstorm ideas",
+     "h1": "Using AI to Brainstorm Topics and Angles",
+     "gerund": "brainstorming ideas",
+     "blurb": "Getting unstuck on what to write about, argue, or investigate."},
+    {"arch": "studymode", "slug": "study-for-an-exam", "label": "Study for an exam",
+     "h1": "Using AI to Study for Exams and Quizzes",
+     "gerund": "studying for an exam",
+     "blurb": "Being drilled on the material instead of handed the answers."},
+    {"arch": "email", "slug": "draft-an-email", "label": "Draft an email",
+     "h1": "Using AI to Draft Emails to Professors and Colleagues",
+     "gerund": "drafting an email",
+     "blurb": "Writing the awkward email you have been putting off for three days."},
+    {"arch": "data", "slug": "analyze-data", "label": "Analyze data",
+     "h1": "Using AI to Analyze and Interpret Data",
+     "gerund": "analyzing data",
+     "blurb": "Reading a dataset, a table, or a result you are not sure how to interpret."},
+    {"arch": "customgpt", "slug": "build-a-custom-gpt", "label": "Build a custom GPT",
+     "h1": "Using AI to Build a Custom GPT or Assistant",
+     "gerund": "building a custom assistant",
+     "blurb": "Setting up a reusable tool instead of retyping the same prompt every week."},
+    {"arch": "litreview", "slug": "review-the-literature", "label": "Review the literature",
+     "h1": "Using AI for Literature Reviews and Source Synthesis",
+     "gerund": "reviewing the literature",
+     "blurb": "Mapping what has already been said before you add to it."},
+    {"arch": "studyplan", "slug": "make-a-study-plan", "label": "Make a study plan",
+     "h1": "Using AI to Build a Study Plan That Holds",
+     "gerund": "making a study plan",
+     "blurb": "Turning a syllabus and a deadline into a week-by-week plan."},
+    {"arch": "projectplan", "slug": "plan-a-project", "label": "Plan a project",
+     "h1": "Using AI to Plan a Semester-Long Project",
+     "gerund": "planning a project",
+     "blurb": "Breaking something large into steps with dates attached."},
+    {"arch": "outline", "slug": "outline-a-paper", "label": "Outline a paper",
+     "h1": "Using AI to Outline a Paper or Presentation",
+     "gerund": "outlining a paper",
+     "blurb": "Getting the shape of an argument down before writing a word of it."},
+    {"arch": "essay", "slug": "write-an-essay", "label": "Write an essay",
+     "h1": "Using AI to Draft an Essay Without Outsourcing the Thinking",
+     "gerund": "drafting an essay",
+     "blurb": "Automating the typing while the argument stays yours."},
+]
+
 
 # ---------------------------------------------------------------------------
 # Video resolution — mirrors js/videos.js (cross-checked by the verify step)
@@ -429,23 +510,8 @@ def major_faq(slug, m):
     ]
 
 
-def faq_jsonld(pairs, page_id=None):
-    """FAQPage node. Only ever call this for Q&A that is rendered on the page."""
-    node = {
-        "@context": "https://schema.org", "@type": "FAQPage",
-        "mainEntity": [
-            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}}
-            for q, a in pairs
-        ],
-    }
-    if page_id:
-        node["@id"] = page_id
-    return node
-
-
 def faq_items_html(pairs, indent="    "):
-    """Visible rendering of the same pairs that feed faq_jsonld — one source of
-    truth, so the markup can never drift from what a reader actually sees."""
+    """Visible Q&A content for readers and answer engines."""
     return "\n".join(
         f'{indent}<div class="faq-item">\n'
         f'{indent}  <h3 class="faq-q">{esc(q)}</h3>\n'
@@ -577,11 +643,12 @@ def site_header():
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="/#about">About</a>
-      <a href="/#team">Team</a>
-      <a href="/majors/">Use Cases</a>
-      <a href="/#community">Community</a>
+      <a href="/majors/">By Major</a>
+      <a href="/tasks/">By Task</a>
+      <a href="/resources/ai-at-hws/">Resources</a>
+      <a href="/faq/">FAQ</a>
       <a href="/#founders">Meet The Founders</a>
-      <a class="nav-cta" href="/#join" data-cta="nav-join">Join Us</a>
+      <a class="nav-cta" href="{SKOOL_URL}" target="_blank" rel="noopener" data-cta="skool-join">Join Us</a>
     </nav>
   </div>
 </header>"""
@@ -601,7 +668,11 @@ def site_footer():
       <a href="/#about">About</a>
       <a href="/#join">Events</a>
       <a href="/#team">Team</a>
-      <a href="/majors/">Use Cases</a>
+      <a href="/majors/">By Major</a>
+      <a href="/tasks/">By Task</a>
+      <a href="/resources/ai-at-hws/">Resources</a>
+      <a href="/faq/">FAQ</a>
+      <a href="/ai-policy/">AI &amp; Coursework</a>
       <a href="/#community">Community</a>
       <a href="/#founders">Meet The Founders</a>
     </nav>
@@ -625,9 +696,6 @@ def scripts():
 # unrelated organisations that happen to share a name.
 ORG_ID = BASE_URL + "/#organization"
 WEBSITE_ID = BASE_URL + "/#website"
-COLLEGE_ID = "https://www.hws.edu/#organization"
-
-COLLEGE_NODE = {"@type": "CollegeOrUniversity", "@id": COLLEGE_ID, "name": COLLEGE, "url": "https://www.hws.edu/"}
 
 ORG_JSONLD = {
     "@context": "https://schema.org",
@@ -640,9 +708,7 @@ ORG_JSONLD = {
     "logo": {"@type": "ImageObject", "url": BASE_URL + "/assets/logo-512.png", "width": 512, "height": 512},
     "image": BASE_URL + "/og-image.png",
     "sameAs": ORG_SAME_AS,
-    "foundingDate": "2025-08",
     "description": f"Student-run AI literacy club at {COLLEGE} helping every major learn to use AI well.",
-    "parentOrganization": COLLEGE_NODE,
     "location": {
         "@type": "Place",
         "name": COLLEGE,
@@ -686,6 +752,27 @@ EVENT_JSONLD = {
 # ---------------------------------------------------------------------------
 # Homepage
 # ---------------------------------------------------------------------------
+# Feeds visible questions on the homepage and the first seven entries of /faq/.
+# These are deliberately HTML-only: FAQ rich results are not available to normal
+# organizations, and answer quality comes from clear, maintainable copy instead.
+HOME_FAQ = [
+    ("What is the HWS AI Club?",
+     f"HWS AI Club is a student-run organization at {COLLEGE} that helps students of every major learn to use AI tools well, with hands-on workshops and a library of 840 AI use cases across all 42 majors."),
+    ("Do I need coding experience to join?",
+     "No. The club is beginner-friendly and requires no coding or prior AI experience — just curiosity."),
+    ("When and where does the HWS AI Club meet?",
+     f"The club meets {MEETING} at {COLLEGE}. All majors and class years are welcome."),
+    ("Is the HWS AI Club free to join?",
+     "Yes. The club is completely free, with no application required — just show up to a meeting."),
+    ("What majors can join the HWS AI Club?",
+     f"All 42 majors offered at {COLLEGE}. The club's use-case library has 20 AI use cases tailored to each individual major."),
+    ("Do I need a laptop or special software to join?",
+     "No special software — just a free account with a tool like ChatGPT, Claude, or Gemini. Bringing a laptop helps, but it isn't required."),
+    ("How do I join the HWS AI Club's online community?",
+     f"Through the club's free Skool community at {SKOOL_URL}, which is open to every HWS student for classroom material, discussion, and the events calendar."),
+]
+
+
 def team_cards():
     out = []
     for initials, name, role, bio, avclass in TEAM:
@@ -745,44 +832,30 @@ def founder_cards():
 
 
 def build_home():
-    title = f"HWS AI Club — AI for Every Major at {COLLEGE}"
-    desc = (
-        f"The student-run AI club at {COLLEGE} (HWS) in {LOCATION}. Learn practical AI skills with 840 "
-        "use cases across all 42 majors — no coding required. Free, open to everyone."
+    title = "HWS AI Club | AI Workshops and Resources for HWS Students"
+    desc = ("Free, student-run AI workshops and 840 practical use cases for HWS students in every major. "
+            "No coding experience required; join the Skool community.")
+    faq_pairs = HOME_FAQ
+
+    # The homepage previously linked to zero major pages — every one of the 42 was
+    # two clicks deep behind /majors/, and five of the six nav items were homepage
+    # fragments, so the homepage absorbed nearly all internal link equity and
+    # passed almost none of it on. One representative major per division, plus the
+    # task hubs, gives the crawler a real path down into the site.
+    home_major_links = " · ".join(
+        f'<a href="/majors/{s}/">{esc(_MAJOR_NAME[s])}</a>'
+        for s in (slugs[0] for _, slugs in DIVISIONS) if s in _MAJOR_NAME
     )
-    # These pairs feed BOTH the visible FAQ section rendered below and the FAQPage
-    # markup. They previously existed only in JSON-LD with no on-page equivalent,
-    # which is a structured-data policy violation — markup has to reflect content
-    # the reader can actually see.
-    faq_pairs = [
-        ("What is the HWS AI Club?",
-         f"HWS AI Club is a student-run organization at {COLLEGE} that helps students of every major learn to use AI tools well, with hands-on workshops and a library of 840 AI use cases across all 42 majors."),
-        ("Do I need coding experience to join?",
-         "No. The club is beginner-friendly and requires no coding or prior AI experience — just curiosity."),
-        ("When and where does the HWS AI Club meet?",
-         f"The club meets {MEETING} at {COLLEGE}. All majors and class years are welcome."),
-        ("Is the HWS AI Club free to join?",
-         "Yes. The club is completely free, with no application required — just show up to a meeting."),
-        ("What majors can join the HWS AI Club?",
-         f"All 42 majors offered at {COLLEGE}. The club's use-case library has 20 AI use cases tailored to each individual major."),
-        ("Do I need a laptop or special software to join?",
-         "No special software — just a free account with a tool like ChatGPT, Claude, or Gemini. Bringing a laptop helps, but it isn't required."),
-        ("How do I join the HWS AI Club's online community?",
-         f"Through the club's free Skool community at {SKOOL_URL}, which is open to every HWS student for classroom material, discussion, and the events calendar."),
-    ]
-    faq = faq_jsonld(faq_pairs, BASE_URL + "/#faq")
+    home_task_links = " · ".join(
+        f'<a href="/tasks/{h["slug"]}/">{esc(h["label"])}</a>' for h in TASK_HUBS[:8]
+    )
     faq_home_html = faq_items_html(faq_pairs, "        ")
     website = {"@context": "https://schema.org", "@type": "WebSite",
                "@id": WEBSITE_ID,
                "name": "HWS AI Club",
+               "alternateName": "AI @ HWS",
                "url": BASE_URL + "/",
-               "publisher": {"@id": ORG_ID},
-               # site.js reads ?q= on /majors/ and pre-fills the filter, so this
-               # target is a real destination rather than a decorative one.
-               "potentialAction": {"@type": "SearchAction",
-                                   "target": {"@type": "EntryPoint",
-                                              "urlTemplate": BASE_URL + "/majors/?q={search_term_string}"},
-                                   "query-input": "required name=search_term_string"}}
+               "publisher": {"@id": ORG_ID}}
 
     body = f"""<body class="view-home">
 {site_header()}
@@ -796,7 +869,7 @@ def build_home():
       <h1 class="hero-title">AI for Everyone at Hobart and William Smith</h1>
       <p class="hero-sub">The student-run AI club at {COLLEGE} (HWS). Learn practical AI skills to excel as a student and future professional &mdash; no coding required.</p>
       <div class="hero-actions">
-        <a class="btn-primary" href="/#join" data-cta="hero-join">Join the Club</a>
+        <a class="btn-primary" href="{SKOOL_URL}" target="_blank" rel="noopener" data-cta="skool-join">Join the Club <span aria-hidden="true">&#8599;</span></a>
         <a class="btn-secondary" href="/majors/" data-cta="hero-browse">Browse Use Cases</a>
       </div>
       <p class="hero-meeting">{MEETING}</p>
@@ -829,7 +902,7 @@ def build_home():
           <li><span class="check-dot" aria-hidden="true">&#10003;</span>Guest speakers from the tech industry</li>
           <li><span class="check-dot" aria-hidden="true">&#10003;</span>Build a portfolio of AI-enhanced projects</li>
         </ul>
-        <a class="btn-primary" href="/#join" data-cta="no-experience-join">Get Started Today</a>
+        <a class="btn-primary" href="{SKOOL_URL}" target="_blank" rel="noopener" data-cta="skool-join">Get Started Today <span aria-hidden="true">&#8599;</span></a>
       </div>
       <div class="tile-stack">
         <div class="photo-tile">Workshop Session</div>
@@ -848,7 +921,20 @@ def build_home():
         <div class="library-stat"><strong>840</strong><span>Use cases</span></div>
         <div class="library-stat"><strong>3</strong><span>Difficulty levels</span></div>
       </div>
+      <div class="home-major-links">
+        <p class="home-major-lead">Jump straight in:</p>
+        <p class="siblings">{home_major_links}</p>
+      </div>
       <div class="library-cta"><a class="btn-primary" href="/majors/" data-cta="library-browse">Find your major &rarr;</a></div>
+    </div>
+  </section>
+
+  <section class="lp-section lp-tasks">
+    <div class="section-inner">
+      <h2 class="section-title">Or start from what you need to do</h2>
+      <p class="section-sub">The same 840 use cases, grouped by task instead of by department &mdash; because most people arrive with a problem, not a major.</p>
+      <p class="siblings">{home_task_links}</p>
+      <div class="library-cta"><a class="btn-secondary" href="/tasks/">Browse all {len(TASK_HUBS)} tasks &rarr;</a></div>
     </div>
   </section>
 
@@ -867,6 +953,7 @@ def build_home():
       <h2 class="section-title">Ready to Join?</h2>
       <p class="join-sub">No experience, no application &mdash; just show up. Open to all majors and class years at {COLLEGE}.</p>
       <p class="join-meeting">{MEETING}</p>
+      <a class="btn-primary" href="{SKOOL_URL}" target="_blank" rel="noopener" data-cta="skool-join">Join the Skool community <span aria-hidden="true">&#8599;</span></a>
       <a class="btn-secondary" href="/majors/" data-cta="join-section-majors">Start with your major&rsquo;s use cases &rarr;</a>
     </div>
   </section>
@@ -918,30 +1005,35 @@ def build_home():
 {scripts()}
 </body>
 </html>"""
-    (SITE / "index.html").write_text(head(title, desc, "/", [ORG_JSONLD, website, faq, EVENT_JSONLD]) + "\n" + body + "\n", encoding="utf-8")
+    (SITE / "index.html").write_text(head(title, desc, "/", [ORG_JSONLD, website, EVENT_JSONLD]) + "\n" + body + "\n", encoding="utf-8")
 
 
 # ---------------------------------------------------------------------------
 # Majors index
 # ---------------------------------------------------------------------------
 def build_majors_index():
-    title = f"AI Use Cases by Major — HWS AI Club | {COLLEGE}"
-    desc = (
-        f"Browse AI use cases for all 42 majors at {COLLEGE} (HWS). Pick your major to see 20 practical, "
-        "difficulty-rated AI use cases with tutorial videos."
-    )
-    cards = "\n".join(
-        f'<a class="major-card" href="/majors/{esc(m["slug"])}/"><span>{esc(m["name"])}</span>'
-        f'<span class="arrow" aria-hidden="true">&rarr;</span></a>'
-        for m in DATA["majors"]
-    )
-    itemlist = {
-        "@context": "https://schema.org", "@type": "ItemList", "name": "AI Use Cases by Major at HWS",
-        "itemListElement": [
-            {"@type": "ListItem", "position": i + 1, "name": m["name"], "url": f"{BASE_URL}/majors/{m['slug']}/"}
-            for i, m in enumerate(DATA["majors"])
-        ],
-    }
+    title = "AI Use Cases by Major | HWS AI Club"
+    desc = ("20 practical AI use cases for each of 42 HWS majors. Choose your major for tutorials, "
+            "starter prompts, and responsible-use guidance.")
+    # Grouped by division rather than one flat run of 42. The page previously had
+    # a single h1 and no subheadings at all, so 42 topic entities sat in bare
+    # <span>s carrying no heading weight and no relationship to each other.
+    by_slug = {m["slug"]: m for m in DATA["majors"]}
+    groups = []
+    for label, slugs in DIVISIONS:
+        items = "\n".join(
+            f'    <a class="major-card" href="/majors/{esc(by_slug[s]["slug"])}/" data-division="{esc(label)}">'
+            f'<span>{esc(by_slug[s]["name"])}</span>'
+            f'<span class="arrow" aria-hidden="true">&rarr;</span></a>'
+            for s in slugs if s in by_slug
+        )
+        groups.append(
+            f'  <section class="major-division">\n'
+            f'    <h2 class="division-title">{esc(label)}</h2>\n'
+            f'    <div class="majors-grid">\n{items}\n    </div>\n'
+            f'  </section>'
+        )
+    cards = "\n".join(groups)
     crumbs = breadcrumb([("Home", "/"), ("All Majors", "/majors/")])
     body = f"""<body class="view-inner">
 {site_header()}
@@ -953,9 +1045,13 @@ def build_majors_index():
     <input type="search" id="major-search" class="search-input" placeholder="Search for your major…" aria-label="Search majors">
     <p class="search-hint" id="search-hint">Type to filter, or browse all 42 majors below.</p>
   </div>
-  <div class="majors-grid" id="majors-grid">
+  <div id="majors-grid">
 {cards}
   </div>
+  <section class="sibling-majors">
+    <h2>Not sure which major to pick?</h2>
+    <p class="siblings-all"><a href="/tasks/">Browse the same use cases by task instead &rarr;</a></p>
+  </section>
 </main>
 {site_footer()}
 {scripts()}
@@ -963,7 +1059,7 @@ def build_majors_index():
 </html>"""
     (SITE / "majors").mkdir(exist_ok=True)
     (SITE / "majors" / "index.html").write_text(
-        head(title, desc, "/majors/", [crumbs, itemlist]) + "\n" + body + "\n", encoding="utf-8"
+        head(title, desc, "/majors/", [crumbs]) + "\n" + body + "\n", encoding="utf-8"
     )
 
 
@@ -1037,9 +1133,7 @@ def build_major(m, prev_m, next_m):
     slug, name = m["slug"], m["name"]
     ucs = m["useCases"]
     by_diff = {d: [u for u in ucs if u["difficulty"] == d] for d in ("Easy", "Medium", "Hard")}
-    # The college name used to occupy ~40 of the title's characters on every one
-    # of the 42 pages, pushing them to ~97 and guaranteeing truncation in SERPs.
-    title = f"AI Use Cases for {name} Majors | HWS AI Club"
+    title = f"AI for {name} Students | HWS AI Club"
     # Built from this major's own easiest and hardest use cases. The previous
     # description varied only by {name} and closed with an identical clause on all
     # 42 pages, which reads to a crawler as 42 duplicate descriptions.
@@ -1050,13 +1144,16 @@ def build_major(m, prev_m, next_m):
     # only dropped when a long major name leaves no room for it.
     stem = (f"{len(ucs)} AI use cases for {name} students at HWS, Easy to Hard — "
             f"each with a tutorial and a starter prompt.")
+    if len(esc(stem)) > 140:
+        stem = (f"Practical AI use cases for {name} students at HWS, with tutorials "
+                "and starter prompts.")
     # A real sample title is what makes each description distinct, so for long
     # major names try the shorter titles rather than dropping the sample.
     samples = sorted((u["title"].rstrip(". ") for u in (by_diff["Easy"] or ucs)), key=len)
     samples = [first_easy] + [s for s in samples if s != first_easy]
     desc = stem
     for s in samples:
-        if len(f"{stem} Try: {s}.") <= 160:
+        if len(esc(f"{stem} Try: {s}.")) <= 160:
             desc = f"{stem} Try: {s}."
             break
     cards = "\n".join(uc_card(slug, uc) for uc in m["useCases"])
@@ -1069,17 +1166,7 @@ def build_major(m, prev_m, next_m):
                if mm["slug"] != slug and DIVISION_OF.get(mm["slug"]) == division]
     siblings = " · ".join(f'<a href="/majors/{mm["slug"]}/">{esc(mm["name"])}</a>' for mm in related)
     crumbs = breadcrumb([("Home", "/"), ("All Majors", "/majors/"), (name, f"/majors/{slug}/")])
-    itemlist = {
-        "@context": "https://schema.org", "@type": "ItemList",
-        "name": f"AI Use Cases for {name} at HWS",
-        "itemListElement": [
-            {"@type": "ListItem", "position": uc["number"], "name": uc["title"],
-             "description": card_text(slug, uc)[0]}
-            for uc in m["useCases"]
-        ],
-    }
     faq_pairs = major_faq(slug, m)
-    faq = faq_jsonld(faq_pairs, f"{BASE_URL}/majors/{slug}/#faq")
 
     # Lede built from this major's own numbers and titles rather than one shared
     # sentence with {name} substituted in. n_videos genuinely varies (12-14).
@@ -1128,8 +1215,348 @@ def build_major(m, prev_m, next_m):
 </html>"""
     d = SITE / "majors" / slug
     d.mkdir(parents=True, exist_ok=True)
-    jsonld = [crumbs, itemlist, faq]
+    jsonld = [crumbs]
     (d / "index.html").write_text(head(title, desc, f"/majors/{slug}/", jsonld) + "\n" + body + "\n", encoding="utf-8")
+
+
+# ---------------------------------------------------------------------------
+# Standalone pages: FAQ and the AI coursework policy guide
+# ---------------------------------------------------------------------------
+def build_faq_page():
+    """The homepage FAQ plus the questions that only matter once someone is
+    seriously considering joining. A dedicated URL so it can rank and be cited on
+    its own, rather than living as an anchor on a page about something else."""
+    pairs = HOME_FAQ + [
+        ("Who runs the HWS AI Club?",
+         f"The club was co-founded in August 2025 by Dominic Schimizzi and Zackary Hanna, and is run "
+         f"by a student officer team. It is a registered student organisation at {COLLEGE} and is "
+         f"open to all students regardless of major or class year."),
+        ("Do I have to come every week?",
+         "No. Meetings are drop-in — come to the ones that look useful and skip the rest. Nothing in "
+         "the use-case library depends on having attended anything."),
+        ("Is the use-case library only for HWS students?",
+         f"The 840 use cases are written around the 42 majors offered at {COLLEGE}, so the examples "
+         "and terminology are specific to those programmes. Anyone can read and use them, but a "
+         "student in a similarly-named major elsewhere will get more out of them than someone in a "
+         "field HWS does not offer."),
+        ("What is the difference between the Easy, Medium, and Hard ratings?",
+         "Easy means you can do it right now in one prompt with no setup — 420 of the 840 are rated "
+         "this way. Medium means the output needs checking against your course material before you "
+         "rely on it (252). Hard means it is project-scale work you should review with a professor "
+         "or TA before it goes anywhere graded (168)."),
+        ("Does the club teach you to code?",
+         "Not primarily. The focus is on using AI tools well, which for most majors involves no code "
+         "at all. Computer Science and the other quantitative majors do have code-specific use cases, "
+         "but they are a minority of the library."),
+    ]
+    crumbs = breadcrumb([("Home", "/"), ("FAQ", "/faq/")])
+    body = f"""<body class="view-inner">
+{site_header()}
+<main id="main" class="page">
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / FAQ</nav>
+  <h1>HWS AI Club: Frequently Asked Questions</h1>
+  <p class="page-lede">Everything students ask before their first meeting &mdash; what the club is,
+  what it costs, what you need to bring, and what the use-case library actually contains.</p>
+{faq_html(pairs, "Questions and answers", "questions")}
+  <section class="sibling-majors">
+    <h2>Still deciding?</h2>
+    <p class="siblings"><a href="/majors/">Browse AI use cases for your major</a> &middot;
+    <a href="/ai-policy/">Read about AI and coursework at HWS</a> &middot;
+    <a href="/#join">Join the club</a></p>
+  </section>
+</main>
+{site_footer()}
+{scripts()}
+</body>
+</html>"""
+    (SITE / "faq").mkdir(exist_ok=True)
+    (SITE / "faq" / "index.html").write_text(
+        head("HWS AI Club FAQ — Meetings, Membership, and the Use-Case Library",
+             "Answers to what the HWS AI Club is, when it meets, what it costs, whether you need "
+             "coding experience, and how the 840-use-case library is organised.",
+             "/faq/", [crumbs]) + "\n" + body + "\n",
+        encoding="utf-8")
+
+
+def build_ai_policy_page():
+    """Academic-integrity guidance. This is the question every student actually
+    has before they touch any of this, and nothing on the site answered it at
+    length — the major pages carry a one-line warning and nothing more.
+
+    Deliberately does not state what HWS policy *is*: that is set per course by
+    the instructor, and asserting a college-wide rule the club does not set would
+    be both wrong and irresponsible."""
+    pairs = [
+        ("Is using AI for coursework allowed at HWS?",
+         "There is no single answer, and anyone who gives you one is guessing. AI policy at "
+         f"{COLLEGE} is set by the instructor, course by course. Some syllabi encourage AI for "
+         "brainstorming and revision, some allow it with disclosure, some prohibit it for graded "
+         "work entirely. The syllabus is the authority; when it is silent, ask before you use it."),
+        ("What counts as an acceptable use?",
+         "As a rule of thumb, uses where the thinking stays yours: having a concept explained until "
+         "it clicks, being quizzed on terms, getting feedback on a draft you wrote, turning a "
+         "syllabus into a study plan. These are the same things a tutor or study group would do, and "
+         "they leave the work — and the understanding — with you."),
+        ("What counts as academic dishonesty?",
+         "Submitting AI-generated work as your own is plagiarism at essentially every institution, "
+         "and it does not stop being plagiarism because a machine wrote it rather than a person. The "
+         "line most policies draw is authorship: if the ideas, argument, and words handed in are not "
+         "yours, you have crossed it, whatever tool produced them."),
+        ("Do I have to disclose that I used AI?",
+         "Often yes, and increasingly it is the default expectation. Some courses require a note on "
+         "what you used and how; some require nothing. Disclosure costs you very little and removes "
+         "the ambiguity entirely, so when the syllabus does not specify, disclosing is the safer of "
+         "the two mistakes to make."),
+        ("Can professors detect AI writing?",
+         "AI-detection tools are unreliable in both directions — they miss real AI text and they "
+         "flag human writing, disproportionately from multilingual writers. That is an argument for "
+         "not relying on them, not an argument that using AI dishonestly is safe. Instructors also "
+         "notice work that does not sound like the student who wrote everything else."),
+        ("How does the club's use-case library handle this?",
+         "Every one of the 840 use cases is written as a study aid rather than a substitute for "
+         "doing the work, and each is rated by how much checking the output needs: Easy is usable "
+         "as-is, Medium should be verified against your course material, and Hard should be reviewed "
+         "with a professor or TA before it goes near graded work. Every major page carries the same "
+         "warning to check the syllabus first."),
+    ]
+    crumbs = breadcrumb([("Home", "/"), ("AI and coursework", "/ai-policy/")])
+    body = f"""<body class="view-inner">
+{site_header()}
+<main id="main" class="page">
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / AI and coursework</nav>
+  <h1>Using AI on Coursework at HWS: What&rsquo;s Actually Allowed</h1>
+  <p class="page-lede">The question every student has before touching any of this. The honest answer
+  is that it depends on your professor &mdash; but there is a lot more to say than that, and knowing
+  where the lines usually fall makes the conversation with your instructor much shorter.</p>
+  <p class="policy-note"><strong>The HWS AI Club does not set academic policy.</strong> Nothing on this
+  page overrides your syllabus or your instructor. Where the two disagree, your instructor is right.</p>
+{faq_html(pairs, "AI and academic integrity at HWS", "policy")}
+  <section class="sibling-majors">
+    <h2>Next</h2>
+    <p class="siblings"><a href="/majors/">Browse AI use cases for your major</a> &middot;
+    <a href="/tasks/">Browse by task</a> &middot;
+    <a href="/faq/">Club FAQ</a></p>
+    <p class="siblings-all"><a href="https://www.hws.edu/academics/catalogue/" target="_blank" rel="noopener">HWS academic catalogue and policies &#8599;</a></p>
+  </section>
+</main>
+{site_footer()}
+{scripts()}
+</body>
+</html>"""
+    (SITE / "ai-policy").mkdir(exist_ok=True)
+    (SITE / "ai-policy" / "index.html").write_text(
+        head("Using AI on Coursework at HWS: What's Allowed | HWS AI Club",
+             "AI policy at HWS is set per course by your instructor. What usually counts as an "
+             "acceptable study aid, what counts as academic dishonesty, and when to disclose.",
+             "/ai-policy/", [crumbs]) + "\n" + body + "\n",
+        encoding="utf-8")
+
+
+def build_ai_resources_page():
+    """A maintained, answerable map of trustworthy AI help available to HWS students.
+
+    The club complements official services rather than speaking for them. Each link
+    is a first-party HWS or verified club source, so the page can support campus
+    discovery without blurring academic policy, career guidance, and club events.
+    """
+    crumbs = breadcrumb([("Home", "/"), ("AI resources at HWS", "/resources/ai-at-hws/")])
+    body = f"""<body class="view-inner">
+{site_header()}
+<main id="main" class="page">
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / AI resources at HWS</nav>
+  <h1>AI Resources for HWS Students</h1>
+  <p class="page-lede">A starting point for using AI thoughtfully at Hobart and William Smith Colleges:
+  official campus guidance, career support, library tools, and the HWS AI Club&rsquo;s hands-on community.</p>
+  <p class="policy-note"><strong>Start with your course.</strong> Your syllabus and instructor set the rules for
+  graded work. The club can help you learn tools, but it does not set college or course policy.</p>
+  <section class="sibling-majors">
+    <h2>Official HWS resources</h2>
+    <ul class="check-list">
+      <li><span class="check-dot" aria-hidden="true">&#10003;</span><a href="https://library.hws.edu/ai_tools" target="_blank" rel="noopener">HWS Library AI tools guide</a> &mdash; library-selected tools and research support.</li>
+      <li><span class="check-dot" aria-hidden="true">&#10003;</span><a href="https://careerservices.hws.edu/resources/using-ai-in-your-career-development/" target="_blank" rel="noopener">Career Services: using AI in career development</a> &mdash; practical career-search and professional-use guidance.</li>
+      <li><span class="check-dot" aria-hidden="true">&#10003;</span><a href="https://careerservices.hws.edu/channels/technology-data-artificial-science/" target="_blank" rel="noopener">Technology, Data &amp; AI career channel</a> &mdash; opportunities and career resources from HWS Career Services.</li>
+      <li><span class="check-dot" aria-hidden="true">&#10003;</span><a href="https://www.hws.edu/academics/catalogue/" target="_blank" rel="noopener">HWS academic catalogue and policies</a> &mdash; institutional reference material; confirm assignment-specific expectations with your instructor.</li>
+    </ul>
+  </section>
+  <section class="sibling-majors">
+    <h2>Learn with the club</h2>
+    <p>HWS AI Club is free, open to every major, and meets {MEETING}. Use the library for a major-specific
+    starting point, then bring questions to a workshop or the community.</p>
+    <p class="siblings"><a href="/majors/">Browse 840 AI use cases by major</a> &middot;
+    <a href="/tasks/">Browse them by task</a> &middot;
+    <a href="/ai-policy/">Read the coursework guide</a></p>
+    <p class="siblings-all"><a class="btn-primary" href="{SKOOL_URL}" target="_blank" rel="noopener" data-cta="skool-join">Join the Skool community <span aria-hidden="true">&#8599;</span></a></p>
+  </section>
+  <section class="sibling-majors">
+    <h2>How to use this page</h2>
+    <p>Use official HWS resources for institutional and course-specific guidance. Use the club&rsquo;s pages for
+    practical prompts, workshops, and peer learning. This page was last reviewed when the site was built;
+    report a stale link to the club before relying on it.</p>
+  </section>
+</main>
+{site_footer()}
+{scripts()}
+</body>
+</html>"""
+    d = SITE / "resources" / "ai-at-hws"
+    d.mkdir(parents=True, exist_ok=True)
+    (d / "index.html").write_text(
+        head("AI Resources for HWS Students | HWS AI Club",
+             "Find trustworthy AI resources for HWS students: library tools, Career Services guidance, "
+             "coursework help, practical workshops, and the HWS AI Club community.",
+             "/resources/ai-at-hws/", [crumbs]) + "\n" + body + "\n",
+        encoding="utf-8")
+
+
+# ---------------------------------------------------------------------------
+# Task hubs — the same 840 use cases, sliced by task instead of by major
+# ---------------------------------------------------------------------------
+def task_members(arch):
+    """Every use case whose archetype is `arch`, grouped by division then major.
+
+    Returns [(division, [(major_dict, [use_case, ...]), ...]), ...] in DIVISIONS
+    order, skipping divisions and majors with nothing to show."""
+    out = []
+    for label, slugs in DIVISIONS:
+        majors = []
+        for slug in slugs:
+            m = next((x for x in DATA["majors"] if x["slug"] == slug), None)
+            if not m:
+                continue
+            hits = [uc for uc in m["useCases"] if prompt_archetype(slug, uc) == arch]
+            if hits:
+                majors.append((m, hits))
+        if majors:
+            out.append((label, majors))
+    return out
+
+
+def build_task_hub(hub, prev_h, next_h):
+    arch, slug, name = hub["arch"], hub["slug"], hub["label"]
+    groups = task_members(arch)
+    total = sum(len(h) for _, ms in groups for _, h in ms)
+    n_majors = sum(len(ms) for _, ms in groups)
+    by_diff = collections.Counter(
+        uc["difficulty"] for _, ms in groups for _, hits in ms for uc in hits
+    )
+    split = ", ".join(f"{by_diff[d]} {d.lower()}" for d in ("Easy", "Medium", "Hard") if by_diff[d])
+
+    title = f"AI for {hub['label']} | HWS AI Club"
+    # Built up sentence by sentence and stopped before 160 rather than sliced, so
+    # it never truncates mid-word the way a hard [:160] does.
+    desc = f"{total} ways students in {n_majors} HWS majors use AI for {hub['gerund']}, rated Easy to Hard."
+    for extra in (hub["blurb"], "Each links a tutorial and a starter prompt."):
+        if len(desc) + 1 + len(extra) <= 160:
+            desc = f"{desc} {extra}"
+
+    sections = []
+    for label, majors in groups:
+        rows = []
+        for m, hits in majors:
+            links = " · ".join(
+                f'<a href="/majors/{m["slug"]}/#uc-{uc["number"]}">{esc(uc["title"])}</a> '
+                f'<span class="task-diff task-diff-{uc["difficulty"].lower()}">{uc["difficulty"]}</span>'
+                for uc in hits
+            )
+            rows.append(
+                f'      <li class="task-major"><a class="task-major-name" href="/majors/{m["slug"]}/">'
+                f'{esc(m["name"])}</a> <span class="task-links">{links}</span></li>'
+            )
+        sections.append(
+            f'    <h3>{esc(label)}</h3>\n    <ul class="task-list">\n' + "\n".join(rows) + "\n    </ul>"
+        )
+    body_sections = "\n".join(sections)
+
+    faq_pairs = [
+        (f"How do HWS students use AI for {hub['gerund']}?",
+         f"{total} use cases across {n_majors} of the 42 majors at {COLLEGE} come down to this one "
+         f"task — {split} by difficulty. {hub['blurb']} Every entry below links to the use case on "
+         f"its major's page, where it comes with a tutorial and a starter prompt written for that field."),
+        (f"Which AI tool is best for {hub['gerund']}?",
+         "Any of the free general-purpose assistants — ChatGPT, Claude, or Gemini — handles this. "
+         "The starter prompts here are written to work in all three, so pick whichever you already "
+         "have an account for rather than shopping for a specialist tool."),
+        (f"Is it allowed to use AI for {hub['gerund']} at HWS?",
+         "That is your professor's call and it varies by course and by assignment. Check the "
+         "syllabus first. These are study aids meant to help you learn faster, not a route to work "
+         "you submit as your own — when the syllabus does not say, ask before you use it."),
+    ]
+
+    crumbs = breadcrumb([("Home", "/"), ("AI Tasks", "/tasks/"), (name, f"/tasks/{slug}/")])
+    nav_more = ""
+    if prev_h:
+        nav_more += f'<a class="pager prev" href="/tasks/{prev_h["slug"]}/">&larr; {esc(prev_h["label"])}</a>'
+    if next_h:
+        nav_more += f'<a class="pager next" href="/tasks/{next_h["slug"]}/">{esc(next_h["label"])} &rarr;</a>'
+
+    body = f"""<body class="view-inner">
+{site_header()}
+<main id="main" class="page">
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/tasks/">AI Tasks</a> / {esc(name)}</nav>
+  <h1>{esc(hub["h1"])}</h1>
+  <p class="page-lede">{esc(hub["blurb"])} {total} use cases across {n_majors} HWS majors come down to
+  this one task &mdash; {split}. Each links straight to the card on its major&rsquo;s page, where it
+  carries a tutorial and a starter prompt already written for that field.</p>
+  <p class="policy-note"><strong>Before you use these on graded work:</strong> check your professor&rsquo;s policy on AI.
+  It differs by course, and these examples are study aids &mdash; not permission.</p>
+  <h2>Every {esc(name.lower())} use case, by division</h2>
+{body_sections}
+  <nav class="major-pager" aria-label="More tasks">{nav_more}</nav>
+{faq_html(faq_pairs, f"Questions about {esc(name.lower())} with AI")}
+  <section class="sibling-majors">
+    <h2>Other things students use AI for</h2>
+    <p class="siblings">{" · ".join(f'<a href="/tasks/{h["slug"]}/">{esc(h["label"])}</a>' for h in TASK_HUBS if h["slug"] != slug)}</p>
+    <p class="siblings-all"><a href="/majors/">Or browse AI use cases by major &rarr;</a></p>
+  </section>
+</main>
+{site_footer()}
+{scripts()}
+</body>
+</html>"""
+    d = SITE / "tasks" / slug
+    d.mkdir(parents=True, exist_ok=True)
+    (d / "index.html").write_text(
+        head(title, desc, f"/tasks/{slug}/", [crumbs])
+        + "\n" + body + "\n", encoding="utf-8")
+    return total
+
+
+def build_tasks_index():
+    title = "What Students Use AI For — 15 Tasks Across 42 Majors | HWS AI Club"
+    desc = ("Browse HWS AI Club's 840 use cases by task instead of by major — explaining concepts, "
+            "summarizing readings, studying for exams, writing code, and 11 more.")
+    cards = []
+    for h in TASK_HUBS:
+        n = sum(len(hits) for _, ms in task_members(h["arch"]) for _, hits in ms)
+        cards.append(
+            f'<a class="major-card task-card" href="/tasks/{h["slug"]}/">'
+            f'<span>{esc(h["label"])}</span>'
+            f'<span class="task-card-meta">{n} use cases</span></a>'
+        )
+    crumbs = breadcrumb([("Home", "/"), ("AI Tasks", "/tasks/")])
+    body = f"""<body class="view-inner">
+{site_header()}
+<main id="main" class="page">
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / AI Tasks</nav>
+  <h1>What HWS Students Actually Use AI For</h1>
+  <p class="page-lede">The use-case library is organised by major, but most people arrive with a task
+  in mind rather than a department. These {len(TASK_HUBS)} pages cut the same 840 use cases the other
+  way &mdash; every major&rsquo;s take on the same job, side by side.</p>
+  <div class="majors-grid">
+{chr(10).join("    " + c for c in cards)}
+  </div>
+  <section class="sibling-majors">
+    <h2>Prefer to browse by subject?</h2>
+    <p class="siblings-all"><a href="/majors/">AI use cases for all 42 HWS majors &rarr;</a></p>
+  </section>
+</main>
+{site_footer()}
+{scripts()}
+</body>
+</html>"""
+    (SITE / "tasks").mkdir(exist_ok=True)
+    (SITE / "tasks" / "index.html").write_text(
+        head(title, desc, "/tasks/", [crumbs]) + "\n" + body + "\n", encoding="utf-8")
 
 
 # ---------------------------------------------------------------------------
@@ -1137,7 +1564,9 @@ def build_major(m, prev_m, next_m):
 # ---------------------------------------------------------------------------
 def build_founder(f, others):
     slug, name = f["slug"], f["name"]
-    title = f"{name} — {f['role']}, HWS AI Club | {COLLEGE}"
+    title = f"{name} | HWS AI Club"
+    description = (f"Meet {name}, {f['role']} of HWS AI Club, and learn about the student-led "
+                   "organization's practical AI resources for HWS students.")
     affiliation = [{"@id": ORG_ID}]
     if f.get("school"):  # currently enrolled — affiliation, not alumniOf
         affiliation.append({"@type": "CollegeOrUniversity", "name": f["school"][0], "url": f["school"][1]})
@@ -1154,7 +1583,6 @@ def build_founder(f, others):
         "jobTitle": f["role"],
         "description": f["meta"],
         "affiliation": affiliation if len(affiliation) > 1 else affiliation[0],
-        "alumniOf": COLLEGE_NODE,
         "sameAs": [url for _, url in f["links"] if url not in ORG_URLS],
     }
     if works:
@@ -1258,7 +1686,7 @@ def build_founder(f, others):
     d = SITE / "founders" / slug
     d.mkdir(parents=True, exist_ok=True)
     (d / "index.html").write_text(
-        head(title, f["meta"], f"/founders/{slug}/", [crumbs, person]) + "\n" + body + "\n",
+        head(title, description, f"/founders/{slug}/", [crumbs, person]) + "\n" + body + "\n",
         encoding="utf-8",
     )
 
@@ -1294,6 +1722,7 @@ def build_llms_txt():
     + sitemap.xml but in a format meant to be read, not just crawled."""
     majors = "\n".join(f"- [{m['name']}]({BASE_URL}/majors/{m['slug']}/)" for m in DATA["majors"])
     founders = "\n".join(f"- [{f['name']}, {f['role']}]({BASE_URL}/founders/{f['slug']}/)" for f in FOUNDERS)
+    tasks = "\n".join(f"- [{h['label']}]({BASE_URL}/tasks/{h['slug']}/): {h['blurb']}" for h in TASK_HUBS)
     text = f"""# HWS AI Club
 
 > Student-run AI literacy club at {COLLEGE} (HWS) in {LOCATION}. Free and open to \
@@ -1307,7 +1736,16 @@ specific tutorial video and includes a ready-to-paste starter prompt.
 
 - [Homepage]({BASE_URL}/): what the club does, the team, and how to join.
 - [All Majors]({BASE_URL}/majors/): directory of all 42 majors with AI use cases.
+- [AI Tasks]({BASE_URL}/tasks/): the same 840 use cases grouped by task rather than by major.
+- [AI resources at HWS]({BASE_URL}/resources/ai-at-hws/): official campus resources alongside club workshops and practical guides.
+- [FAQ]({BASE_URL}/faq/): what the club is, when it meets, what it costs, what you need.
+- [AI and coursework]({BASE_URL}/ai-policy/): what is and isn't allowed academically, and why \
+that is set per course by the instructor rather than college-wide.
 - [Sitemap]({BASE_URL}/sitemap.xml)
+
+## Tasks
+
+{tasks}
 
 ## Majors
 
@@ -1339,6 +1777,10 @@ def build_sitemap():
     pages = [("/", SITE / "index.html")]
     pages += [("/majors/", SITE / "majors" / "index.html")]
     pages += [(f"/majors/{m['slug']}/", SITE / "majors" / m["slug"] / "index.html") for m in DATA["majors"]]
+    pages += [("/tasks/", SITE / "tasks" / "index.html")]
+    pages += [(f"/tasks/{h['slug']}/", SITE / "tasks" / h["slug"] / "index.html") for h in TASK_HUBS]
+    pages += [("/resources/ai-at-hws/", SITE / "resources" / "ai-at-hws" / "index.html"),
+              ("/faq/", SITE / "faq" / "index.html"), ("/ai-policy/", SITE / "ai-policy" / "index.html")]
     pages += [(f"/founders/{f['slug']}/", SITE / "founders" / f["slug"] / "index.html") for f in FOUNDERS]
 
     try:
@@ -1594,6 +2036,13 @@ def main():
     majors = DATA["majors"]
     for i, m in enumerate(majors):
         build_major(m, majors[i - 1] if i > 0 else None, majors[i + 1] if i + 1 < len(majors) else None)
+    build_tasks_index()
+    for i, h in enumerate(TASK_HUBS):
+        build_task_hub(h, TASK_HUBS[i - 1] if i > 0 else None,
+                       TASK_HUBS[i + 1] if i + 1 < len(TASK_HUBS) else None)
+    build_faq_page()
+    build_ai_policy_page()
+    build_ai_resources_page()
     for f in FOUNDERS:
         build_founder(f, [o for o in FOUNDERS if o["slug"] != f["slug"]])
     build_robots()
@@ -1619,8 +2068,16 @@ def main():
         assert (SITE / "majors" / m["slug"] / "index.html").exists()
     for f in FOUNDERS:
         assert (SITE / "founders" / f["slug"] / "index.html").exists()
+    for h in TASK_HUBS:
+        assert (SITE / "tasks" / h["slug"] / "index.html").exists()
+    for p in ("tasks/index.html", "resources/ai-at-hws/index.html", "faq/index.html", "ai-policy/index.html"):
+        assert (SITE / p).exists(), f"missing {p}"
+    # Every task hub must resolve to a real archetype, or it would render empty.
+    for h in TASK_HUBS:
+        assert task_members(h["arch"]), f"task hub '{h['slug']}' matched no use cases"
     print("HWS AI Club static build complete")
     print(f"  homepage + majors index + {len(majors)} major pages + {len(FOUNDERS)} founder pages")
+    print(f"  tasks index + {len(TASK_HUBS)} task hubs + AI resources + faq + ai-policy")
     print(f"  sitemap: {n} urls | robots.txt (+ AI bot allow rules), llms.txt, _headers written")
     print(f"  js/videos.js regenerated from config | og-image: {og} | favicons: {ico} | manifest written")
 

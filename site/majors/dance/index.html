@@ -14,26 +14,31 @@
       if (p === '/') return 'home';
       if (p === '/majors/') return 'majors_index';
       if (p.indexOf('/majors/') === 0) return 'major_page';
+      if (p === '/tasks/') return 'tasks_index';
+      if (p.indexOf('/tasks/') === 0) return 'task_page';
       if (p.indexOf('/founders/') === 0) return 'founder_page';
+      if (p === '/resources/ai-at-hws/') return 'ai_resources';
+      if (p === '/faq/') return 'faq';
+      if (p === '/ai-policy/') return 'ai_policy';
       return 'other';
     })()
   });
 </script>
-<title>AI Use Cases for Dance Majors | HWS AI Club</title>
+<title>AI for Dance Students | HWS AI Club</title>
 <meta name="description" content="20 AI use cases for Dance students at HWS, Easy to Hard — each with a tutorial and a starter prompt. Try: Explain a dance term.">
-<link rel="canonical" href="https://hws-ai-club.netlify.app/majors/dance/">
+<link rel="canonical" href="https://www.hwsaiclub.com/majors/dance/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="author" content="HWS AI Club">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="HWS AI Club">
-<meta property="og:title" content="AI Use Cases for Dance Majors | HWS AI Club">
+<meta property="og:title" content="AI for Dance Students | HWS AI Club">
 <meta property="og:description" content="20 AI use cases for Dance students at HWS, Easy to Hard — each with a tutorial and a starter prompt. Try: Explain a dance term.">
-<meta property="og:url" content="https://hws-ai-club.netlify.app/majors/dance/">
-<meta property="og:image" content="https://hws-ai-club.netlify.app/og-image.png">
+<meta property="og:url" content="https://www.hwsaiclub.com/majors/dance/">
+<meta property="og:image" content="https://www.hwsaiclub.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="AI Use Cases for Dance Majors | HWS AI Club">
+<meta name="twitter:title" content="AI for Dance Students | HWS AI Club">
 <meta name="twitter:description" content="20 AI use cases for Dance students at HWS, Easy to Hard — each with a tutorial and a starter prompt. Try: Explain a dance term.">
-<meta name="twitter:image" content="https://hws-ai-club.netlify.app/og-image.png">
+<meta name="twitter:image" content="https://www.hwsaiclub.com/og-image.png">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
@@ -43,9 +48,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/styles.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://hws-ai-club.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "All Majors", "item": "https://hws-ai-club.netlify.app/majors/"}, {"@type": "ListItem", "position": 3, "name": "Dance", "item": "https://hws-ai-club.netlify.app/majors/dance/"}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "AI Use Cases for Dance at HWS", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Explain a dance term", "description": "Define terms like port de bras or contraction clearly. The linked tutorial covers a 10-step ChatGPT prompt system — standard definition, an explain-it-to-a-10-year-old version, real-life analogies, a simple diagram, then a comparison table — that you aim at any concept you're stuck on, and the starter prompt below already frames it for Dance."}, {"@type": "ListItem", "position": 2, "name": "Summarize a dance reading", "description": "Condense an article on Merce Cunningham's technique. The linked tutorial covers MacMost's copy-paste method — pull an article into reader view, paste it into ChatGPT after 'summarize this:', then ask for a set word count or a 10-bullet version; also how to grab a YouTube transcript to summarise a video, and the starter prompt below already frames it for Dance."}, {"@type": "ListItem", "position": 3, "name": "Brainstorm choreography themes", "description": "Generate concept ideas for a student dance piece. The linked tutorial covers three brainstorming methods in ChatGPT — a reusable custom-instructions 'brainstorm paradigm', an AI-diagram tree that fans one topic into dozens of branches, and a SWOT prompt to pressure-test an idea, and the starter prompt below already frames it for Dance."}, {"@type": "ListItem", "position": 4, "name": "Explain a historical style", "description": "Summarize how postmodern dance broke from ballet conventions. The linked tutorial covers a 10-step ChatGPT prompt system — standard definition, an explain-it-to-a-10-year-old version, real-life analogies, a simple diagram, then a comparison table — that you aim at any concept you're stuck on, and the starter prompt below already frames it for Dance."}, {"@type": "ListItem", "position": 5, "name": "Draft a program note", "description": "Write a short audience description of a performance piece. The linked tutorial covers AI Academy's approach to long-form writing: never ask for the whole essay at once — break it into smaller prompts across two tabs and a document so you keep control of the argument, and the starter prompt below already frames it for Dance."}, {"@type": "ListItem", "position": 6, "name": "Suggest music options", "description": "Recommend musical styles that fit a given movement quality. The linked tutorial covers three brainstorming methods in ChatGPT — a reusable custom-instructions 'brainstorm paradigm', an AI-diagram tree that fans one topic into dozens of branches, and a SWOT prompt to pressure-test an idea, and the starter prompt below already frames it for Dance."}, {"@type": "ListItem", "position": 7, "name": "Define anatomy terms", "description": "Explain muscles and joints involved in a plie. The linked tutorial covers ChatGPT's Study Mode (type /study), an interactive tutor that guides you with questions step by step instead of just handing over the answer, and the starter prompt below already frames it for Dance."}, {"@type": "ListItem", "position": 8, "name": "Create rehearsal reminders", "description": "Draft a checklist and schedule note for cast members. The linked tutorial covers the fundamentals of ChatGPT — prompting basics, what it can and can't do, and how to personalise it, and the starter prompt below already frames it for Dance."}, {"@type": "ListItem", "position": 9, "name": "Draft an email to a guest artist", "description": "Write a professional invitation for a masterclass. The linked tutorial covers drafting an email in ChatGPT and improving it through conversation — the first draft is deliberately generic, then detail is added turn by turn — plus what not to paste in for privacy, and the starter prompt below already frames it for Dance."}, {"@type": "ListItem", "position": 10, "name": "Explain Laban concepts", "description": "Clarify effort qualities like weight, time, and flow. The linked tutorial covers a 10-step ChatGPT prompt system — standard definition, an explain-it-to-a-10-year-old version, real-life analogies, a simple diagram, then a comparison table — that you aim at any concept you're stuck on, and the starter prompt below already frames it for Dance."}, {"@type": "ListItem", "position": 11, "name": "Plan a rehearsal schedule", "description": "Structure multi-week rehearsals across sections and cast availability. The linked tutorial covers ChatGPT Projects as a workspace — turning a rough idea into a full plan with timelines, task assignments and a risk assessment that stays organised across sessions, and the starter prompt below already frames it for Dance."}, {"@type": "ListItem", "position": 12, "name": "Analyze a performance", "description": "Synthesize movement, music, and staging into a critique essay. The linked tutorial covers AI Academy's approach to long-form writing: never ask for the whole essay at once — break it into smaller prompts across two tabs and a document so you keep control of the argument, and the starter prompt below already frames it for Dance."}, {"@type": "ListItem", "position": 13, "name": "Compare choreographers", "description": "Contrast the methods and philosophies of two major artists. The linked tutorial covers a compare-and-contrast prompt in ChatGPT (demonstrated on Buddhism vs Hinduism) that asks for similarities and differences, then expands any point you want more depth on, and the starter prompt below already frames it for Dance."}, {"@type": "ListItem", "position": 14, "name": "Build a movement research project", "description": "Plan phases for exploring a theme through improvisation. The linked tutorial covers ChatGPT Projects as a workspace — turning a rough idea into a full plan with timelines, task assignments and a risk assessment that stays organised across sessions, and the starter prompt below already frames it for Dance."}, {"@type": "ListItem", "position": 15, "name": "Design injury-prevention guidance", "description": "Combine anatomy sources into a conditioning routine outline. The linked tutorial covers using ChatGPT across the research-paper workflow — finding a topic where a genuine gap exists, then structuring the paper around it, and the starter prompt below already frames it for Dance."}, {"@type": "ListItem", "position": 16, "name": "Draft a grant proposal", "description": "Organize goals, budget, and narrative for a performance grant. The linked tutorial covers AI Academy's approach to long-form writing: never ask for the whole essay at once — break it into smaller prompts across two tabs and a document so you keep control of the argument, and the starter prompt below already frames it for Dance."}, {"@type": "ListItem", "position": 17, "name": "Analyze motion capture data", "description": "Code and debug a script to quantify movement patterns. The linked tutorial covers pasting a broken snippet into ChatGPT with the prompt 'scan the following code for potential problems' — it finds the bug (a divide-by-zero), explains why it happens and returns a fixed version, and the starter prompt below already frames it for Dance."}, {"@type": "ListItem", "position": 18, "name": "Design a dance research study", "description": "Plan methodology to assess audience response to choreography. The linked tutorial covers designing a study end-to-end in ChatGPT — research questions, hypotheses, survey items, sample size and sampling method, R code for the analysis, then implications and titles, and the starter prompt below already frames it for Dance."}, {"@type": "ListItem", "position": 19, "name": "Build a Labanotation tool", "description": "Prototype and test software to encode notation symbols. The linked tutorial covers pasting a broken snippet into ChatGPT with the prompt 'scan the following code for potential problems' — it finds the bug (a divide-by-zero), explains why it happens and returns a fixed version, and the starter prompt below already frames it for Dance."}, {"@type": "ListItem", "position": 20, "name": "Model biomechanics of a jump", "description": "Simulate forces on joints and verify against kinesiology data. The linked tutorial covers dragging a dataset straight into ChatGPT and prompting it to describe the data, produce descriptive statistics per column, and chart the columns you care about, and the starter prompt below already frames it for Dance."}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How can Dance students use AI at HWS?", "acceptedAnswer": {"@type": "Answer", "text": "This page lists 20 practical AI use cases written specifically for Dance students at Hobart and William Smith Colleges — 10 easy, 6 medium, 4 hard by difficulty. They range from everyday coursework help such as explain a dance term and summarize a dance reading through to project-scale work like model biomechanics of a jump. Each one comes with a starter prompt you can paste straight into ChatGPT, Claude, or Gemini."}}, {"@type": "Question", "name": "Which AI use cases should a Dance major try first?", "acceptedAnswer": {"@type": "Answer", "text": "Start with the 10 rated Easy — they need no setup and work on the first try. For Dance that means explain a dance term, summarize a dance reading and brainstorm choreography themes. Once those feel routine, move up to the Medium tier, which includes plan a rehearsal schedule and analyze a performance."}}, {"@type": "Question", "name": "What do I need to start using AI as a Dance student?", "acceptedAnswer": {"@type": "Answer", "text": "A free account with ChatGPT, Claude, or Gemini is the whole list — no coding, no paid subscription, and nothing to install. The 20 Dance use cases here draw on 13 tutorial videos between them, and each card ships with a starter prompt already framed for Dance coursework, so the first thing you do is paste, not write."}}, {"@type": "Question", "name": "Is it OK to use AI for Dance coursework at HWS?", "acceptedAnswer": {"@type": "Answer", "text": "Your Dance professor decides, and the answer changes from course to course and even between assignments — so read the syllabus before any of this touches graded work. Everything on this page is a study aid: a use case like \"Model biomechanics of a jump\" exists to get you through Dance material faster, not to produce something you submit as your own. If the syllabus is silent, ask before you use it."}}], "@id": "https://hws-ai-club.netlify.app/majors/dance/#faq"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.hwsaiclub.com/"}, {"@type": "ListItem", "position": 2, "name": "All Majors", "item": "https://www.hwsaiclub.com/majors/"}, {"@type": "ListItem", "position": 3, "name": "Dance", "item": "https://www.hwsaiclub.com/majors/dance/"}]}</script>
 </head>
 <body class="view-inner">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -57,11 +60,12 @@
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="/#about">About</a>
-      <a href="/#team">Team</a>
-      <a href="/majors/">Use Cases</a>
-      <a href="/#community">Community</a>
+      <a href="/majors/">By Major</a>
+      <a href="/tasks/">By Task</a>
+      <a href="/resources/ai-at-hws/">Resources</a>
+      <a href="/faq/">FAQ</a>
       <a href="/#founders">Meet The Founders</a>
-      <a class="nav-cta" href="/#join" data-cta="nav-join">Join Us</a>
+      <a class="nav-cta" href="https://www.skool.com/hws-ai-club-7506" target="_blank" rel="noopener" data-cta="skool-join">Join Us</a>
     </nav>
   </div>
 </header>
@@ -225,7 +229,11 @@ Keep the terminology, examples, and level of detail appropriate for an undergrad
       <a href="/#about">About</a>
       <a href="/#join">Events</a>
       <a href="/#team">Team</a>
-      <a href="/majors/">Use Cases</a>
+      <a href="/majors/">By Major</a>
+      <a href="/tasks/">By Task</a>
+      <a href="/resources/ai-at-hws/">Resources</a>
+      <a href="/faq/">FAQ</a>
+      <a href="/ai-policy/">AI &amp; Coursework</a>
       <a href="/#community">Community</a>
       <a href="/#founders">Meet The Founders</a>
     </nav>
