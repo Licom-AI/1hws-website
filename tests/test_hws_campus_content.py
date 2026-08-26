@@ -98,8 +98,16 @@ class GeneratedCampusHubTests(unittest.TestCase):
             "Upcoming HWS events",
             'id="event-search"',
             'id="event-category"',
-            'id="event-date"',
-            'id="events-load-more"',
+            'id="events-calendar"',
+            'id="calendar-prev"',
+            'id="calendar-today"',
+            'id="calendar-next"',
+            'id="calendar-month-label"',
+            'id="calendar-grid"',
+            'id="events-mobile-agenda"',
+            'id="event-dialog"',
+            'id="event-dialog-close"',
+            'class="event-fallback-agenda"',
             "HWS clubs and organizations",
             'id="club-search"',
             'id="club-category"',
@@ -110,6 +118,16 @@ class GeneratedCampusHubTests(unittest.TestCase):
             'src="/js/campus-hub.js"',
         ):
             self.assertIn(expected, self.page)
+        self.assertNotIn('id="event-date"', self.page)
+        self.assertNotIn('id="events-load-more"', self.page)
+
+    def test_calendar_comes_before_club_meeting(self):
+        calendar_pos = self.page.index('id="upcoming-hws-events"')
+        club_meeting_pos = self.page.index('id="ai-club-meeting"')
+        self.assertLess(calendar_pos, club_meeting_pos)
+
+    def test_static_fallback_contains_exactly_twenty_four_events(self):
+        self.assertEqual(24, self.page.count('class="event-fallback-item"'))
 
     def test_club_mirror_is_permission_gated_by_default(self):
         config = json.loads((ROOT / "site" / "data" / "hws-content-config.json").read_text(encoding="utf-8"))
@@ -132,6 +150,34 @@ class GeneratedCampusHubTests(unittest.TestCase):
         self.assertNotIn(".innerHTML", javascript)
         self.assertIn("textContent", javascript)
         self.assertIn("AbortController", javascript)
+
+    def test_runtime_has_calendar_dialog_and_progressive_enhancement_contracts(self):
+        javascript = (ROOT / "site" / "js" / "campus-hub.js").read_text(encoding="utf-8")
+        for expected in (
+            "showModal",
+            'event.key === "Escape"',
+            "dialogOpener.focus",
+            'filter_type: "month_navigation"',
+            "active_month",
+            "renderMobileAgenda",
+            "renderMonthGrid",
+            "eventDayKeys",
+            "mondayFirstMonthMatrix",
+            "shiftMonth",
+            "trapFallbackFocus",
+            'classList.add("calendar-enhanced")',
+        ):
+            self.assertIn(expected, javascript)
+
+        accepted_pos = javascript.index('classList.add("calendar-enhanced")')
+        set_events_pos = javascript.index("function setEvents")
+        self.assertGreater(accepted_pos, set_events_pos)
+
+    def test_runtime_documents_inclusive_and_exclusive_date_placement(self):
+        javascript = (ROOT / "site" / "js" / "campus-hub.js").read_text(encoding="utf-8")
+        self.assertIn("all-day end dates are inclusive", javascript)
+        self.assertIn("timed end dates are exclusive", javascript)
+        self.assertIn("end.getTime() - 1", javascript)
 
 
 if __name__ == "__main__":
