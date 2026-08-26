@@ -7,6 +7,7 @@ robots.txt, sitemap.xml, _headers, og-image, and the runtime js/videos.js.
 
 Run:  python3 scripts/build_site.py
 """
+import hashlib
 import html
 import json
 import re
@@ -50,8 +51,9 @@ ORG_SAME_AS = [
 # taxonomy and which events are configured as GA4 conversions.
 GA_MEASUREMENT_ID = "G-0S5QWRS2Q6"
 
-# Loaded first in <head>, per Google's own placement guidance, so pageviews are
-# never missed on a fast-loading static page. content_group is computed from the
+# Loaded early in <head> so pageviews are never missed on a fast-loading static
+# page — but after <meta charset>, which the HTML spec wants within the first
+# 1024 bytes. content_group is computed from the
 # URL rather than threaded through every head() call site, so it stays a
 # one-line addition here instead of touching every page builder.
 GA_SNIPPET = f"""<script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
@@ -83,6 +85,11 @@ AI_BOTS = [
     "Applebot-Extended",                          # Apple Intelligence
     "cohere-ai",                                  # Cohere
     "CCBot",                                      # Common Crawl (widely used for LLM training)
+    "Amazonbot",                                  # Amazon / Alexa
+    "meta-externalagent",                         # Meta AI
+    "Bytespider",                                 # ByteDance / Doubao
+    "YouBot",                                     # You.com
+    "DuckAssistBot",                              # DuckDuckGo AI assist
 ]
 
 # The club's community hub. SKOOL_MEMBERS is shown on the homepage as social
@@ -529,9 +536,9 @@ def head(title, description, canonical_path, jsonld):
     return f"""<!doctype html>
 <html lang="en">
 <head>
-{GA_SNIPPET}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{GA_SNIPPET}
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(description)}">
 <link rel="canonical" href="{esc(canonical)}">
@@ -610,7 +617,7 @@ def site_footer():
 
 
 def scripts():
-    return '<script src="/js/site.js"></script>'
+    return '<script src="/js/site.js" defer></script>'
 
 
 # Stable @id anchors. Every JSON-LD node the site emits more than once refers to
@@ -704,13 +711,19 @@ def founder_photo(f):
     return None
 
 
-def founder_avatar(f, extra_class=""):
-    """Photo if one exists, else the initials tile. Same shape either way."""
+def founder_avatar(f, extra_class="", eager=False):
+    """Photo if one exists, else the initials tile. Same shape either way.
+
+    eager=True is for the founder-page hero, which is the LCP element on that
+    page — lazy-loading it defers the largest paint behind the rest of the page.
+    Everywhere else the avatar is below the fold and stays lazy."""
     cls = f"team-avatar {extra_class} {f['avatar']}".strip()
     photo = founder_photo(f)
     if photo:
+        loading = ('loading="eager" fetchpriority="high"' if eager
+                   else 'loading="lazy" fetchpriority="auto"')
         return (f'<img class="{cls} founder-photo" src="{photo}" alt="{esc(f["name"])}" '
-                f'width="256" height="256" loading="lazy" decoding="async">')
+                f'width="256" height="256" {loading} decoding="async">')
     return f'<span class="{cls}" aria-hidden="true">{f["initials"]}</span>'
 
 
@@ -1209,7 +1222,7 @@ def build_founder(f, others):
 <main id="main" class="page">
   <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / {esc(name)}</nav>
   <div class="founder-hero">
-    {founder_avatar(f, "founder-avatar")}
+    {founder_avatar(f, "founder-avatar", eager=True)}
     <div>
       <h1>{esc(name)}</h1>
       <p class="founder-subtitle">{f["subtitle"]}</p>
@@ -1253,11 +1266,24 @@ def build_founder(f, others):
 # ---------------------------------------------------------------------------
 # robots / sitemap / headers / og-image / videos.js
 # ---------------------------------------------------------------------------
+DISALLOW = ["/showcase.html", "/data.json", "/data/"]
+
+
 def build_robots():
-    lines = ["User-agent: *", "Allow: /", "Disallow: /showcase.html",
-              "Disallow: /data.json", "Disallow: /data/videos-config.json", ""]
+    """robots.txt.
+
+    The disallow list is repeated inside every named group on purpose. A crawler
+    obeys exactly one group — the most specific one matching its token — and
+    ignores the rest, so the AI bots below were previously matching their own
+    "Allow: /" group and never seeing the * group's Disallow lines at all. The
+    effect was the opposite of what naming them was meant to achieve.
+    """
+    def group(agent):
+        return [f"User-agent: {agent}", "Allow: /"] + [f"Disallow: {p}" for p in DISALLOW] + [""]
+
+    lines = group("*")
     for bot in AI_BOTS:
-        lines += [f"User-agent: {bot}", "Allow: /", ""]
+        lines += group(bot)
     lines.append("Sitemap: " + BASE_URL + "/sitemap.xml")
     (SITE / "robots.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
@@ -1294,25 +1320,76 @@ specific tutorial video and includes a ready-to-paste starter prompt.
     (SITE / "llms.txt").write_text(text, encoding="utf-8")
 
 
+LASTMOD_DB = SITE / "data" / "lastmod.json"
+
+
 def build_sitemap():
-    urls = [("/", "1.0"), ("/majors/", "0.9")]
-    urls += [(f"/majors/{m['slug']}/", "0.8") for m in DATA["majors"]]
-    urls += [(f"/founders/{f['slug']}/", "0.6") for f in FOUNDERS]
-    items = "\n".join(
-        f"  <url><loc>{BASE_URL}{p}</loc><lastmod>{BUILD_DATE}</lastmod><priority>{pr}</priority></url>"
-        for p, pr in urls
-    )
+    """Sitemap with per-page lastmod derived from each page's own content hash.
+
+    lastmod used to be date.today() on every URL, which meant all 46 dates
+    changed on every build regardless of whether anything changed. Google ignores
+    a blanket-uniform lastmod, so the signal was dead — and it also meant the
+    build was not idempotent across days, breaking the repo's own no-diff check.
+
+    Here each page's rendered bytes are hashed and the date is only advanced when
+    that hash actually moves. The map is committed alongside the site so the date
+    survives across machines and CI. <priority> is gone: Google has said for years
+    that it ignores it.
+    """
+    pages = [("/", SITE / "index.html")]
+    pages += [("/majors/", SITE / "majors" / "index.html")]
+    pages += [(f"/majors/{m['slug']}/", SITE / "majors" / m["slug"] / "index.html") for m in DATA["majors"]]
+    pages += [(f"/founders/{f['slug']}/", SITE / "founders" / f["slug"] / "index.html") for f in FOUNDERS]
+
+    try:
+        db = json.loads(LASTMOD_DB.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        db = {}
+
+    out = {}
+    items = []
+    for path, fp in pages:
+        digest = hashlib.sha256(fp.read_bytes()).hexdigest()[:16] if fp.exists() else ""
+        prev = db.get(path)
+        # Same content as last build → keep the date it already had.
+        date_str = prev["date"] if prev and prev.get("hash") == digest else BUILD_DATE
+        out[path] = {"hash": digest, "date": date_str}
+        items.append(f"  <url><loc>{BASE_URL}{path}</loc><lastmod>{date_str}</lastmod></url>")
+
+    LASTMOD_DB.parent.mkdir(parents=True, exist_ok=True)
+    LASTMOD_DB.write_text(json.dumps(out, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     (SITE / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + items + "\n</urlset>\n",
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "\n".join(items) + "\n</urlset>\n",
         encoding="utf-8",
     )
-    return len(urls)
+    return len(items)
 
 
 def build_headers():
+    """Netlify _headers. Long-lived immutable caching is deliberately NOT set on
+    /css/ and /js/ — those filenames carry no content hash, so a year-long
+    immutable cache would strand visitors on stale CSS after a deploy. The
+    fingerprinted image assets are safe to cache hard."""
     (SITE / "_headers").write_text(
-        "/*\n  X-Robots-Tag: all\n\n/showcase.html\n  X-Robots-Tag: noindex\n", encoding="utf-8"
+        "/*\n"
+        "  X-Robots-Tag: all\n"
+        "  X-Content-Type-Options: nosniff\n"
+        "  Referrer-Policy: strict-origin-when-cross-origin\n"
+        "  Strict-Transport-Security: max-age=31536000; includeSubDomains\n"
+        "\n"
+        "/assets/*\n"
+        "  Cache-Control: public, max-age=604800\n"
+        "\n"
+        "/css/*\n"
+        "  Cache-Control: public, max-age=3600, must-revalidate\n"
+        "\n"
+        "/js/*\n"
+        "  Cache-Control: public, max-age=3600, must-revalidate\n"
+        "\n"
+        "/showcase.html\n"
+        "  X-Robots-Tag: noindex\n",
+        encoding="utf-8",
     )
 
 

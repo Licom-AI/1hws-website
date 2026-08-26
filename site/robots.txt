@@ -2,39 +2,102 @@ User-agent: *
 Allow: /
 Disallow: /showcase.html
 Disallow: /data.json
-Disallow: /data/videos-config.json
+Disallow: /data/
 
 User-agent: GPTBot
 Allow: /
+Disallow: /showcase.html
+Disallow: /data.json
+Disallow: /data/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /showcase.html
+Disallow: /data.json
+Disallow: /data/
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /showcase.html
+Disallow: /data.json
+Disallow: /data/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /showcase.html
+Disallow: /data.json
+Disallow: /data/
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /showcase.html
+Disallow: /data.json
+Disallow: /data/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /showcase.html
+Disallow: /data.json
+Disallow: /data/
 
 User-agent: Perplexity-User
 Allow: /
+Disallow: /showcase.html
+Disallow: /data.json
+Disallow: /data/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /showcase.html
+Disallow: /data.json
+Disallow: /data/
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /showcase.html
+Disallow: /data.json
+Disallow: /data/
 
 User-agent: cohere-ai
 Allow: /
+Disallow: /showcase.html
+Disallow: /data.json
+Disallow: /data/
 
 User-agent: CCBot
 Allow: /
+Disallow: /showcase.html
+Disallow: /data.json
+Disallow: /data/
+
+User-agent: Amazonbot
+Allow: /
+Disallow: /showcase.html
+Disallow: /data.json
+Disallow: /data/
+
+User-agent: meta-externalagent
+Allow: /
+Disallow: /showcase.html
+Disallow: /data.json
+Disallow: /data/
+
+User-agent: Bytespider
+Allow: /
+Disallow: /showcase.html
+Disallow: /data.json
+Disallow: /data/
+
+User-agent: YouBot
+Allow: /
+Disallow: /showcase.html
+Disallow: /data.json
+Disallow: /data/
+
+User-agent: DuckAssistBot
+Allow: /
+Disallow: /showcase.html
+Disallow: /data.json
+Disallow: /data/
 
 Sitemap: https://hws-ai-club.netlify.app/sitemap.xml
