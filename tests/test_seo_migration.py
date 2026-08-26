@@ -82,6 +82,19 @@ class SeoMigrationSourceTests(unittest.TestCase):
         self.assertIn("https://www.hws.edu/offices/student-engagement/clubs-and-organizations.aspx", events)
         self.assertIn('data-cta="skool-join"', events)
 
+    def test_applicable_hws_keyword_clusters_have_one_clear_destination(self):
+        faq = (ROOT / "site" / "faq" / "index.html").read_text(encoding="utf-8")
+        majors = (ROOT / "site" / "majors" / "index.html").read_text(encoding="utf-8")
+        biology = (ROOT / "site" / "majors" / "biology" / "index.html").read_text(encoding="utf-8")
+        resources = (ROOT / "site" / "resources" / "ai-at-hws" / "index.html").read_text(encoding="utf-8")
+
+        self.assertIn("How do I join the HWS AI Club?", faq)
+        self.assertIn("<title>AI for HWS Students by Major | HWS AI Club</title>", majors)
+        self.assertIn("<h1>AI for HWS Students by Major</h1>", majors)
+        self.assertIn("<title>AI for Biology Students at HWS | HWS AI Club</title>", biology)
+        self.assertIn("<h1>AI Use Cases for Biology at HWS</h1>", biology)
+        self.assertIn("<title>AI Resources for HWS Students | HWS AI Club</title>", resources)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -208,3 +208,38 @@ improvement.
 
 OpenSEO keyword research and SERP checks were performed for this document on August 26,
 2026. No website files were changed during the research phase; subsequent implementation is tracked separately in `scripts/build_site.py` and verified through a fresh build.
+
+## Applicable keyword coverage audit - August 26, 2026
+
+This audit clusters closely related searches by intent and assigns each cluster to one
+primary page. The wording below is an on-page optimization decision, not evidence of
+rankings or guaranteed traffic. Search-volume figures remain limited to the OpenSEO
+evidence reported above; no volume has been invented for the club-specific variants.
+
+| Keyword cluster | Primary page | On-page coverage | Status |
+| --- | --- | --- | --- |
+| `HWS AI Club`, `Hobart and William Smith AI Club`, `HWS AI Club student organization` | `/` | Full-name title, clear HWS affiliation, student-organization definition, Geneva location, eligibility, workshops, and direct Skool CTA | Optimized |
+| `how to join the HWS AI Club`, membership eligibility | `/faq/` | Exact visible question, concise joining answer, cost, experience, meeting, and eligibility details | Optimized |
+| `HWS AI Club meetings`, `HWS AI Club workshops`, `HWS AI Club events` | `/events/` | Weekly meeting name, current schedule and location, beginner-friendly workshop description, and Skool CTA | Optimized |
+| `hws events`, `hws events calendar` | `/events/` | Exact title/H1 theme, searchable official event snapshot, dates, locations, categories, attribution, and official source links | Optimized |
+| `hws academic calendar`, `hobart and william smith academic calendar` | Official HWS academic calendar, linked from `/events/` | Direct-answer distinction and prominent official link; the club site does not claim to own academic deadlines | Routed, not targeted as the authoritative result |
+| `hws clubs`, `HWS student organizations`, `HWS student activities` | Official HWS directory, linked from `/events/` | Visible clubs/activities answer and official directory route; permission-gated local listing avoids unsupported republication | Routed, with supporting coverage |
+| `AI resources for HWS students` | `/resources/ai-at-hws/` | Exact title/H1, cited HWS Library and Career Services resources, workshops, meeting details, and policy disclaimer | Optimized |
+| `AI for [major] students at HWS` | `/majors/<major>/` | Exact per-major title pattern, HWS-qualified H1/body copy, 20 distinct use cases, tutorials, prompts, and responsible-use guidance | Optimized |
+| `AI for HWS students by major` | `/majors/` | Exact title/H1 and links to all 42 major-specific pages | Optimized |
+
+### Intentionally excluded from optimization
+
+The site should not create copy or pages for high-volume but off-intent institutional
+queries such as acceptance rate, tuition, PeopleSoft, campus maps, housing, admissions,
+athletics team schedules, or celebrity/guest names. Those searches need authoritative
+HWS service pages, and forcing them onto an AI-club site would create weak relevance,
+mislead users, and dilute the pages that can realistically rank.
+
+### Verification contract
+
+The coverage above is generated from `scripts/build_site.py`, not hand-edited in
+`site/`. Regression tests check the primary titles, headings, direct answers, official
+routes, and metadata-length limits. Reassess the map with first-party query data once
+Google Search Console is connected inside OpenSEO; until then, "Optimized" means the
+page is aligned to the documented intent, not that a ranking outcome has been observed.

@@ -775,8 +775,8 @@ HOME_FAQ = [
      f"All 42 majors offered at {COLLEGE}. The club's use-case library has 20 AI use cases tailored to each individual major."),
     ("Do I need a laptop or special software to join?",
      "No special software — just a free account with a tool like ChatGPT, Claude, or Gemini. Bringing a laptop helps, but it isn't required."),
-    ("How do I join the HWS AI Club's online community?",
-     f"Through the club's free Skool community at {SKOOL_URL}, which is open to every HWS student for classroom material, discussion, and the events calendar."),
+    ("How do I join the HWS AI Club?",
+     f"Join through the club's free Skool community at {SKOOL_URL}. It is open to every HWS student for classroom material, discussion, and the events calendar; you can also come to a weekly meeting with no application."),
 ]
 
 
@@ -1019,9 +1019,9 @@ def build_home():
 # Majors index
 # ---------------------------------------------------------------------------
 def build_majors_index():
-    title = "AI Use Cases by Major | HWS AI Club"
-    desc = ("20 practical AI use cases for each of 42 HWS majors. Choose your major for tutorials, "
-            "starter prompts, and responsible-use guidance.")
+    title = "AI for HWS Students by Major | HWS AI Club"
+    desc = ("Explore 20 practical AI use cases for each of 42 HWS majors. Choose your major for "
+            "tutorials, starter prompts, and responsible-use guidance.")
     # Grouped by division rather than one flat run of 42. The page previously had
     # a single h1 and no subheadings at all, so 42 topic entities sat in bare
     # <span>s carrying no heading weight and no relationship to each other.
@@ -1046,8 +1046,8 @@ def build_majors_index():
 {site_header()}
 <main id="main" class="page">
   <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / All Majors</nav>
-  <h1>AI Use Cases by Major</h1>
-  <p class="page-lede">Every major at {COLLEGE} has 20 practical AI use cases &mdash; rated Easy, Medium, or Hard, each naming the exact tutorial it links to and what you&rsquo;ll take away. Pick yours to get started.</p>
+  <h1>AI for HWS Students by Major</h1>
+  <p class="page-lede">Explore AI for HWS students in every major at {COLLEGE}. Each major has 20 practical use cases &mdash; rated Easy, Medium, or Hard, with a tutorial, starter prompt, and clear takeaway. Pick yours to get started.</p>
   <div class="search-wrap">
     <input type="search" id="major-search" class="search-input" placeholder="Search for your major…" aria-label="Search majors">
     <p class="search-hint" id="search-hint">Type to filter, or browse all 42 majors below.</p>
@@ -1140,7 +1140,9 @@ def build_major(m, prev_m, next_m):
     slug, name = m["slug"], m["name"]
     ucs = m["useCases"]
     by_diff = {d: [u for u in ucs if u["difficulty"] == d] for d in ("Easy", "Medium", "Hard")}
-    title = f"AI for {name} Students | HWS AI Club"
+    title = f"AI for {name} Students at HWS | HWS AI Club"
+    if len(title) > 70:
+        title = f"AI for {name} at HWS | HWS AI Club"
     # Built from this major's own easiest and hardest use cases. The previous
     # description varied only by {name} and closed with an identical clause on all
     # 42 pages, which reads to a crawler as 42 duplicate descriptions.
