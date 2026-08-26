@@ -41,6 +41,17 @@ Regenerates the homepage, majors, task hubs, HWS AI Club events page, FAQ, AI-co
 `js/videos.js`, `sitemap.xml`, `robots.txt`, and legacy `_headers`.
 Re-running it on an unchanged repo produces no diff.
 
+Refresh and validate the HWS campus-event snapshot with:
+
+```bash
+python scripts/sync_hws_content.py --check
+python scripts/sync_hws_content.py --events-only
+```
+
+Club-directory publication is disabled until written HWS approval is recorded in
+[`docs/HWS_CONTENT_SOURCES.md`](docs/HWS_CONTENT_SOURCES.md). The clubs sync validates but
+does not write deployable records while that gate is disabled.
+
 Run the focused migration/schema regression checks with:
 
 ```bash
@@ -70,9 +81,12 @@ Netlify as the primary site.
 | A use-case title, description, or difficulty | `site/data.json` |
 | Which video a use case links to, or its starter prompt | `site/data/videos-config.json` |
 | Team roster, meeting time, site-wide copy | constants at the top of `scripts/build_site.py` |
-| HWS AI Club events page copy and official HWS links | `build_events_page()` in `scripts/build_site.py` |
+| HWS campus hub layout and server-rendered cards | `build_events_page()` in `scripts/build_site.py` |
+| HWS event snapshot | `scripts/sync_hws_content.py` to `site/data/hws-events.json` |
+| HWS club publication permission | `site/data/hws-content-config.json` and `docs/HWS_CONTENT_SOURCES.md` |
 | Styling | `site/css/styles.css` |
-| Interactive behaviour (filters, copy button, deep links) | `site/js/site.js` |
+| General interactive behaviour (filters, copy button, deep links) | `site/js/site.js` |
+| Campus event/club filters and live refresh | `site/js/campus-hub.js` |
 
 **Do not edit `site/majors/**`, `site/index.html`, or `site/js/videos.js` by hand** —
 they are generated, and the next build overwrites them. Change the source, then rebuild.
@@ -82,16 +96,20 @@ they are generated, and the next build overwrites them. Change the source, then 
 ```
 scripts/
   build_site.py        static-site generator
+  sync_hws_content.py  validated HWS campus-content synchronization
   extract_data.py      spreadsheet → data.json / data.js
 site/
   index.html           homepage            (generated)
   majors/              42 major pages      (generated)
-  events/              HWS AI Club events (generated)
+  events/              HWS campus events and clubs hub (generated)
   js/site.js           progressive enhancement (hand-written)
+  js/campus-hub.js     campus hub refresh and filters (hand-written)
   js/videos.js         video resolver      (generated)
   css/styles.css       styles              (hand-written)
   data.json            use-case data       (generated from the xlsx)
   data/videos-config.json  video + prompt config (hand-maintained)
+  data/hws-events.json     validated campus-event snapshot
+  data/hws-clubs.json      permission-gated club snapshot
 ```
 
 ## For AI agents

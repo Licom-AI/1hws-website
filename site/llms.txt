@@ -9,7 +9,7 @@ HWS AI Club maintains a library of 840 practical AI use cases — 20 per major, 
 - [Homepage](https://www.hwsaiclub.com/): what the club does, the team, and how to join.
 - [All Majors](https://www.hwsaiclub.com/majors/): directory of all 42 majors with AI use cases.
 - [AI Tasks](https://www.hwsaiclub.com/tasks/): the same 840 use cases grouped by task rather than by major.
-- [HWS AI Club Events](https://www.hwsaiclub.com/events/): current club meetings and workshops, with a link to the official HWS campus events calendar.
+- [HWS Campus Events and Clubs](https://www.hwsaiclub.com/events/): the HWS AI Club meeting, a searchable official campus-event snapshot, and the permission-gated clubs directory.
 - [AI resources at HWS](https://www.hwsaiclub.com/resources/ai-at-hws/): official campus resources alongside club workshops and practical guides.
 - [FAQ](https://www.hwsaiclub.com/faq/): what the club is, when it meets, what it costs, what you need.
 - [AI and coursework](https://www.hwsaiclub.com/ai-policy/): what is and isn't allowed academically, and why that is set per course by the instructor rather than college-wide.

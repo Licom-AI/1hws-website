@@ -22,6 +22,11 @@ the generator works in general; this doc covers only the analytics layer.
   blockers, privacy browsers) never breaks the feature it's attached to. The site's actual
   functionality — copying a prompt, following a link — never depends on analytics succeeding.
 
+`site/js/campus-hub.js` progressively refreshes `/events/` from the documented HWS
+calendar feed and tracks campus-hub filters, event expansion, official-source exits, and
+permission-approved club searches. The static snapshot remains usable when analytics or
+the live feed is blocked.
+
 To change the measurement ID: edit `GA_MEASUREMENT_ID` in `scripts/build_site.py`, then
 `python3 scripts/build_site.py`.
 
@@ -29,7 +34,7 @@ To change the measurement ID: edit `GA_MEASUREMENT_ID` in `scripts/build_site.py
 
 Beyond GA4's automatic `page_view` (and Enhanced Measurement's automatic `scroll` /
 `click` (outbound) / `file_download`, which should be left on in the GA4 UI — see
-[Automatic events](#automatic-events-check-these-in-the-ga4-ui) below), nine custom events
+[Automatic events](#automatic-events-check-these-in-the-ga4-ui) below), thirteen custom events
 cover the actions that actually matter for a club recruiting site: did someone get real
 value from the use-case library, did they take a step toward joining, and — per founder,
 individually — did their page get looked at, clicked into, and actually engaged with.
@@ -45,6 +50,10 @@ individually — did their page get looked at, clicked into, and actually engage
 | `founder_link_click` | Clicking one of a founder's outbound links (LinkedIn, Licom AI, Sundai, school) | `founder` (slug), `link_label`, `link_url` | Engagement |
 | `song_played` | Pressing play on a founder's "remembered by" Spotify embed | `founder` (slug), `song_title`, `song_artist` | Engagement |
 | `song_completed` | Listening to ≥90% of that song (mirrors the site's scroll-depth threshold) | `founder` (slug), `song_title`, `song_artist` | Engagement |
+| `campus_event_filter` | Changing an event keyword/category/date filter or loading 30 more days | `filter_type`, `query_present`, `category`, `days` | Hub engagement |
+| `campus_event_expand` | Opening an imported HWS event's details in place | `event_id` | Event-interest signal |
+| `campus_official_source_click` | Following an official event, registration, calendar, or club-directory link | `source_type`, `link_url` | Source exit / assisted journey |
+| `campus_club_search` | Searching or filtering the approved club directory | `query_present`, `category`, `results` | Club-discovery engagement |
 
 ### Founder pages
 
@@ -70,7 +79,7 @@ bucket:
   Spotify's API is blocked or its shape changes, the code fails silently (wrapped in
   try/catch) — the embed itself still works, tracking just no-ops.
 
-All nine are generic, attribute-driven, and extensible: any element with `data-cta="..."`
+The CTA events are generic, attribute-driven, and extensible: any element with `data-cta="..."`
 is picked up automatically by the delegated click handler in `site.js` — adding a new CTA
 never requires a JS change, only the attribute on the new element (see `uc_card()`,
 `site_header()`, `founder_cards()`, and `build_founder()` in `scripts/build_site.py` for
@@ -99,7 +108,7 @@ analytics.google.com for property `G-0S5QWRS2Q6`:
 3. **Confirm Enhanced Measurement** is on (Admin → Data Streams → your stream → Enhanced
    measurement): page views, scrolls, and outbound clicks should be enabled. Outbound click
    tracking is what covers the HWS program-page links and any other external link *not*
-   already captured by one of the nine custom events above — leave it on rather than
+   already captured by one of the custom events above — leave it on rather than
    building another custom event to duplicate it.
 4. **Internal traffic filter**, once the club has regular contributors testing the site, so
    dev/maintainer visits don't skew the (currently small) traffic numbers: Admin → Data
@@ -123,7 +132,23 @@ here; they come from Enhanced Measurement being enabled on the data stream.
   requirement, that's an explicit follow-up — don't default consent to "denied" without a
   real consent banner, since that would silently zero out all analytics.
 - **No `user_id`.** There are no accounts on this site — nothing to key a `user_id` to.
-- **No search/filter-interaction tracking** (the majors-index live search, the per-major
-  difficulty filter). These fire on every keystroke/click with no natural conversion
-  boundary; tracking them would add event volume without a decision they'd inform. Revisit
-  only if a specific question comes up (e.g. "do people use the difficulty filter at all").
+- **No majors-library search/filter tracking.** Those controls still fire on every
+  keystroke/click without a defined decision. Campus-hub filters are tracked because the
+  approved measurement plan explicitly uses them to measure event and organization demand.
+
+## Campus-hub measurement definitions
+
+- **Hub impressions:** GA4 `page_view` events where `content_group = events`.
+- **Organic entrances:** hub impressions whose session default channel group is Organic
+  Search and whose landing page is `/events/`.
+- **Filter usage:** sessions with at least one `campus_event_filter` or
+  `campus_club_search`; use sessions, not raw keystrokes, for the headline rate.
+- **Event expansion rate:** sessions with `campus_event_expand` divided by hub sessions.
+- **Official-source exit rate:** hub sessions with `campus_official_source_click` divided by
+  hub sessions; break down by `source_type` rather than treating every exit as equivalent.
+- **Assisted Skool conversion:** sessions with a campus-hub engagement event followed by
+  `join_community_click` in the same session. GA4 measures the click-through, not completed
+  Skool membership; actual membership requires a separate Skool-side count.
+
+Review these monthly alongside snapshot age and sync failures. Do not report membership,
+event attendance, or club interest from proxy events as if they were confirmed outcomes.

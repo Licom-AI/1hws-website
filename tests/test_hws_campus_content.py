@@ -1,0 +1,138 @@
+"""Tests for the permission-gated HWS campus events and clubs hub."""
+from datetime import datetime, timezone
+import json
+from pathlib import Path
+import subprocess
+import tempfile
+import unittest
+
+from scripts import sync_hws_content as sync
+
+
+ROOT = Path(__file__).resolve().parents[1]
+FIXTURES = ROOT / "tests" / "fixtures"
+
+
+class EventFeedTests(unittest.TestCase):
+    def setUp(self):
+        self.xml = (FIXTURES / "hws-calendar.xml").read_text(encoding="utf-8")
+        self.now = datetime(2026, 8, 26, tzinfo=timezone.utc)
+
+    def test_parses_all_day_timed_recurring_and_dst_events(self):
+        events = sync.parse_event_rss(self.xml, now=self.now)
+        self.assertEqual(["all-day", "timed"], [event["id"] for event in events])
+
+        all_day, timed = events
+        self.assertTrue(all_day["allDay"])
+        self.assertEqual("2026-09-01", all_day["start"])
+        self.assertEqual("America/New_York", all_day["timezone"])
+        self.assertEqual("Welcome HWS students.", all_day["summary"])
+
+        self.assertFalse(timed["allDay"])
+        self.assertEqual("2026-11-02T17:00:00-05:00", timed["start"])
+        self.assertEqual("Rosenberg Hall, Room 101", timed["location"])
+        self.assertEqual("https://events.hws.edu/register/workshop", timed["ticketUrl"])
+
+    def test_rejects_cancelled_and_observed_0202_date(self):
+        events = sync.parse_event_rss(self.xml, now=self.now)
+        ids = {event["id"] for event in events}
+        self.assertNotIn("cancelled", ids)
+        self.assertNotIn("bad-date", ids)
+
+    def test_duplicate_ids_fail_complete_snapshot_validation(self):
+        events = sync.parse_event_rss(self.xml, now=self.now)
+        with self.assertRaises(sync.SnapshotValidationError):
+            sync.validate_events(events + [events[0]], minimum=1, now=self.now)
+
+    def test_past_events_fail_complete_snapshot_validation(self):
+        events = sync.parse_event_rss(self.xml, now=self.now)
+        past = dict(events[0], start="2025-01-01", end="2025-01-02")
+        with self.assertRaises(sync.SnapshotValidationError):
+            sync.validate_events([past], minimum=1, now=self.now)
+
+    def test_undersized_snapshot_never_replaces_previous_valid_file(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            target = Path(tmp) / "events.json"
+            previous = {"source": {"recordCount": 10}, "events": [{"id": "keep"}]}
+            target.write_text(json.dumps(previous), encoding="utf-8")
+
+            with self.assertRaises(sync.SnapshotValidationError):
+                sync.save_events_snapshot(target, [], "https://example.hws.edu/feed", minimum=10)
+
+            self.assertEqual(previous, json.loads(target.read_text(encoding="utf-8")))
+
+
+class ClubDirectoryTests(unittest.TestCase):
+    def setUp(self):
+        self.html = (FIXTURES / "hws-clubs.html").read_text(encoding="utf-8")
+
+    def test_parses_only_directory_section_and_normalizes_nested_markup(self):
+        clubs = sync.parse_clubs_html(self.html)
+        by_name = {club["name"]: club for club in clubs}
+
+        self.assertNotIn("Wrong Club", by_name)
+        self.assertIn("AI Club", by_name)
+        self.assertTrue(by_name["AI Club"]["isAiClub"])
+        self.assertIsNone(by_name["AI Club"]["officialUrl"])
+        self.assertEqual("Pre-professional clubs", by_name["Finance Society"]["category"])
+        self.assertIsNone(by_name["Nested Unsafe Club"]["officialUrl"])
+        self.assertEqual(1, [club["name"] for club in clubs].count("Campus Kitchens"))
+
+    def test_undersized_club_download_preserves_existing_snapshot(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            target = Path(tmp) / "clubs.json"
+            target.write_text('{"clubs":[{"name":"Keep Me"}]}', encoding="utf-8")
+            with self.assertRaises(sync.SnapshotValidationError):
+                sync.save_clubs_snapshot(target, [], "https://www.hws.edu/clubs", minimum=80)
+            self.assertIn("Keep Me", target.read_text(encoding="utf-8"))
+
+
+class GeneratedCampusHubTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        subprocess.run(["python", "scripts/build_site.py"], cwd=ROOT, check=True, capture_output=True)
+        cls.page = (ROOT / "site" / "events" / "index.html").read_text(encoding="utf-8")
+
+    def test_page_contains_hub_controls_sources_attribution_and_skool(self):
+        for expected in (
+            "Upcoming HWS events",
+            'id="event-search"',
+            'id="event-category"',
+            'id="event-date"',
+            'id="events-load-more"',
+            "HWS clubs and organizations",
+            'id="club-search"',
+            'id="club-category"',
+            "Campus information is sourced from Hobart and William Smith Colleges.",
+            "https://www.hws.edu/news/calendar.aspx",
+            "https://www.hws.edu/offices/student-engagement/clubs-and-organizations.aspx",
+            'data-cta="skool-join"',
+            'src="/js/campus-hub.js"',
+        ):
+            self.assertIn(expected, self.page)
+
+    def test_club_mirror_is_permission_gated_by_default(self):
+        config = json.loads((ROOT / "site" / "data" / "hws-content-config.json").read_text(encoding="utf-8"))
+        self.assertFalse(config["publishClubDirectory"])
+        self.assertIn("Written HWS approval is required before this directory is published", self.page)
+
+    def test_imported_events_do_not_create_event_jsonld(self):
+        self.assertEqual(1, self.page.count('"@type": "Event"'))
+        self.assertNotIn('"@type": "FAQPage"', self.page)
+        self.assertNotIn('"@type": "ItemList"', self.page)
+
+    def test_title_canonical_and_static_content_are_present(self):
+        self.assertIn("<title>HWS Campus Events and Clubs | HWS AI Club</title>", self.page)
+        self.assertIn('<link rel="canonical" href="https://www.hwsaiclub.com/events/">', self.page)
+        self.assertIn('data-campus-event-id=', self.page)
+        self.assertIn('<time datetime=', self.page)
+
+    def test_runtime_never_injects_source_html(self):
+        javascript = (ROOT / "site" / "js" / "campus-hub.js").read_text(encoding="utf-8")
+        self.assertNotIn(".innerHTML", javascript)
+        self.assertIn("textContent", javascript)
+        self.assertIn("AbortController", javascript)
+
+
+if __name__ == "__main__":
+    unittest.main()

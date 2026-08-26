@@ -18,8 +18,9 @@ sheets, each with the exact header `["#", "Use Case", "Difficulty", "Level", "De
 `site/data.json` and `site/js/data.js` (the same object, wrapped as
 `window.HWS_AI_DATA = …` for the browser). Run only when the source `.xlsx` changes.
 
-**`scripts/build_site.py`** — everything else. Loads `site/data.json` and
-`site/data/videos-config.json` at import time (module-level `DATA`, `VCONF`), then `main()`
+**`scripts/build_site.py`** — everything else. Loads `site/data.json`,
+`site/data/videos-config.json`, and the validated HWS campus-content snapshots at import
+time, then `main()`
 calls each `build_*` function in sequence. It has no CLI flags and no partial-build mode —
 it always regenerates everything.
 
@@ -31,7 +32,7 @@ it always regenerates everything.
 | `build_majors_index()` | `site/majors/index.html` — searchable grid of all 42 majors |
 | `build_major(m, prev_m, next_m)` | `site/majors/<slug>/index.html` — one page per major, prev/next links, use-case cards |
 | `build_tasks_index()` / `build_task_hub()` | `site/tasks/index.html` and `site/tasks/<slug>/index.html` — task-first routes to the same major-specific use cases |
-| `build_events_page()` | `site/events/index.html` — HWS AI Club meetings and workshops, with an authoritative link to the HWS campus events calendar |
+| `build_events_page()` | `site/events/index.html` — combined HWS AI Club meeting, validated campus-event snapshot, and permission-gated clubs directory |
 | `build_ai_resources_page()` / `build_faq_page()` / `build_ai_policy_page()` | `site/resources/ai-at-hws/`, `site/faq/`, and `site/ai-policy/` — cited HWS resources, visible Q&A, and coursework guidance |
 | `build_founder(f, others)` | `site/founders/<slug>/index.html` — one page per entry in `FOUNDERS`, `Person` JSON-LD |
 
@@ -109,3 +110,16 @@ difficulty filter, and the starter-prompt copy button (three-tier fallback: asyn
 → `execCommand("copy")` → leave text selected for manual copy). Also handles the
 `#uc-<number>` deep-link flash-highlight on major pages. The site is fully usable with JS
 disabled — everything here is enhancement, not a dependency.
+`site/js/campus-hub.js` is loaded only on `/events/`. It keeps the server-rendered event
+cards visible, loads the full local snapshot for filtering, then attempts one five-second
+live RSS refresh. A live response replaces the snapshot only after complete client-side
+validation and is cached in `sessionStorage` for 15 minutes. External values are inserted
+with DOM methods and `textContent`, never source-controlled `innerHTML`.
+
+## HWS campus-content synchronization
+
+`scripts/sync_hws_content.py` uses only Python's standard library. It normalizes the
+documented Modern Campus RSS feed and, for validation only until permission is recorded,
+the official HWS `section#campusevents` club list. Atomic writes happen only after count,
+date, status, URL, uniqueness, and category validation. See
+`docs/HWS_CONTENT_SOURCES.md` for the source and permission record.

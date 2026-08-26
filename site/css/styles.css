@@ -1304,3 +1304,141 @@ main.page > h1 { font-size: clamp(1.8rem, 3.4vw, 2.4rem); }
 @media (prefers-color-scheme: dark) {
   .task-major { background: rgba(124, 58, 237, 0.1); }
 }
+
+/* --- HWS campus events and clubs hub -------------------------------------- */
+.campus-hub { max-width: 1080px; }
+.campus-hub-section {
+  margin: 52px 0;
+  padding-top: 8px;
+}
+.campus-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+}
+.campus-section-heading h2,
+.campus-hub-section > h2 { margin-top: 0; }
+.campus-event-kicker {
+  margin: 0 0 6px;
+  color: var(--violet, #7c3aed);
+  font-size: 0.76rem;
+  font-weight: 750;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+.campus-update-status,
+.campus-results-status {
+  color: var(--slate-600, #475569);
+  font-size: 0.88rem;
+}
+.campus-update-status { text-align: right; }
+.campus-filters {
+  display: grid;
+  grid-template-columns: minmax(240px, 2fr) minmax(180px, 1fr) minmax(150px, 0.8fr);
+  gap: 14px;
+  margin: 24px 0 10px;
+  padding: 18px;
+  border: 1px solid rgba(124, 58, 237, 0.16);
+  border-radius: var(--radius-sm, 10px);
+  background: rgba(124, 58, 237, 0.035);
+}
+.campus-filters label {
+  display: grid;
+  gap: 7px;
+  color: var(--slate-700, #334155);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.campus-filters input,
+.campus-filters select {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--slate-300, #cbd5e1);
+  border-radius: 8px;
+  background: var(--white, #fff);
+  color: var(--slate-900, #0f172a);
+  font: inherit;
+}
+.campus-filters input:focus-visible,
+.campus-filters select:focus-visible,
+.campus-event-details summary:focus-visible,
+.campus-load-more button:focus-visible {
+  outline: 3px solid rgba(124, 58, 237, 0.35);
+  outline-offset: 2px;
+}
+.campus-event-list,
+.campus-club-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+.campus-event-card,
+.campus-club-card,
+.campus-directory-gate {
+  padding: 20px;
+  border: 1px solid rgba(124, 58, 237, 0.16);
+  border-radius: var(--radius-sm, 10px);
+  background: var(--white, #fff);
+  box-shadow: 0 5px 18px rgba(15, 23, 42, 0.04);
+}
+.campus-event-card h3,
+.campus-club-card h3,
+.campus-directory-gate h3 { margin: 0 0 10px; font-size: 1.08rem; }
+.campus-event-meta {
+  display: grid;
+  gap: 3px;
+  margin: 0;
+  color: var(--slate-600, #475569);
+  font-size: 0.87rem;
+}
+.campus-event-meta time { color: var(--slate-800, #1e293b); font-weight: 700; }
+.campus-event-details { margin-top: 14px; }
+.campus-event-details summary {
+  color: var(--violet, #7c3aed);
+  cursor: pointer;
+  font-weight: 700;
+}
+.campus-event-details > p { line-height: 1.62; }
+.campus-event-links {
+  display: flex;
+  align-items: center;
+  gap: 12px 18px;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+  font-size: 0.88rem;
+  font-weight: 650;
+}
+.campus-club-featured { border: 2px solid var(--violet, #7c3aed); }
+.campus-directory-gate { grid-column: 1 / -1; }
+.campus-load-more { margin-top: 24px; text-align: center; }
+.campus-load-more button { cursor: pointer; }
+.campus-empty { grid-column: 1 / -1; padding: 30px; text-align: center; }
+.campus-source-notice {
+  margin: 52px 0 16px;
+  padding: 22px 24px;
+  border-left: 4px solid var(--violet, #7c3aed);
+  border-radius: 0 10px 10px 0;
+  background: rgba(124, 58, 237, 0.06);
+}
+.campus-source-notice h2 { margin-top: 0; font-size: 1.2rem; }
+.campus-source-notice p:last-child { margin-bottom: 0; }
+
+@media (max-width: 720px) {
+  .campus-section-heading { display: block; }
+  .campus-update-status { text-align: left; }
+  .campus-filters { grid-template-columns: 1fr; }
+  .campus-event-list,
+  .campus-club-list { grid-template-columns: 1fr; }
+}
+
+@media (prefers-color-scheme: dark) {
+  .campus-event-card,
+  .campus-club-card,
+  .campus-directory-gate { background: rgba(124, 58, 237, 0.07); }
+  .campus-filters { background: rgba(124, 58, 237, 0.1); }
+  .campus-filters input,
+  .campus-filters select { background: var(--slate-900, #0f172a); color: var(--white, #fff); }
+}

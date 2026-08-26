@@ -14,13 +14,17 @@ import json
 import re
 import shutil
 import subprocess
-from datetime import date
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
+from urllib.parse import quote_plus
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
 DATA = json.loads((SITE / "data.json").read_text(encoding="utf-8"))
 VCONF = json.loads((SITE / "data" / "videos-config.json").read_text(encoding="utf-8"))
+HWS_CONTENT_CONFIG = json.loads((SITE / "data" / "hws-content-config.json").read_text(encoding="utf-8"))
+HWS_EVENTS = json.loads((SITE / "data" / "hws-events.json").read_text(encoding="utf-8"))
+HWS_CLUBS = json.loads((SITE / "data" / "hws-clubs.json").read_text(encoding="utf-8"))
 
 # --- One place to change when moving to a custom domain -----------------------
 BASE_URL = "https://www.hwsaiclub.com"
@@ -1281,63 +1285,171 @@ def build_faq_page():
         encoding="utf-8")
 
 
-def build_events_page():
-    """A focused landing page for the club's own meetings and workshops.
+def _event_display(event):
+    """Return human-readable Eastern date/time and machine-readable starts."""
+    if event["allDay"]:
+        start = date.fromisoformat(event["start"])
+        end = date.fromisoformat(event["end"])
+        if end > start:
+            label = f"{start.strftime('%b')} {start.day}&ndash;{end.strftime('%b')} {end.day}, {end.year} &middot; All day"
+        else:
+            label = f"{start.strftime('%A, %B')} {start.day}, {start.year} &middot; All day"
+        return event["start"], label
+    start = datetime.fromisoformat(event["start"])
+    end = datetime.fromisoformat(event["end"])
+    start_time = start.strftime("%I:%M %p").lstrip("0")
+    end_time = end.strftime("%I:%M %p").lstrip("0")
+    label = f"{start.strftime('%A, %B')} {start.day}, {start.year} &middot; {start_time}"
+    if start.date() == end.date():
+        label += f"&ndash;{end_time}"
+    return event["start"], label.replace(":00 ", " ")
 
-    This page targets event intent the club can genuinely answer, while linking to
-    the official HWS calendar for campus-wide events it does not own.
-    """
-    crumbs = breadcrumb([("Home", "/"), ("HWS AI Club Events", "/events/")])
-    event_questions = [
-        ("Who can attend HWS AI Club events?",
-         f"Any student at {COLLEGE} can attend. Meetings are open to every major and class year, "
-         "and no coding or prior AI experience is required."),
-        ("Do HWS AI Club events require an application?",
-         "No. The club is a drop-in student organization: come to a meeting or workshop when the "
-         "topic is useful to you, then join the online community if you want the materials."),
-        ("Where can I find the full HWS campus events calendar?",
-         "The official HWS Community Events Calendar is the source for campus-wide events. This page "
-         "only describes HWS AI Club meetings and workshops."),
-    ]
+
+def _calendar_link(event):
+    def compact(value, all_day):
+        if all_day:
+            return value.replace("-", "")
+        return datetime.fromisoformat(value).astimezone(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    calendar_end = event["end"]
+    if event["allDay"]:
+        # Modern Campus presents the end date inclusively; Google Calendar uses
+        # an exclusive all-day end, so advance it once when exporting.
+        calendar_end = (date.fromisoformat(calendar_end) + timedelta(days=1)).isoformat()
+    dates = f"{compact(event['start'], event['allDay'])}/{compact(calendar_end, event['allDay'])}"
+    params = (
+        f"action=TEMPLATE&text={quote_plus(event['title'])}&dates={dates}"
+        f"&details={quote_plus(event['sourceUrl'])}&location={quote_plus(event.get('location', ''))}"
+    )
+    if not event["allDay"] and datetime.fromisoformat(event["end"]) <= datetime.fromisoformat(event["start"]):
+        return None
+    return "https://calendar.google.com/calendar/render?" + params
+
+
+def _event_card(event):
+    datetime_value, display = _event_display(event)
+    location = f'<span>{esc(event["location"])}</span>' if event.get("location") else ""
+    organizer = f'<span>{esc(event["organizer"])}</span>' if event.get("organizer") else ""
+    summary = esc(event.get("summary") or "No description was supplied by HWS.")
+    ticket = ""
+    if event.get("ticketUrl"):
+        ticket = f'<a href="{esc(event["ticketUrl"])}" target="_blank" rel="noopener" data-campus-source="ticket">Register or get tickets &#8599;</a>'
+    calendar_url = _calendar_link(event)
+    calendar = f'<a href="{esc(calendar_url)}" target="_blank" rel="noopener" data-campus-source="calendar">Add to calendar &#8599;</a>' if calendar_url else ""
+    return f"""    <article class="campus-event-card" data-campus-event-id="{esc(event['id'])}" data-start="{esc(event['start'])}" data-category="{esc(event['category'])}">
+      <p class="campus-event-kicker">{esc(event['category'])}</p>
+      <h3>{esc(event['title'])}</h3>
+      <p class="campus-event-meta"><time datetime="{esc(datetime_value)}">{display}</time>{location}{organizer}</p>
+      <details class="campus-event-details">
+        <summary>Event details</summary>
+        <p>{summary}</p>
+        <p class="campus-event-links"><a href="{esc(event['sourceUrl'])}" target="_blank" rel="noopener" data-campus-source="event">Official details &#8599;</a>{ticket}{calendar}</p>
+      </details>
+    </article>"""
+
+
+def _club_card(club):
+    official = ""
+    if club.get("officialUrl"):
+        official = f'<a href="{esc(club["officialUrl"])}" target="_blank" rel="noopener" data-campus-source="club">Official club page &#8599;</a>'
+    if club.get("isAiClub"):
+        return f"""    <article class="campus-club-card campus-club-featured" data-club-name="{esc(club['name'])}" data-club-category="{esc(club['category'])}">
+      <p class="campus-event-kicker">{esc(club['category'])}</p><h3>{esc(club['name'])}</h3>
+      <p>Learn practical, responsible AI with students from every HWS major. No prior experience is required.</p>
+      <p class="campus-event-links">{official}<a class="btn-primary" href="{SKOOL_URL}" target="_blank" rel="noopener" data-cta="skool-join">Join on Skool &#8599;</a></p>
+    </article>"""
+    return f"""    <article class="campus-club-card" data-club-name="{esc(club['name'])}" data-club-category="{esc(club['category'])}">
+      <p class="campus-event-kicker">{esc(club['category'])}</p><h3>{esc(club['name'])}</h3>
+      {f'<p class="campus-event-links">{official}</p>' if official else ''}
+    </article>"""
+
+
+def build_events_page():
+    """Build the combined HWS events and permission-gated clubs discovery hub."""
+    crumbs = breadcrumb([("Home", "/"), ("HWS Campus Events and Clubs", "/events/")])
+    events = HWS_EVENTS.get("events", [])
+    event_cards = "\n".join(_event_card(event) for event in events[:24])
+    categories = sorted({event["category"] for event in events})
+    event_options = "\n".join(f'          <option value="{esc(category)}">{esc(category)}</option>' for category in categories)
+    snapshot_time = HWS_EVENTS.get("source", {}).get("retrievedAt") or "unknown"
+
+    publish_clubs = bool(HWS_CONTENT_CONFIG.get("publishClubDirectory"))
+    clubs = HWS_CLUBS.get("clubs", []) if publish_clubs else []
+    club_categories = sorted({club["category"] for club in clubs})
+    club_options = "\n".join(f'          <option value="{esc(category)}">{esc(category)}</option>' for category in club_categories)
+    club_cards = "\n".join(_club_card(club) for club in clubs)
+    if not publish_clubs:
+        club_cards = """    <div class="campus-directory-gate">
+      <h3>Official directory link available</h3>
+      <p>Written HWS approval is required before this directory is published here. Until then, use the official HWS directory for the current list.</p>
+    </div>"""
+
     body = f"""<body class="view-inner">
 {site_header()}
-<main id="main" class="page">
-  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / HWS AI Club Events</nav>
-  <h1>HWS AI Club Events at Hobart and William Smith</h1>
-  <p class="page-lede">Find meetings and workshops from the HWS AI Club, a student organization at Hobart and William Smith Colleges in Geneva, New York. Every event is beginner-friendly and open to all majors.</p>
-  <section class="sibling-majors">
-    <h2>Weekly HWS AI Club meeting</h2>
+<main id="main" class="page campus-hub" data-calendar-id="d4da22d5-7840-45cf-91c3-023390a85fc8" data-snapshot-retrieved="{esc(snapshot_time)}">
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / HWS Campus Events and Clubs</nav>
+  <h1>HWS Campus Events and Clubs</h1>
+  <p class="page-lede">HWS students can use this hub to find upcoming campus events, discover student organizations, and join the HWS AI Club. Official HWS links remain available for registration, corrections, and final confirmation.</p>
+
+  <section class="sibling-majors campus-club-meeting" aria-labelledby="ai-club-meeting">
+    <p class="campus-event-kicker">HWS AI Club</p>
+    <h2 id="ai-club-meeting">Weekly HWS AI Club meeting</h2>
+    <p>HWS AI Club Events at Hobart and William Smith are open to students from every major and class year.</p>
     <p><strong>When:</strong> {MEETING}</p>
     <p><strong>Where:</strong> Sanford Room, {COLLEGE}</p>
-    <p>Bring a question, a class project, or just curiosity. The club teaches practical AI skills through hands-on workshops, discussion, and major-specific examples.</p>
+    <p>Bring a question, a class project, or just curiosity. Meetings are beginner-friendly, open to every major and class year, and require no application.</p>
     <p class="siblings-all"><a class="btn-primary" href="{SKOOL_URL}" target="_blank" rel="noopener" data-cta="skool-join">Join the Skool community <span aria-hidden="true">&#8599;</span></a></p>
   </section>
-  <section class="sibling-majors">
-    <h2>Find other HWS events</h2>
-    <p>For lectures, student activities, organization events, and other campus programming, use the official HWS Community Events Calendar. The AI Club does not manage or speak for that calendar.</p>
-    <p class="siblings-all"><a href="https://www.hws.edu/news/calendar.aspx" target="_blank" rel="noopener">Open the HWS Community Events Calendar &#8599;</a></p>
+
+  <section class="campus-hub-section" aria-labelledby="upcoming-hws-events">
+    <div class="campus-section-heading">
+      <div><p class="campus-event-kicker">Official HWS calendar snapshot</p><h2 id="upcoming-hws-events">Upcoming HWS events</h2></div>
+      <p id="campus-update-status" class="campus-update-status" aria-live="polite">Showing the snapshot from {esc(snapshot_time[:10])}.</p>
+    </div>
+    <p>Search campus lectures, activities, performances, athletics, and student-engagement events. The initial view covers the next 30 days.</p>
+    <div class="campus-filters" role="search" aria-label="Filter HWS events">
+      <label for="event-search">Keyword <input id="event-search" type="search" placeholder="Search title, place, or organizer" autocomplete="off"></label>
+      <label for="event-category">Category <select id="event-category"><option value="">All categories</option>{event_options}</select></label>
+      <label for="event-date">Date <select id="event-date"><option value="30" selected>Next 30 days</option><option value="7">Next 7 days</option><option value="1">Today</option><option value="60">Next 60 days</option><option value="90">Next 90 days</option></select></label>
+    </div>
+    <p id="event-results-status" class="campus-results-status" aria-live="polite">Showing the first {min(24, len(events))} upcoming events.</p>
+    <div id="campus-events-list" class="campus-event-list">
+{event_cards}
+    </div>
+    <p class="campus-load-more"><button id="events-load-more" class="filter-btn" type="button">Load 30 more days</button></p>
+    <p class="siblings-all"><a href="https://www.hws.edu/news/calendar.aspx" target="_blank" rel="noopener" data-campus-source="calendar-directory">Open the official HWS Community Events Calendar &#8599;</a></p>
   </section>
-  <section class="sibling-majors">
-    <h2>HWS clubs and organizations</h2>
-    <p>HWS AI Club is a student organization at Hobart and William Smith Colleges. To compare clubs, find other ways to get involved, or check the current official directory, visit HWS Student Engagement.</p>
-    <p class="siblings-all"><a href="https://www.hws.edu/offices/student-engagement/clubs-and-organizations.aspx" target="_blank" rel="noopener">Browse official HWS clubs and organizations &#8599;</a></p>
+
+  <section class="campus-hub-section" aria-labelledby="hws-clubs-directory">
+    <p class="campus-event-kicker">Student organizations</p>
+    <h2 id="hws-clubs-directory">HWS clubs and organizations</h2>
+    <p>Search HWS student organizations by name and official category. HWS AI Club is highlighted with a direct link to its Skool community.</p>
+    <div class="campus-filters" role="search" aria-label="Filter HWS clubs">
+      <label for="club-search">Club name <input id="club-search" type="search" placeholder="Try AI Club" autocomplete="off" {'disabled' if not publish_clubs else ''}></label>
+      <label for="club-category">Category <select id="club-category" {'disabled' if not publish_clubs else ''}><option value="">All official categories</option>{club_options}</select></label>
+    </div>
+    <p id="club-results-status" class="campus-results-status" aria-live="polite">{'Directory publication is pending HWS approval.' if not publish_clubs else f'Showing all {len(clubs)} approved club records.'}</p>
+    <div id="campus-clubs-list" class="campus-club-list">
+{club_cards}
+    </div>
+    <p class="siblings-all"><a href="https://www.hws.edu/offices/student-engagement/clubs-and-organizations.aspx" target="_blank" rel="noopener" data-campus-source="club-directory">Browse the official HWS clubs and organizations directory &#8599;</a></p>
   </section>
-{faq_html(event_questions, "Questions about HWS AI Club events")}
-  <section class="sibling-majors">
-    <h2>Explore the club</h2>
-    <p class="siblings"><a href="/faq/">Read the HWS AI Club FAQ</a> &middot;
-    <a href="/resources/ai-at-hws/">Find AI resources for HWS students</a> &middot;
-    <a href="/majors/">Browse AI use cases by major</a></p>
-  </section>
+
+  <aside class="campus-source-notice" aria-labelledby="campus-source-heading">
+    <h2 id="campus-source-heading">Sources, updates, and corrections</h2>
+    <p><strong>Campus information is sourced from Hobart and William Smith Colleges. HWS AI Club does not manage campus-wide listings. Times and availability may change.</strong></p>
+    <p>Event text comes from the official HWS calendar. Club names, categories, and links will appear only after written permission from HWS. Report a correction through the official source first so the authoritative record can be updated.</p>
+    <p>HWS AI Club is a student organization and is not the official campus calendar or clubs-directory administrator.</p>
+  </aside>
 </main>
 {site_footer()}
 {scripts()}
+<script src="/js/campus-hub.js" defer></script>
 </body>
 </html>"""
     (SITE / "events").mkdir(exist_ok=True)
     (SITE / "events" / "index.html").write_text(
-        head("HWS AI Club Events | Hobart and William Smith",
-             "Find HWS AI Club meetings and workshops at Hobart and William Smith Colleges in Geneva, NY, plus the official HWS campus events calendar.",
+        head("HWS Campus Events and Clubs | HWS AI Club",
+             "Find upcoming HWS campus events, student clubs, and the HWS AI Club community at Hobart and William Smith Colleges in Geneva, New York.",
              "/events/", [crumbs, EVENT_JSONLD]) + "\n" + body + "\n",
         encoding="utf-8")
 
@@ -1801,7 +1913,7 @@ specific tutorial video and includes a ready-to-paste starter prompt.
 - [Homepage]({BASE_URL}/): what the club does, the team, and how to join.
 - [All Majors]({BASE_URL}/majors/): directory of all 42 majors with AI use cases.
 - [AI Tasks]({BASE_URL}/tasks/): the same 840 use cases grouped by task rather than by major.
-- [HWS AI Club Events]({BASE_URL}/events/): current club meetings and workshops, with a link to the official HWS campus events calendar.
+- [HWS Campus Events and Clubs]({BASE_URL}/events/): the HWS AI Club meeting, a searchable official campus-event snapshot, and the permission-gated clubs directory.
 - [AI resources at HWS]({BASE_URL}/resources/ai-at-hws/): official campus resources alongside club workshops and practical guides.
 - [FAQ]({BASE_URL}/faq/): what the club is, when it meets, what it costs, what you need.
 - [AI and coursework]({BASE_URL}/ai-policy/): what is and isn't allowed academically, and why \

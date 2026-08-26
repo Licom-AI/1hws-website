@@ -38,6 +38,8 @@ Running `python3 scripts/build_site.py` regenerates, in order (see `main()`):
   `FOUNDERS`
 - `site/_headers` — legacy Netlify response headers; not consumed by Vercel
 - `site/js/videos.js` — runtime projection of `videos-config.json`
+- `site/events/index.html` server-renders the first 24 records from
+  `site/data/hws-events.json`; `site/js/campus-hub.js` provides the optional live refresh
 - `site/og-image.png` (+ the `.svg` source), favicons, `site/site.webmanifest`
 
 The function ends with its own assertions (42 major pages exist, both founder pages exist)
@@ -69,10 +71,13 @@ both paths without needing any system SVG tool.
 Beyond the focused regression suite, verification is: rebuild, then read the diff.
 
 ```bash
-python -m unittest tests.test_seo_migration
+python scripts/sync_hws_content.py --check
+python -m unittest tests.test_seo_migration tests.test_hws_campus_content
 python3 scripts/build_site.py
+git diff --check
 git status --short
 git diff --stat
+git diff -- site/
 ```
 
 The regression suite checks the preferred-domain source, legacy path-preserving redirect,

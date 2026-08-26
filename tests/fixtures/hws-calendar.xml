@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:cal="https://moderncampus.com/Data/cal/">
+  <channel>
+    <title>Calendar</title>
+    <cal:timezone>US/Eastern</cal:timezone>
+    <item>
+      <title>All Day Welcome</title>
+      <description>&lt;p&gt;Welcome &lt;strong&gt;HWS students&lt;/strong&gt;.&lt;/p&gt;</description>
+      <link>https://www.hws.edu/news/calendar.aspx#event-details/all-day</link>
+      <cal:calendar>Student Engagement</cal:calendar>
+      <cal:guid>all-day</cal:guid>
+      <cal:start>2026-09-01</cal:start>
+      <cal:end>2026-09-02</cal:end>
+      <cal:recurring>false</cal:recurring>
+      <cal:status>CONFIRMED</cal:status>
+      <cal:location>Scandling Campus Center</cal:location>
+      <cal:organizer>Student Engagement Center</cal:organizer>
+      <cal:ticketUrl></cal:ticketUrl>
+    </item>
+    <item>
+      <title>Evening Workshop</title>
+      <description>Bring a laptop.&#x0B; No experience needed.</description>
+      <link>https://www.hws.edu/news/calendar.aspx#event-details/timed</link>
+      <cal:calendar>Academics</cal:calendar>
+      <cal:guid>timed</cal:guid>
+      <cal:start>2026-11-02T22:00Z</cal:start>
+      <cal:end>2026-11-02T23:00Z</cal:end>
+      <cal:recurring>true</cal:recurring>
+      <cal:status>CONFIRMED</cal:status>
+      <cal:location>Rosenberg Hall</cal:location>
+      <cal:locationRoom>Room 101</cal:locationRoom>
+      <cal:organizer>Academic Affairs</cal:organizer>
+      <cal:ticketUrl>https://events.hws.edu/register/workshop</cal:ticketUrl>
+    </item>
+    <item>
+      <title>Malformed Historic Date</title>
+      <link>https://www.hws.edu/news/calendar.aspx#event-details/bad-date</link>
+      <cal:calendar>Alumni</cal:calendar>
+      <cal:guid>bad-date</cal:guid>
+      <cal:start>0202-10-03</cal:start>
+      <cal:end>2026-10-04</cal:end>
+      <cal:status>CONFIRMED</cal:status>
+    </item>
+    <item>
+      <title>Cancelled Event</title>
+      <link>https://www.hws.edu/news/calendar.aspx#event-details/cancelled</link>
+      <cal:calendar>Student Engagement</cal:calendar>
+      <cal:guid>cancelled</cal:guid>
+      <cal:start>2026-09-03T17:00Z</cal:start>
+      <cal:end>2026-09-03T18:00Z</cal:end>
+      <cal:status>CANCELLED</cal:status>
+    </item>
+  </channel>
+</rss>
