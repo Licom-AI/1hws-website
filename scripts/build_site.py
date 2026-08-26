@@ -1325,7 +1325,7 @@ def _calendar_link(event):
     return "https://calendar.google.com/calendar/render?" + params
 
 
-def _event_card(event):
+def _event_fallback_item(event):
     datetime_value, display = _event_display(event)
     location = f'<span>{esc(event["location"])}</span>' if event.get("location") else ""
     organizer = f'<span>{esc(event["organizer"])}</span>' if event.get("organizer") else ""
@@ -1335,16 +1335,19 @@ def _event_card(event):
         ticket = f'<a href="{esc(event["ticketUrl"])}" target="_blank" rel="noopener" data-campus-source="ticket">Register or get tickets &#8599;</a>'
     calendar_url = _calendar_link(event)
     calendar = f'<a href="{esc(calendar_url)}" target="_blank" rel="noopener" data-campus-source="calendar">Add to calendar &#8599;</a>' if calendar_url else ""
-    return f"""    <article class="campus-event-card" data-campus-event-id="{esc(event['id'])}" data-start="{esc(event['start'])}" data-category="{esc(event['category'])}">
-      <p class="campus-event-kicker">{esc(event['category'])}</p>
-      <h3>{esc(event['title'])}</h3>
-      <p class="campus-event-meta"><time datetime="{esc(datetime_value)}">{display}</time>{location}{organizer}</p>
-      <details class="campus-event-details">
+    return f"""      <article class="event-fallback-item" data-campus-event-id="{esc(event['id'])}" data-start="{esc(event['start'])}" data-category="{esc(event['category'])}">
+        <div class="event-fallback-date"><time datetime="{esc(datetime_value)}">{display}</time></div>
+        <div class="event-fallback-content">
+          <p class="campus-event-kicker">{esc(event['category'])}</p>
+          <h3>{esc(event['title'])}</h3>
+          <p class="campus-event-meta">{location}{organizer}</p>
+        </div>
+        <details class="campus-event-details">
         <summary>Event details</summary>
         <p>{summary}</p>
         <p class="campus-event-links"><a href="{esc(event['sourceUrl'])}" target="_blank" rel="noopener" data-campus-source="event">Official details &#8599;</a>{ticket}{calendar}</p>
-      </details>
-    </article>"""
+        </details>
+      </article>"""
 
 
 def _club_card(club):
@@ -1367,7 +1370,7 @@ def build_events_page():
     """Build the combined HWS events and permission-gated clubs discovery hub."""
     crumbs = breadcrumb([("Home", "/"), ("HWS Campus Events and Clubs", "/events/")])
     events = HWS_EVENTS.get("events", [])
-    event_cards = "\n".join(_event_card(event) for event in events[:24])
+    event_cards = "\n".join(_event_fallback_item(event) for event in events[:24])
     categories = sorted({event["category"] for event in events})
     event_options = "\n".join(f'          <option value="{esc(category)}">{esc(category)}</option>' for category in categories)
     snapshot_time = HWS_EVENTS.get("source", {}).get("retrievedAt") or "unknown"
@@ -1386,9 +1389,60 @@ def build_events_page():
     body = f"""<body class="view-inner">
 {site_header()}
 <main id="main" class="page campus-hub" data-calendar-id="d4da22d5-7840-45cf-91c3-023390a85fc8" data-snapshot-retrieved="{esc(snapshot_time)}">
-  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / HWS Campus Events and Clubs</nav>
-  <h1>HWS Campus Events and Clubs</h1>
-  <p class="page-lede">HWS students can use this hub to find upcoming campus events, discover student organizations, and join the HWS AI Club. Official HWS links remain available for registration, corrections, and final confirmation.</p>
+  <header class="events-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / HWS Campus Events and Clubs</nav>
+    <p class="campus-event-kicker">The HWS campus, in one place</p>
+    <h1>HWS Campus Events and Clubs</h1>
+    <p class="page-lede">Find what is happening at Hobart and William Smith, discover student organizations, and join the HWS AI Club. Official HWS links remain available for registration and final confirmation.</p>
+  </header>
+
+  <section id="events-calendar" class="campus-hub-section calendar-shell" aria-labelledby="upcoming-hws-events">
+    <div class="campus-section-heading">
+      <div><p class="campus-event-kicker">Official HWS calendar snapshot</p><h2 id="upcoming-hws-events">Upcoming HWS events</h2></div>
+      <p id="campus-update-status" class="campus-update-status" aria-live="polite">Showing the snapshot from {esc(snapshot_time[:10])}.</p>
+    </div>
+    <p class="calendar-intro">Browse campus lectures, activities, performances, athletics, and student-engagement events by month.</p>
+    <div class="campus-filters calendar-filters" role="search" aria-label="Filter HWS events">
+      <label for="event-search">Keyword <input id="event-search" type="search" placeholder="Search title, place, or organizer" autocomplete="off"></label>
+      <label for="event-category">Category <select id="event-category"><option value="">All categories</option>{event_options}</select></label>
+    </div>
+    <div class="calendar-toolbar">
+      <div class="calendar-navigation" aria-label="Calendar month navigation">
+        <button id="calendar-prev" class="calendar-nav-button" type="button" aria-label="Previous month">&#8592;</button>
+        <button id="calendar-today" class="calendar-today-button" type="button">Today</button>
+        <button id="calendar-next" class="calendar-nav-button" type="button" aria-label="Next month">&#8594;</button>
+      </div>
+      <h3 id="calendar-month-label" aria-live="polite">HWS events calendar</h3>
+      <p id="event-results-status" class="campus-results-status" aria-live="polite">Loading the monthly view.</p>
+    </div>
+    <div id="calendar-grid" class="calendar-grid" role="grid" aria-labelledby="calendar-month-label"></div>
+    <div id="events-mobile-agenda" class="events-mobile-agenda" aria-label="Events this month"></div>
+    <div class="event-fallback-agenda" aria-label="Upcoming event snapshot">
+      <div class="event-fallback-heading">
+        <h3>Upcoming event snapshot</h3>
+        <p>The interactive calendar needs JavaScript. These official HWS listings remain available.</p>
+      </div>
+{event_cards}
+    </div>
+    <p class="siblings-all"><a href="https://www.hws.edu/news/calendar.aspx" target="_blank" rel="noopener" data-campus-source="calendar-directory">Open the official HWS Community Events Calendar &#8599;</a></p>
+  </section>
+
+  <dialog id="event-dialog" class="event-dialog" aria-labelledby="event-dialog-title" hidden>
+    <div class="event-dialog-panel">
+      <div class="event-dialog-toolbar">
+        <button id="event-dialog-back" class="event-dialog-back" type="button" hidden>&#8592; Back to day</button>
+        <button id="event-dialog-close" class="event-dialog-close" type="button" aria-label="Close event details">&#10005;</button>
+      </div>
+      <p id="event-dialog-category" class="campus-event-kicker"></p>
+      <h2 id="event-dialog-title" tabindex="-1">Event details</h2>
+      <p id="event-dialog-date" class="event-dialog-date"></p>
+      <p id="event-dialog-location-row" class="event-dialog-meta" hidden><strong>Location</strong><span id="event-dialog-location"></span></p>
+      <p id="event-dialog-organizer-row" class="event-dialog-meta" hidden><strong>Organizer</strong><span id="event-dialog-organizer"></span></p>
+      <p id="event-dialog-description" class="event-dialog-description"></p>
+      <div id="event-dialog-day-list" class="event-dialog-day-list" hidden></div>
+      <div id="event-dialog-links" class="event-dialog-links"></div>
+    </div>
+  </dialog>
 
   <section class="sibling-majors campus-club-meeting" aria-labelledby="ai-club-meeting">
     <p class="campus-event-kicker">HWS AI Club</p>
@@ -1398,25 +1452,6 @@ def build_events_page():
     <p><strong>Where:</strong> Sanford Room, {COLLEGE}</p>
     <p>Bring a question, a class project, or just curiosity. Meetings are beginner-friendly, open to every major and class year, and require no application.</p>
     <p class="siblings-all"><a class="btn-primary" href="{SKOOL_URL}" target="_blank" rel="noopener" data-cta="skool-join">Join the Skool community <span aria-hidden="true">&#8599;</span></a></p>
-  </section>
-
-  <section class="campus-hub-section" aria-labelledby="upcoming-hws-events">
-    <div class="campus-section-heading">
-      <div><p class="campus-event-kicker">Official HWS calendar snapshot</p><h2 id="upcoming-hws-events">Upcoming HWS events</h2></div>
-      <p id="campus-update-status" class="campus-update-status" aria-live="polite">Showing the snapshot from {esc(snapshot_time[:10])}.</p>
-    </div>
-    <p>Search campus lectures, activities, performances, athletics, and student-engagement events. The initial view covers the next 30 days.</p>
-    <div class="campus-filters" role="search" aria-label="Filter HWS events">
-      <label for="event-search">Keyword <input id="event-search" type="search" placeholder="Search title, place, or organizer" autocomplete="off"></label>
-      <label for="event-category">Category <select id="event-category"><option value="">All categories</option>{event_options}</select></label>
-      <label for="event-date">Date <select id="event-date"><option value="30" selected>Next 30 days</option><option value="7">Next 7 days</option><option value="1">Today</option><option value="60">Next 60 days</option><option value="90">Next 90 days</option></select></label>
-    </div>
-    <p id="event-results-status" class="campus-results-status" aria-live="polite">Showing the first {min(24, len(events))} upcoming events.</p>
-    <div id="campus-events-list" class="campus-event-list">
-{event_cards}
-    </div>
-    <p class="campus-load-more"><button id="events-load-more" class="filter-btn" type="button">Load 30 more days</button></p>
-    <p class="siblings-all"><a href="https://www.hws.edu/news/calendar.aspx" target="_blank" rel="noopener" data-campus-source="calendar-directory">Open the official HWS Community Events Calendar &#8599;</a></p>
   </section>
 
   <section class="campus-hub-section" aria-labelledby="hws-clubs-directory">

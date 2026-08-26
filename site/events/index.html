@@ -73,27 +73,20 @@
   </div>
 </header>
 <main id="main" class="page campus-hub" data-calendar-id="d4da22d5-7840-45cf-91c3-023390a85fc8" data-snapshot-retrieved="2026-08-26T20:43:17+00:00">
-  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / HWS Campus Events and Clubs</nav>
-  <h1>HWS Campus Events and Clubs</h1>
-  <p class="page-lede">HWS students can use this hub to find upcoming campus events, discover student organizations, and join the HWS AI Club. Official HWS links remain available for registration, corrections, and final confirmation.</p>
+  <header class="events-hero">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / HWS Campus Events and Clubs</nav>
+    <p class="campus-event-kicker">The HWS campus, in one place</p>
+    <h1>HWS Campus Events and Clubs</h1>
+    <p class="page-lede">Find what is happening at Hobart and William Smith, discover student organizations, and join the HWS AI Club. Official HWS links remain available for registration and final confirmation.</p>
+  </header>
 
-  <section class="sibling-majors campus-club-meeting" aria-labelledby="ai-club-meeting">
-    <p class="campus-event-kicker">HWS AI Club</p>
-    <h2 id="ai-club-meeting">Weekly HWS AI Club meeting</h2>
-    <p>HWS AI Club Events at Hobart and William Smith are open to students from every major and class year.</p>
-    <p><strong>When:</strong> Every Sunday, 5-6 PM · Sanford Room</p>
-    <p><strong>Where:</strong> Sanford Room, Hobart and William Smith Colleges</p>
-    <p>Bring a question, a class project, or just curiosity. Meetings are beginner-friendly, open to every major and class year, and require no application.</p>
-    <p class="siblings-all"><a class="btn-primary" href="https://www.skool.com/hws-ai-club-7506" target="_blank" rel="noopener" data-cta="skool-join">Join the Skool community <span aria-hidden="true">&#8599;</span></a></p>
-  </section>
-
-  <section class="campus-hub-section" aria-labelledby="upcoming-hws-events">
+  <section id="events-calendar" class="campus-hub-section calendar-shell" aria-labelledby="upcoming-hws-events">
     <div class="campus-section-heading">
       <div><p class="campus-event-kicker">Official HWS calendar snapshot</p><h2 id="upcoming-hws-events">Upcoming HWS events</h2></div>
       <p id="campus-update-status" class="campus-update-status" aria-live="polite">Showing the snapshot from 2026-08-26.</p>
     </div>
-    <p>Search campus lectures, activities, performances, athletics, and student-engagement events. The initial view covers the next 30 days.</p>
-    <div class="campus-filters" role="search" aria-label="Filter HWS events">
+    <p class="calendar-intro">Browse campus lectures, activities, performances, athletics, and student-engagement events by month.</p>
+    <div class="campus-filters calendar-filters" role="search" aria-label="Filter HWS events">
       <label for="event-search">Keyword <input id="event-search" type="search" placeholder="Search title, place, or organizer" autocomplete="off"></label>
       <label for="event-category">Category <select id="event-category"><option value="">All categories</option>          <option value="Academics">Academics</option>
           <option value="Admissions">Admissions</option>
@@ -108,253 +101,364 @@
           <option value="Global Education">Global Education</option>
           <option value="Lectures">Lectures</option>
           <option value="Student Engagement">Student Engagement</option></select></label>
-      <label for="event-date">Date <select id="event-date"><option value="30" selected>Next 30 days</option><option value="7">Next 7 days</option><option value="1">Today</option><option value="60">Next 60 days</option><option value="90">Next 90 days</option></select></label>
     </div>
-    <p id="event-results-status" class="campus-results-status" aria-live="polite">Showing the first 24 upcoming events.</p>
-    <div id="campus-events-list" class="campus-event-list">
-    <article class="campus-event-card" data-campus-event-id="24aba0dd-867d-4d2f-bfc5-550f853279dc" data-start="2026-08-26" data-category="Academics">
-      <p class="campus-event-kicker">Academics</p>
-      <h3>New Student Orientation</h3>
-      <p class="campus-event-meta"><time datetime="2026-08-26">Aug 26&ndash;Aug 30, 2026 &middot; All day</time><span>HWS Campus</span><span>Office of Campus Life</span></p>
-      <details class="campus-event-details">
+    <div class="calendar-toolbar">
+      <div class="calendar-navigation" aria-label="Calendar month navigation">
+        <button id="calendar-prev" class="calendar-nav-button" type="button" aria-label="Previous month">&#8592;</button>
+        <button id="calendar-today" class="calendar-today-button" type="button">Today</button>
+        <button id="calendar-next" class="calendar-nav-button" type="button" aria-label="Next month">&#8594;</button>
+      </div>
+      <h3 id="calendar-month-label" aria-live="polite">HWS events calendar</h3>
+      <p id="event-results-status" class="campus-results-status" aria-live="polite">Loading the monthly view.</p>
+    </div>
+    <div id="calendar-grid" class="calendar-grid" role="grid" aria-labelledby="calendar-month-label"></div>
+    <div id="events-mobile-agenda" class="events-mobile-agenda" aria-label="Events this month"></div>
+    <div class="event-fallback-agenda" aria-label="Upcoming event snapshot">
+      <div class="event-fallback-heading">
+        <h3>Upcoming event snapshot</h3>
+        <p>The interactive calendar needs JavaScript. These official HWS listings remain available.</p>
+      </div>
+      <article class="event-fallback-item" data-campus-event-id="24aba0dd-867d-4d2f-bfc5-550f853279dc" data-start="2026-08-26" data-category="Academics">
+        <div class="event-fallback-date"><time datetime="2026-08-26">Aug 26&ndash;Aug 30, 2026 &middot; All day</time></div>
+        <div class="event-fallback-content">
+          <p class="campus-event-kicker">Academics</p>
+          <h3>New Student Orientation</h3>
+          <p class="campus-event-meta"><span>HWS Campus</span><span>Office of Campus Life</span></p>
+        </div>
+        <details class="campus-event-details">
         <summary>Event details</summary>
         <p>Orientation 2026 will take place from Wednesday, Aug. 26 – Sunday, Aug. 30. Parents and families will join us on Wednesday, Aug. 26 to help their student move in to campus. Orientation schedule</p>
         <p class="campus-event-links"><a href="https://www.hws.edu/news/calendar.aspx#event-details/24aba0dd-867d-4d2f-bfc5-550f853279dc" target="_blank" rel="noopener" data-campus-source="event">Official details &#8599;</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=New+Student+Orientation&amp;dates=20260826/20260831&amp;details=https%3A%2F%2Fwww.hws.edu%2Fnews%2Fcalendar.aspx%23event-details%2F24aba0dd-867d-4d2f-bfc5-550f853279dc&amp;location=HWS+Campus" target="_blank" rel="noopener" data-campus-source="calendar">Add to calendar &#8599;</a></p>
-      </details>
-    </article>
-    <article class="campus-event-card" data-campus-event-id="a952269f-ca68-463b-b99b-270d71c3c1f1" data-start="2026-08-28T13:00:00-04:00" data-category="Student Engagement">
-      <p class="campus-event-kicker">Student Engagement</p>
-      <h3>#ThisIsHWS, Outdoor Fun &amp; Sno Cones, and Meet Us By The Lake!</h3>
-      <p class="campus-event-meta"><time datetime="2026-08-28T13:00:00-04:00">Friday, August 28, 2026 &middot; 1 PM&ndash;5:30 PM</time><span>HWS Campus, Various Locations</span><span>Office of Campus Life</span></p>
-      <details class="campus-event-details">
+        </details>
+      </article>
+      <article class="event-fallback-item" data-campus-event-id="a952269f-ca68-463b-b99b-270d71c3c1f1" data-start="2026-08-28T13:00:00-04:00" data-category="Student Engagement">
+        <div class="event-fallback-date"><time datetime="2026-08-28T13:00:00-04:00">Friday, August 28, 2026 &middot; 1 PM&ndash;5:30 PM</time></div>
+        <div class="event-fallback-content">
+          <p class="campus-event-kicker">Student Engagement</p>
+          <h3>#ThisIsHWS, Outdoor Fun &amp; Sno Cones, and Meet Us By The Lake!</h3>
+          <p class="campus-event-meta"><span>HWS Campus, Various Locations</span><span>Office of Campus Life</span></p>
+        </div>
+        <details class="campus-event-details">
         <summary>Event details</summary>
         <p>#ThisIsHWS #ThisIsHWS is built on a simple idea: every member of the HWS community has a story worth telling. Since 2018, the project has invited students to share the experiences, values, and beliefs that have shaped their lives, creating opportunities to see one another beyond first impressions. Through active listening and storytelling, our community develops authentic empathy and celebrates the individual members that create this community. Outdoor Fun &amp; Sno Cones Get moving and meet new friends at this action-packed recreation session hosted by the HWS Rec Center! Jump into a game of volleyball, badminton, spikeball, kickball, or gaga ball, toss a football, and try a variety of other lawn games and activities. Whether you&#x27;re looking for some friendly competition or just want to have fun, there&#x27;s something for everyone. Come play, connect, and discover all the ways you can stay active at HWS! Meet Us By The Lake! There&#x27;s no better way to experience HWS than on the shores of Seneca Lake! Join us at the Bozzuto Boathouse to paddleboard, kayak, swim, cast a line with members of the Fishing Club, or simply relax and take in the view. Whether you&#x27;re looking for adventure or a chance to connect with new friends, this is your opportunity to discover one of the most iconic parts of the HWS experience. Come see why life is better when you meet us by the lake! This lake excursion will be offered during your group’s assigned time. You will be escorted from the Quad in small groups with a guide to the boathouse. OM Groups 1-12 1-2:30 p.m. #ThisIsHWS - Vandervort Room 2:45-4 p.m. Outdoor Fun &amp; Sno Cones - The Quad 4:15-5:30 p.m. Meet Us By The Lake! - Bozzuto Boathouse OM Groups 13-25 1-2:30 p.m. Meet Us By The Lake! - Bozzuto Boathouse 2:45-4 p.m. #ThisIsHWS - Vandervort Room 4:15-5:30 p.m. Outdoor Fun &amp; Sno Cones - The Quad OM Groups 26-36 1-2:30 p.m. Outdoor Fun &amp; Sno Cones - The Quad 2:45-4 p.m. Meet Us By The Lake! - Bozzuto Boathouse 4:15-5:30 p.m. #ThisIsHWS - Vandervort Room</p>
         <p class="campus-event-links"><a href="https://www.hws.edu/news/calendar.aspx#event-details/a952269f-ca68-463b-b99b-270d71c3c1f1" target="_blank" rel="noopener" data-campus-source="event">Official details &#8599;</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=%23ThisIsHWS%2C+Outdoor+Fun+%26+Sno+Cones%2C+and+Meet+Us+By+The+Lake%21&amp;dates=20260828T170000Z/20260828T213000Z&amp;details=https%3A%2F%2Fwww.hws.edu%2Fnews%2Fcalendar.aspx%23event-details%2Fa952269f-ca68-463b-b99b-270d71c3c1f1&amp;location=HWS+Campus%2C+Various+Locations" target="_blank" rel="noopener" data-campus-source="calendar">Add to calendar &#8599;</a></p>
-      </details>
-    </article>
-    <article class="campus-event-card" data-campus-event-id="137c7cb0-628f-4de8-9963-c1829b1cad1c" data-start="2026-08-30T13:00:00-04:00" data-category="Student Engagement">
-      <p class="campus-event-kicker">Student Engagement</p>
-      <h3>Paws for a Break</h3>
-      <p class="campus-event-meta"><time datetime="2026-08-30T13:00:00-04:00">Sunday, August 30, 2026 &middot; 1 PM&ndash;3 PM</time><span>Stern Lawn</span><span>Office of Campus Life</span></p>
-      <details class="campus-event-details">
+        </details>
+      </article>
+      <article class="event-fallback-item" data-campus-event-id="137c7cb0-628f-4de8-9963-c1829b1cad1c" data-start="2026-08-30T13:00:00-04:00" data-category="Student Engagement">
+        <div class="event-fallback-date"><time datetime="2026-08-30T13:00:00-04:00">Sunday, August 30, 2026 &middot; 1 PM&ndash;3 PM</time></div>
+        <div class="event-fallback-content">
+          <p class="campus-event-kicker">Student Engagement</p>
+          <h3>Paws for a Break</h3>
+          <p class="campus-event-meta"><span>Stern Lawn</span><span>Office of Campus Life</span></p>
+        </div>
+        <details class="campus-event-details">
         <summary>Event details</summary>
         <p>First-years and transfers will have an opportunity to &quot;Paws for a Break&quot; and come relax with some of the most beloved celebrities on campus, in case they&#x27;re finding the transition to campus a little ruff. If you can&#x27;t make it don&#x27;t terrier yourself up about it as there will be plenty of additional opportunities throughout the school year.</p>
         <p class="campus-event-links"><a href="https://www.hws.edu/news/calendar.aspx#event-details/137c7cb0-628f-4de8-9963-c1829b1cad1c" target="_blank" rel="noopener" data-campus-source="event">Official details &#8599;</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Paws+for+a+Break&amp;dates=20260830T170000Z/20260830T190000Z&amp;details=https%3A%2F%2Fwww.hws.edu%2Fnews%2Fcalendar.aspx%23event-details%2F137c7cb0-628f-4de8-9963-c1829b1cad1c&amp;location=Stern+Lawn" target="_blank" rel="noopener" data-campus-source="calendar">Add to calendar &#8599;</a></p>
-      </details>
-    </article>
-    <article class="campus-event-card" data-campus-event-id="ba2dad50-fd82-405d-a194-891b85a0000c" data-start="2026-08-30T16:30:00-04:00" data-category="Academics">
-      <p class="campus-event-kicker">Academics</p>
-      <h3>Convocation 2026</h3>
-      <p class="campus-event-meta"><time datetime="2026-08-30T16:30:00-04:00">Sunday, August 30, 2026 &middot; 4:30 PM&ndash;5:30 PM</time><span>Stern Lawn</span><span>Office of the HWS Deans</span></p>
-      <details class="campus-event-details">
+        </details>
+      </article>
+      <article class="event-fallback-item" data-campus-event-id="ba2dad50-fd82-405d-a194-891b85a0000c" data-start="2026-08-30T16:30:00-04:00" data-category="Academics">
+        <div class="event-fallback-date"><time datetime="2026-08-30T16:30:00-04:00">Sunday, August 30, 2026 &middot; 4:30 PM&ndash;5:30 PM</time></div>
+        <div class="event-fallback-content">
+          <p class="campus-event-kicker">Academics</p>
+          <h3>Convocation 2026</h3>
+          <p class="campus-event-meta"><span>Stern Lawn</span><span>Office of the HWS Deans</span></p>
+        </div>
+        <details class="campus-event-details">
         <summary>Event details</summary>
         <p>Convocation marks the start of the academic year at Hobart and William Smith. The event program includes addresses from the Hobart and William Smith student leaders, faculty and the alumni community. New first-year students and new transfer students join current students, including our senior Hai Timiai and Druid Honor Society members, in celebrating the academic experience. Class banners are signed, and new students receive a gift from the deans.</p>
         <p class="campus-event-links"><a href="https://www.hws.edu/news/calendar.aspx#event-details/ba2dad50-fd82-405d-a194-891b85a0000c" target="_blank" rel="noopener" data-campus-source="event">Official details &#8599;</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Convocation+2026&amp;dates=20260830T203000Z/20260830T213000Z&amp;details=https%3A%2F%2Fwww.hws.edu%2Fnews%2Fcalendar.aspx%23event-details%2Fba2dad50-fd82-405d-a194-891b85a0000c&amp;location=Stern+Lawn" target="_blank" rel="noopener" data-campus-source="calendar">Add to calendar &#8599;</a></p>
-      </details>
-    </article>
-    <article class="campus-event-card" data-campus-event-id="97c09b4f-660e-4ef0-ba2b-cf464b9c5e06" data-start="2026-08-31" data-category="Academics">
-      <p class="campus-event-kicker">Academics</p>
-      <h3>First Day of Classes</h3>
-      <p class="campus-event-meta"><time datetime="2026-08-31">Monday, August 31, 2026 &middot; All day</time><span>HWS Campus</span><span>Office of Academic and Faculty Affairs</span></p>
-      <details class="campus-event-details">
+        </details>
+      </article>
+      <article class="event-fallback-item" data-campus-event-id="97c09b4f-660e-4ef0-ba2b-cf464b9c5e06" data-start="2026-08-31" data-category="Academics">
+        <div class="event-fallback-date"><time datetime="2026-08-31">Monday, August 31, 2026 &middot; All day</time></div>
+        <div class="event-fallback-content">
+          <p class="campus-event-kicker">Academics</p>
+          <h3>First Day of Classes</h3>
+          <p class="campus-event-meta"><span>HWS Campus</span><span>Office of Academic and Faculty Affairs</span></p>
+        </div>
+        <details class="campus-event-details">
         <summary>Event details</summary>
         <p>First day of classes for the fall 2026 semester.</p>
         <p class="campus-event-links"><a href="https://www.hws.edu/news/calendar.aspx#event-details/97c09b4f-660e-4ef0-ba2b-cf464b9c5e06" target="_blank" rel="noopener" data-campus-source="event">Official details &#8599;</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=First+Day+of+Classes&amp;dates=20260831/20260901&amp;details=https%3A%2F%2Fwww.hws.edu%2Fnews%2Fcalendar.aspx%23event-details%2F97c09b4f-660e-4ef0-ba2b-cf464b9c5e06&amp;location=HWS+Campus" target="_blank" rel="noopener" data-campus-source="calendar">Add to calendar &#8599;</a></p>
-      </details>
-    </article>
-    <article class="campus-event-card" data-campus-event-id="daa0a031-2ba1-4bef-9422-2b4877eaa6dc" data-start="2026-08-31" data-category="Academics">
-      <p class="campus-event-kicker">Academics</p>
-      <h3>Student add/drop period | Work due for spring semester incompletes</h3>
-      <p class="campus-event-meta"><time datetime="2026-08-31">Aug 31&ndash;Sep 4, 2026 &middot; All day</time><span>HWS Campus</span></p>
-      <details class="campus-event-details">
+        </details>
+      </article>
+      <article class="event-fallback-item" data-campus-event-id="daa0a031-2ba1-4bef-9422-2b4877eaa6dc" data-start="2026-08-31" data-category="Academics">
+        <div class="event-fallback-date"><time datetime="2026-08-31">Aug 31&ndash;Sep 4, 2026 &middot; All day</time></div>
+        <div class="event-fallback-content">
+          <p class="campus-event-kicker">Academics</p>
+          <h3>Student add/drop period | Work due for spring semester incompletes</h3>
+          <p class="campus-event-meta"><span>HWS Campus</span></p>
+        </div>
+        <details class="campus-event-details">
         <summary>Event details</summary>
         <p>Student add/drop period and work due for spring semester incompletes.</p>
         <p class="campus-event-links"><a href="https://www.hws.edu/news/calendar.aspx#event-details/daa0a031-2ba1-4bef-9422-2b4877eaa6dc" target="_blank" rel="noopener" data-campus-source="event">Official details &#8599;</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Student+add%2Fdrop+period+%7C+Work+due+for+spring+semester+incompletes&amp;dates=20260831/20260905&amp;details=https%3A%2F%2Fwww.hws.edu%2Fnews%2Fcalendar.aspx%23event-details%2Fdaa0a031-2ba1-4bef-9422-2b4877eaa6dc&amp;location=HWS+Campus" target="_blank" rel="noopener" data-campus-source="calendar">Add to calendar &#8599;</a></p>
-      </details>
-    </article>
-    <article class="campus-event-card" data-campus-event-id="c1975a38-1860-474c-a5d4-8b4fff510e50" data-start="2026-08-31T11:00:00-04:00" data-category="Student Engagement">
-      <p class="campus-event-kicker">Student Engagement</p>
-      <h3>First Day Photo Booth</h3>
-      <p class="campus-event-meta"><time datetime="2026-08-31T11:00:00-04:00">Monday, August 31, 2026 &middot; 11 AM&ndash;1 PM</time><span>Scandling Campus Center</span><span>Campus Activities Board</span></p>
-      <details class="campus-event-details">
+        </details>
+      </article>
+      <article class="event-fallback-item" data-campus-event-id="c1975a38-1860-474c-a5d4-8b4fff510e50" data-start="2026-08-31T11:00:00-04:00" data-category="Student Engagement">
+        <div class="event-fallback-date"><time datetime="2026-08-31T11:00:00-04:00">Monday, August 31, 2026 &middot; 11 AM&ndash;1 PM</time></div>
+        <div class="event-fallback-content">
+          <p class="campus-event-kicker">Student Engagement</p>
+          <h3>First Day Photo Booth</h3>
+          <p class="campus-event-meta"><span>Scandling Campus Center</span><span>Campus Activities Board</span></p>
+        </div>
+        <details class="campus-event-details">
         <summary>Event details</summary>
         <p>Celebrate the first day of the Fall semester with a HWS-themed photo booth!</p>
         <p class="campus-event-links"><a href="https://www.hws.edu/news/calendar.aspx#event-details/c1975a38-1860-474c-a5d4-8b4fff510e50" target="_blank" rel="noopener" data-campus-source="event">Official details &#8599;</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=First+Day+Photo+Booth&amp;dates=20260831T150000Z/20260831T170000Z&amp;details=https%3A%2F%2Fwww.hws.edu%2Fnews%2Fcalendar.aspx%23event-details%2Fc1975a38-1860-474c-a5d4-8b4fff510e50&amp;location=Scandling+Campus+Center" target="_blank" rel="noopener" data-campus-source="calendar">Add to calendar &#8599;</a></p>
-      </details>
-    </article>
-    <article class="campus-event-card" data-campus-event-id="66c128b9-ae69-4d81-9b82-7f0d3076600a" data-start="2026-08-31T12:00:00-04:00" data-category="Student Engagement">
-      <p class="campus-event-kicker">Student Engagement</p>
-      <h3>Free Ice Cream for Students from Sprinkle Starship</h3>
-      <p class="campus-event-meta"><time datetime="2026-08-31T12:00:00-04:00">Monday, August 31, 2026 &middot; 12 PM&ndash;1:30 PM</time><span>Scandling Campus Center, Front Lawn</span><span>Student Engagement Center</span></p>
-      <details class="campus-event-details">
+        </details>
+      </article>
+      <article class="event-fallback-item" data-campus-event-id="66c128b9-ae69-4d81-9b82-7f0d3076600a" data-start="2026-08-31T12:00:00-04:00" data-category="Student Engagement">
+        <div class="event-fallback-date"><time datetime="2026-08-31T12:00:00-04:00">Monday, August 31, 2026 &middot; 12 PM&ndash;1:30 PM</time></div>
+        <div class="event-fallback-content">
+          <p class="campus-event-kicker">Student Engagement</p>
+          <h3>Free Ice Cream for Students from Sprinkle Starship</h3>
+          <p class="campus-event-meta"><span>Scandling Campus Center, Front Lawn</span><span>Student Engagement Center</span></p>
+        </div>
+        <details class="campus-event-details">
         <summary>Event details</summary>
         <p>Celebrate the first day of classes with free ice cream for students from the Sprinkle Starship!</p>
         <p class="campus-event-links"><a href="https://www.hws.edu/news/calendar.aspx#event-details/66c128b9-ae69-4d81-9b82-7f0d3076600a" target="_blank" rel="noopener" data-campus-source="event">Official details &#8599;</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Free+Ice+Cream+for+Students+from+Sprinkle+Starship&amp;dates=20260831T160000Z/20260831T173000Z&amp;details=https%3A%2F%2Fwww.hws.edu%2Fnews%2Fcalendar.aspx%23event-details%2F66c128b9-ae69-4d81-9b82-7f0d3076600a&amp;location=Scandling+Campus+Center%2C+Front+Lawn" target="_blank" rel="noopener" data-campus-source="calendar">Add to calendar &#8599;</a></p>
-      </details>
-    </article>
-    <article class="campus-event-card" data-campus-event-id="e3690c16-3c4b-432e-acb9-f207922aece6" data-start="2026-08-31T18:00:00-04:00" data-category="Career Services">
-      <p class="campus-event-kicker">Career Services</p>
-      <h3>Virtual Joint Interview Essentials and Networking 101 Workshops</h3>
-      <p class="campus-event-meta"><time datetime="2026-08-31T18:00:00-04:00">Monday, August 31, 2026 &middot; 6 PM&ndash;7:30 PM</time><span>Virtual</span><span>Salisbury Center for Career, Professional and Experiential Education</span></p>
-      <details class="campus-event-details">
+        </details>
+      </article>
+      <article class="event-fallback-item" data-campus-event-id="e3690c16-3c4b-432e-acb9-f207922aece6" data-start="2026-08-31T18:00:00-04:00" data-category="Career Services">
+        <div class="event-fallback-date"><time datetime="2026-08-31T18:00:00-04:00">Monday, August 31, 2026 &middot; 6 PM&ndash;7:30 PM</time></div>
+        <div class="event-fallback-content">
+          <p class="campus-event-kicker">Career Services</p>
+          <h3>Virtual Joint Interview Essentials and Networking 101 Workshops</h3>
+          <p class="campus-event-meta"><span>Virtual</span><span>Salisbury Center for Career, Professional and Experiential Education</span></p>
+        </div>
+        <details class="campus-event-details">
         <summary>Event details</summary>
         <p>This combined workshop, hosted by Career Services, satisfies both prerequisites, Interview Essentials and Networking 101, for students applying for Guaranteed Internship Funding. Students will learn how to build and maintain a professional network, approach networking opportunities with confidence, and effectively use platforms such as LinkedIn to expand professional connections. The workshop will also cover interview essentials, including different types of interviews, how to prepare, professional attire, responding to behavioral and general interview questions, and best practices for following up with employers after an interview. Whether you are actively applying for internships or planning ahead, this workshop will equip you with practical tools to make strong professional connections and present yourself effectively to employers—while fulfilling a key requirement for Internship Funding.</p>
         <p class="campus-event-links"><a href="https://www.hws.edu/news/calendar.aspx#event-details/e3690c16-3c4b-432e-acb9-f207922aece6" target="_blank" rel="noopener" data-campus-source="event">Official details &#8599;</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Virtual+Joint+Interview+Essentials+and+Networking+101+Workshops&amp;dates=20260831T220000Z/20260831T233000Z&amp;details=https%3A%2F%2Fwww.hws.edu%2Fnews%2Fcalendar.aspx%23event-details%2Fe3690c16-3c4b-432e-acb9-f207922aece6&amp;location=Virtual" target="_blank" rel="noopener" data-campus-source="calendar">Add to calendar &#8599;</a></p>
-      </details>
-    </article>
-    <article class="campus-event-card" data-campus-event-id="a4c023c7-421d-4546-bbef-73abfd6c821d" data-start="2026-09-01T12:00:00-04:00" data-category="Student Engagement">
-      <p class="campus-event-kicker">Student Engagement</p>
-      <h3>Tie-Dye Tuesday</h3>
-      <p class="campus-event-meta"><time datetime="2026-09-01T12:00:00-04:00">Tuesday, September 1, 2026 &middot; 12 PM&ndash;1:30 PM</time><span>Scandling Campus Center, Front Lawn</span><span>Student Engagement Center</span></p>
-      <details class="campus-event-details">
+        </details>
+      </article>
+      <article class="event-fallback-item" data-campus-event-id="a4c023c7-421d-4546-bbef-73abfd6c821d" data-start="2026-09-01T12:00:00-04:00" data-category="Student Engagement">
+        <div class="event-fallback-date"><time datetime="2026-09-01T12:00:00-04:00">Tuesday, September 1, 2026 &middot; 12 PM&ndash;1:30 PM</time></div>
+        <div class="event-fallback-content">
+          <p class="campus-event-kicker">Student Engagement</p>
+          <h3>Tie-Dye Tuesday</h3>
+          <p class="campus-event-meta"><span>Scandling Campus Center, Front Lawn</span><span>Student Engagement Center</span></p>
+        </div>
+        <details class="campus-event-details">
         <summary>Event details</summary>
         <p>Tie-dye a free shirt on the lawn!</p>
         <p class="campus-event-links"><a href="https://www.hws.edu/news/calendar.aspx#event-details/a4c023c7-421d-4546-bbef-73abfd6c821d" target="_blank" rel="noopener" data-campus-source="event">Official details &#8599;</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Tie-Dye+Tuesday&amp;dates=20260901T160000Z/20260901T173000Z&amp;details=https%3A%2F%2Fwww.hws.edu%2Fnews%2Fcalendar.aspx%23event-details%2Fa4c023c7-421d-4546-bbef-73abfd6c821d&amp;location=Scandling+Campus+Center%2C+Front+Lawn" target="_blank" rel="noopener" data-campus-source="calendar">Add to calendar &#8599;</a></p>
-      </details>
-    </article>
-    <article class="campus-event-card" data-campus-event-id="31b2d302-ea2c-4608-aa6a-6cb7026e2fa1" data-start="2026-09-01T15:00:00-04:00" data-category="Athletics">
-      <p class="campus-event-kicker">Athletics</p>
-      <h3>William Smith Soccer vs. Emmanuel College (Mass.)</h3>
-      <p class="campus-event-meta"><time datetime="2026-09-01T15:00:00-04:00">Tuesday, September 1, 2026 &middot; 3 PM&ndash;3 PM</time><span>Cozzens Field</span><span>Athletics</span></p>
-      <details class="campus-event-details">
+        </details>
+      </article>
+      <article class="event-fallback-item" data-campus-event-id="31b2d302-ea2c-4608-aa6a-6cb7026e2fa1" data-start="2026-09-01T15:00:00-04:00" data-category="Athletics">
+        <div class="event-fallback-date"><time datetime="2026-09-01T15:00:00-04:00">Tuesday, September 1, 2026 &middot; 3 PM&ndash;3 PM</time></div>
+        <div class="event-fallback-content">
+          <p class="campus-event-kicker">Athletics</p>
+          <h3>William Smith Soccer vs. Emmanuel College (Mass.)</h3>
+          <p class="campus-event-meta"><span>Cozzens Field</span><span>Athletics</span></p>
+        </div>
+        <details class="campus-event-details">
         <summary>Event details</summary>
         <p>William Smith Soccer vs. Emmanuel College (Mass.) Full schedule</p>
         <p class="campus-event-links"><a href="https://www.hws.edu/news/calendar.aspx#event-details/31b2d302-ea2c-4608-aa6a-6cb7026e2fa1" target="_blank" rel="noopener" data-campus-source="event">Official details &#8599;</a></p>
-      </details>
-    </article>
-    <article class="campus-event-card" data-campus-event-id="d63a7963-9d64-496b-ac9a-19b2cbfc8d3d" data-start="2026-09-01T16:00:00-04:00" data-category="Athletics">
-      <p class="campus-event-kicker">Athletics</p>
-      <h3>Hobart Soccer at St. John Fisher University</h3>
-      <p class="campus-event-meta"><time datetime="2026-09-01T16:00:00-04:00">Tuesday, September 1, 2026 &middot; 4 PM&ndash;4 PM</time><span>St. John Fisher University</span><span>Athletics</span></p>
-      <details class="campus-event-details">
+        </details>
+      </article>
+      <article class="event-fallback-item" data-campus-event-id="d63a7963-9d64-496b-ac9a-19b2cbfc8d3d" data-start="2026-09-01T16:00:00-04:00" data-category="Athletics">
+        <div class="event-fallback-date"><time datetime="2026-09-01T16:00:00-04:00">Tuesday, September 1, 2026 &middot; 4 PM&ndash;4 PM</time></div>
+        <div class="event-fallback-content">
+          <p class="campus-event-kicker">Athletics</p>
+          <h3>Hobart Soccer at St. John Fisher University</h3>
+          <p class="campus-event-meta"><span>St. John Fisher University</span><span>Athletics</span></p>
+        </div>
+        <details class="campus-event-details">
         <summary>Event details</summary>
         <p>Hobart Soccer at St. John Fisher University Full schedule</p>
         <p class="campus-event-links"><a href="https://www.hws.edu/news/calendar.aspx#event-details/d63a7963-9d64-496b-ac9a-19b2cbfc8d3d" target="_blank" rel="noopener" data-campus-source="event">Official details &#8599;</a></p>
-      </details>
-    </article>
-    <article class="campus-event-card" data-campus-event-id="cdda4d2b-4740-45f7-8f1a-6fed50872c98" data-start="2026-09-01T19:00:00-04:00" data-category="Athletics">
-      <p class="campus-event-kicker">Athletics</p>
-      <h3>William Smith Field Hockey at St. John Fisher University</h3>
-      <p class="campus-event-meta"><time datetime="2026-09-01T19:00:00-04:00">Tuesday, September 1, 2026 &middot; 7 PM&ndash;7 PM</time><span>St. John Fisher University</span><span>Athletics</span></p>
-      <details class="campus-event-details">
+        </details>
+      </article>
+      <article class="event-fallback-item" data-campus-event-id="cdda4d2b-4740-45f7-8f1a-6fed50872c98" data-start="2026-09-01T19:00:00-04:00" data-category="Athletics">
+        <div class="event-fallback-date"><time datetime="2026-09-01T19:00:00-04:00">Tuesday, September 1, 2026 &middot; 7 PM&ndash;7 PM</time></div>
+        <div class="event-fallback-content">
+          <p class="campus-event-kicker">Athletics</p>
+          <h3>William Smith Field Hockey at St. John Fisher University</h3>
+          <p class="campus-event-meta"><span>St. John Fisher University</span><span>Athletics</span></p>
+        </div>
+        <details class="campus-event-details">
         <summary>Event details</summary>
         <p>William Smith Field Hockey at St. John Fisher University Full schedule</p>
         <p class="campus-event-links"><a href="https://www.hws.edu/news/calendar.aspx#event-details/cdda4d2b-4740-45f7-8f1a-6fed50872c98" target="_blank" rel="noopener" data-campus-source="event">Official details &#8599;</a></p>
-      </details>
-    </article>
-    <article class="campus-event-card" data-campus-event-id="c6ea1301-99f1-482b-a1d0-167cd476d6d2" data-start="2026-09-02T13:00:00-04:00" data-category="Faculty &amp; Staff">
-      <p class="campus-event-kicker">Faculty &amp; Staff</p>
-      <h3>The Dock Drop-In Information Session</h3>
-      <p class="campus-event-meta"><time datetime="2026-09-02T13:00:00-04:00">Wednesday, September 2, 2026 &middot; 1 PM&ndash;4 PM</time><span>Scandling Campus Center, Finger Lakes Coffee, or Zoom</span></p>
-      <details class="campus-event-details">
+        </details>
+      </article>
+      <article class="event-fallback-item" data-campus-event-id="c6ea1301-99f1-482b-a1d0-167cd476d6d2" data-start="2026-09-02T13:00:00-04:00" data-category="Faculty &amp; Staff">
+        <div class="event-fallback-date"><time datetime="2026-09-02T13:00:00-04:00">Wednesday, September 2, 2026 &middot; 1 PM&ndash;4 PM</time></div>
+        <div class="event-fallback-content">
+          <p class="campus-event-kicker">Faculty &amp; Staff</p>
+          <h3>The Dock Drop-In Information Session</h3>
+          <p class="campus-event-meta"><span>Scandling Campus Center, Finger Lakes Coffee, or Zoom</span></p>
+        </div>
+        <details class="campus-event-details">
         <summary>Event details</summary>
         <p>Join us for a drop-in session on Zoom or in Scandling Campus Center at Finger Lakes Coffee to learn more about The Dock. This session is designed for faculty and staff who would like to know more or view the portal. For more information, including frequently asked questions, please visit the website.</p>
         <p class="campus-event-links"><a href="https://www.hws.edu/news/calendar.aspx#event-details/c6ea1301-99f1-482b-a1d0-167cd476d6d2" target="_blank" rel="noopener" data-campus-source="event">Official details &#8599;</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=The+Dock+Drop-In+Information+Session&amp;dates=20260902T170000Z/20260902T200000Z&amp;details=https%3A%2F%2Fwww.hws.edu%2Fnews%2Fcalendar.aspx%23event-details%2Fc6ea1301-99f1-482b-a1d0-167cd476d6d2&amp;location=Scandling+Campus+Center%2C+Finger+Lakes+Coffee%2C+or+Zoom" target="_blank" rel="noopener" data-campus-source="calendar">Add to calendar &#8599;</a></p>
-      </details>
-    </article>
-    <article class="campus-event-card" data-campus-event-id="11affa65-3d6b-4835-9c02-9eb00c45e070" data-start="2026-09-03T12:00:00-04:00" data-category="Career Services">
-      <p class="campus-event-kicker">Career Services</p>
-      <h3>Women in Business Club Luncheon with Ericka McKenna &#x27;02</h3>
-      <p class="campus-event-meta"><time datetime="2026-09-03T12:00:00-04:00">Thursday, September 3, 2026 &middot; 12 PM&ndash;1:30 PM</time><span>Adams Intercultural Center, Stine Room</span><span>Salisbury Center for Career, Professional and Experiential Education</span></p>
-      <details class="campus-event-details">
+        </details>
+      </article>
+      <article class="event-fallback-item" data-campus-event-id="11affa65-3d6b-4835-9c02-9eb00c45e070" data-start="2026-09-03T12:00:00-04:00" data-category="Career Services">
+        <div class="event-fallback-date"><time datetime="2026-09-03T12:00:00-04:00">Thursday, September 3, 2026 &middot; 12 PM&ndash;1:30 PM</time></div>
+        <div class="event-fallback-content">
+          <p class="campus-event-kicker">Career Services</p>
+          <h3>Women in Business Club Luncheon with Ericka McKenna &#x27;02</h3>
+          <p class="campus-event-meta"><span>Adams Intercultural Center, Stine Room</span><span>Salisbury Center for Career, Professional and Experiential Education</span></p>
+        </div>
+        <details class="campus-event-details">
         <summary>Event details</summary>
         <p>Women in Business Club Luncheon featuring keynote speaker Ericka McKenna &#x27;02, Chief Marketing Officer, Real Chemistry. Ericka has nearly 20 years of experience partnering with pharmaceutical manufacturers on bringing new, highly innovative products to market. She has worked with some of the world&#x27;s most innovative healthcare companies, including Johnson &amp; Johnson, Novartis, AstraZeneca, Bristol Myers Squibb and AbbVie. Most recently, her career has focused on leading growth and marketing efforts for Real Chemistry, a multinational, healthcare-focused marketing and communications network. Ericka is a proud alumna of Hobart and William Smith, where she earned a bachelor&#x27;s degree. She also holds a master&#x27;s degree in healthcare innovation from the University of Pennsylvania&#x27;s Perelman School of Medicine.</p>
         <p class="campus-event-links"><a href="https://www.hws.edu/news/calendar.aspx#event-details/11affa65-3d6b-4835-9c02-9eb00c45e070" target="_blank" rel="noopener" data-campus-source="event">Official details &#8599;</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Women+in+Business+Club+Luncheon+with+Ericka+McKenna+%2702&amp;dates=20260903T160000Z/20260903T173000Z&amp;details=https%3A%2F%2Fwww.hws.edu%2Fnews%2Fcalendar.aspx%23event-details%2F11affa65-3d6b-4835-9c02-9eb00c45e070&amp;location=Adams+Intercultural+Center%2C+Stine+Room" target="_blank" rel="noopener" data-campus-source="calendar">Add to calendar &#8599;</a></p>
-      </details>
-    </article>
-    <article class="campus-event-card" data-campus-event-id="2fe74d14-8172-43bc-8f18-ce5284377d2f" data-start="2026-09-03T16:00:00-04:00" data-category="Centennial Center">
-      <p class="campus-event-kicker">Centennial Center</p>
-      <h3>Centennial Center at the Involvement Expo</h3>
-      <p class="campus-event-meta"><time datetime="2026-09-03T16:00:00-04:00">Thursday, September 3, 2026 &middot; 4 PM&ndash;6 PM</time><span>The Quad, (Rain location: Vandervort Room)</span><span>The Centennial Center</span></p>
-      <details class="campus-event-details">
+        </details>
+      </article>
+      <article class="event-fallback-item" data-campus-event-id="2fe74d14-8172-43bc-8f18-ce5284377d2f" data-start="2026-09-03T16:00:00-04:00" data-category="Centennial Center">
+        <div class="event-fallback-date"><time datetime="2026-09-03T16:00:00-04:00">Thursday, September 3, 2026 &middot; 4 PM&ndash;6 PM</time></div>
+        <div class="event-fallback-content">
+          <p class="campus-event-kicker">Centennial Center</p>
+          <h3>Centennial Center at the Involvement Expo</h3>
+          <p class="campus-event-meta"><span>The Quad, (Rain location: Vandervort Room)</span><span>The Centennial Center</span></p>
+        </div>
+        <details class="campus-event-details">
         <summary>Event details</summary>
         <p>Stock up on studying essentials (highlighters, pens, pencils, fidget toys, snacks, etc.) and learn more about Centennial Center programming at the Involvement Expo! Meet us on the Quad from 4-6 p.m. on Thursday, September 3. (Rain location: Vandervort Room, Scandling Campus Center.)</p>
         <p class="campus-event-links"><a href="https://www.hws.edu/news/calendar.aspx#event-details/2fe74d14-8172-43bc-8f18-ce5284377d2f" target="_blank" rel="noopener" data-campus-source="event">Official details &#8599;</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Centennial+Center+at+the+Involvement+Expo&amp;dates=20260903T200000Z/20260903T220000Z&amp;details=https%3A%2F%2Fwww.hws.edu%2Fnews%2Fcalendar.aspx%23event-details%2F2fe74d14-8172-43bc-8f18-ce5284377d2f&amp;location=The+Quad%2C+%28Rain+location%3A+Vandervort+Room%29" target="_blank" rel="noopener" data-campus-source="calendar">Add to calendar &#8599;</a></p>
-      </details>
-    </article>
-    <article class="campus-event-card" data-campus-event-id="e2f2ad0e-1ab4-4272-bdd1-264156cb0745" data-start="2026-09-03T16:00:00-04:00" data-category="Student Engagement">
-      <p class="campus-event-kicker">Student Engagement</p>
-      <h3>Fall Involvement Expo</h3>
-      <p class="campus-event-meta"><time datetime="2026-09-03T16:00:00-04:00">Thursday, September 3, 2026 &middot; 4 PM&ndash;6 PM</time><span>The Quad</span><span>Student Engagement Center</span></p>
-      <details class="campus-event-details">
+        </details>
+      </article>
+      <article class="event-fallback-item" data-campus-event-id="e2f2ad0e-1ab4-4272-bdd1-264156cb0745" data-start="2026-09-03T16:00:00-04:00" data-category="Student Engagement">
+        <div class="event-fallback-date"><time datetime="2026-09-03T16:00:00-04:00">Thursday, September 3, 2026 &middot; 4 PM&ndash;6 PM</time></div>
+        <div class="event-fallback-content">
+          <p class="campus-event-kicker">Student Engagement</p>
+          <h3>Fall Involvement Expo</h3>
+          <p class="campus-event-meta"><span>The Quad</span><span>Student Engagement Center</span></p>
+        </div>
+        <details class="campus-event-details">
         <summary>Event details</summary>
         <p>HWS has over 80 student organizations. Come learn more about them and how you can get involved!</p>
         <p class="campus-event-links"><a href="https://www.hws.edu/news/calendar.aspx#event-details/e2f2ad0e-1ab4-4272-bdd1-264156cb0745" target="_blank" rel="noopener" data-campus-source="event">Official details &#8599;</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Fall+Involvement+Expo&amp;dates=20260903T200000Z/20260903T220000Z&amp;details=https%3A%2F%2Fwww.hws.edu%2Fnews%2Fcalendar.aspx%23event-details%2Fe2f2ad0e-1ab4-4272-bdd1-264156cb0745&amp;location=The+Quad" target="_blank" rel="noopener" data-campus-source="calendar">Add to calendar &#8599;</a></p>
-      </details>
-    </article>
-    <article class="campus-event-card" data-campus-event-id="40a4a617-61d3-4fdf-beb0-b67c151ea5a7" data-start="2026-09-03T16:30:00-04:00" data-category="Lectures">
-      <p class="campus-event-kicker">Lectures</p>
-      <h3>Technology Workshop Series: Intro to File Management</h3>
-      <p class="campus-event-meta"><time datetime="2026-09-03T16:30:00-04:00">Thursday, September 3, 2026 &middot; 4:30 PM&ndash;5:30 PM</time><span>The Warren Hunting Smith Library, Learning Studio 2</span><span>Digital Learning Center</span></p>
-      <details class="campus-event-details">
+        </details>
+      </article>
+      <article class="event-fallback-item" data-campus-event-id="40a4a617-61d3-4fdf-beb0-b67c151ea5a7" data-start="2026-09-03T16:30:00-04:00" data-category="Lectures">
+        <div class="event-fallback-date"><time datetime="2026-09-03T16:30:00-04:00">Thursday, September 3, 2026 &middot; 4:30 PM&ndash;5:30 PM</time></div>
+        <div class="event-fallback-content">
+          <p class="campus-event-kicker">Lectures</p>
+          <h3>Technology Workshop Series: Intro to File Management</h3>
+          <p class="campus-event-meta"><span>The Warren Hunting Smith Library, Learning Studio 2</span><span>Digital Learning Center</span></p>
+        </div>
+        <details class="campus-event-details">
         <summary>Event details</summary>
         <p>The Digital Learning Center is pleased to offer a student workshop series on a variety of technical skills. Join us on Thursdays from 4:30-5:30 p.m. in Learning Studio 2, on the first floor of the Library. Learn a new tool and develop your skills. No previous experience necessary, drop-ins welcome. Check out all the offerings in our series: September 3: Introduction to File Management September 10: Basics of AI Literacy September 17: Introduction to Video Editing with DaVinci Resolve September 24: Introduction to Excel October 1: Podcast Recording and Editing October 8: AI: Cheating or Study Tool? October 15: Intermediate Excel October 22: Why is the AI Lying to Me? Hallucinations, Bad Prompts, and How to Fix them October 29: Introduction to Photoshop November 5: Collecting Data with Survey123 November 12: Exploring Ethical Implications of AI November 19: DSLR Camera and Lighting Demo</p>
         <p class="campus-event-links"><a href="https://www.hws.edu/news/calendar.aspx#event-details/40a4a617-61d3-4fdf-beb0-b67c151ea5a7" target="_blank" rel="noopener" data-campus-source="event">Official details &#8599;</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Technology+Workshop+Series%3A+Intro+to+File+Management&amp;dates=20260903T203000Z/20260903T213000Z&amp;details=https%3A%2F%2Fwww.hws.edu%2Fnews%2Fcalendar.aspx%23event-details%2F40a4a617-61d3-4fdf-beb0-b67c151ea5a7&amp;location=The+Warren+Hunting+Smith+Library%2C+Learning+Studio+2" target="_blank" rel="noopener" data-campus-source="calendar">Add to calendar &#8599;</a></p>
-      </details>
-    </article>
-    <article class="campus-event-card" data-campus-event-id="2aa14736-8482-4c7f-a1d5-ced2283fb95f" data-start="2026-09-04" data-category="Admissions">
-      <p class="campus-event-kicker">Admissions</p>
-      <h3>Fall Open House</h3>
-      <p class="campus-event-meta"><time datetime="2026-09-04">Friday, September 4, 2026 &middot; All day</time><span>HWS Campus</span><span>Office of Admissions</span></p>
-      <details class="campus-event-details">
+        </details>
+      </article>
+      <article class="event-fallback-item" data-campus-event-id="2aa14736-8482-4c7f-a1d5-ced2283fb95f" data-start="2026-09-04" data-category="Admissions">
+        <div class="event-fallback-date"><time datetime="2026-09-04">Friday, September 4, 2026 &middot; All day</time></div>
+        <div class="event-fallback-content">
+          <p class="campus-event-kicker">Admissions</p>
+          <h3>Fall Open House</h3>
+          <p class="campus-event-meta"><span>HWS Campus</span><span>Office of Admissions</span></p>
+        </div>
+        <details class="campus-event-details">
         <summary>Event details</summary>
         <p>Open House programs typically include panel discussions with students and faculty, a campus tour and lunch. Rising seniors may also register for an interview when they arrive to campus.</p>
         <p class="campus-event-links"><a href="https://www.hws.edu/news/calendar.aspx#event-details/2aa14736-8482-4c7f-a1d5-ced2283fb95f" target="_blank" rel="noopener" data-campus-source="event">Official details &#8599;</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Fall+Open+House&amp;dates=20260904/20260905&amp;details=https%3A%2F%2Fwww.hws.edu%2Fnews%2Fcalendar.aspx%23event-details%2F2aa14736-8482-4c7f-a1d5-ced2283fb95f&amp;location=HWS+Campus" target="_blank" rel="noopener" data-campus-source="calendar">Add to calendar &#8599;</a></p>
-      </details>
-    </article>
-    <article class="campus-event-card" data-campus-event-id="4db28663-3ce2-4b9b-968a-4e0b1b607b48" data-start="2026-09-04T11:30:00-04:00" data-category="Student Engagement">
-      <p class="campus-event-kicker">Student Engagement</p>
-      <h3>Fun Friday: Get to Know Student Activities &amp; Greek Life</h3>
-      <p class="campus-event-meta"><time datetime="2026-09-04T11:30:00-04:00">Friday, September 4, 2026 &middot; 11:30 AM&ndash;1 PM</time><span>Scandling Campus Center, First Floor</span><span>Student Engagement Center</span></p>
-      <details class="campus-event-details">
+        </details>
+      </article>
+      <article class="event-fallback-item" data-campus-event-id="4db28663-3ce2-4b9b-968a-4e0b1b607b48" data-start="2026-09-04T11:30:00-04:00" data-category="Student Engagement">
+        <div class="event-fallback-date"><time datetime="2026-09-04T11:30:00-04:00">Friday, September 4, 2026 &middot; 11:30 AM&ndash;1 PM</time></div>
+        <div class="event-fallback-content">
+          <p class="campus-event-kicker">Student Engagement</p>
+          <h3>Fun Friday: Get to Know Student Activities &amp; Greek Life</h3>
+          <p class="campus-event-meta"><span>Scandling Campus Center, First Floor</span><span>Student Engagement Center</span></p>
+        </div>
+        <details class="campus-event-details">
         <summary>Event details</summary>
         <p>Get to know the Office of Student Activities &amp; Greek Life! Learn more about Student Government, CAB, Greek recruitment, leadership and involvement opportunities, the Road Trip Series and more!</p>
         <p class="campus-event-links"><a href="https://www.hws.edu/news/calendar.aspx#event-details/4db28663-3ce2-4b9b-968a-4e0b1b607b48" target="_blank" rel="noopener" data-campus-source="event">Official details &#8599;</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Fun+Friday%3A+Get+to+Know+Student+Activities+%26+Greek+Life&amp;dates=20260904T153000Z/20260904T170000Z&amp;details=https%3A%2F%2Fwww.hws.edu%2Fnews%2Fcalendar.aspx%23event-details%2F4db28663-3ce2-4b9b-968a-4e0b1b607b48&amp;location=Scandling+Campus+Center%2C+First+Floor" target="_blank" rel="noopener" data-campus-source="calendar">Add to calendar &#8599;</a></p>
-      </details>
-    </article>
-    <article class="campus-event-card" data-campus-event-id="3c9906b4-7b18-43b0-aa9d-8b6b2695bbaa" data-start="2026-09-04T14:00:00-04:00" data-category="Student Engagement">
-      <p class="campus-event-kicker">Student Engagement</p>
-      <h3>Welcome Back Dirty Soda Bar</h3>
-      <p class="campus-event-meta"><time datetime="2026-09-04T14:00:00-04:00">Friday, September 4, 2026 &middot; 2 PM&ndash;4 PM</time><span>Adams Intercultural Center</span><span>Adams Intercultural Center</span></p>
-      <details class="campus-event-details">
+        </details>
+      </article>
+      <article class="event-fallback-item" data-campus-event-id="3c9906b4-7b18-43b0-aa9d-8b6b2695bbaa" data-start="2026-09-04T14:00:00-04:00" data-category="Student Engagement">
+        <div class="event-fallback-date"><time datetime="2026-09-04T14:00:00-04:00">Friday, September 4, 2026 &middot; 2 PM&ndash;4 PM</time></div>
+        <div class="event-fallback-content">
+          <p class="campus-event-kicker">Student Engagement</p>
+          <h3>Welcome Back Dirty Soda Bar</h3>
+          <p class="campus-event-meta"><span>Adams Intercultural Center</span><span>Adams Intercultural Center</span></p>
+        </div>
+        <details class="campus-event-details">
         <summary>Event details</summary>
         <p>Come celebrate the beginning of the school year with us at the AIC! Dirty Soda Bar ingredients will be provided while supplies last. Hope to see you there!</p>
         <p class="campus-event-links"><a href="https://www.hws.edu/news/calendar.aspx#event-details/3c9906b4-7b18-43b0-aa9d-8b6b2695bbaa" target="_blank" rel="noopener" data-campus-source="event">Official details &#8599;</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Welcome+Back+Dirty+Soda+Bar&amp;dates=20260904T180000Z/20260904T200000Z&amp;details=https%3A%2F%2Fwww.hws.edu%2Fnews%2Fcalendar.aspx%23event-details%2F3c9906b4-7b18-43b0-aa9d-8b6b2695bbaa&amp;location=Adams+Intercultural+Center" target="_blank" rel="noopener" data-campus-source="calendar">Add to calendar &#8599;</a></p>
-      </details>
-    </article>
-    <article class="campus-event-card" data-campus-event-id="3f453cfe-551d-4c1f-805e-d5088353846c--59571ee5d1ae" data-start="2026-09-04T17:00:00-04:00" data-category="Student Engagement">
-      <p class="campus-event-kicker">Student Engagement</p>
-      <h3>Open House hosted by Mary Herlihy Gearan</h3>
-      <p class="campus-event-meta"><time datetime="2026-09-04T17:00:00-04:00">Friday, September 4, 2026 &middot; 5 PM&ndash;6:30 PM</time><span>President&#x27;s House</span><span>The President&#x27;s Office</span></p>
-      <details class="campus-event-details">
+        </details>
+      </article>
+      <article class="event-fallback-item" data-campus-event-id="3f453cfe-551d-4c1f-805e-d5088353846c--59571ee5d1ae" data-start="2026-09-04T17:00:00-04:00" data-category="Student Engagement">
+        <div class="event-fallback-date"><time datetime="2026-09-04T17:00:00-04:00">Friday, September 4, 2026 &middot; 5 PM&ndash;6:30 PM</time></div>
+        <div class="event-fallback-content">
+          <p class="campus-event-kicker">Student Engagement</p>
+          <h3>Open House hosted by Mary Herlihy Gearan</h3>
+          <p class="campus-event-meta"><span>President&#x27;s House</span><span>The President&#x27;s Office</span></p>
+        </div>
+        <details class="campus-event-details">
         <summary>Event details</summary>
         <p>Come to the President’s House for a relaxed, informal gathering with fellow students and Geneva community members. Enjoy light refreshments and a fun chance to meet new people and engage with friends.</p>
         <p class="campus-event-links"><a href="https://www.hws.edu/news/calendar.aspx#event-details/3f453cfe-551d-4c1f-805e-d5088353846c/instances/2026-09-04T21:00" target="_blank" rel="noopener" data-campus-source="event">Official details &#8599;</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Open+House+hosted+by+Mary+Herlihy+Gearan&amp;dates=20260904T210000Z/20260904T223000Z&amp;details=https%3A%2F%2Fwww.hws.edu%2Fnews%2Fcalendar.aspx%23event-details%2F3f453cfe-551d-4c1f-805e-d5088353846c%2Finstances%2F2026-09-04T21%3A00&amp;location=President%27s+House" target="_blank" rel="noopener" data-campus-source="calendar">Add to calendar &#8599;</a></p>
-      </details>
-    </article>
-    <article class="campus-event-card" data-campus-event-id="97c14544-7a80-4057-b2c0-9fcd513017f0" data-start="2026-09-04T17:00:00-04:00" data-category="Athletics">
-      <p class="campus-event-kicker">Athletics</p>
-      <h3>William Smith Soccer at Washington and Lee University</h3>
-      <p class="campus-event-meta"><time datetime="2026-09-04T17:00:00-04:00">Friday, September 4, 2026 &middot; 5 PM&ndash;5 PM</time><span>Washington and Lee University</span><span>Athletics</span></p>
-      <details class="campus-event-details">
+        </details>
+      </article>
+      <article class="event-fallback-item" data-campus-event-id="97c14544-7a80-4057-b2c0-9fcd513017f0" data-start="2026-09-04T17:00:00-04:00" data-category="Athletics">
+        <div class="event-fallback-date"><time datetime="2026-09-04T17:00:00-04:00">Friday, September 4, 2026 &middot; 5 PM&ndash;5 PM</time></div>
+        <div class="event-fallback-content">
+          <p class="campus-event-kicker">Athletics</p>
+          <h3>William Smith Soccer at Washington and Lee University</h3>
+          <p class="campus-event-meta"><span>Washington and Lee University</span><span>Athletics</span></p>
+        </div>
+        <details class="campus-event-details">
         <summary>Event details</summary>
         <p>William Smith Soccer at Washington and Lee University Full schedule</p>
         <p class="campus-event-links"><a href="https://www.hws.edu/news/calendar.aspx#event-details/97c14544-7a80-4057-b2c0-9fcd513017f0" target="_blank" rel="noopener" data-campus-source="event">Official details &#8599;</a></p>
-      </details>
-    </article>
-    <article class="campus-event-card" data-campus-event-id="ef18dde3-7394-4585-aa53-38ce8fed43ca" data-start="2026-09-04T18:00:00-04:00" data-category="Athletics">
-      <p class="campus-event-kicker">Athletics</p>
-      <h3>Hobart Soccer at Brandeis University</h3>
-      <p class="campus-event-meta"><time datetime="2026-09-04T18:00:00-04:00">Friday, September 4, 2026 &middot; 6 PM&ndash;6 PM</time><span>Brandeis University</span><span>Athletics</span></p>
-      <details class="campus-event-details">
+        </details>
+      </article>
+      <article class="event-fallback-item" data-campus-event-id="ef18dde3-7394-4585-aa53-38ce8fed43ca" data-start="2026-09-04T18:00:00-04:00" data-category="Athletics">
+        <div class="event-fallback-date"><time datetime="2026-09-04T18:00:00-04:00">Friday, September 4, 2026 &middot; 6 PM&ndash;6 PM</time></div>
+        <div class="event-fallback-content">
+          <p class="campus-event-kicker">Athletics</p>
+          <h3>Hobart Soccer at Brandeis University</h3>
+          <p class="campus-event-meta"><span>Brandeis University</span><span>Athletics</span></p>
+        </div>
+        <details class="campus-event-details">
         <summary>Event details</summary>
         <p>Hobart Soccer at Brandeis University Full schedule</p>
         <p class="campus-event-links"><a href="https://www.hws.edu/news/calendar.aspx#event-details/ef18dde3-7394-4585-aa53-38ce8fed43ca" target="_blank" rel="noopener" data-campus-source="event">Official details &#8599;</a></p>
-      </details>
-    </article>
+        </details>
+      </article>
     </div>
-    <p class="campus-load-more"><button id="events-load-more" class="filter-btn" type="button">Load 30 more days</button></p>
     <p class="siblings-all"><a href="https://www.hws.edu/news/calendar.aspx" target="_blank" rel="noopener" data-campus-source="calendar-directory">Open the official HWS Community Events Calendar &#8599;</a></p>
+  </section>
+
+  <dialog id="event-dialog" class="event-dialog" aria-labelledby="event-dialog-title" hidden>
+    <div class="event-dialog-panel">
+      <div class="event-dialog-toolbar">
+        <button id="event-dialog-back" class="event-dialog-back" type="button" hidden>&#8592; Back to day</button>
+        <button id="event-dialog-close" class="event-dialog-close" type="button" aria-label="Close event details">&#10005;</button>
+      </div>
+      <p id="event-dialog-category" class="campus-event-kicker"></p>
+      <h2 id="event-dialog-title" tabindex="-1">Event details</h2>
+      <p id="event-dialog-date" class="event-dialog-date"></p>
+      <p id="event-dialog-location-row" class="event-dialog-meta" hidden><strong>Location</strong><span id="event-dialog-location"></span></p>
+      <p id="event-dialog-organizer-row" class="event-dialog-meta" hidden><strong>Organizer</strong><span id="event-dialog-organizer"></span></p>
+      <p id="event-dialog-description" class="event-dialog-description"></p>
+      <div id="event-dialog-day-list" class="event-dialog-day-list" hidden></div>
+      <div id="event-dialog-links" class="event-dialog-links"></div>
+    </div>
+  </dialog>
+
+  <section class="sibling-majors campus-club-meeting" aria-labelledby="ai-club-meeting">
+    <p class="campus-event-kicker">HWS AI Club</p>
+    <h2 id="ai-club-meeting">Weekly HWS AI Club meeting</h2>
+    <p>HWS AI Club Events at Hobart and William Smith are open to students from every major and class year.</p>
+    <p><strong>When:</strong> Every Sunday, 5-6 PM · Sanford Room</p>
+    <p><strong>Where:</strong> Sanford Room, Hobart and William Smith Colleges</p>
+    <p>Bring a question, a class project, or just curiosity. Meetings are beginner-friendly, open to every major and class year, and require no application.</p>
+    <p class="siblings-all"><a class="btn-primary" href="https://www.skool.com/hws-ai-club-7506" target="_blank" rel="noopener" data-cta="skool-join">Join the Skool community <span aria-hidden="true">&#8599;</span></a></p>
   </section>
 
   <section class="campus-hub-section" aria-labelledby="hws-clubs-directory">
